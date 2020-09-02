@@ -9,7 +9,7 @@ To add a new cube to the schema, add a new XML file to the frags folder and defi
 Install [moncat](https://github.com/hwchen/mondrian-schema-cat#installation) and run
 
 ```
-just cat
+./moncat -d frags/ -o schema.xml
 ```
 
 The contents of the `frags/` folder should now be concatenated into the `schema.xml` file.
