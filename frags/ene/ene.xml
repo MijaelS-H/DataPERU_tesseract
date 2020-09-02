@@ -1,0 +1,17 @@
+<Schema name="dataperu">
+    <Cube name="encuesta_nacional_empresas">
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Encuesta Nacional de Empresas 2015</Annotation>
+        <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/catalog/653</Annotation>
+
+        <Table name="organization_survey" primary_key="company_id" />
+
+        <Dimension name="CIIU" foreign_key="ciiu_rev4">
+            <Hierarchy name="CIIU">
+                <Level name="CIIU" key_column="ciiu_rev4" />
+            </Hierarchy>
+        </Dimension>
+        <Measure name="Factor Expansion" column="factor_expansion" aggregator="avg" />
+    </Cube>
+</Schema>
