@@ -1,0 +1,92 @@
+{
+    "aliases": {
+        "cubes": [
+            {
+                "name": "encuesta_nacional_empresas",
+                "alternatives": ["Encuesta Nacional de Empresas"],
+                "levels": [
+                    {
+                        "current_name": "CIIU Primario.CIIU.Clase",
+                        "unique_name": "Clase CIIU Primario"
+                    },
+                    {
+                        "current_name": "CIIU Primario.CIIU.Grupo",
+                        "unique_name": "Grupo CIIU Primario"
+                    },
+                    {
+                        "current_name": "CIIU Primario.CIIU.Division",
+                        "unique_name": "Division CIIU Primario"
+                    },
+                    {
+                        "current_name": "CIIU Primario.CIIU.Seccion",
+                        "unique_name": "Seccion CIIU Primario"
+                    },
+                    {
+                        "current_name": "CIIU Secundario.CIIU.Clase",
+                        "unique_name": "Clase CIIU Secundario"
+                    },
+                    {
+                        "current_name": "CIIU Secundario.CIIU.Grupo",
+                        "unique_name": "Grupo CIIU Secundario"
+                    },
+                    {
+                        "current_name": "CIIU Secundario.CIIU.Division",
+                        "unique_name": "Division CIIU Secundario"
+                    },
+                    {
+                        "current_name": "CIIU Secundario.CIIU.Seccion",
+                        "unique_name": "Seccion CIIU Secundario"
+                    },
+                    {
+                        "current_name": "CIIU Terciario.CIIU.Clase",
+                        "unique_name": "Clase CIIU Terciario"
+                    },
+                    {
+                        "current_name": "CIIU Terciario.CIIU.Grupo",
+                        "unique_name": "Grupo CIIU Terciario"
+                    },
+                    {
+                        "current_name": "CIIU Terciario.CIIU.Division",
+                        "unique_name": "Division CIIU Terciario"
+                    },
+                    {
+                        "current_name": "CIIU Terciario.CIIU.Seccion",
+                        "unique_name": "Seccion CIIU Terciario"
+                    },
+                    {
+                        "current_name": "CIIU Quaternario.CIIU.Clase",
+                        "unique_name": "Clase CIIU Quaternario"
+                    },
+                    {
+                        "current_name": "CIIU Quaternario.CIIU.Grupo",
+                        "unique_name": "Grupo CIIU Quaternario"
+                    },
+                    {
+                        "current_name": "CIIU Quaternario.CIIU.Division",
+                        "unique_name": "Division CIIU Quaternario"
+                    },
+                    {
+                        "current_name": "CIIU Quaternario.CIIU.Seccion",
+                        "unique_name": "Seccion CIIU Quaternario"
+                    },
+                    {
+                        "current_name": "CIIU Quinario.CIIU.Clase",
+                        "unique_name": "Clase CIIU Quinario"
+                    },
+                    {
+                        "current_name": "CIIU Quinario.CIIU.Grupo",
+                        "unique_name": "Grupo CIIU Quinario"
+                    },
+                    {
+                        "current_name": "CIIU Quinario.CIIU.Division",
+                        "unique_name": "Division CIIU Quinario"
+                    },
+                    {
+                        "current_name": "CIIU Quinario.CIIU.Seccion",
+                        "unique_name": "Seccion CIIU Quinario"
+                    }
+                ]
+            }
+        ]
+    }
+}
