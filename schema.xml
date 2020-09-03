@@ -1,5 +1,24 @@
 <Schema name="dataperu">
-<Cube name="encuesta_nacional_empresas">
+    <SharedDimension name="CIIU" type="standard">
+        <Hierarchy name="CIIU">
+            <Table name="dim_shared_ciiu" />
+
+            <Level name="Seccion" key_column="section_id" name_column="section_name" key_type="text" />
+            <Level name="Division" key_column="division_id" name_column="division_name" key_type="text" />
+            <Level name="Grupo" key_column="group_id" name_column="group_name" key_type="text" />
+            <Level name="Clase" key_column="class_id" name_column="class_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+    <SharedDimension name="Ubigeo" type="geo">
+        <Hierarchy name="Ubigeo">
+            <Table name="dim_shared_ubigeo" />
+
+            <Level name="Departamento" key_column="department_id" name_column="department_name" key_type="text" />
+            <Level name="Provincia" key_column="province_id" name_column="province_name" key_type="text" />
+            <Level name="Distrito" key_column="district_id" name_column="district_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+    <Cube name="encuesta_nacional_empresas">
         <Annotation name="source_name">INEI</Annotation>
         <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
         <Annotation name="dataset_name">Encuesta Nacional de Empresas 2015</Annotation>
@@ -7,12 +26,328 @@
 
         <Table name="organization_survey" primary_key="company_id" />
 
-        <Dimension name="CIIU" foreign_key="ciiu_rev4">
-            <Hierarchy name="CIIU">
-                <Level name="CIIU" key_column="ciiu_rev4" />
+        <DimensionUsage foreign_key="district_id" source="Ubigeo" name="Ubigeo" />
+        <DimensionUsage foreign_key="ciiu_rev4" source="CIIU" name="CIIU Primario" />
+        <DimensionUsage foreign_key="ciiu_rev4_a" source="CIIU" name="CIIU Secundario" />
+        <DimensionUsage foreign_key="ciiu_rev4_b" source="CIIU" name="CIIU Terciario" />
+        <DimensionUsage foreign_key="ciiu_rev4_c" source="CIIU" name="CIIU Cuaternario" />
+        <DimensionUsage foreign_key="ciiu_rev4_d" source="CIIU" name="CIIU Quinario" />
+
+        <Dimension name="Inicio Actividades Year" foreign_key="anio_inicio_actividades">
+            <Hierarchy name="Inicio Actividades Year">
+                <Level name="Inicio Actividades Year" key_column="anio_inicio_actividades" />
             </Hierarchy>
         </Dimension>
+        <Dimension name="Tipo Sociedad" foreign_key="tipo_sociedad">
+            <Hierarchy name="Tipo Sociedad" primary_key="id">
+                <InlineTable alias="dim_tipo_sociedad">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="tipo_sociedad_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="tipo_sociedad_name">Persona natural</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="tipo_sociedad_name">Sociedad anonima abierta</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="tipo_sociedad_name">Sociedad anonima cerrada</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="tipo_sociedad_name">Sociedad comercial de responsabilidad limitada</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="tipo_sociedad_name">Empresa individual de responsabilidad limitada</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">6</Value>
+                        <Value column="tipo_sociedad_name">Otra</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Tipo Sociedad" key_column="id" name_column="tipo_sociedad_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Rango Ventas" foreign_key="rango_ventas_2014">
+            <Hierarchy name="Rango Ventas" primary_key="id">
+                <InlineTable alias="dim_rango_ventas">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="rango_ventas_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="rango_ventas_name">Hasta 570.000 nuevos soles</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="rango_ventas_name">Entre 570.000 y 6.460.000 nuevos soles</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="rango_ventas_name">Más de 6.460.000 nuevos soles</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Rango Ventas" key_column="id" name_column="rango_ventas_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Plan de Negocios" foreign_key="plan_negocios">
+            <Hierarchy name="Plan de Negocios" primary_key="id">
+                <InlineTable alias="dim_plan_negocios">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="plan_negocios_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="plan_negocios_name">Desde el inicio de operaciones</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="plan_negocios_name">Posterior al inicio de operaciones</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="plan_negocios_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Plan de Negocios" key_column="id" name_column="plan_negocios_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Credito para Iniciar Negocio" foreign_key="credito_inicio_operaciones">
+            <Hierarchy name="Credito para Iniciar Negocio" primary_key="id">
+                <InlineTable alias="dim_credito_inicio_operaciones">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="credito_inicio_operaciones_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="credito_inicio_operaciones_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="credito_inicio_operaciones_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Credito para Iniciar Negocio" key_column="id" name_column="credito_inicio_operaciones_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Institucion de Credito para Iniciar Negocio" foreign_key="institucion_credito">
+            <Hierarchy name="Institucion de Credito para Iniciar Negocio" primary_key="id">
+                <InlineTable alias="dim_institucion_credito">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="institucion_credito_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="institucion_credito_name">Banca múltiple</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="institucion_credito_name">Caja municipal</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="institucion_credito_name">Caja rural</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="institucion_credito_name">EDPYME</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="institucion_credito_name">Organismos no gubernamentales "ONG"</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">6</Value>
+                        <Value column="institucion_credito_name">Cooperativas de ahorro y créditos "COOPAC"</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">7</Value>
+                        <Value column="institucion_credito_name">Corporación Financiera de Desarrollo "COFIDE"</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">8</Value>
+                        <Value column="institucion_credito_name">Prestamistas</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">9</Value>
+                        <Value column="institucion_credito_name">Otro</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Institucion de Credito para Iniciar Negocio" key_column="id" name_column="institucion_credito_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Identifica Areas Funcionales" foreign_key="areas_funcionales_identificar">
+            <Hierarchy name="Identifica Areas Funcionales" primary_key="id">
+                <InlineTable alias="dim_areas_funcionales_identificar">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="areas_funcionales_identificar_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="areas_funcionales_identificar_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="areas_funcionales_identificar_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Identifica Areas Funcionales" key_column="id" name_column="areas_funcionales_identificar_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Identifica Areas Funcionales Administracion Recursos Humanos" foreign_key="recursos_humanos">
+            <Hierarchy name="Identifica Areas Funcionales Administracion Recursos Humanos" primary_key="id">
+                <InlineTable alias="dim_recursos_humanos">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="recursos_humanos_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="recursos_humanos_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="recursos_humanos_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Identifica Areas Funcionales Administracion Recursos Humanos" key_column="id" name_column="recursos_humanos_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Identifica Areas Funcionales Logistica y aprovisionamiento Compras Almacenes" foreign_key="logistica_aprovisionamiento">
+            <Hierarchy name="Identifica Areas Funcionales Logistica y aprovisionamiento Compras Almacenes" primary_key="id">
+                <InlineTable alias="dim_logistica_aprovisionamiento">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="logistica_aprovisionamiento_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="logistica_aprovisionamiento_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="logistica_aprovisionamiento_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Identifica Areas Funcionales Logistica y aprovisionamiento Compras Almacenes" key_column="id" name_column="logistica_aprovisionamiento_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Identifica Areas Funcionales Comercializacion Ventas Mercadeo" foreign_key="comercializacion">
+            <Hierarchy name="Identifica Areas Funcionales Comercializacion Ventas Mercadeo" primary_key="id">
+                <InlineTable alias="dim_comercializacion">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="comercializacion_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="comercializacion_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="comercializacion_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Identifica Areas Funcionales Comercializacion Ventas Mercadeo" key_column="id" name_column="comercializacion_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Identifica Areas Funcionales Contabilidad Finanzas" foreign_key="contabilidad">
+            <Hierarchy name="Identifica Areas Funcionales Contabilidad Finanzas" primary_key="id">
+                <InlineTable alias="dim_contabilidad">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="contabilidad_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="contabilidad_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="contabilidad_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Identifica Areas Funcionales Contabilidad Finanzas" key_column="id" name_column="contabilidad_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Identifica Areas Funcionales Produccion" foreign_key="produccion">
+            <Hierarchy name="Identifica Areas Funcionales Produccion" primary_key="id">
+                <InlineTable alias="dim_produccion">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="produccion_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="produccion_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="produccion_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Identifica Areas Funcionales Produccion" key_column="id" name_column="produccion_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Identifica Areas Funcionales Direccion y Gerencia" foreign_key="direccion_gerencia">
+            <Hierarchy name="Identifica Areas Funcionales Direccion y Gerencia" primary_key="id">
+                <InlineTable alias="dim_direccion_gerencia">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="direccion_gerencia_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="direccion_gerencia_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="direccion_gerencia_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Identifica Areas Funcionales Direccion y Gerencia" key_column="id" name_column="direccion_gerencia_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Identifica Areas Funcionales Area legal" foreign_key="area_legal">
+            <Hierarchy name="Identifica Areas Funcionales Area legal" primary_key="id">
+                <InlineTable alias="dim_area_legal">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="area_legal_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="area_legal_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="area_legal_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Identifica Areas Funcionales Area legal" key_column="id" name_column="area_legal_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Identifica Areas Funcionales Soporte informatico" foreign_key="soporte_informatico">
+            <Hierarchy name="Identifica Areas Funcionales Soporte informatico" primary_key="id">
+                <InlineTable alias="dim_soporte_informatico">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="soporte_informatico_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="soporte_informatico_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="soporte_informatico_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Identifica Areas Funcionales Soporte informatico" key_column="id" name_column="soporte_informatico_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Identifica Areas Funcionales Otro" foreign_key="otro">
+            <Hierarchy name="Identifica Areas Funcionales Otro" primary_key="id">
+                <InlineTable alias="dim_otro">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="otro_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="otro_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="otro_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Identifica Areas Funcionales Otro" key_column="id" name_column="otro_name" />
+            </Hierarchy>
+        </Dimension>
+
         <Measure name="Factor Expansion" column="factor_expansion" aggregator="avg" />
+        <Measure name="Número Empresas" column="company_id" aggregator="count" />
     </Cube>
 
 </Schema>

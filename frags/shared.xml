@@ -1,0 +1,21 @@
+<Schema name="dataperu">
+    <SharedDimension name="CIIU" type="standard">
+        <Hierarchy name="CIIU">
+            <Table name="dim_shared_ciiu" />
+
+            <Level name="Seccion" key_column="section_id" name_column="section_name" key_type="text" />
+            <Level name="Division" key_column="division_id" name_column="division_name" key_type="text" />
+            <Level name="Grupo" key_column="group_id" name_column="group_name" key_type="text" />
+            <Level name="Clase" key_column="class_id" name_column="class_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+    <SharedDimension name="Ubigeo" type="geo">
+        <Hierarchy name="Ubigeo">
+            <Table name="dim_shared_ubigeo" />
+
+            <Level name="Departamento" key_column="department_id" name_column="department_name" key_type="text" />
+            <Level name="Provincia" key_column="province_id" name_column="province_name" key_type="text" />
+            <Level name="Distrito" key_column="district_id" name_column="district_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+</Schema>
