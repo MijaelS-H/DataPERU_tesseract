@@ -1,24 +1,23 @@
 <Schema name="dataperu">
-    <Cube name="encuesta_nacional_empresas">
+    <Cube name="inei_ene">
         <Annotation name="source_name">INEI</Annotation>
         <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
         <Annotation name="dataset_name">Encuesta Nacional de Empresas 2015</Annotation>
         <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/catalog/653</Annotation>
 
-        <Table name="organization_survey" primary_key="company_id" />
+        <Table name="inei_ene" primary_key="company_id" />
 
         <DimensionUsage foreign_key="district_id" source="Ubigeo" name="Ubigeo" />
         <DimensionUsage foreign_key="ciiu_rev4" source="CIIU" name="CIIU Primario" />
         <DimensionUsage foreign_key="ciiu_rev4_a" source="CIIU" name="CIIU Secundario" />
         <DimensionUsage foreign_key="ciiu_rev4_b" source="CIIU" name="CIIU Terciario" />
-        <DimensionUsage foreign_key="ciiu_rev4_c" source="CIIU" name="CIIU Cuaternario" />
-        <DimensionUsage foreign_key="ciiu_rev4_d" source="CIIU" name="CIIU Quinario" />
 
         <Dimension name="Inicio Actividades Year" foreign_key="anio_inicio_actividades">
             <Hierarchy name="Inicio Actividades Year">
                 <Level name="Inicio Actividades Year" key_column="anio_inicio_actividades" />
             </Hierarchy>
         </Dimension>
+
         <Dimension name="Tipo Sociedad" foreign_key="tipo_sociedad">
             <Hierarchy name="Tipo Sociedad" primary_key="id">
                 <InlineTable alias="dim_tipo_sociedad">
@@ -52,6 +51,7 @@
                 <Level name="Tipo Sociedad" key_column="id" name_column="tipo_sociedad_name" />
             </Hierarchy>
         </Dimension>
+
         <Dimension name="Rango Ventas" foreign_key="rango_ventas_2014">
             <Hierarchy name="Rango Ventas" primary_key="id">
                 <InlineTable alias="dim_rango_ventas">
@@ -73,44 +73,7 @@
                 <Level name="Rango Ventas" key_column="id" name_column="rango_ventas_name" />
             </Hierarchy>
         </Dimension>
-        <Dimension name="Plan de Negocios" foreign_key="plan_negocios">
-            <Hierarchy name="Plan de Negocios" primary_key="id">
-                <InlineTable alias="dim_plan_negocios">
-                    <ColumnDef name="id" key_type="nontext" />
-                    <ColumnDef name="plan_negocios_name" key_type="text" />
-                    <Row>
-                        <Value column="id">1</Value>
-                        <Value column="plan_negocios_name">Desde el inicio de operaciones</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">2</Value>
-                        <Value column="plan_negocios_name">Posterior al inicio de operaciones</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">3</Value>
-                        <Value column="plan_negocios_name">No</Value>
-                    </Row>
-                </InlineTable>
-                <Level name="Plan de Negocios" key_column="id" name_column="plan_negocios_name" />
-            </Hierarchy>
-        </Dimension>
-        <Dimension name="Credito para Iniciar Negocio" foreign_key="credito_inicio_operaciones">
-            <Hierarchy name="Credito para Iniciar Negocio" primary_key="id">
-                <InlineTable alias="dim_credito_inicio_operaciones">
-                    <ColumnDef name="id" key_type="nontext" />
-                    <ColumnDef name="credito_inicio_operaciones_name" key_type="text" />
-                    <Row>
-                        <Value column="id">1</Value>
-                        <Value column="credito_inicio_operaciones_name">Si</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">2</Value>
-                        <Value column="credito_inicio_operaciones_name">No</Value>
-                    </Row>
-                </InlineTable>
-                <Level name="Credito para Iniciar Negocio" key_column="id" name_column="credito_inicio_operaciones_name" />
-            </Hierarchy>
-        </Dimension>
+
         <Dimension name="Institucion de Credito para Iniciar Negocio" foreign_key="institucion_credito">
             <Hierarchy name="Institucion de Credito para Iniciar Negocio" primary_key="id">
                 <InlineTable alias="dim_institucion_credito">
@@ -156,25 +119,9 @@
                 <Level name="Institucion de Credito para Iniciar Negocio" key_column="id" name_column="institucion_credito_name" />
             </Hierarchy>
         </Dimension>
-        <Dimension name="Identifica Areas Funcionales" foreign_key="areas_funcionales_identificar">
-            <Hierarchy name="Identifica Areas Funcionales" primary_key="id">
-                <InlineTable alias="dim_areas_funcionales_identificar">
-                    <ColumnDef name="id" key_type="nontext" />
-                    <ColumnDef name="areas_funcionales_identificar_name" key_type="text" />
-                    <Row>
-                        <Value column="id">1</Value>
-                        <Value column="areas_funcionales_identificar_name">Si</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">2</Value>
-                        <Value column="areas_funcionales_identificar_name">No</Value>
-                    </Row>
-                </InlineTable>
-                <Level name="Identifica Areas Funcionales" key_column="id" name_column="areas_funcionales_identificar_name" />
-            </Hierarchy>
-        </Dimension>
-        <Dimension name="Identifica Areas Funcionales Administracion Recursos Humanos" foreign_key="recursos_humanos">
-            <Hierarchy name="Identifica Areas Funcionales Administracion Recursos Humanos" primary_key="id">
+
+        <Dimension name="Area Funcional Recursos Humanos" foreign_key="recursos_humanos">
+            <Hierarchy name="Area Funcional Recursos Humanos" primary_key="id">
                 <InlineTable alias="dim_recursos_humanos">
                     <ColumnDef name="id" key_type="nontext" />
                     <ColumnDef name="recursos_humanos_name" key_type="text" />
@@ -187,11 +134,11 @@
                         <Value column="recursos_humanos_name">No</Value>
                     </Row>
                 </InlineTable>
-                <Level name="Identifica Areas Funcionales Administracion Recursos Humanos" key_column="id" name_column="recursos_humanos_name" />
+                <Level name="Area Funcional Recursos Humanos" key_column="id" name_column="recursos_humanos_name" />
             </Hierarchy>
         </Dimension>
-        <Dimension name="Identifica Areas Funcionales Logistica y aprovisionamiento Compras Almacenes" foreign_key="logistica_aprovisionamiento">
-            <Hierarchy name="Identifica Areas Funcionales Logistica y aprovisionamiento Compras Almacenes" primary_key="id">
+        <Dimension name="Area Funcional Logistica" foreign_key="logistica_aprovisionamiento">
+            <Hierarchy name="Area Funcional Logistica" primary_key="id">
                 <InlineTable alias="dim_logistica_aprovisionamiento">
                     <ColumnDef name="id" key_type="nontext" />
                     <ColumnDef name="logistica_aprovisionamiento_name" key_type="text" />
@@ -204,11 +151,11 @@
                         <Value column="logistica_aprovisionamiento_name">No</Value>
                     </Row>
                 </InlineTable>
-                <Level name="Identifica Areas Funcionales Logistica y aprovisionamiento Compras Almacenes" key_column="id" name_column="logistica_aprovisionamiento_name" />
+                <Level name="Area Funcional Logistica" key_column="id" name_column="logistica_aprovisionamiento_name" />
             </Hierarchy>
         </Dimension>
-        <Dimension name="Identifica Areas Funcionales Comercializacion Ventas Mercadeo" foreign_key="comercializacion">
-            <Hierarchy name="Identifica Areas Funcionales Comercializacion Ventas Mercadeo" primary_key="id">
+        <Dimension name="Area Funcional Comercializacion" foreign_key="comercializacion">
+            <Hierarchy name="Area Funcional Comercializacion" primary_key="id">
                 <InlineTable alias="dim_comercializacion">
                     <ColumnDef name="id" key_type="nontext" />
                     <ColumnDef name="comercializacion_name" key_type="text" />
@@ -221,11 +168,11 @@
                         <Value column="comercializacion_name">No</Value>
                     </Row>
                 </InlineTable>
-                <Level name="Identifica Areas Funcionales Comercializacion Ventas Mercadeo" key_column="id" name_column="comercializacion_name" />
+                <Level name="Area Funcional Comercializacion" key_column="id" name_column="comercializacion_name" />
             </Hierarchy>
         </Dimension>
-        <Dimension name="Identifica Areas Funcionales Contabilidad Finanzas" foreign_key="contabilidad">
-            <Hierarchy name="Identifica Areas Funcionales Contabilidad Finanzas" primary_key="id">
+        <Dimension name="Area Funcional Contabilidad" foreign_key="contabilidad">
+            <Hierarchy name="Area Funcional Contabilidad" primary_key="id">
                 <InlineTable alias="dim_contabilidad">
                     <ColumnDef name="id" key_type="nontext" />
                     <ColumnDef name="contabilidad_name" key_type="text" />
@@ -238,11 +185,11 @@
                         <Value column="contabilidad_name">No</Value>
                     </Row>
                 </InlineTable>
-                <Level name="Identifica Areas Funcionales Contabilidad Finanzas" key_column="id" name_column="contabilidad_name" />
+                <Level name="Area Funcional Contabilidad" key_column="id" name_column="contabilidad_name" />
             </Hierarchy>
         </Dimension>
-        <Dimension name="Identifica Areas Funcionales Produccion" foreign_key="produccion">
-            <Hierarchy name="Identifica Areas Funcionales Produccion" primary_key="id">
+        <Dimension name="Area Funcional Produccion" foreign_key="produccion">
+            <Hierarchy name="Area Funcional Produccion" primary_key="id">
                 <InlineTable alias="dim_produccion">
                     <ColumnDef name="id" key_type="nontext" />
                     <ColumnDef name="produccion_name" key_type="text" />
@@ -255,11 +202,11 @@
                         <Value column="produccion_name">No</Value>
                     </Row>
                 </InlineTable>
-                <Level name="Identifica Areas Funcionales Produccion" key_column="id" name_column="produccion_name" />
+                <Level name="Area Funcional Produccion" key_column="id" name_column="produccion_name" />
             </Hierarchy>
         </Dimension>
-        <Dimension name="Identifica Areas Funcionales Direccion y Gerencia" foreign_key="direccion_gerencia">
-            <Hierarchy name="Identifica Areas Funcionales Direccion y Gerencia" primary_key="id">
+        <Dimension name="Area Funcional Gerencia" foreign_key="direccion_gerencia">
+            <Hierarchy name="Area Funcional Gerencia" primary_key="id">
                 <InlineTable alias="dim_direccion_gerencia">
                     <ColumnDef name="id" key_type="nontext" />
                     <ColumnDef name="direccion_gerencia_name" key_type="text" />
@@ -272,11 +219,11 @@
                         <Value column="direccion_gerencia_name">No</Value>
                     </Row>
                 </InlineTable>
-                <Level name="Identifica Areas Funcionales Direccion y Gerencia" key_column="id" name_column="direccion_gerencia_name" />
+                <Level name="Area Funcional Gerencia" key_column="id" name_column="direccion_gerencia_name" />
             </Hierarchy>
         </Dimension>
-        <Dimension name="Identifica Areas Funcionales Area legal" foreign_key="area_legal">
-            <Hierarchy name="Identifica Areas Funcionales Area legal" primary_key="id">
+        <Dimension name="Area Funcional Legal" foreign_key="area_legal">
+            <Hierarchy name="Area Funcional Legal" primary_key="id">
                 <InlineTable alias="dim_area_legal">
                     <ColumnDef name="id" key_type="nontext" />
                     <ColumnDef name="area_legal_name" key_type="text" />
@@ -289,11 +236,11 @@
                         <Value column="area_legal_name">No</Value>
                     </Row>
                 </InlineTable>
-                <Level name="Identifica Areas Funcionales Area legal" key_column="id" name_column="area_legal_name" />
+                <Level name="Area Funcional Legal" key_column="id" name_column="area_legal_name" />
             </Hierarchy>
         </Dimension>
-        <Dimension name="Identifica Areas Funcionales Soporte informatico" foreign_key="soporte_informatico">
-            <Hierarchy name="Identifica Areas Funcionales Soporte informatico" primary_key="id">
+        <Dimension name="Area Funcional Informática" foreign_key="soporte_informatico">
+            <Hierarchy name="Area Funcional Informática" primary_key="id">
                 <InlineTable alias="dim_soporte_informatico">
                     <ColumnDef name="id" key_type="nontext" />
                     <ColumnDef name="soporte_informatico_name" key_type="text" />
@@ -306,11 +253,11 @@
                         <Value column="soporte_informatico_name">No</Value>
                     </Row>
                 </InlineTable>
-                <Level name="Identifica Areas Funcionales Soporte informatico" key_column="id" name_column="soporte_informatico_name" />
+                <Level name="Area Funcional Informática" key_column="id" name_column="soporte_informatico_name" />
             </Hierarchy>
         </Dimension>
-        <Dimension name="Identifica Areas Funcionales Otro" foreign_key="otro">
-            <Hierarchy name="Identifica Areas Funcionales Otro" primary_key="id">
+        <Dimension name="Area Funcional Otro" foreign_key="otro">
+            <Hierarchy name="Area Funcional Otro" primary_key="id">
                 <InlineTable alias="dim_otro">
                     <ColumnDef name="id" key_type="nontext" />
                     <ColumnDef name="otro_name" key_type="text" />
@@ -323,11 +270,1043 @@
                         <Value column="otro_name">No</Value>
                     </Row>
                 </InlineTable>
-                <Level name="Identifica Areas Funcionales Otro" key_column="id" name_column="otro_name" />
+                <Level name="Area Funcional Otro" key_column="id" name_column="otro_name" />
             </Hierarchy>
         </Dimension>
 
-        <Measure name="Factor Expansion" column="factor_expansion" aggregator="avg" />
-        <Measure name="Número Empresas" column="company_id" aggregator="count" />
+        <Dimension name="Patricipacion Mercado Internacional" foreign_key="participa_mercado_internacional">
+            <Hierarchy name="Participacion Mercado Internacional" primary_key="id">
+                <InlineTable alias="dim_participacion_internacional">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="participacion_internacional_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="participacion_internacional_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="participacion_internacional_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Participacion Mercado Internacional" key_column="id" name_column="participacion_internacional_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Patricipacion Mercado Nacional" foreign_key="participa_mercado_nacional">
+            <Hierarchy name="Patricipacion Mercado Nacional" primary_key="id">
+                <InlineTable alias="dim_participacion_nacional">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="participacion_nacional_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="participacion_nacional_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="participacion_nacional_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Patricipacion Mercado Nacional" key_column="id" name_column="participacion_nacional_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Patricipacion Mercado Local" foreign_key="participa_mercado_local">
+            <Hierarchy name="Patricipacion Mercado Local" primary_key="id">
+                <InlineTable alias="dim_participacion_local">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="participacion_local_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="participacion_local_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="participacion_local_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Patricipacion Mercado Local" key_column="id" name_column="participacion_local_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Mercado Principal" foreign_key="mercado_principal">
+            <Hierarchy name="Mercado Principal" primary_key="id">
+                <InlineTable alias="dim_mercado_principal">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="mercado_principal_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="mercado_principal_name">Internacional</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="mercado_principal_name">Nacional</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="mercado_principal_name">Local</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Mercado Principal" key_column="id" name_column="mercado_principal_name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Competencia Precio" foreign_key="competencia_informal_precio">
+            <Hierarchy name="Competencia Precio" primary_key="id">
+                <InlineTable alias="dim_competencia_precio">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="competencia_precio_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="competencia_precio_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="competencia_precio_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Competencia Precio" key_column="id" name_column="competencia_precio_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Competencia Calidad" foreign_key="competencia_informal_calidad">
+            <Hierarchy name="Competencia Calidad" primary_key="id">
+                <InlineTable alias="dim_competencia_calidad">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="competencia_calidad_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="competencia_calidad_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="competencia_calidad_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Competencia Calidad" key_column="id" name_column="competencia_calidad_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Competencia Diferenciacion" foreign_key="competencia_informal_grado_diferenciacion">
+            <Hierarchy name="Competencia Diferenciacion" primary_key="id">
+                <InlineTable alias="dim_competencia_diferenciacion">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="competencia_diferenciacion_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="competencia_diferenciacion_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="competencia_diferenciacion_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Competencia Diferenciacion" key_column="id" name_column="competencia_diferenciacion_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Competencia Tiempo Entrega" foreign_key="competencia_informal_tiempo_entrega">
+            <Hierarchy name="Competencia Tiempo Entrega" primary_key="id">
+                <InlineTable alias="dim_competencia_entrega">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="competencia_entrega_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="competencia_entrega_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="competencia_entrega_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Competencia Tiempo Entrega" key_column="id" name_column="competencia_entrega_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Competencia Promociones" foreign_key="competencia_informal_promociones_descuentos">
+            <Hierarchy name="Competencia Promociones" primary_key="id">
+                <InlineTable alias="dim_competencia_promociones">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="competencia_promociones_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="competencia_promociones_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="competencia_promociones_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Competencia Promociones" key_column="id" name_column="competencia_promociones_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Competencia Servicio Cliente" foreign_key="competencia_informal_servicio_cliente">
+            <Hierarchy name="Competencia Servicio Cliente" primary_key="id">
+                <InlineTable alias="dim_competencia_cliente">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="competencia_cliente_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="competencia_cliente_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="competencia_cliente_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Competencia Servicio Cliente" key_column="id" name_column="competencia_cliente_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Competencia Otro" foreign_key="competencia_informal_otro">
+            <Hierarchy name="Competencia Otro" primary_key="id">
+                <InlineTable alias="dim_competencia_otro">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="competencia_otro_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="competencia_otro_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="competencia_otro_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Competencia Otro" key_column="id" name_column="competencia_otro_name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Utilidad Asociacion" foreign_key="utilidad_relacion_asociatividad_2014">
+            <Hierarchy name="Utilidad Asociacion" primary_key="id">
+                <InlineTable alias="dim_utilidad_asociacion">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="utilidad_asociacion_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="utilidad_asociacion_name">Negociar con proveedores</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="utilidad_asociacion_name">Acceder a mercados</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="utilidad_asociacion_name">Acceder a información y asistencia técnica</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="utilidad_asociacion_name">Acceder a beneficios financieros</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="utilidad_asociacion_name">Otro</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">6</Value>
+                        <Value column="utilidad_asociacion_name">Sin beneficios</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Utilidad Asociacion" key_column="id" name_column="utilidad_asociacion_name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Local Cuenta Energia Electrica" foreign_key="local_electricidad_publica">
+            <Hierarchy name="Local Cuenta Energia Electrica" primary_key="id">
+                <InlineTable alias="dim_energia_electrica">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="energia_electrica_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="energia_electrica_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="energia_electrica_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Local Cuenta Energia Electrica" key_column="id" name_column="energia_electrica_name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Local Cuenta Agua Publica" foreign_key="cuenta_agua_red_publica">
+            <Hierarchy name="Local Cuenta Agua Publica" primary_key="id">
+                <InlineTable alias="dim_agua_publica">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="agua_publica_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="agua_publica_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="agua_publica_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Local Cuenta Agua Publica" key_column="id" name_column="agua_publica_name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Conoce Modalidad Teletrabajo" foreign_key="conoce_modalidad_teletrabajo">
+            <Hierarchy name="Conoce Modalidad Teletrabajo" primary_key="id">
+                <InlineTable alias="dim_conoce_teletrabajo">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="conoce_teletrabajo_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="conoce_teletrabajo_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="conoce_teletrabajo_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Conoce Modalidad Teletrabajo" key_column="id" name_column="conoce_teletrabajo_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Empresa Adecuada Teletrabajo" foreign_key="teletrabajo_adecuado_empresa">
+            <Hierarchy name="Empresa Adecuada Teletrabajo" primary_key="id">
+                <InlineTable alias="dim_adecuada_teletrabajo">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="adecuada_teletrabajo_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="adecuada_teletrabajo_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="adecuada_teletrabajo_name">No</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="adecuada_teletrabajo_name">No sabe</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Empresa Adecuada Teletrabajo" key_column="id" name_column="adecuada_teletrabajo_name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Requiere Contratar Personal" foreign_key="requiere_contratar_personal_2014">
+            <Hierarchy name="Requiere Contratar Personal" primary_key="id">
+                <InlineTable alias="dim_requiere_personal">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="requiere_personal_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="requiere_personal_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="requiere_personal_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Requiere Contratar Personal" key_column="id" name_column="requiere_personal_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Contratacion Innovacion Tecnologica" foreign_key="contratar_personal_innovacion_teconologica">
+            <Hierarchy name="Contratacion Innovacion Tecnologica" primary_key="id">
+                <InlineTable alias="dim_contratacion_innovacion">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="contratacion_innovacion_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="contratacion_innovacion_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="contratacion_innovacion_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Contratacion Innovacion Tecnologica" key_column="id" name_column="contratacion_innovacion_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Contratacion Estacionalidad" foreign_key="contratar_personal_estacionalidad">
+            <Hierarchy name="Contratacion Estacionalidad" primary_key="id">
+                <InlineTable alias="dim_contratacion_estacionalidad">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="contratacion_estacionalidad_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="contratacion_estacionalidad_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="contratacion_estacionalidad_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Contratacion Estacionalidad" key_column="id" name_column="contratacion_estacionalidad_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Contratacion Renuncia" foreign_key="contratar_personal_renuncia_personal">
+            <Hierarchy name="Contratacion Renuncia" primary_key="id">
+                <InlineTable alias="dim_contratacion_renuncia">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="contratacion_renuncia_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="contratacion_renuncia_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="contratacion_renuncia_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Contratacion Renuncia" key_column="id" name_column="contratacion_renuncia_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Contratacion Nuevo Negocio" foreign_key="contratar_personal_nueva_linea_negocio">
+            <Hierarchy name="Contratacion Nuevo Negocio" primary_key="id">
+                <InlineTable alias="dim_contratacion_nuevo_negocio">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="contratacion_nuevo_negocio_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="contratacion_nuevo_negocio_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="contratacion_nuevo_negocio_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Contratacion Nuevo Negocio" key_column="id" name_column="contratacion_nuevo_negocio_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Contratacion Crecimiento" foreign_key="contratar_personal_expansion_empresa">
+            <Hierarchy name="Contratacion Crecimiento" primary_key="id">
+                <InlineTable alias="dim_contratacion_expansion">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="contratacion_expansion_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="contratacion_expansion_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="contratacion_expansion_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Contratacion Crecimiento" key_column="id" name_column="contratacion_expansion_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Contratacion Jubilacion" foreign_key="contratar_personal_jubilacion">
+            <Hierarchy name="Contratacion Jubilacion" primary_key="id">
+                <InlineTable alias="dim_contratacion_jubilacion">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="contratacion_jubilacion_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="contratacion_jubilacion_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="contratacion_jubilacion_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Contratacion Jubilacion" key_column="id" name_column="contratacion_jubilacion_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Contratacion Otro" foreign_key="contratar_personal_otro">
+            <Hierarchy name="Contratacion Otro" primary_key="id">
+                <InlineTable alias="dim_contratacion_otro">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="contratacion_otro_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="contratacion_otro_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="contratacion_otro_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Contratacion Otro" key_column="id" name_column="contratacion_otro_name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Dificultad Contratar Escasez Postulantes" foreign_key="dificultad_contratar_escasez_postulante">
+            <Hierarchy name="Dificultad Contratar Escasez Postulantes" primary_key="id">
+                <InlineTable alias="dim_dif_contratacion_escasez">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="dif_contratacion_escasez_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="dif_contratacion_escasez_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="dif_contratacion_escasez_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Dificultad Contratar Escasez Postulantes" key_column="id" name_column="dif_contratacion_escasez_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Dificultad Contratar Formacion Academica" foreign_key="dificultad_contratar_formacion_academica">
+            <Hierarchy name="Dificultad Contratar Formacion Academica" primary_key="id">
+                <InlineTable alias="dim_dif_contratacion_formacion">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="dif_contratacion_formacion_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="dif_contratacion_formacion_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="dif_contratacion_formacion_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Dificultad Contratar Formacion Academica" key_column="id" name_column="dif_contratacion_formacion_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Dificultad Contratar Experiencia" foreign_key="dificultad_contratar_experiencia">
+            <Hierarchy name="Dificultad Contratar Experiencia" primary_key="id">
+                <InlineTable alias="dim_dif_contratacion_experiencia">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="dif_contratacion_experiencia_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="dif_contratacion_experiencia_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="dif_contratacion_experiencia_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Dificultad Contratar Experiencia" key_column="id" name_column="dif_contratacion_experiencia_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Dificultad Contratar Habilidades Personales" foreign_key="dificultad_contratar_habilidades_personales_deseadas">
+            <Hierarchy name="Dificultad Contratar Habilidades Personales" primary_key="id">
+                <InlineTable alias="dim_dif_contratacion_habilidades">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="dif_contratacion_habilidades_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="dif_contratacion_habilidades_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="dif_contratacion_habilidades_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Dificultad Contratar Habilidades Personales" key_column="id" name_column="dif_contratacion_habilidades_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Dificultad Contratar Falta Informacion" foreign_key="dificultad_contratar_informacion_confiable_postulante">
+            <Hierarchy name="Dificultad Contratar Falta Informacion" primary_key="id">
+                <InlineTable alias="dim_dif_contratacion_falta_informacion">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="dif_contratacion_falta_informacion_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="dif_contratacion_falta_informacion_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="dif_contratacion_falta_informacion_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Dificultad Contratar Habilidades Personales" key_column="id" name_column="dif_contratacion_falta_informacion_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Dificultad Contratar Periodo Contrato" foreign_key="dificultad_contratar_periodo_contrato">
+            <Hierarchy name="Dificultad Contratar Periodo Contrato" primary_key="id">
+                <InlineTable alias="dim_dif_contratacion_periodo_contrato">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="dif_contratacion_periodo_contrato_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="dif_contratacion_periodo_contrato_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="dif_contratacion_periodo_contrato_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Dificultad Contratar Periodo Contrato" key_column="id" name_column="dif_contratacion_periodo_contrato_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Dificultad Contratar Remuneraciones" foreign_key="dificultad_contratar_remuneraciones">
+            <Hierarchy name="Dificultad Contratar Remuneraciones" primary_key="id">
+                <InlineTable alias="dim_dif_contratacion_remuneraciones">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="dif_contratacion_remuneraciones_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="dif_contratacion_remuneraciones_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="dif_contratacion_remuneraciones_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Dificultad Contratar Remuneraciones" key_column="id" name_column="dif_contratacion_remuneraciones_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Dificultad Contratar Destino Geografico" foreign_key="dificultad_contratar_destino_geografico">
+            <Hierarchy name="Dificultad Contratar Destino Geografico" primary_key="id">
+                <InlineTable alias="dim_dif_contratacion_destino_geografico">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="dif_contratacion_destino_geografico_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="dif_contratacion_destino_geografico_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="dif_contratacion_destino_geografico_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Dificultad Contratar Destino Geografico" key_column="id" name_column="dif_contratacion_destino_geografico_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Dificultad Contratar Jornada Laboral" foreign_key="dificultad_contratar_jornada_laboral">
+            <Hierarchy name="Dificultad Contratar Jornada Laboral" primary_key="id">
+                <InlineTable alias="dim_dif_contratacion_jornada_laboral">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="dif_contratacion_jornada_laboral_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="dif_contratacion_jornada_laboral_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="dif_contratacion_jornada_laboral_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Dificultad Contratar Jornada Laboral" key_column="id" name_column="dif_contratacion_jornada_laboral_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Dificultad Contratar Busqueda Postulantes" foreign_key="dificultad_contratar_busqueda_postulantes">
+            <Hierarchy name="Dificultad Contratar Busqueda Postulantes" primary_key="id">
+                <InlineTable alias="dim_dif_contratacion_busqueda_postulantes">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="dif_contratacion_busqueda_postulantes_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="dif_contratacion_busqueda_postulantes_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="dif_contratacion_busqueda_postulantes_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Dificultad Contratar Busqueda Postulantes" key_column="id" name_column="dif_contratacion_busqueda_postulantes_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Dificultad Contratar Otro" foreign_key="dificultad_contratar_otro">
+            <Hierarchy name="Dificultad Contratar Otro" primary_key="id">
+                <InlineTable alias="dim_dif_contratacion_otro">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="dif_contratacion_busqueda_contratacion_otro_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="dif_contratacion_busqueda_contratacion_otro_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="dif_contratacion_busqueda_contratacion_otro_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Dificultad Contratar Otro" key_column="id" name_column="dif_contratacion_busqueda_contratacion_otro_name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Exportaciones 2014" foreign_key="realiza_exportaciones_2014">
+            <Hierarchy name="Exportaciones 2014" primary_key="id">
+                <InlineTable alias="dim_realiza_exportaciones">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="realiza_exportaciones_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="realiza_exportaciones_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="realiza_exportaciones_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Exportaciones 2014" key_column="id" name_column="realiza_exportaciones_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Dificultad Exportar Falta Informacion" foreign_key="dificultad_exportar_falta_informacion_procesos">
+            <Hierarchy name="Dificultad Exportar Falta Informacion" primary_key="id">
+                <InlineTable alias="dim_dif_exportar_falta_informacion">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="dif_exportar_falta_informacion_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="dif_exportar_falta_informacion_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="dif_exportar_falta_informacion_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Dificultad Exportar Falta Informacion" key_column="id" name_column="dif_exportar_falta_informacion_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Dificultad Exportar Costos" foreign_key="dificultad_exportar_costos">
+            <Hierarchy name="Dificultad Exportar Costos" primary_key="id">
+                <InlineTable alias="dim_dif_exportar_costos">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="dif_exportar_costos_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="dif_exportar_costos_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="dif_exportar_costos_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Dificultad Exportar Costos" key_column="id" name_column="dif_exportar_costos_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Dificultad Exportar Identificar Mercado" foreign_key="dificultad_exportar_identificacion_mercados_compradores">
+            <Hierarchy name="Dificultad Exportar Identificar Mercado" primary_key="id">
+                <InlineTable alias="dim_dif_exportar_mercado">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="dif_exportar_mercado_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="dif_exportar_mercado_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="dif_exportar_mercado_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Dificultad Exportar Identificar Mercado" key_column="id" name_column="dif_exportar_mercado_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Dificultad Exportar Financiamiento" foreign_key="dificultad_exportar_acceso_financiamiento_operaciones">
+            <Hierarchy name="Dificultad Exportar Financiamiento" primary_key="id">
+                <InlineTable alias="dim_dif_exportar_financiamiento">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="dif_exportar_financiamiento_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="dif_exportar_financiamiento_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="dif_exportar_financiamiento_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Dificultad Exportar Financiamiento" key_column="id" name_column="dif_exportar_financiamiento_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Dificultad Exportar Calidad" foreign_key="dificultad_exportar_cumplir_normas_requisitos_calidad">
+            <Hierarchy name="Dificultad Exportar Calidad" primary_key="id">
+                <InlineTable alias="dim_dif_exportar_calidad">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="dif_exportar_calidad_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="dif_exportar_calidad_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="dif_exportar_calidad_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Dificultad Exportar Calidad" key_column="id" name_column="dif_exportar_calidad_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Dificultad Exportar Compradores" foreign_key="dificultad_exportar_cumplir_requisitos_cantidad_compradores">
+            <Hierarchy name="Dificultad Exportar Compradores" primary_key="id">
+                <InlineTable alias="dim_dif_exportar_compradores">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="dif_exportar_compradores_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="dif_exportar_compradores_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="dif_exportar_compradores_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Dificultad Exportar Compradores" key_column="id" name_column="dif_exportar_compradores_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Dificultad Exportar Retrasos Transporte" foreign_key="dificultad_exportar_retrasos_causados_transporte">
+            <Hierarchy name="Dificultad Exportar Retrasos Transporte" primary_key="id">
+                <InlineTable alias="dim_dif_exportar_retrasos_transporte">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="dif_exportar_retrasos_transporte_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="dif_exportar_retrasos_transporte_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="dif_exportar_retrasos_transporte_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Dificultad Exportar Retrasos Transporte" key_column="id" name_column="dif_exportar_retrasos_transporte_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Dificultad Exportar Proceso Aduanero" foreign_key="dificultad_exportar_procedimientos_aduaneros">
+            <Hierarchy name="Dificultad Exportar Proceso Aduanero" primary_key="id">
+                <InlineTable alias="dim_dif_exportar_proceso_aduanero">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="dif_exportar_proceso_aduanero_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="dif_exportar_proceso_aduanero_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="dif_exportar_proceso_aduanero_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Dificultad Exportar Proceso Aduanero" key_column="id" name_column="dif_exportar_proceso_aduanero_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Dificultad Exportar Retrasos Aduana" foreign_key="dificultad_exportar_retrasos_aduana">
+            <Hierarchy name="Dificultad Exportar Retrasos Aduana" primary_key="id">
+                <InlineTable alias="dim_dif_exportar_retrasos_aduana">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="dif_exportar_retrasos_aduana_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="dif_exportar_retrasos_aduana_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="dif_exportar_retrasos_aduana_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Dificultad Exportar Retrasos Aduana" key_column="id" name_column="dif_exportar_retrasos_aduana_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Dificultad Exportar Barrera Arancelaria" foreign_key="dificultad_exportar_barreras_arancelarias_extranjero">
+            <Hierarchy name="Dificultad Exportar Barrera Arancelaria" primary_key="id">
+                <InlineTable alias="dim_dif_exportar_barrera_arancelaria">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="dif_exportar_barrera_arancelaria_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="dif_exportar_barrera_arancelaria_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="dif_exportar_barrera_arancelaria_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Dificultad Exportar Barrera Arancelaria" key_column="id" name_column="dif_exportar_barrera_arancelaria_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Dificultad Exportar Corrupcion" foreign_key="dificultad_exportar_corrupcion_fronteras">
+            <Hierarchy name="Dificultad Exportar Corrupcion" primary_key="id">
+                <InlineTable alias="dim_dif_exportar_corrupcion">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="dif_exportar_corrupcion_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="dif_exportar_corrupcion_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="dif_exportar_corrupcion_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Dificultad Exportar Corrupcion" key_column="id" name_column="dif_exportar_corrupcion_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Dificultad Exportar Ninguna" foreign_key="dificultad_exportar_ninguna">
+            <Hierarchy name="Dificultad Exportar Ninguna" primary_key="id">
+                <InlineTable alias="dim_dif_exportar_ninguna">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="dif_exportar_ninguna_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="dif_exportar_ninguna_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="dif_exportar_ninguna_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Dificultad Exportar Ninguna" key_column="id" name_column="dif_exportar_ninguna_name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Criterio Credito Tasa Interes" foreign_key="criterio_elegir_credito_prestamo_tasas_interes">
+            <Hierarchy name="Criterio Credito Tasa Interes" primary_key="id">
+                <InlineTable alias="dim_criterio_credito_tasa_interes">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="criterio_credito_tasa_interes_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="criterio_credito_tasa_interes_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="criterio_credito_tasa_interes_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Criterio Credito Tasa Interes" key_column="id" name_column="criterio_credito_tasa_interes_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Criterio Credito Plazo Pago" foreign_key="criterio_elegir_credito_prestamo_plazo_pago">
+            <Hierarchy name="Criterio Credito Plazo Pago" primary_key="id">
+                <InlineTable alias="dim_criterio_credito_plazo_pago">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="criterio_credito_plazo_pago_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="criterio_credito_plazo_pago_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="criterio_credito_plazo_pago_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Criterio Credito Plazo Pago" key_column="id" name_column="criterio_credito_plazo_pago_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Criterio Credito Garantias Solicitadas" foreign_key="criterio_elegir_credito_prestamo_garantias_solicitadas">
+            <Hierarchy name="Criterio Credito Garantias Solicitadas" primary_key="id">
+                <InlineTable alias="dim_criterio_credito_garantias_solicitadas">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="criterio_credito_garantias_solicitadas_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="criterio_credito_garantias_solicitadas_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="criterio_credito_garantias_solicitadas_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Criterio Credito Garantias Solicitadas" key_column="id" name_column="criterio_credito_garantias_solicitadas_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Criterio Credito Prestigio Entidad" foreign_key="criterio_elegir_credito_prestamo_prestigio_entidad_financiera">
+            <Hierarchy name="Criterio Credito Prestigio Entidad" primary_key="id">
+                <InlineTable alias="dim_criterio_credito_prestigio_entidad">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="criterio_credito_prestigio_entidad_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="criterio_credito_prestigio_entidad_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="criterio_credito_prestigio_entidad_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Criterio Credito Prestigio Entidad" key_column="id" name_column="criterio_credito_prestigio_entidad_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Criterio Credito Recomendacion" foreign_key="criterio_elegir_credito_prestamo_recomendacion_terceros">
+            <Hierarchy name="Criterio Credito Recomendacion" primary_key="id">
+                <InlineTable alias="dim_criterio_credito_recomendacion">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="criterio_credito_recomendacion_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="criterio_credito_recomendacion_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="criterio_credito_recomendacion_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Criterio Credito Recomendacion" key_column="id" name_column="criterio_credito_recomendacion_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Criterio Credito Beneficios" foreign_key="criterio_elegir_credito_prestamo_beneficios_entidad">
+            <Hierarchy name="Criterio Credito Beneficios" primary_key="id">
+                <InlineTable alias="dim_criterio_credito_beneficios">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="criterio_credito_beneficios_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="criterio_credito_beneficios_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="criterio_credito_beneficios_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Criterio Credito Beneficios" key_column="id" name_column="criterio_credito_beneficios_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Criterio Credito Rapidez" foreign_key="criterio_elegir_credito_prestamo_rapidez_otorgamiento">
+            <Hierarchy name="Criterio Credito Rapidez" primary_key="id">
+                <InlineTable alias="dim_criterio_credito_rapidez">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="criterio_credito_rapidez_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="criterio_credito_rapidez_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="criterio_credito_rapidez_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Criterio Credito Rapidez" key_column="id" name_column="criterio_credito_rapidez_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Criterio Credito Periodo Gracia" foreign_key="criterio_elegir_credito_prestamo_periodo_gracia">
+            <Hierarchy name="Criterio Credito Periodo Gracia" primary_key="id">
+                <InlineTable alias="dim_criterio_credito_periodo_gracia">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="criterio_credito_periodo_gracia_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="criterio_credito_periodo_gracia_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="criterio_credito_periodo_gracia_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Criterio Credito Periodo Gracia" key_column="id" name_column="criterio_credito_periodo_gracia_name" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Criterio Credito Otro" foreign_key="criterio_elegir_credito_prestamo_otro">
+            <Hierarchy name="Criterio Credito Otro" primary_key="id">
+                <InlineTable alias="dim_criterio_credito_otro">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="criterio_credito_otro_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="criterio_credito_otro_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="criterio_credito_otro_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Criterio Credito Otro" key_column="id" name_column="criterio_credito_otro_name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Numero Empresas" column="factor_expansion" aggregator="sum" />
+        <Measure name="Cantidad Ejecutivos Hombres" column="n_ejecutivos_hombres" aggregator="sum" />
+        <Measure name="Cantidad Ejecutivos Mujeres" column="n_ejecutivos_mujeres" aggregator="sum" />
+        <Measure name="Remuneracion Promedio Mensual Ejecutivos" column="ejecutivos_remuneracion_promedio_mensual" aggregator="avg" />
+        <Measure name="Cantidad Empleados Permanentes Hombres" column="n_empleados_permanentes_hombres" aggregator="sum" />
+        <Measure name="Cantidad Empleados Permanentes Mujeres" column="n_empleados_permanentes_mujeres" aggregator="sum" />
+        <Measure name="Remuneracion Promedio Mensual Empleados Permanentes" column="empleados_permanentes_remuneracion_promedio_mensual" aggregator="avg" />
+        <Measure name="Cantidad Obreros Permanentes Hombres" column="n_obreros_permanentes_hombres" aggregator="sum" />
+        <Measure name="Cantidad Obreros Permanentes Mujeres" column="n_obreros_permanentes_mujeres" aggregator="sum" />
+        <Measure name="Remuneracion Promedio Mensual Obreros Permanentes" column="obreros_permanentes_remuneracion_promedio_mensual" aggregator="avg" />
+        <Measure name="Cantidad Empleados Eventuales Hombres" column="n_empleados_eventuales_hombres" aggregator="sum" />
+        <Measure name="Cantidad Empleados Eventuales Mujeres" column="n_empleados_eventuales_mujeres" aggregator="sum" />
+        <Measure name="Remuneracion Promedio Mensual Empleados Eventuales" column="empleados_eventuales_remuneracion_promedio_mensual" aggregator="avg" />
+        <Measure name="Cantidad Obreros Eventuales Hombres" column="n_obreros_eventuales_hombres" aggregator="sum" />
+        <Measure name="Cantidad Obreros Eventuales Mujeres" column="n_obreros_eventuales_mujeres" aggregator="sum" />
+        <Measure name="Remuneracion Promedio Mensual Obreros Eventuales" column="obreros_eventuales_remuneracion_promedio_mensual" aggregator="avg" />
+        <Measure name="Cantidad Familiares No Remunerados Hombres" column="n_familiares_no_remunerados_hombres" aggregator="sum" />
+        <Measure name="Cantidad Familiares No Remunerados Mujeres" column="n_familiares_no_remunerados_mujeres" aggregator="sum" />
+        <Measure name="Cantidad Practicantes Hombres" column="n_practicantes_hombres" aggregator="sum" />
+        <Measure name="Cantidad Practicantes Mujeres" column="n_practicantes_mujeres" aggregator="sum" />
+        <Measure name="Cantidad Servicios Honorarios Hombres" column="n_personal_servicios_honorarios_hombres" aggregator="sum" />
+        <Measure name="Cantidad Servicios Honorarios Mujeres" column="n_personal_servicios_honorarios_mujeres" aggregator="sum" />
+        <Measure name="Cantidad Comisionistas Hombres" column="n_comisionistas_hombres" aggregator="sum" />
+        <Measure name="Cantidad Comisionistas Mujeres" column="n_comisionistas_mujeres" aggregator="sum" />
+        <Measure name="Número Trabajadores Postgrado" column="n_trabajadores_postgrado" aggregator="sum" />
+        <Measure name="Número Trabajadores Universitaria Completa" column="n_trabajadores_universitaria_completa" aggregator="sum" />
+        <Measure name="Número Trabajadores Universitaria Incompleta" column="n_trabajadores_universitaria_incompleta" aggregator="sum" />
+        <Measure name="Número Trabajadores Técnico Completa" column="n_trabajadores_tecnico_completa" aggregator="sum" />
+        <Measure name="Número Trabajadores Técnico Incompleta" column="n_trabajadores_tecnico_incompleta" aggregator="sum" />
+        <Measure name="Número Trabajadores Secundaria" column="n_trabajadores_secundaria_primaria" aggregator="sum" />
+        <Measure name="Número Trabajadores Sin Educación" column="n_trabajadores_inicial_sin_nivel" aggregator="sum" />
     </Cube>
 </Schema>
