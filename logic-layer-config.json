@@ -2,7 +2,7 @@
     "aliases": {
         "cubes": [
             {
-                "name": "encuesta_nacional_empresas",
+                "name": "inei_ene",
                 "alternatives": ["Encuesta Nacional de Empresas"],
                 "levels": [
                     {
@@ -52,38 +52,6 @@
                     {
                         "current_name": "CIIU Terciario.CIIU.Seccion",
                         "unique_name": "Seccion CIIU Terciario"
-                    },
-                    {
-                        "current_name": "CIIU Quaternario.CIIU.Clase",
-                        "unique_name": "Clase CIIU Quaternario"
-                    },
-                    {
-                        "current_name": "CIIU Quaternario.CIIU.Grupo",
-                        "unique_name": "Grupo CIIU Quaternario"
-                    },
-                    {
-                        "current_name": "CIIU Quaternario.CIIU.Division",
-                        "unique_name": "Division CIIU Quaternario"
-                    },
-                    {
-                        "current_name": "CIIU Quaternario.CIIU.Seccion",
-                        "unique_name": "Seccion CIIU Quaternario"
-                    },
-                    {
-                        "current_name": "CIIU Quinario.CIIU.Clase",
-                        "unique_name": "Clase CIIU Quinario"
-                    },
-                    {
-                        "current_name": "CIIU Quinario.CIIU.Grupo",
-                        "unique_name": "Grupo CIIU Quinario"
-                    },
-                    {
-                        "current_name": "CIIU Quinario.CIIU.Division",
-                        "unique_name": "Division CIIU Quinario"
-                    },
-                    {
-                        "current_name": "CIIU Quinario.CIIU.Seccion",
-                        "unique_name": "Seccion CIIU Quinario"
                     }
                 ]
             }

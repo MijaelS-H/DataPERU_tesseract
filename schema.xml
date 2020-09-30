@@ -13,6 +13,7 @@
         <Hierarchy name="Ubigeo">
             <Table name="dim_shared_ubigeo" />
 
+            <Level name="Nacion" key_column="nation_id" name_column="nation_name" key_type="text" />
             <Level name="Departamento" key_column="department_id" name_column="department_name" key_type="text" />
             <Level name="Provincia" key_column="province_id" name_column="province_name" key_type="text" />
             <Level name="Distrito" key_column="district_id" name_column="district_name" key_type="text" />
@@ -139,6 +140,23 @@
             </Hierarchy>
         </Dimension>
 
+        <Dimension name="Cuenta Areas Funcionales" foreign_key="areas_funcionales_identificar">
+            <Hierarchy name="Cuenta Areas Funcionales" primary_key="id">
+                <InlineTable alias="dim_areas_funcionales">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="areas_funcionales_name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="areas_funcionales_name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="areas_funcionales_name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Cuenta Areas Funcionales" key_column="id" name_column="areas_funcionales_name" />
+            </Hierarchy>
+        </Dimension>
         <Dimension name="Area Funcional Recursos Humanos" foreign_key="recursos_humanos">
             <Hierarchy name="Area Funcional Recursos Humanos" primary_key="id">
                 <InlineTable alias="dim_recursos_humanos">
@@ -258,8 +276,8 @@
                 <Level name="Area Funcional Legal" key_column="id" name_column="area_legal_name" />
             </Hierarchy>
         </Dimension>
-        <Dimension name="Area Funcional Informática" foreign_key="soporte_informatico">
-            <Hierarchy name="Area Funcional Informática" primary_key="id">
+        <Dimension name="Area Funcional Informatica" foreign_key="soporte_informatico">
+            <Hierarchy name="Area Funcional Informatica" primary_key="id">
                 <InlineTable alias="dim_soporte_informatico">
                     <ColumnDef name="id" key_type="nontext" />
                     <ColumnDef name="soporte_informatico_name" key_type="text" />
@@ -272,7 +290,7 @@
                         <Value column="soporte_informatico_name">No</Value>
                     </Row>
                 </InlineTable>
-                <Level name="Area Funcional Informática" key_column="id" name_column="soporte_informatico_name" />
+                <Level name="Area Funcional Informatica" key_column="id" name_column="soporte_informatico_name" />
             </Hierarchy>
         </Dimension>
         <Dimension name="Area Funcional Otro" foreign_key="otro">
@@ -293,7 +311,7 @@
             </Hierarchy>
         </Dimension>
 
-        <Dimension name="Patricipacion Mercado Internacional" foreign_key="participa_mercado_internacional">
+        <Dimension name="Participacion Mercado Internacional" foreign_key="participa_mercado_internacional">
             <Hierarchy name="Participacion Mercado Internacional" primary_key="id">
                 <InlineTable alias="dim_participacion_internacional">
                     <ColumnDef name="id" key_type="nontext" />
@@ -555,7 +573,7 @@
                 <Level name="Local Cuenta Agua Publica" key_column="id" name_column="agua_publica_name" />
             </Hierarchy>
         </Dimension>
-
+        
         <Dimension name="Conoce Modalidad Teletrabajo" foreign_key="conoce_modalidad_teletrabajo">
             <Hierarchy name="Conoce Modalidad Teletrabajo" primary_key="id">
                 <InlineTable alias="dim_conoce_teletrabajo">
@@ -814,7 +832,7 @@
                         <Value column="dif_contratacion_falta_informacion_name">No</Value>
                     </Row>
                 </InlineTable>
-                <Level name="Dificultad Contratar Habilidades Personales" key_column="id" name_column="dif_contratacion_falta_informacion_name" />
+                <Level name="Dificultad Contratar Falta Informacion" key_column="id" name_column="dif_contratacion_falta_informacion_name" />
             </Hierarchy>
         </Dimension>
         <Dimension name="Dificultad Contratar Periodo Contrato" foreign_key="dificultad_contratar_periodo_contrato">
@@ -954,7 +972,7 @@
                 <Level name="Dificultad Exportar Falta Informacion" key_column="id" name_column="dif_exportar_falta_informacion_name" />
             </Hierarchy>
         </Dimension>
-        <Dimension name="Dificultad Exportar Costos" foreign_key="dificultad_exportar_costos">
+        <Dimension name="Dificultad Exportar Costos" foreign_key="dificultad_exportar_costos_logisticos">
             <Hierarchy name="Dificultad Exportar Costos" primary_key="id">
                 <InlineTable alias="dim_dif_exportar_costos">
                     <ColumnDef name="id" key_type="nontext" />
@@ -1296,7 +1314,8 @@
             </Hierarchy>
         </Dimension>
 
-        <Measure name="Numero Empresas" column="factor_expansion" aggregator="sum" />
+        <Measure name="Numero Empresas" column="company_id" aggregator="count" />
+        <Measure name="Factor Expansion" column="factor_expansion" aggregator="sum" />
         <Measure name="Cantidad Ejecutivos Hombres" column="n_ejecutivos_hombres" aggregator="sum" />
         <Measure name="Cantidad Ejecutivos Mujeres" column="n_ejecutivos_mujeres" aggregator="sum" />
         <Measure name="Remuneracion Promedio Mensual Ejecutivos" column="ejecutivos_remuneracion_promedio_mensual" aggregator="avg" />
@@ -1312,6 +1331,8 @@
         <Measure name="Cantidad Obreros Eventuales Hombres" column="n_obreros_eventuales_hombres" aggregator="sum" />
         <Measure name="Cantidad Obreros Eventuales Mujeres" column="n_obreros_eventuales_mujeres" aggregator="sum" />
         <Measure name="Remuneracion Promedio Mensual Obreros Eventuales" column="obreros_eventuales_remuneracion_promedio_mensual" aggregator="avg" />
+        <Measure name="Cantidad Propietarios Hombres" column="n_propietarios_hombres" aggregator="sum" />
+        <Measure name="Cantidad Propietarios Mujeres" column="n_propietarios_mujeres" aggregator="sum" />
         <Measure name="Cantidad Familiares No Remunerados Hombres" column="n_familiares_no_remunerados_hombres" aggregator="sum" />
         <Measure name="Cantidad Familiares No Remunerados Mujeres" column="n_familiares_no_remunerados_mujeres" aggregator="sum" />
         <Measure name="Cantidad Practicantes Hombres" column="n_practicantes_hombres" aggregator="sum" />
@@ -1327,6 +1348,8 @@
         <Measure name="Número Trabajadores Técnico Incompleta" column="n_trabajadores_tecnico_incompleta" aggregator="sum" />
         <Measure name="Número Trabajadores Secundaria" column="n_trabajadores_secundaria_primaria" aggregator="sum" />
         <Measure name="Número Trabajadores Sin Educación" column="n_trabajadores_inicial_sin_nivel" aggregator="sum" />
+
     </Cube>
+
 
 </Schema>
