@@ -1,0 +1,1771 @@
+<Schema name="dataperu" default_locale="es">
+  <Cube name="enaho_population">
+    
+    <Annotation name="topic">Poblacion</Annotation>
+    <Annotation name="subtopic">Poblacion</Annotation>
+    <Annotation name="source_name">Encuesta Nacional de Hogares</Annotation>
+    
+    <Table name="enaho_population" primary_key="ubigeo" />
+
+    <Dimension name="Sexo" foreign_key="gender_id">
+      <Hierarchy name="Sexo" primary_key="id">
+        <InlineTable alias="dim_inline_gender_id">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Hombre</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">Mujer</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Dominio" foreign_key="dominio">
+      <Hierarchy name="Dominio" primary_key="id">
+        <InlineTable alias="dim_inline_dominio">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Costa norte</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">Costa centro</Value>
+          </Row>
+          <Row>
+            <Value column="id">3</Value>
+            <Value column="name">Costa sur</Value>
+          </Row>
+          <Row>
+            <Value column="id">4</Value>
+            <Value column="name">Sierra norte</Value>
+          </Row>
+          <Row>
+            <Value column="id">5</Value>
+            <Value column="name">Sierra centro</Value>
+          </Row>
+          <Row>
+            <Value column="id">6</Value>
+            <Value column="name">Sierra sur</Value>
+          </Row>
+
+          <Row>
+            <Value column="id">7</Value>
+            <Value column="name">Selva</Value>
+          </Row>
+          <Row>
+            <Value column="id">8</Value>
+            <Value column="name">Lima metropolitana</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Estrato" foreign_key="estrato">
+      <Hierarchy name="Estrato" primary_key="id">
+        <InlineTable alias="dim_inline_estrato">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">De 500.000 a más habitantes</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">De 100.000 a 499.999  habitantes</Value>
+          </Row>
+          <Row>
+            <Value column="id">3</Value>
+            <Value column="name">De 50.000 a 99.999 habitantes</Value>
+          </Row>
+          <Row>
+            <Value column="id">4</Value>
+            <Value column="name">De 20.000 a 49.999 habitantes</Value>
+          </Row>
+          <Row>
+            <Value column="id">5</Value>
+            <Value column="name">De 2.000 a 19.999 habitantes</Value>
+          </Row>
+          <Row>
+            <Value column="id">6</Value>
+            <Value column="name">De 500 a 1.999 habitantes</Value>
+          </Row>
+          <Row>
+            <Value column="id">7</Value>
+            <Value column="name">Area de Empadronamiento Rural (AER) Compuesto</Value>
+          </Row>
+          <Row>
+            <Value column="id">8</Value>
+            <Value column="name">Area de Empadronamiento Rural (AER) Simple</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Estado civil" foreign_key="civil_status">
+      <Hierarchy name="Estado civil" primary_key="id">
+        <InlineTable alias="dim_inline_civil_status">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Conviviente</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">Casado (a)</Value>
+          </Row>
+          <Row>
+            <Value column="id">3</Value>
+            <Value column="name">Viudo (a)</Value>
+          </Row>
+          <Row>
+            <Value column="id">4</Value>
+            <Value column="name">Divorciado (a)</Value>
+          </Row>
+          <Row>
+            <Value column="id">5</Value>
+            <Value column="name">Separado (a)</Value>
+          </Row>
+          <Row>
+            <Value column="id">6</Value>
+            <Value column="name">Soltero (a)</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Lengua infancia" foreign_key="childhood_learned_lenguage">
+      <Hierarchy name="Lengua infancia" primary_key="id">
+        <InlineTable alias="dim_inline_childhood_learned_lenguage">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Quechua</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">Aymara</Value>
+          </Row>
+          <Row>
+            <Value column="id">3</Value>
+            <Value column="name">Otra lengua nativa</Value>
+          </Row>
+          <Row>
+            <Value column="id">4</Value>
+            <Value column="name">Castellano</Value>
+          </Row>
+          <Row>
+            <Value column="id">6</Value>
+            <Value column="name">Portugués</Value>
+          </Row>
+          <Row>
+            <Value column="id">7</Value>
+            <Value column="name">Otra lengua extranjera</Value>
+          </Row>
+          <Row>
+            <Value column="id">8</Value>
+            <Value column="name">No escucha/no habla</Value>
+          </Row>
+          <Row>
+            <Value column="id">9</Value>
+            <Value column="name">Lengua de señas peruanas</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Ultimo nivel educativo" foreign_key="actual_last_academic_degree">
+      <Hierarchy name="Ultimo nivel educativo" primary_key="id">
+        <InlineTable alias="dim_inline_actual_last_academic_degree">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Sin nivel</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">Inicial</Value>
+          </Row>
+          <Row>
+            <Value column="id">3</Value>
+            <Value column="name">Primaria incompleta</Value>
+          </Row>
+          <Row>
+            <Value column="id">4</Value>
+            <Value column="name">Primaria completa</Value>
+          </Row>
+          <Row>
+            <Value column="id">5</Value>
+            <Value column="name">Secundaria incompleta</Value>
+          </Row>
+          <Row>
+            <Value column="id">6</Value>
+            <Value column="name">Secundaria completa</Value>
+          </Row>
+          <Row>
+            <Value column="id">7</Value>
+            <Value column="name">Superior no Universitaria Incompleta</Value>
+          </Row>
+          <Row>
+            <Value column="id">8</Value>
+            <Value column="name">Superior no Universitaria Completa</Value>
+          </Row>
+          <Row>
+            <Value column="id">9</Value>
+            <Value column="name">Superior Universitaria Incompleta</Value>
+          </Row>
+          <Row>
+            <Value column="id">10</Value>
+            <Value column="name">Superior Universitaria Completa</Value>
+          </Row>
+          <Row>
+            <Value column="id">11</Value>
+            <Value column="name">Maestria o Doctorado</Value>
+          </Row>
+          <Row>
+            <Value column="id">12</Value>
+            <Value column="name">Básica especial</Value>
+          </Row>
+          <Row>
+            <Value column="id">99</Value>
+            <Value column="name">Sin reportar</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Carrera estudiantil" foreign_key="has_college_career">
+      <Hierarchy name="Carrera estudiantil" primary_key="id">
+        <InlineTable alias="dim_inline_has_college_career">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Respondio</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Ninguna</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">No sabe</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Carrera estudiantil id" foreign_key="has_college_career_id">
+      <Hierarchy name="Carrera estudiantil id" primary_key="id">
+            PLACEHOLDER
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Motivo sin estudios" foreign_key="main_reason_no_actual_studies">
+      <Hierarchy name="Motivo sin estudios" primary_key="id">
+        <InlineTable alias="dim_inline_main_reason_no_actual_studies">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Problemas económicos</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">Estoy trabajando</Value>
+          </Row>
+          <Row>
+            <Value column="id">3</Value>
+            <Value column="name">Terminó sus estudios: secundaria/superior/asiste a academia preuniversitaria</Value>
+          </Row>
+          <Row>
+            <Value column="id">4</Value>
+            <Value column="name">No tiene edad suficiente (para el grupo 3-5 años)</Value>
+          </Row>
+          <Row>
+            <Value column="id">5</Value>
+            <Value column="name">Problemas familiares</Value>
+          </Row>
+          <Row>
+            <Value column="id">6</Value>
+            <Value column="name">De vacaciones</Value>
+          </Row>
+          <Row>
+            <Value column="id">7</Value>
+            <Value column="name">No existe centro de educación básica o superior en el centro poblado</Value>
+          </Row>
+          <Row>
+            <Value column="id">8</Value>
+            <Value column="name">Asiste a un centro de Educación Técnico Productivo</Value>
+          </Row>
+          <Row>
+            <Value column="id">9</Value>
+            <Value column="name">No me interesa/no me gusta el estudio</Value>
+          </Row>
+          <Row>
+            <Value column="id">10</Value>
+            <Value column="name">Se dedica a los quehaceres del hogar</Value>
+          </Row>
+          <Row>
+            <Value column="id">11</Value>
+            <Value column="name">Otra razón</Value>
+          </Row>
+          <Row>
+            <Value column="id">99</Value>
+            <Value column="name">Sin reportar</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Nombre universidad" foreign_key="has_college_name">
+      <Hierarchy name="Nombre universidad" primary_key="id">
+        <InlineTable alias="dim_inline_has_college_name">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Si</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">No</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Codigo universidad " foreign_key="has_college_id">
+      <Hierarchy name="Codigo universidad " primary_key="id">
+        <InlineTable alias="dim_inline_has_college_id">
+          PLACEHOLDER
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Uso internet mes anterior" foreign_key="last_month_use_internet">
+      <Hierarchy name="Uso internet mes anterior" primary_key="id">
+        <InlineTable alias="dim_inline_last_month_use_internet">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Si</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">No</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Uso internet hogar" foreign_key="use_internet_from_home">
+      <Hierarchy name="Uso internet hogar" primary_key="id">
+        <InlineTable alias="dim_inline_use_internet_from_home">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">El Hogar</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Uso internet trabajo" foreign_key="use_internet_from_work">
+      <Hierarchy name="Uso internet trabajo" primary_key="id">
+        <InlineTable alias="dim_inline_use_internet_from_work">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">El Trabajo</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Uso internet instalacion educacional" foreign_key="use_internet_from_education_facility">
+      <Hierarchy name="Uso internet instalacion educacional" primary_key="id">
+        <InlineTable alias="dim_inline_use_internet_from_education_facility">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Establecimiento educativo</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Uso internet cabina publica" foreign_key="use_internet_from_public_cabin">
+      <Hierarchy name="Uso internet cabina publica" primary_key="id">
+        <InlineTable alias="dim_inline_use_internet_from_public_cabin">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Cabina Publica</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Uso internet otro hogar" foreign_key="use_internet_from_another_home">
+      <Hierarchy name="Uso internet otro hogar" primary_key="id">
+        <InlineTable alias="dim_inline_use_internet_from_another_home">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">En casa de otra persona</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Acceso internet computadora" foreign_key="access_internet_from_computer">
+      <Hierarchy name="Acceso internet computadora" primary_key="id">
+        <InlineTable alias="dim_inline_access_internet_from_computer">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Computadora</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Acceso internet laptop" foreign_key="access_internet_from_laptop">
+      <Hierarchy name="Acceso internet laptop" primary_key="id">
+        <InlineTable alias="dim_inline_access_internet_from_laptop">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Laptop</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Acceso internet celular propio (con o sin plan de datos)" foreign_key="access_internet_from_own_cellphone">
+      <Hierarchy name="Acceso internet celular propio (con o sin plan de datos)" primary_key="id">
+        <InlineTable alias="dim_inline_access_internet_from_own_cellphone">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Celular propio (con o sin plan de datos)</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Acceso internet celular de un familiar o amigo" foreign_key="access_internet_from_friends_cellphone">
+      <Hierarchy name="Acceso internet celular de un familiar o amigo" primary_key="id">
+        <InlineTable alias="dim_inline_access_internet_from_friends_cellphone">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Celular de un familiar o amigo</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Acceso internet celular de su centro de trabajo" foreign_key="access_internet_from_works_cellphone">
+      <Hierarchy name="Acceso internet celular de su centro de trabajo" primary_key="id">
+        <InlineTable alias="dim_inline_access_internet_from_works_cellphone">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Celular de su centro de trabajo</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Acceso internet tablet" foreign_key="use_internet_from_tablet">
+      <Hierarchy name="Acceso internet tablet" primary_key="id">
+        <InlineTable alias="dim_inline_use_internet_from_tablet">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Tablet</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Acceso internet otro dispositivo" foreign_key="use_internet_from_other_device">
+      <Hierarchy name="Acceso internet otro dispositivo" primary_key="id">
+        <InlineTable alias="dim_inline_use_internet_from_other_device">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Otro dispositivo</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Acceso internet otro dispositivo" foreign_key="use_internet_from_other_device">
+      <Hierarchy name="Acceso internet otro dispositivo" primary_key="id">
+        <InlineTable alias="dim_inline_use_internet_from_other_device">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Otro dispositivo</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Acceso internet otro dispositivo" foreign_key="use_internet_from_other_device">
+      <Hierarchy name="Acceso internet otro dispositivo" primary_key="id">
+        <InlineTable alias="dim_inline_use_internet_from_other_device">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Computadora</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">Laptop</Value>
+          </Row>
+          <Row>
+            <Value column="id">3</Value>
+            <Value column="name">Celular propio (con o sin plan de datos)</Value>
+          </Row>
+          <Row>
+            <Value column="id">4</Value>
+            <Value column="name">Celular de un familiar o amigo</Value>
+          </Row>
+          <Row>
+            <Value column="id">5</Value>
+            <Value column="name">Celular de su centro de trabajo</Value>
+          </Row>
+          <Row>
+            <Value column="id">6</Value>
+            <Value column="name">Tablet</Value>
+          </Row>
+          <Row>
+            <Value column="id">7</Value>
+            <Value column="name">Otro dispositivo</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Usar internet por buscar informacion" foreign_key="use_internet_for_information">
+      <Hierarchy name="Usar internet por buscar informacion" primary_key="id">
+        <InlineTable alias="dim_inline_use_internet_for_information">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Si</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">No</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Usar internet para comunicarse" foreign_key="use_internet_for_comunication">
+      <Hierarchy name="Usar internet para comunicarse" primary_key="id">
+        <InlineTable alias="dim_inline_use_internet_for_comunication">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Si</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">No</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Usar internet para comprar" foreign_key="use_internet_for_buying">
+      <Hierarchy name="Usar internet para comprar" primary_key="id">
+        <InlineTable alias="dim_inline_use_internet_for_buying">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Si</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">No</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Usar internet para transacciones financieras" foreign_key="use_internet_for_financial_transactions">
+      <Hierarchy name="Usar internet para transacciones financieras" primary_key="id">
+        <InlineTable alias="dim_inline_use_internet_for_financial_transactions">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Si</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">No</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Usar internet para transacciones financieras" foreign_key="use_internet_for_financial_transactions">
+      <Hierarchy name="Usar internet para transacciones financieras" primary_key="id">
+        <InlineTable alias="dim_inline_use_internet_for_financial_transactions">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Si</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">No</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Usar internet para educacion formal" foreign_key="use_internet_for_formal_education">
+      <Hierarchy name="Usar internet para educacion formal" primary_key="id">
+        <InlineTable alias="dim_inline_use_internet_for_formal_education">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Si</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">No</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Usar internet para transacciones organizacionales" foreign_key="use_internet_for_organizations_transactions">
+      <Hierarchy name="Usar internet para transacciones organizacionales" primary_key="id">
+        <InlineTable alias="dim_inline_use_internet_for_organizations_transactions">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Si</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">No</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Usar internet para entretenimiento" foreign_key="use_internet_for_entertainment">
+      <Hierarchy name="Usar internet para entretenimiento" primary_key="id">
+        <InlineTable alias="dim_inline_use_internet_for_entertainment">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Si</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">No</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Usar internet para ventas" foreign_key="use_internet_for_sells">
+      <Hierarchy name="Usar internet para ventas" primary_key="id">
+        <InlineTable alias="dim_inline_use_internet_for_sells">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Si</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">No</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Tiene DNI" foreign_key="has_DNI">
+      <Hierarchy name="Tiene DNI" primary_key="id">
+        <InlineTable alias="dim_inline_has_DNI">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Si</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">No</Value>
+          </Row>
+          <Row>
+            <Value column="id">3</Value>
+            <Value column="name">No sabe</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Atencion medica puesto de salud MINSA" foreign_key="look_attention_MINSA_health_post">
+      <Hierarchy name="Atencion medica puesto de salud MINSA" primary_key="id">
+        <InlineTable alias="dim_inline_look_attention_MINSA_health_post">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Puesto de salud MINSA</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Atencion medica centro de salud MINSA" foreign_key="look_attention_MINSA_clinic">
+      <Hierarchy name="Atencion medica centro de salud MINSA" primary_key="id">
+        <InlineTable alias="dim_inline_look_attention_MINSA_clinic">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Centro de salud MINSA</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Atencion medica puesto o centro de salud CLAS" foreign_key="look_attention_CLAS_clinic_health_post">
+      <Hierarchy name="Atencion medica puesto o centro de salud CLAS" primary_key="id">
+        <InlineTable alias="dim_inline_look_attention_CLAS_clinic_health_post">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Puesto o centro de salud CLAS</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Atencion medica posta o policlinico ESSALUD" foreign_key="look_attention_ESSALUD_post_polyclinic">
+      <Hierarchy name="Atencion medica posta o policlinico ESSALUD" primary_key="id">
+        <InlineTable alias="dim_inline_look_attention_ESSALUD_post_polyclinic">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Posta o policlinico ESSALUD</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Atencion medica hospital MINSA" foreign_key="look_attention_MINSA_hospital">
+      <Hierarchy name="Atencion medica hospital MINSA" primary_key="id">
+        <InlineTable alias="dim_inline_look_attention_MINSA_hospital">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Hospital MINSA</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Atencion medica hospital del seguro ESSALUD" foreign_key="look_attention_ESSALUD_ensurance_hospital">
+      <Hierarchy name="Atencion medica hospital del seguro ESSALUD" primary_key="id">
+        <InlineTable alias="dim_inline_look_attention_ESSALUD_ensurance_hospital">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Hospital del seguro ESSALUD</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Atencion medica hospital FFAA y policia nacional" foreign_key="look_attention_FFAA_police_hospital">
+      <Hierarchy name="Atencion medica hospital FFAA y policia nacional" primary_key="id">
+        <InlineTable alias="dim_inline_look_attention_FFAA_police_hospital">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Hospital FFAA y policia nacional</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Atencion medica consultorio medico particular" foreign_key="look_attention_private_medical_office">
+      <Hierarchy name="Atencion medica consultorio medico particular" primary_key="id">
+        <InlineTable alias="dim_inline_look_attention_private_medical_office">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Consultorio medico particular</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Atencion medica clinica particular" foreign_key="look_attention_private_clinic">
+      <Hierarchy name="Atencion medica clinica particular" primary_key="id">
+        <InlineTable alias="dim_inline_look_attention_private_clinic">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Clinica particular</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Atencion medica farmacia o botica" foreign_key="look_attention_drug_store_pharmacy">
+      <Hierarchy name="Atencion medica farmacia o botica" primary_key="id">
+        <InlineTable alias="dim_inline_look_attention_drug_store_pharmacy">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Farmacio o botica</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Atencion medica domicilio propio" foreign_key="look_attention_own_home">
+      <Hierarchy name="Atencion medica domicilio propio" primary_key="id">
+        <InlineTable alias="dim_inline_look_attention_own_home">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Domicilio propio</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Atencion medica otro" foreign_key="look_attention_other">
+      <Hierarchy name="Atencion medica otro" primary_key="id">
+        <InlineTable alias="dim_inline_look_attention_other">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Otro</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Atencion medica no busco atencion" foreign_key="look_attention_does_not_look_attention">
+      <Hierarchy name="Atencion medica no busco atencion" primary_key="id">
+        <InlineTable alias="dim_inline_look_attention_does_not_look_attention">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">No busco atencion</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Sin atencion medica dinero" foreign_key="does_not_look_attention_money">
+      <Hierarchy name="Sin atencion medica dinero" primary_key="id">
+        <InlineTable alias="dim_inline_does_not_look_attention_money">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">No tuvo dinero</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Sin atencion medica distancia" foreign_key="does_not_look_attention_far_away">
+      <Hierarchy name="Sin atencion medica distancia" primary_key="id">
+        <InlineTable alias="dim_inline_does_not_look_attention_far_away">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Se encuentra lejos</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Sin atencion medica demoran mucho en atender" foreign_key="does_not_look_attention_takes_too_much_time">
+      <Hierarchy name="Sin atencion medica demoran mucho en atender" primary_key="id">
+        <InlineTable alias="dim_inline_does_not_look_attention_takes_too_much_time">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Demoran mucho en atender</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Sin atencion medica no confia en los medicos" foreign_key="does_not_look_attention_no_trust_doctors">
+      <Hierarchy name="Sin atencion medica no confia en los medicos" primary_key="id">
+        <InlineTable alias="dim_inline_does_not_look_attention_no_trust_doctors">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">No confia en los medicos</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Sin atencion medica no era grave o necesario" foreign_key="does_not_look_attention_no_necesary_grave">
+      <Hierarchy name="Sin atencion medica no era grave o necesario" primary_key="id">
+        <InlineTable alias="dim_inline_does_not_look_attention_no_necesary_grave">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">No era grave o necesario</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Sin atencion medica tratamientos caseros" foreign_key="does_not_look_attention_use_homemade_treatments">
+      <Hierarchy name="Sin atencion medica tratamientos caseros" primary_key="id">
+        <InlineTable alias="dim_inline_does_not_look_attention_use_homemade_treatments">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Prefiere curarse con remedios caseros</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Sin atencion medica sin seguro" foreign_key="does_not_look_attention_no_health_insuranse">
+      <Hierarchy name="Sin atencion medica sin seguro" primary_key="id">
+        <InlineTable alias="dim_inline_does_not_look_attention_no_health_insuranse">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">No tiene seguro</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Sin atencion medica autoreceto o repitio receta" foreign_key="does_not_look_attention_selfprescription_repeat_recipe">
+      <Hierarchy name="Sin atencion medica autoreceto o repitio receta" primary_key="id">
+        <InlineTable alias="dim_inline_does_not_look_attention_selfprescription_repeat_recipe">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Se autoreceto o repitio receta anterior</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Sin atencion medica falta de tiempo" foreign_key="does_not_look_attention_no_enough_time">
+      <Hierarchy name="Sin atencion medica falta de tiempo" primary_key="id">
+        <InlineTable alias="dim_inline_does_not_look_attention_no_enough_time">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Falta de tiempo</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Sin atencion medica maltrato del personal de salud" foreign_key="does_not_look_attention_health_personal_bad_treatment">
+      <Hierarchy name="Sin atencion medica maltrato del personal de salud" primary_key="id">
+        <InlineTable alias="dim_inline_does_not_look_attention_health_personal_bad_treatment">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Maltrato del personal de salud</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Sin atencion medica otro" foreign_key="does_not_look_attention_other">
+      <Hierarchy name="Sin atencion medica otro" primary_key="id">
+        <InlineTable alias="dim_inline_does_not_look_attention_other">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Pase</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Otro</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Donde compra medicamentos" foreign_key="where_did_you_buy_medicine">
+      <Hierarchy name="Donde compra medicamentos" primary_key="id">
+        <InlineTable alias="dim_inline_where_did_you_buy_medicine">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Establecimientos MINSA</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">Establecimientos ESSALUD</Value>
+          </Row>
+          <Row>
+            <Value column="id">3</Value>
+            <Value column="name">Hospital FFAA y policia nacional</Value>
+          </Row>
+          <Row>
+            <Value column="id">4</Value>
+            <Value column="name">Botiquin comunal</Value>
+          </Row>
+          <Row>
+            <Value column="id">5</Value>
+            <Value column="name">Farmacia o botica</Value>
+          </Row>
+          <Row>
+            <Value column="id">6</Value>
+            <Value column="name">Clinica particular</Value>
+          </Row>
+          <Row>
+            <Value column="id">7</Value>
+            <Value column="name">Consultorio medico particular</Value>
+          </Row>
+          <Row>
+            <Value column="id">8</Value>
+            <Value column="name">CLAS</Value>
+          </Row>
+          <Row>
+            <Value column="id">9</Value>
+            <Value column="name">ONG</Value>
+          </Row>
+          <Row>
+            <Value column="id">10</Value>
+            <Value column="name">Optica</Value>
+          </Row>
+          <Row>
+            <Value column="id">11</Value>
+            <Value column="name">Bodega</Value>
+          </Row>
+          <Row>
+            <Value column="id">12</Value>
+            <Value column="name">Casa de huesero, curandero</Value>
+          </Row>
+          <Row>
+            <Value column="id">13</Value>
+            <Value column="name">Ambulante</Value>
+          </Row>
+          <Row>
+            <Value column="id">14</Value>
+            <Value column="name">Otro</Value>
+          </Row>
+          <Row>
+            <Value column="id">99</Value>
+            <Value column="name">Otro</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Donde compra lentes" foreign_key="where_did_you_buy_glasses">
+      <Hierarchy name="Donde compra lentes" primary_key="id">
+        <InlineTable alias="dim_inline_where_did_you_buy_glasses">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Establecimientos MINSA</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">Establecimientos ESSALUD</Value>
+          </Row>
+          <Row>
+            <Value column="id">3</Value>
+            <Value column="name">Hospital FFAA y policia nacional</Value>
+          </Row>
+          <Row>
+            <Value column="id">4</Value>
+            <Value column="name">Botiquin comunal</Value>
+          </Row>
+          <Row>
+            <Value column="id">5</Value>
+            <Value column="name">Farmacia o botica</Value>
+          </Row>
+          <Row>
+            <Value column="id">6</Value>
+            <Value column="name">Clinica particular</Value>
+          </Row>
+          <Row>
+            <Value column="id">7</Value>
+            <Value column="name">Consultorio medico particular</Value>
+          </Row>
+          <Row>
+            <Value column="id">8</Value>
+            <Value column="name">CLAS</Value>
+          </Row>
+          <Row>
+            <Value column="id">9</Value>
+            <Value column="name">ONG</Value>
+          </Row>
+          <Row>
+            <Value column="id">10</Value>
+            <Value column="name">Optica</Value>
+          </Row>
+          <Row>
+            <Value column="id">11</Value>
+            <Value column="name">Bodega</Value>
+          </Row>
+          <Row>
+            <Value column="id">12</Value>
+            <Value column="name">Casa de huesero, curandero</Value>
+          </Row>
+          <Row>
+            <Value column="id">13</Value>
+            <Value column="name">Ambulante</Value>
+          </Row>
+          <Row>
+            <Value column="id">14</Value>
+            <Value column="name">Otro</Value>
+          </Row>
+          <Row>
+            <Value column="id">99</Value>
+            <Value column="name">Otro</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Donde compra anticonceptivos" foreign_key="where_did_you_buy_contraceptives">
+      <Hierarchy name="Donde compra anticonceptivos" primary_key="id">
+        <InlineTable alias="dim_inline_where_did_you_buy_contraceptives">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Establecimientos MINSA</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">Establecimientos ESSALUD</Value>
+          </Row>
+          <Row>
+            <Value column="id">3</Value>
+            <Value column="name">Hospital FFAA y policia nacional</Value>
+          </Row>
+          <Row>
+            <Value column="id">4</Value>
+            <Value column="name">Botiquin comunal</Value>
+          </Row>
+          <Row>
+            <Value column="id">5</Value>
+            <Value column="name">Farmacia o botica</Value>
+          </Row>
+          <Row>
+            <Value column="id">6</Value>
+            <Value column="name">Clinica particular</Value>
+          </Row>
+          <Row>
+            <Value column="id">7</Value>
+            <Value column="name">Consultorio medico particular</Value>
+          </Row>
+          <Row>
+            <Value column="id">8</Value>
+            <Value column="name">CLAS</Value>
+          </Row>
+          <Row>
+            <Value column="id">9</Value>
+            <Value column="name">ONG</Value>
+          </Row>
+          <Row>
+            <Value column="id">10</Value>
+            <Value column="name">Optica</Value>
+          </Row>
+          <Row>
+            <Value column="id">11</Value>
+            <Value column="name">Bodega</Value>
+          </Row>
+          <Row>
+            <Value column="id">12</Value>
+            <Value column="name">Casa de huesero, curandero</Value>
+          </Row>
+          <Row>
+            <Value column="id">13</Value>
+            <Value column="name">Ambulante</Value>
+          </Row>
+          <Row>
+            <Value column="id">14</Value>
+            <Value column="name">Otro</Value>
+          </Row>
+          <Row>
+            <Value column="id">99</Value>
+            <Value column="name">Otro</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Donde compra termometros o elementos ortopedicos" foreign_key="where_did_you_buy_others_as_termometer_orthopedics">
+      <Hierarchy name="Donde compra termometros o elementos ortopedicos" primary_key="id">
+        <InlineTable alias="dim_inline_where_did_you_buy_others_as_termometer_orthopedics">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Establecimientos MINSA</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">Establecimientos ESSALUD</Value>
+          </Row>
+          <Row>
+            <Value column="id">3</Value>
+            <Value column="name">Hospital FFAA y policia nacional</Value>
+          </Row>
+          <Row>
+            <Value column="id">4</Value>
+            <Value column="name">Botiquin comunal</Value>
+          </Row>
+          <Row>
+            <Value column="id">5</Value>
+            <Value column="name">Farmacia o botica</Value>
+          </Row>
+          <Row>
+            <Value column="id">6</Value>
+            <Value column="name">Clinica particular</Value>
+          </Row>
+          <Row>
+            <Value column="id">7</Value>
+            <Value column="name">Consultorio medico particular</Value>
+          </Row>
+          <Row>
+            <Value column="id">8</Value>
+            <Value column="name">CLAS</Value>
+          </Row>
+          <Row>
+            <Value column="id">9</Value>
+            <Value column="name">ONG</Value>
+          </Row>
+          <Row>
+            <Value column="id">10</Value>
+            <Value column="name">Optica</Value>
+          </Row>
+          <Row>
+            <Value column="id">11</Value>
+            <Value column="name">Bodega</Value>
+          </Row>
+          <Row>
+            <Value column="id">12</Value>
+            <Value column="name">Casa de huesero, curandero</Value>
+          </Row>
+          <Row>
+            <Value column="id">13</Value>
+            <Value column="name">Ambulante</Value>
+          </Row>
+          <Row>
+            <Value column="id">14</Value>
+            <Value column="name">Otro</Value>
+          </Row>
+          <Row>
+            <Value column="id">99</Value>
+            <Value column="name">Otro</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Donde consume hospitalizacion" foreign_key="where_did_you_buy_hospitalization">
+      <Hierarchy name="Donde consume hospitalizacion" primary_key="id">
+        <InlineTable alias="dim_inline_where_did_you_buy_hospitalization">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Establecimientos MINSA</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">Establecimientos ESSALUD</Value>
+          </Row>
+          <Row>
+            <Value column="id">3</Value>
+            <Value column="name">Hospital FFAA y policia nacional</Value>
+          </Row>
+          <Row>
+            <Value column="id">4</Value>
+            <Value column="name">Botiquin comunal</Value>
+          </Row>
+          <Row>
+            <Value column="id">5</Value>
+            <Value column="name">Farmacia o botica</Value>
+          </Row>
+          <Row>
+            <Value column="id">6</Value>
+            <Value column="name">Clinica particular</Value>
+          </Row>
+          <Row>
+            <Value column="id">7</Value>
+            <Value column="name">Consultorio medico particular</Value>
+          </Row>
+          <Row>
+            <Value column="id">8</Value>
+            <Value column="name">CLAS</Value>
+          </Row>
+          <Row>
+            <Value column="id">9</Value>
+            <Value column="name">ONG</Value>
+          </Row>
+          <Row>
+            <Value column="id">10</Value>
+            <Value column="name">Optica</Value>
+          </Row>
+          <Row>
+            <Value column="id">11</Value>
+            <Value column="name">Bodega</Value>
+          </Row>
+          <Row>
+            <Value column="id">12</Value>
+            <Value column="name">Casa de huesero, curandero</Value>
+          </Row>
+          <Row>
+            <Value column="id">13</Value>
+            <Value column="name">Ambulante</Value>
+          </Row>
+          <Row>
+            <Value column="id">14</Value>
+            <Value column="name">Otro</Value>
+          </Row>
+          <Row>
+            <Value column="id">99</Value>
+            <Value column="name">Otro</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Donde consume intervencion quirurgica" foreign_key="where_did_you_buy_surgical_intervention">
+      <Hierarchy name="Donde consume intervencion quirurgica" primary_key="id">
+        <InlineTable alias="dim_inline_where_did_you_buy_surgical_intervention">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Establecimientos MINSA</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">Establecimientos ESSALUD</Value>
+          </Row>
+          <Row>
+            <Value column="id">3</Value>
+            <Value column="name">Hospital FFAA y policia nacional</Value>
+          </Row>
+          <Row>
+            <Value column="id">4</Value>
+            <Value column="name">Botiquin comunal</Value>
+          </Row>
+          <Row>
+            <Value column="id">5</Value>
+            <Value column="name">Farmacia o botica</Value>
+          </Row>
+          <Row>
+            <Value column="id">6</Value>
+            <Value column="name">Clinica particular</Value>
+          </Row>
+          <Row>
+            <Value column="id">7</Value>
+            <Value column="name">Consultorio medico particular</Value>
+          </Row>
+          <Row>
+            <Value column="id">8</Value>
+            <Value column="name">CLAS</Value>
+          </Row>
+          <Row>
+            <Value column="id">9</Value>
+            <Value column="name">ONG</Value>
+          </Row>
+          <Row>
+            <Value column="id">10</Value>
+            <Value column="name">Optica</Value>
+          </Row>
+          <Row>
+            <Value column="id">11</Value>
+            <Value column="name">Bodega</Value>
+          </Row>
+          <Row>
+            <Value column="id">12</Value>
+            <Value column="name">Casa de huesero, curandero</Value>
+          </Row>
+          <Row>
+            <Value column="id">13</Value>
+            <Value column="name">Ambulante</Value>
+          </Row>
+          <Row>
+            <Value column="id">14</Value>
+            <Value column="name">Otro</Value>
+          </Row>
+          <Row>
+            <Value column="id">99</Value>
+            <Value column="name">Otro</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Afiliado por ESSALUD" foreign_key="healthcare_provider_ESSALUD_IPSS">
+      <Hierarchy name="Afiliado por ESSALUD" primary_key="id">
+        <InlineTable alias="dim_inline_healthcare_provider_ESSALUD_IPSS">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">ESSALUD</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">No</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Afiliado por seguro privado" foreign_key="healthcare_provider_private_insurance">
+      <Hierarchy name="Afiliado por seguro privado" primary_key="id">
+        <InlineTable alias="dim_inline_healthcare_provider_private_insurance">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Seguro privado</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">No</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Afiliado por entidad prestadora de salud" foreign_key="healthcare_provider_entity_health_provider">
+      <Hierarchy name="Afiliado por entidad prestadora de salud" primary_key="id">
+        <InlineTable alias="dim_inline_healthcare_provider_entity_health_provider">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Entidad prestadora de salud</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">No</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Afiliado por seguro FFAA y policia" foreign_key="healthcare_provider_FFAA_police_ensurance">
+      <Hierarchy name="Afiliado por seguro FFAA y policia" primary_key="id">
+        <InlineTable alias="dim_inline_healthcare_provider_FFAA_police_ensurance">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Seguro FFAA y policia</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">No</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Afiliado por seguro integral de salud" foreign_key="healthcare_provider_integral_health_insurance">
+      <Hierarchy name="Afiliado por seguro integral de salud" primary_key="id">
+        <InlineTable alias="dim_inline_healthcare_provider_integral_health_insurance">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Seguro integral de salud</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">No</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Afiliado por seguro universitario" foreign_key="healthcare_provider_universitary_insurance">
+      <Hierarchy name="Afiliado por seguro universitario" primary_key="id">
+        <InlineTable alias="dim_inline_healthcare_provider_universitary_insurance">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Seguro universitario</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">No</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Afiliado por seguro escolar privado" foreign_key="healthcare_provider_school_private_insurance">
+      <Hierarchy name="Afiliado por seguro escolar privado" primary_key="id">
+        <InlineTable alias="dim_inline_healthcare_provider_school_private_insurance">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Seguro escolar privado</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">No</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Afiliado por otro" foreign_key="healthcare_provider_other">
+      <Hierarchy name="Afiliado por otro" primary_key="id">
+        <InlineTable alias="dim_inline_healthcare_provider_other">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Otro</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">No</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <DimensionUsage foreign_key="ubigeo" source="Geography Location" name="Geografia" />
+    <DimensionUsage foreign_key="age_years" source="Age Group 10" name="Edad" />
+    <DimensionUsage foreign_key="year" source="Year" name="Año" />
+
+    <Measure name="Poblacion" column="facpob07" aggregator="sum">
+
+        <Annotation name="details">Poblacion</Annotation>
+      
+    </Measure>
+  </Cube>
+</Schema>
