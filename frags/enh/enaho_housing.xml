@@ -1,0 +1,618 @@
+<Schema name="dataperu" default_locale="es">
+  <Cube name="enaho_housing">
+
+      <Annotation name="topic">Poblacion</Annotation>
+      <Annotation name="subtopic">Poblacion</Annotation>
+      <Annotation name="source_name">Encuesta Nacional de Hogares</Annotation>
+
+    <Table name="enaho_housing" primary_key="ubigeo" />
+
+    <Dimension name="Año" foreign_key="year">
+      <Hierarchy name="Año" primary_key="id">
+        <InlineTable alias="dim_inline_year">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">2019</Value>
+            <Value column="name">2019</Value>
+          </Row>
+          <Row>
+            <Value column="id">2018</Value>
+            <Value column="name">2018</Value>
+          </Row>
+          <Row>
+            <Value column="id">2017</Value>
+            <Value column="name">2017</Value>
+          </Row>
+          <Row>
+            <Value column="id">2016</Value>
+            <Value column="name">2016</Value>
+          </Row>
+          <Row>
+            <Value column="id">2015</Value>
+            <Value column="name">2015</Value>
+          </Row>
+          <Row>
+            <Value column="id">2014</Value>
+            <Value column="name">2014</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Dimension name="Dominio" foreign_key="dominio">
+      <Hierarchy name="Dominio" primary_key="id">
+        <InlineTable alias="dim_inline_dominio">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Costa norte</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">Costa centro</Value>
+          </Row>
+          <Row>
+            <Value column="id">3</Value>
+            <Value column="name">Costa sur</Value>
+          </Row>
+          <Row>
+            <Value column="id">4</Value>
+            <Value column="name">Sierra norte</Value>
+          </Row>
+          <Row>
+            <Value column="id">5</Value>
+            <Value column="name">Sierra centro</Value>
+          </Row>
+          <Row>
+            <Value column="id">6</Value>
+            <Value column="name">Sierra sur</Value>
+          </Row>
+
+          <Row>
+            <Value column="id">7</Value>
+            <Value column="name">Selva</Value>
+          </Row>
+          <Row>
+            <Value column="id">8</Value>
+            <Value column="name">Lima metropolitana</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+    <Dimension name="Estrato" foreign_key="estrato">
+      <Hierarchy name="Estrato" primary_key="id">
+        <InlineTable alias="dim_inline_estrato">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">De 500.000 a más habitantes</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">De 100.000 a 499.999  habitantes</Value>
+          </Row>
+          <Row>
+            <Value column="id">3</Value>
+            <Value column="name">De 50.000 a 99.999 habitantes</Value>
+          </Row>
+          <Row>
+            <Value column="id">4</Value>
+            <Value column="name">De 20.000 a 49.999 habitantes</Value>
+          </Row>
+          <Row>
+            <Value column="id">5</Value>
+            <Value column="name">De 2.000 a 19.999 habitantes</Value>
+          </Row>
+          <Row>
+            <Value column="id">6</Value>
+            <Value column="name">De 500 a 1.999 habitantes</Value>
+          </Row>
+          <Row>
+            <Value column="id">7</Value>
+            <Value column="name">Area de Empadronamiento Rural (AER) Compuesto</Value>
+          </Row>
+          <Row>
+            <Value column="id">8</Value>
+            <Value column="name">Area de Empadronamiento Rural (AER) Simple</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+    <Dimension name="Tipo de vivienda" foreign_key="type_household">
+      <Hierarchy name="Tipo de vivienda" primary_key="id">
+        <InlineTable alias="dim_inline_type_household">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Casa independiente</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">Departamento en edificio</Value>
+          </Row>
+          <Row>
+            <Value column="id">3</Value>
+            <Value column="name">Vivienda en quinta</Value>
+          </Row>
+          <Row>
+            <Value column="id">4</Value>
+            <Value column="name">Vivienda en casa de vecindad (callejón, solar o corralón)</Value>
+          </Row>
+          <Row>
+            <Value column="id">5</Value>
+            <Value column="name">Choza o cabaña</Value>
+          </Row>
+          <Row>
+            <Value column="id">6</Value>
+            <Value column="name">Vivienda improvisada</Value>
+          </Row>
+          <Row>
+            <Value column="id">7</Value>
+            <Value column="name">Local no destinado para habitacion humana</Value>
+          </Row>
+          <Row>
+            <Value column="id">8</Value>
+            <Value column="name">Otro</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+    <Dimension name="Material muros" foreign_key="walls_material">
+      <Hierarchy name="Material muros" primary_key="id">
+        <InlineTable alias="dim_inline_walls_material">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Ladrillo o bloque de cemento</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">Piedra o sillar con cal o cemento</Value>
+          </Row>
+          <Row>
+            <Value column="id">3</Value>
+            <Value column="name">Adobe</Value>
+          </Row>
+          <Row>
+            <Value column="id">4</Value>
+            <Value column="name">Tapia</Value>
+          </Row>
+          <Row>
+            <Value column="id">5</Value>
+            <Value column="name">Quincha (caña con barro)</Value>
+          </Row>
+          <Row>
+            <Value column="id">6</Value>
+            <Value column="name">Piedra con barro</Value>
+          </Row>
+          <Row>
+            <Value column="id">7</Value>
+            <Value column="name">Madera (pona, tornillo, etc.)</Value>
+          </Row>
+          <Row>
+            <Value column="id">8</Value>
+            <Value column="name">Triplay/calamina/estera</Value>
+          </Row>
+          <Row>
+            <Value column="id">9</Value>
+            <Value column="name">Otro material</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+    <Dimension name="Material piso" foreign_key="floor_material">
+      <Hierarchy name="Material piso" primary_key="id">
+        <InlineTable alias="dim_inline_floor_material">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Parquet o madera pulida</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">Laminas asfálticas, vinílicos o similares</Value>
+          </Row>
+          <Row>
+            <Value column="id">3</Value>
+            <Value column="name">Losetas, terrazos o similares</Value>
+          </Row>
+          <Row>
+            <Value column="id">4</Value>
+            <Value column="name">Madera (pona, tornillo, etc.)</Value>
+          </Row>
+          <Row>
+            <Value column="id">5</Value>
+            <Value column="name">Cemento</Value>
+          </Row>
+          <Row>
+            <Value column="id">6</Value>
+            <Value column="name">Tierra</Value>
+          </Row>
+          <Row>
+            <Value column="id">7</Value>
+            <Value column="name">Otro material</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+    <Dimension name="Material techo" foreign_key="ceiling_material">
+      <Hierarchy name="Material techo" primary_key="id">
+        <InlineTable alias="dim_inline_ceiling_material">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Concreto armado</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">Madera (pona, tornillo, etc.)</Value>
+          </Row>
+          <Row>
+            <Value column="id">3</Value>
+            <Value column="name">Tejas</Value>
+          </Row>
+          <Row>
+            <Value column="id">4</Value>
+            <Value column="name">Planchas de calamina, fibra de cemento o similares</Value>
+          </Row>
+          <Row>
+            <Value column="id">5</Value>
+            <Value column="name">Caña o estera con torta de barro o cemento</Value>
+          </Row>
+          <Row>
+            <Value column="id">6</Value>
+            <Value column="name">Triplay/estera/carrizo</Value>
+          </Row>
+          <Row>
+            <Value column="id">7</Value>
+            <Value column="name">Paja, hojas de palmera</Value>
+          </Row>
+          <Row>
+            <Value column="id">8</Value>
+            <Value column="name">Otro material</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+    <Dimension name="Tipo de hogar" foreign_key="type_home">
+      <Hierarchy name="Tipo de hogar" primary_key="id">
+        <InlineTable alias="dim_inline_type_home">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Alquilada</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">Propia, totalmente pagada</Value>
+          </Row>
+          <Row>
+            <Value column="id">3</Value>
+            <Value column="name">Propia, por invasión</Value>
+          </Row>
+          <Row>
+            <Value column="id">4</Value>
+            <Value column="name">Propia, comprándola a plazos</Value>
+          </Row>
+          <Row>
+            <Value column="id">5</Value>
+            <Value column="name">Cedida por el centro de trabajo</Value>
+          </Row>
+          <Row>
+            <Value column="id">6</Value>
+            <Value column="name">Cedida por otro hogar o institución</Value>
+          </Row>
+          <Row>
+            <Value column="id">7</Value>
+            <Value column="name">Otra forma</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+    <Dimension name="Fuente de agua" foreign_key="water_source">
+      <Hierarchy name="Fuente de agua" primary_key="id">
+        <InlineTable alias="dim_inline_water_source">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Red publica, dentro de la vivienda</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">Red publica, fuera de la vivienda pero dentro del edificio</Value>
+          </Row>
+          <Row>
+            <Value column="id">3</Value>
+            <Value column="name">Pilon o pileta de uso publico</Value>
+          </Row>
+          <Row>
+            <Value column="id">4</Value>
+            <Value column="name">Camion - cisterna u otro similar</Value>
+          </Row>
+          <Row>
+            <Value column="id">5</Value>
+            <Value column="name">Pozo (agua subterranea)</Value>
+          </Row>
+          <Row>
+            <Value column="id">6</Value>
+            <Value column="name">Rio, acequia, lago, laguna</Value>
+          </Row>
+          <Row>
+            <Value column="id">7</Value>
+            <Value column="name">Otra</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+    <Dimension name="Sistema de drenaje" foreign_key="sewer_conection">
+      <Hierarchy name="Sistema de drenaje" primary_key="id">
+        <InlineTable alias="dim_inline_sewer_conection">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Red publica de desagüe, dentro de la vivienda</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">Red publica de desagüe, fuera de la vivienda pero dentro del edificio</Value>
+          </Row>
+          <Row>
+            <Value column="id">3</Value>
+            <Value column="name">Letrina</Value>
+          </Row>
+          <Row>
+            <Value column="id">4</Value>
+            <Value column="name">Pozo séptico, tanque septico o biodigestor</Value>
+          </Row>
+          <Row>
+            <Value column="id">5</Value>
+            <Value column="name">Pozo ciego o negro</Value>
+          </Row>
+          <Row>
+            <Value column="id">6</Value>
+            <Value column="name">Rio, acequia, canal o similar</Value>
+          </Row>
+          <Row>
+            <Value column="id">7</Value>
+            <Value column="name">Otra</Value>
+          </Row>
+          <Row>
+            <Value column="id">9</Value>
+            <Value column="name">Campo abierto o al aire libre (no tiene)</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+    <Dimension name="Fuente de agua" foreign_key="water_source">
+      <Hierarchy name="Fuente de agua" primary_key="id">
+        <InlineTable alias="dim_inline_water_source">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Red publica, dentro de la vivienda</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">Red publica, fuera de la vivienda pero dentro del edificio</Value>
+          </Row>
+          <Row>
+            <Value column="id">3</Value>
+            <Value column="name">Pilon o pileta de uso publico</Value>
+          </Row>
+          <Row>
+            <Value column="id">4</Value>
+            <Value column="name">Camion - cisterna u otro similar</Value>
+          </Row>
+          <Row>
+            <Value column="id">5</Value>
+            <Value column="name">Pozo (agua subterranea)</Value>
+          </Row>
+          <Row>
+            <Value column="id">6</Value>
+            <Value column="name">Rio, acequia, lago, laguna</Value>
+          </Row>
+          <Row>
+            <Value column="id">7</Value>
+            <Value column="name">Otra</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+    <Dimension name="Necesidades basicas vivienda" foreign_key="basic_needs_inadequate_house">
+      <Hierarchy name="Necesidades basicas vivienda" primary_key="id">
+        <InlineTable alias="dim_inline_basic_needs_inadequate_house">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Vivienda adecuada</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Vivienda inadecuada</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+    <Dimension name="Necesidades basicas hacinamiento" foreign_key="basic_needs_overcrowd_house">
+      <Hierarchy name="Necesidades basicas hacinamiento" primary_key="id">
+        <InlineTable alias="dim_inline_basic_needs_overcrowd_house">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Vivienda sin hacinamiento</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Vivienda con hacinamiento</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+    <Dimension name="Necesidades basicas servicios higienicos" foreign_key="basic_needs_no_higienic_services">
+      <Hierarchy name="Necesidades basicas hacinamiento" primary_key="id">
+        <InlineTable alias="dim_inline_basic_needs_no_higienic_services">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Hogares con vivienda con servicios higienicos</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Hogares con vivienda sin servicios higienicos</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+    <Dimension name="Necesidades basicas escolaridad" foreign_key="basic_needs_kids_without_school">
+      <Hierarchy name="Necesidades basicas escolaridad" primary_key="id">
+        <InlineTable alias="dim_inline_basic_needs_kids_without_school">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Hogares con niños que asisten a la escuela</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Hogares con niños que no asisten a la escuela</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+    <Dimension name="Necesidades basicas dependencia economica" foreign_key="basic_needs_high_economic_dependency">
+      <Hierarchy name="Necesidades basicas dependencia economica" primary_key="id">
+        <InlineTable alias="dim_inline_basic_needs_high_economic_dependency">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">0</Value>
+            <Value column="name">Hogares sin alta dependencia economica</Value>
+          </Row>
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Hogares con alta dependencia economica</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+    <Dimension name="Pobreza" foreign_key="poverty_type">
+      <Hierarchy name="Pobreza" primary_key="id">
+        <InlineTable alias="dim_inline_poverty_type">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">Pobre extremo</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">Pobre no extremo</Value>
+          </Row>
+          <Row>
+            <Value column="id">3</Value>
+            <Value column="name">No pobre</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+    <Dimension name="Estrato socioeconomico" foreign_key="socioeconomic_stratum">
+      <Hierarchy name="Estrato socioeconomico" primary_key="id">
+        <InlineTable alias="dim_inline_socioeconomic_stratum">
+          <ColumnDef name="id" key_type="nontext" />
+          <ColumnDef name="name" key_type="text" />
+          <Row>
+            <Value column="id">1</Value>
+            <Value column="name">A</Value>
+          </Row>
+          <Row>
+            <Value column="id">2</Value>
+            <Value column="name">B</Value>
+          </Row>
+          <Row>
+            <Value column="id">3</Value>
+            <Value column="name">C</Value>
+          </Row>
+          <Row>
+            <Value column="id">4</Value>
+            <Value column="name">D</Value>
+          </Row>
+          <Row>
+            <Value column="id">5</Value>
+            <Value column="name">E</Value>
+          </Row>
+          <Row>
+            <Value column="id">6</Value>
+            <Value column="name">RURAL</Value>
+          </Row>
+        </InlineTable>
+      </Hierarchy>
+    </Dimension>
+
+    <Measure name="Monto anualizado alquiler" column="monthly_rent_household" aggregator="sum" />
+    <Measure name="Monto anualizado credito compra casa" column="credit_buying_house_apartment" aggregator="sum" />
+    <Measure name="Monto anualizado credito compra terreno" column="credit_ground_house" aggregator="sum" />
+    <Measure name="Monto anualizado credito mejora vivienda" column="credit_house_improvements" aggregator="sum" />
+    <Measure name="Monto anualizado credito construccion vivienda" column="credit_build_new_house" aggregator="sum" />
+
+    <Measure name="Gasto mensual agua" column="last_month_total_paid_water" aggregator="sum" />
+    <Measure name="Gasto mensual electricidad" column="last_month_total_paid_electricity" aggregator="sum" />
+    <Measure name="Gasto mensual gas glp" column="last_month_total_paid_gas_glp" aggregator="sum" />
+    <Measure name="Gasto mensual gas natural" column="last_month_total_paid_natural_gas" aggregator="sum" />
+    <Measure name="Gasto mensual velas" column="last_month_total_paid_candle" aggregator="sum" />
+    <Measure name="Gasto mensual carbon" column="last_month_total_paid_coal" aggregator="sum" />
+    <Measure name="Gasto mensual madera" column="last_month_total_paid_wood" aggregator="sum" />
+    <Measure name="Gasto mensual petroleo" column="last_month_total_paid_petroleum" aggregator="sum" />
+    <Measure name="Gasto mensual gasolina" column="last_month_total_paid_gasoline" aggregator="sum" />
+    <Measure name="Gasto mensual telefono fijo" column="last_month_total_paid_landline" aggregator="sum" />
+    <Measure name="Gasto mensual telefono movil" column="last_month_total_paid_cellphone" aggregator="sum" />
+    <Measure name="Gasto mensual tv cable" column="last_month_total_paid_tv_cable" aggregator="sum" />
+    <Measure name="Gasto mensual internet" column="last_month_total_paid_internet" aggregator="sum" />
+    <Measure name="Gasto mensual otro" column="last_month_total_paid_other" aggregator="sum" />
+
+    <Measure name="Ingreso por renta" columns="income_from_rent_household" aggregator="sum" />
+    <Measure name="Ingreso por transferencias" columns="income_from_rent_transfer" aggregator="sum" />
+    <Measure name="Ingreso bruto por actividad principal" columns="gross_income_dependent_main_activity" aggregator="sum" />
+    <Measure name="Ingreso neto por actividad principal" columns="net_income_dependent_main_activity" aggregator="sum" />
+    <Measure name="Ingreso bruto por actividad secundaria" columns="gross_income_dependent_second_activity" aggregator="sum" />
+    <Measure name="Ingreso neto por actividad secundaria" columns="net_income_dependent_second_activity" aggregator="sum" />
+    <Measure name="Gastos por alimentacion en el hogar" columns="expenses_feeding_in_home" aggregator="sum" />
+    <Measure name="Gastos por alimentacion en el hogar (menores de 14)" columns="expenses_feeding_in_home_less_14_yo" aggregator="sum" />
+    <Measure name="Gastos por renta" columns="expenses_by_rent" aggregator="sum" />
+    <Measure name="Gastos del hogar tv, computador o sonido" columns="home_expenses_boughts_tv_computer_sound" aggregator="sum" />
+    <Measure name="Gastos del hogar electrodomesticos" columns="home_expenses_boughts_home_appliances" aggregator="sum" />
+    <Measure name="Gastos del hogar transporte" columns="home_expenses_boughts_transport" aggregator="sum" />
+    <Measure name="Gastos del hogar otros" columns="home_expenses_boughts_others" aggregator="sum" />
+    <Measure name="Gasto alimentacion" columns="group_1_food_expenses" aggregator="sum" />
+    <Measure name="Gasto vestimenta" columns="group_2_wardrove_expenses" aggregator="sum" />
+    <Measure name="Gasto renta, electr, combust y vivienda" columns="group_3_rent_fuel_elect_expenses" aggregator="sum" />
+    <Measure name="Gasto muebles y enseres, conservacion vivienda" columns="group_4_furniture_fixtures_expenses" aggregator="sum" />
+    <Measure name="Gasto cuidado y salud" columns="group_5_health_personal_care_expenses" aggregator="sum" />
+    <Measure name="Gasto transporte y comunicaciones" columns="group_6_transportation_comunication_expenses" aggregator="sum" />
+    <Measure name="Gasto esparcimiento y diversion" columns="group_7_fun_recreation_expenses" aggregator="sum" />
+    <Measure name="Gasto otros bienes y servicios" columns="group_8_others_goods_services_expenses" aggregator="sum" />
+    <Measure name="Gasto total monetario" columns="total_monetary_expenses" aggregator="sum" />
+
+    <Measure name="Deflactor espacial" columns="spatial_deflactor" aggregator="sum" />
+    <Measure name="Linea de pobreza alimentaria" columns="poverty_line_feeding" aggregator="sum" />
+    <Measure name="Linea de pobreza total" columns="poverty_line_total" aggregator="sum" />
+
+    <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="geo" />
+
+    <Measure name="Poblacion" column="factor07" aggregator="sum" />
+
+  </Cube>
+</Schema>
