@@ -1,0 +1,20 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="inei_renamu_dept">
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Registro Nacional de Municipalidades 2019</Annotation>
+        <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/catalog/709</Annotation>
+
+        <Table name="inei_renamu_dept" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+
+        <Dimension name="Year" foreign_key="anio">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="anio" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Numero Autos y Camionetas Operativos " column="n_autos_operativos" aggregator="sum" /> 
+    </Cube>
+</Schema>
