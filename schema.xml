@@ -19,6 +19,33 @@
             <Level name="Distrito" key_column="district_id" name_column="district_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
+
+    <SharedDimension name="Ubigeo Provincia" type="geo">
+        <Hierarchy name="Ubigeo Provincia">
+            <Table name="dim_shared_ubigeo" />
+
+            <Level name="Nacion" key_column="nation_id" name_column="nation_name" key_type="text" />
+            <Level name="Departamento" key_column="department_id" name_column="department_name" key_type="text" />
+            <Level name="Provincia" key_column="province_id" name_column="province_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Ubigeo Departamento" type="geo">
+        <Hierarchy name="Ubigeo Departamento">
+            <Table name="dim_shared_ubigeo" />
+
+            <Level name="Nacion" key_column="nation_id" name_column="nation_name" key_type="text" />
+            <Level name="Departamento" key_column="department_id" name_column="department_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Ubigeo Nacion" type="geo">
+        <Hierarchy name="Ubigeo Nacion">
+            <Table name="dim_shared_ubigeo" />
+
+            <Level name="Nacion" key_column="nation_id" name_column="nation_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
     <Cube name="itp_indicators_y_act_dept">
 
     	<Annotation name="topic">Economia</Annotation>
@@ -27,7 +54,7 @@
 
     	<Table name="itp_indicators_y_act_dept" primary_key="ubigeo" />
 
-    	<DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="geo" />
+    	<DimensionUsage foreign_key="ubigeo" source="Ubigeo Departamento" name="Ubigeo" />
 
     	<Dimension name="Year" foreign_key="year">
       		<Hierarchy name="Year">
@@ -89,17 +116,17 @@
       		</Hierarchy>
     	</Dimension>
 
-    	<Measure name="Linea de pobreza alimentaria" column="valor_agregado_bruto_2007" aggregator="sum" />
-    	<Measure name="Linea de pobreza total" column="valor_agregado_bruto_cte" aggregator="sum" />
+    	<Measure name="Línea de pobreza alimentaria" column="valor_agregado_bruto_2007" aggregator="sum" />
+    	<Measure name="Línea de pobreza total" column="valor_agregado_bruto_cte" aggregator="sum" />
 
   	</Cube>
-    <Cube name="inei_renamu_dept">
+    <Cube name="inei_renamu_dist">
         <Annotation name="source_name">INEI</Annotation>
         <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
         <Annotation name="dataset_name">Registro Nacional de Municipalidades 2019</Annotation>
         <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/catalog/709</Annotation>
 
-        <Table name="inei_renamu_dept" primary_key="ubigeo" />
+        <Table name="inei_renamu_dist" primary_key="ubigeo" />
 
         <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
 

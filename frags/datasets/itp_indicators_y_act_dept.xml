@@ -7,7 +7,7 @@
 
     	<Table name="itp_indicators_y_act_dept" primary_key="ubigeo" />
 
-    	<DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="geo" />
+    	<DimensionUsage foreign_key="ubigeo" source="Ubigeo Departamento" name="Ubigeo" />
 
     	<Dimension name="Year" foreign_key="year">
       		<Hierarchy name="Year">
@@ -69,8 +69,8 @@
       		</Hierarchy>
     	</Dimension>
 
-    	<Measure name="Linea de pobreza alimentaria" column="valor_agregado_bruto_2007" aggregator="sum" />
-    	<Measure name="Linea de pobreza total" column="valor_agregado_bruto_cte" aggregator="sum" />
+    	<Measure name="Línea de pobreza alimentaria" column="valor_agregado_bruto_2007" aggregator="sum" />
+    	<Measure name="Línea de pobreza total" column="valor_agregado_bruto_cte" aggregator="sum" />
 
   	</Cube>
 </Schema>
