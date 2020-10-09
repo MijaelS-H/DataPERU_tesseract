@@ -1,76 +1,76 @@
 <Schema name="dataperu" default_locale="es">
-  <Cube name="itp_indicators_y_act_dept">
+	<Cube name="itp_indicators_y_act_dept">
 
-      <Annotation name="topic">Economia</Annotation>
-      <Annotation name="subtopic">Economia</Annotation>
-      <Annotation name="source_name">Indicadores ITP</Annotation>
+    	<Annotation name="topic">Economia</Annotation>
+      	<Annotation name="subtopic">Economia</Annotation>
+      	<Annotation name="source_name">Indicadores ITP</Annotation>
 
-    <Table name="itp_indicators_y_act_dept" primary_key="ubigeo" />
+    	<Table name="itp_indicators_y_act_dept" primary_key="ubigeo" />
 
-    <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="geo" />
+    	<DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="geo" />
 
-    <Dimension name="Year" foreign_key="year">
-      <Hierarchy name="Year">
-	  	  <Level name="Year" key_column="year" />
-      </Hierarchy>
-    </Dimension>
+    	<Dimension name="Year" foreign_key="year">
+      		<Hierarchy name="Year">
+	  	  		<Level name="Year" key_column="year" />
+      		</Hierarchy>
+    	</Dimension>
 
-    <Dimension name="Actividad economica" foreign_key="act_economica">
-      <Hierarchy name="Actividad economica" primary_key="id">
-        <InlineTable alias="dim_inline_act_economica">
-          <ColumnDef name="id" key_type="nontext" />
-          <ColumnDef name="name" key_type="text" />
-          <Row>
-            <Value column="id">1</Value>
-            <Value column="name">Agricultura, ganaderia, caza y silvicultura</Value>
-          </Row>
-          <Row>
-            <Value column="id">2</Value>
-            <Value column="name">Pesca y acuicultura</Value>
-          </Row>
-          <Row>
-            <Value column="id">3</Value>
-            <Value column="name">Extraccion de petroleo, gas, minerales y servicios conexos</Value>
-          </Row>
-          <Row>
-            <Value column="id">4</Value>
-            <Value column="name">Electricidad, gas y agua</Value>
-          </Row>
-          <Row>
-            <Value column="id">5</Value>
-            <Value column="name">Construccion</Value>
-          </Row>
-          <Row>
-            <Value column="id">6</Value>
-            <Value column="name">Comercio, mantenimiento y reparacion de vehiculos automotores y motocicletas</Value>
-          </Row>
-          <Row>
-            <Value column="id">7</Value>
-            <Value column="name">Transporte, almacenamiento, correo y mensajeria</Value>
-          </Row>
-          <Row>
-            <Value column="id">8</Value>
-            <Value column="name">Alojamiento y restaurantes</Value>
-          </Row>
-          <Row>
-            <Value column="id">9</Value>
-            <Value column="name">Telecomunicaciones y otros servicos de informacion</Value>
-          </Row>
-          <Row>
-            <Value column="id">10</Value>
-            <Value column="name">Administración publica y defensa</Value>
-          </Row>
-          <Row>
-            <Value column="id">11</Value>
-            <Value column="name">Otros servicios</Value>
-          </Row>
-        </InlineTable>
-        <Level name="Actividad economica" key_column="id" name_column="name" />
-      </Hierarchy>
-    </Dimension>
+    	<Dimension name="Actividad economica" foreign_key="act_economica">
+      		<Hierarchy name="Actividad economica" primary_key="id">
+        		<InlineTable alias="dim_inline_act_economica">
+          			<ColumnDef name="id" key_type="nontext" />
+          			<ColumnDef name="name" key_type="text" />
+          			<Row>
+          			  <Value column="id">1</Value>
+          			  <Value column="name">Agricultura, ganaderia, caza y silvicultura</Value>
+          			</Row>
+          			<Row>
+          			  <Value column="id">2</Value>
+          			  <Value column="name">Pesca y acuicultura</Value>
+          			</Row>
+          			<Row>
+          			  <Value column="id">3</Value>
+          			  <Value column="name">Extraccion de petroleo, gas, minerales y servicios conexos</Value>
+          			</Row>
+          			<Row>
+          			  <Value column="id">4</Value>
+          			  <Value column="name">Electricidad, gas y agua</Value>
+          			</Row>
+          			<Row>
+          			  <Value column="id">5</Value>
+          			  <Value column="name">Construccion</Value>
+          			</Row>
+          			<Row>
+          			  <Value column="id">6</Value>
+          			  <Value column="name">Comercio, mantenimiento y reparacion de vehiculos automotores y motocicletas</Value>
+          			</Row>
+          			<Row>
+          			  <Value column="id">7</Value>
+          			  <Value column="name">Transporte, almacenamiento, correo y mensajeria</Value>
+          			</Row>
+          			<Row>
+          			  <Value column="id">8</Value>
+          			  <Value column="name">Alojamiento y restaurantes</Value>
+          			</Row>
+          			<Row>
+          			  <Value column="id">9</Value>
+          			  <Value column="name">Telecomunicaciones y otros servicos de informacion</Value>
+          			</Row>
+          			<Row>
+          			  <Value column="id">10</Value>
+          			  <Value column="name">Administración publica y defensa</Value>
+          			</Row>
+          			<Row>
+          			  <Value column="id">11</Value>
+          			  <Value column="name">Otros servicios</Value>
+          			</Row>
+        		</InlineTable>
+        		<Level name="Actividad economica" key_column="id" name_column="name" />
+      		</Hierarchy>
+    	</Dimension>
 
-    <Measure name="Linea de pobreza alimentaria" column="valor_agregado_bruto_2007" aggregator="sum" />
-    <Measure name="Linea de pobreza total" column="valor_agregado_bruto_cte" aggregator="sum" />
+    	<Measure name="Linea de pobreza alimentaria" column="valor_agregado_bruto_2007" aggregator="sum" />
+    	<Measure name="Linea de pobreza total" column="valor_agregado_bruto_cte" aggregator="sum" />
 
-  </Cube>
+  	</Cube>
 </Schema>

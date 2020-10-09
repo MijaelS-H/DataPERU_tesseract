@@ -1,6 +1,5 @@
 <Schema name="dataperu">
-
-	<SharedDimension name="CIIU" type="standard">
+    <SharedDimension name="CIIU" type="standard">
         <Hierarchy name="CIIU">
             <Table name="dim_shared_ciiu" />
 
@@ -20,82 +19,81 @@
             <Level name="Distrito" key_column="district_id" name_column="district_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
+    <Cube name="itp_indicators_y_act_dept">
 
-	<Cube name="itp_indicators_y_act_dept">
+    	<Annotation name="topic">Economia</Annotation>
+      	<Annotation name="subtopic">Economia</Annotation>
+      	<Annotation name="source_name">Indicadores ITP</Annotation>
 
-      <Annotation name="topic">Economia</Annotation>
-      <Annotation name="subtopic">Economia</Annotation>
-      <Annotation name="source_name">Indicadores ITP</Annotation>
+    	<Table name="itp_indicators_y_act_dept" primary_key="ubigeo" />
 
-    <Table name="itp_indicators_y_act_dept" primary_key="ubigeo" />
+    	<DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="geo" />
 
-    <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="geo" />
+    	<Dimension name="Year" foreign_key="year">
+      		<Hierarchy name="Year">
+	  	  		<Level name="Year" key_column="year" />
+      		</Hierarchy>
+    	</Dimension>
 
-    <Dimension name="Year" foreign_key="year">
-      <Hierarchy name="Year">
-	  	  <Level name="Year" key_column="year" />
-      </Hierarchy>
-    </Dimension>
+    	<Dimension name="Actividad economica" foreign_key="act_economica">
+      		<Hierarchy name="Actividad economica" primary_key="id">
+        		<InlineTable alias="dim_inline_act_economica">
+          			<ColumnDef name="id" key_type="nontext" />
+          			<ColumnDef name="name" key_type="text" />
+          			<Row>
+          			  <Value column="id">1</Value>
+          			  <Value column="name">Agricultura, ganaderia, caza y silvicultura</Value>
+          			</Row>
+          			<Row>
+          			  <Value column="id">2</Value>
+          			  <Value column="name">Pesca y acuicultura</Value>
+          			</Row>
+          			<Row>
+          			  <Value column="id">3</Value>
+          			  <Value column="name">Extraccion de petroleo, gas, minerales y servicios conexos</Value>
+          			</Row>
+          			<Row>
+          			  <Value column="id">4</Value>
+          			  <Value column="name">Electricidad, gas y agua</Value>
+          			</Row>
+          			<Row>
+          			  <Value column="id">5</Value>
+          			  <Value column="name">Construccion</Value>
+          			</Row>
+          			<Row>
+          			  <Value column="id">6</Value>
+          			  <Value column="name">Comercio, mantenimiento y reparacion de vehiculos automotores y motocicletas</Value>
+          			</Row>
+          			<Row>
+          			  <Value column="id">7</Value>
+          			  <Value column="name">Transporte, almacenamiento, correo y mensajeria</Value>
+          			</Row>
+          			<Row>
+          			  <Value column="id">8</Value>
+          			  <Value column="name">Alojamiento y restaurantes</Value>
+          			</Row>
+          			<Row>
+          			  <Value column="id">9</Value>
+          			  <Value column="name">Telecomunicaciones y otros servicos de informacion</Value>
+          			</Row>
+          			<Row>
+          			  <Value column="id">10</Value>
+          			  <Value column="name">Administración publica y defensa</Value>
+          			</Row>
+          			<Row>
+          			  <Value column="id">11</Value>
+          			  <Value column="name">Otros servicios</Value>
+          			</Row>
+        		</InlineTable>
+        		<Level name="Actividad economica" key_column="id" name_column="name" />
+      		</Hierarchy>
+    	</Dimension>
 
-    <Dimension name="Actividad economica" foreign_key="act_economica">
-      <Hierarchy name="Actividad economica" primary_key="id">
-        <InlineTable alias="dim_inline_act_economica">
-          <ColumnDef name="id" key_type="nontext" />
-          <ColumnDef name="name" key_type="text" />
-          <Row>
-            <Value column="id">1</Value>
-            <Value column="name">Agricultura, ganaderia, caza y silvicultura</Value>
-          </Row>
-          <Row>
-            <Value column="id">2</Value>
-            <Value column="name">Pesca y acuicultura</Value>
-          </Row>
-          <Row>
-            <Value column="id">3</Value>
-            <Value column="name">Extraccion de petroleo, gas, minerales y servicios conexos</Value>
-          </Row>
-          <Row>
-            <Value column="id">4</Value>
-            <Value column="name">Electricidad, gas y agua</Value>
-          </Row>
-          <Row>
-            <Value column="id">5</Value>
-            <Value column="name">Construccion</Value>
-          </Row>
-          <Row>
-            <Value column="id">6</Value>
-            <Value column="name">Comercio, mantenimiento y reparacion de vehiculos automotores y motocicletas</Value>
-          </Row>
-          <Row>
-            <Value column="id">7</Value>
-            <Value column="name">Transporte, almacenamiento, correo y mensajeria</Value>
-          </Row>
-          <Row>
-            <Value column="id">8</Value>
-            <Value column="name">Alojamiento y restaurantes</Value>
-          </Row>
-          <Row>
-            <Value column="id">9</Value>
-            <Value column="name">Telecomunicaciones y otros servicos de informacion</Value>
-          </Row>
-          <Row>
-            <Value column="id">10</Value>
-            <Value column="name">Administración publica y defensa</Value>
-          </Row>
-          <Row>
-            <Value column="id">11</Value>
-            <Value column="name">Otros servicios</Value>
-          </Row>
-        </InlineTable>
-        <Level name="Actividad economica" key_column="id" name_column="name" />
-      </Hierarchy>
-    </Dimension>
+    	<Measure name="Linea de pobreza alimentaria" column="valor_agregado_bruto_2007" aggregator="sum" />
+    	<Measure name="Linea de pobreza total" column="valor_agregado_bruto_cte" aggregator="sum" />
 
-    <Measure name="Linea de pobreza alimentaria" column="valor_agregado_bruto_2007" aggregator="sum" />
-    <Measure name="Linea de pobreza total" column="valor_agregado_bruto_cte" aggregator="sum" />
-
-  </Cube>
-<Cube name="inei_renamu_dept">
+  	</Cube>
+    <Cube name="inei_renamu_dept">
         <Annotation name="source_name">INEI</Annotation>
         <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
         <Annotation name="dataset_name">Registro Nacional de Municipalidades 2019</Annotation>
@@ -107,11 +105,863 @@
 
         <Dimension name="Year" foreign_key="anio">
             <Hierarchy name="Year">
-                <Level name="Year" key_column="anio" />
+                <Level name="Year" key_column="anio" key_type="nontext" />
             </Hierarchy>
         </Dimension>
 
-        <Measure name="Numero Autos y Camionetas Operativos " column="n_autos_operativos" aggregator="sum" /> 
+        <Dimension name="Acceso Telefonia Fija" foreign_key="tiene_telefonia_fija">
+            <Hierarchy name="Acceso Telefonia Fija" primary_key="id">
+                <InlineTable alias="dim_tiene_telefonia_fija">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Acceso Telefonia Fija" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Acceso Telefonia Movil" foreign_key="tiene_telefonia_movil">
+            <Hierarchy name="Acceso Telefonia Movil" primary_key="id">
+                <InlineTable alias="dim_tiene_telefonia_movil">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Si</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Acceso Telefonia Movil" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Estado Portal Transparencia Estandar" foreign_key="tiene_portal_transparencia_estandar">
+            <Hierarchy name="Estado Portal Transparencia Estandar" primary_key="id">
+                <InlineTable alias="dim_tiene_portal_transparencia_estandar">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Sí y está actualizado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Sí y esta desactualizado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">No tiene, porque está en proceso de implementación</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">No tiene, porque desconoce cómo implementarlo</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Estado Portal Transparencia Estandar" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Plan Desarrollo Concertado Year" foreign_key="instrumentos_gestion_plan_desarrollo_concertado_anio">
+            <Hierarchy name="Plan Desarrollo Concertado Year">
+                <Level name="Plan Desarrollo Concertado Year" key_column="instrumentos_gestion_plan_desarrollo_concertado_anio" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Razon no tiene Plan Desarrollo Concertado" foreign_key="instrumentos_gestion_plan_desarrollo_concertado_razon_no_tiene">
+            <Hierarchy name="Razon no tiene Plan Desarrollo Concertado" primary_key="id">
+                <InlineTable alias="dim_instrumentos_gestion_plan_desarrollo_concertado_razon_no_tiene">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Falta aprobar por el Concejo Municipal</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">En elaboracion</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Falta de recursos para su elaboración</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Otro</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Razon no tiene Plan Desarrollo Concertado" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Plan Estrategico Institucional Year" foreign_key="instrumentos_gestion_plan_estrategico_institucional_anio">
+            <Hierarchy name="Plan Estrategico Institucional Year">
+                <Level name="Plan Estrategico Institucional Year" key_column="instrumentos_gestion_plan_estrategico_institucional_anio" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Razon no tiene Plan Estrategico Institucional" foreign_key="instrumentos_gestion_plan_estrategico_institucional_razon_no_tiene">
+            <Hierarchy name="Razon no tiene Plan Estrategico Institucional" primary_key="id">
+                <InlineTable alias="dim_instrumentos_gestion_plan_estrategico_institucional_razon_no_tiene">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Falta aprobar por el Concejo Municipal</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">En elaboracion</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Falta de recursos para su elaboración</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Otro</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Razon no tiene Plan Estrategico Institucional" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Plan Desarrollo Economico Year" foreign_key="instrumentos_gestion_plan_desarrollo_economico_anio">
+            <Hierarchy name="Plan Desarrollo Economico Year">
+                <Level name="Plan Desarrollo Economico Year" key_column="instrumentos_gestion_plan_desarrollo_economico_anio" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Razon no tiene Plan Desarrollo Economico" foreign_key="instrumentos_gestion_plan_desarrollo_economico_razon_no_tiene">
+            <Hierarchy name="Razon no tiene Plan Desarrollo Economico" primary_key="id">
+                <InlineTable alias="dim_instrumentos_gestion_plan_desarrollo_economico_razon_no_tiene">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Falta aprobar por el Concejo Municipal</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">En elaboracion</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Falta de recursos para su elaboración</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Otro</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Razon no tiene Plan Desarrollo Economico" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Plan Acondicionamiento Territorial Year" foreign_key="instrumentos_gestion_plan_acondicionamiento_territorial_anio">
+            <Hierarchy name="Plan Acondicionamiento Territorial Year">
+                <Level name="Plan Acondicionamiento Territorial Year" key_column="instrumentos_gestion_plan_acondicionamiento_territorial_anio" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Razon no tiene Plan Acondicionamiento Territorial" foreign_key="instrumentos_gestion_plan_acondicionamiento_territorial_razon_no_tiene">
+            <Hierarchy name="Razon no tiene Plan Acondicionamiento Territorial" primary_key="id">
+                <InlineTable alias="dim_instrumentos_gestion_plan_acondicionamiento_territorial_razon_no_tiene">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Falta aprobar por el Concejo Municipal</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">En elaboracion</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Falta de recursos para su elaboración</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Otro</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Razon no tiene Plan Acondicionamiento Territorial" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Plan Desarrollo Urbano Year" foreign_key="instrumentos_gestion_plan_desarrollo_urbano_anio">
+            <Hierarchy name="Plan Desarrollo Urbano Year">
+                <Level name="Plan Desarrollo Urbano Year" key_column="instrumentos_gestion_plan_desarrollo_urbano_anio" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Razon no tiene Plan Desarrollo Urbano" foreign_key="instrumentos_gestion_plan_desarrollo_urbano_razon_no_tiene">
+            <Hierarchy name="Razon no tiene Plan Desarrollo Urbano" primary_key="id">
+                <InlineTable alias="dim_instrumentos_gestion_plan_desarrollo_urbano_razon_no_tiene">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Falta aprobar por el Concejo Municipal</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">En elaboracion</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Falta de recursos para su elaboración</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Otro</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Razon no tiene Plan Desarrollo Urbano" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+        
+        <Dimension name="Esquema Ordenamiento Urbano Year" foreign_key="instrumentos_gestion_esquema_ordenamiento_urbano_anio">
+            <Hierarchy name="Esquema Ordenamiento Urbano Year">
+                <Level name="Esquema Ordenamiento Urbano Year" key_column="instrumentos_gestion_esquema_ordenamiento_urbano_anio" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Razon no tiene Esquema Ordenamiento Urbano" foreign_key="instrumentos_gestion_esquema_ordenamiento_urbano_razon_no_tiene">
+            <Hierarchy name="Razon no tiene Esquema Ordenamiento Urbano" primary_key="id">
+                <InlineTable alias="dim_instrumentos_gestion_esquema_ordenamiento_urbano_razon_no_tiene">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Falta aprobar por el Concejo Municipal</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">En elaboracion</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Falta de recursos para su elaboración</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Otro</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Razon no tiene Esquema Ordenamiento Urbano" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Plan Desarrollo Rural Year" foreign_key="instrumentos_gestion_plan_desarrollo_rural_anio">
+            <Hierarchy name="Plan Desarrollo Rural Year">
+                <Level name="Plan Desarrollo Rural Year" key_column="instrumentos_gestion_plan_desarrollo_rural_anio" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Razon no tiene Plan Desarrollo Rural" foreign_key="instrumentos_gestion_plan_desarrollo_rural_razon_no_tiene">
+            <Hierarchy name="Razon no tiene Plan Desarrollo Rural" primary_key="id">
+                <InlineTable alias="dim_instrumentos_gestion_plan_desarrollo_rural_razon_no_tiene">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Falta aprobar por el Concejo Municipal</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">En elaboracion</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Falta de recursos para su elaboración</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Otro</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Razon no tiene Plan Desarrollo Rural" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Plan Desarrollo Capacidades Year" foreign_key="instrumentos_gestion_plan_desarrollo_capacidades_anio">
+            <Hierarchy name="Plan Desarrollo Capacidades Year">
+                <Level name="Plan Desarrollo Capacidades Year" key_column="instrumentos_gestion_plan_desarrollo_capacidades_anio" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Razon no tiene Plan Desarrollo Capacidades" foreign_key="instrumentos_gestion_plan_desarrollo_capacidades_razon_no_tiene">
+            <Hierarchy name="Razon no tiene Plan Desarrollo Capacidades" primary_key="id">
+                <InlineTable alias="dim_instrumentos_gestion_plan_desarrollo_capacidades_razon_no_tiene">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Falta aprobar por el Concejo Municipal</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">En elaboracion</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Falta de recursos para su elaboración</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Otro</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Razon no tiene Plan Desarrollo Capacidades" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Reglamento Funciones Year" foreign_key="instrumentos_gestion_reglamento_funciones_anio">
+            <Hierarchy name="Reglamento Funciones Year">
+                <Level name="Reglamento Funciones Year" key_column="instrumentos_gestion_reglamento_funciones_anio" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Razon no tiene Reglamento Funciones" foreign_key="instrumentos_gestion_reglamento_funciones_razon_no_tiene">
+            <Hierarchy name="Razon no tiene Reglamento Funciones" primary_key="id">
+                <InlineTable alias="dim_instrumentos_gestion_reglamento_funciones_razon_no_tiene">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Falta aprobar por el Concejo Municipal</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">En elaboracion</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Falta de recursos para su elaboración</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Otro</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Razon no tiene Reglamento Funciones" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Manual Funciones Year" foreign_key="instrumentos_gestion_manual_funciones_anio">
+            <Hierarchy name="Manual Funciones Year">
+                <Level name="Manual Funciones Year" key_column="instrumentos_gestion_manual_funciones_anio" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Razon no tiene Manual Funciones" foreign_key="instrumentos_gestion_manual_funciones_razon_no_tiene">
+            <Hierarchy name="Razon no tiene Manual Funciones" primary_key="id">
+                <InlineTable alias="dim_instrumentos_gestion_manual_funciones_razon_no_tiene">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Falta aprobar por el Concejo Municipal</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">En elaboracion</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Falta de recursos para su elaboración</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Otro</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Razon no tiene Manual Funciones" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Cuadro Asignacion Personal Year" foreign_key="instrumentos_gestion_cuadro_asignacion_personal_anio">
+            <Hierarchy name="Cuadro Asignacion Personal Year">
+                <Level name="Cuadro Asignacion Personal Year" key_column="instrumentos_gestion_cuadro_asignacion_personal_anio" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Razon no tiene Cuadro Asignacion Personal" foreign_key="instrumentos_gestion_cuadro_asignacion_personal_razon_no_tiene">
+            <Hierarchy name="Razon no tiene Cuadro Asignacion Personal" primary_key="id">
+                <InlineTable alias="dim_instrumentos_gestion_cuadro_asignacion_personal_razon_no_tiene">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Falta aprobar por el Concejo Municipal</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">En elaboracion</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Falta de recursos para su elaboración</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Otro</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Razon no tiene Cuadro Asignacion Personal" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Manual Procedimientos Year" foreign_key="instrumentos_gestion_manual_procedimientos_anio">
+            <Hierarchy name="Manual Procedimientos Year">
+                <Level name="Manual Procedimientos Year" key_column="instrumentos_gestion_manual_procedimientos_anio" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Razon no tiene Manual Procedimientos" foreign_key="instrumentos_gestion_manual_procedimientos_razon_no_tiene">
+            <Hierarchy name="Razon no tiene Manual Procedimientos" primary_key="id">
+                <InlineTable alias="dim_instrumentos_gestion_manual_procedimientos_razon_no_tiene">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Falta aprobar por el Concejo Municipal</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">En elaboracion</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Falta de recursos para su elaboración</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Otro</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Razon no tiene Manual Procedimientos" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Plan Igualdad de Genero Year" foreign_key="instrumentos_gestion_plan_igualdad_genero_anio">
+            <Hierarchy name="Plan Igualdad de Genero Year">
+                <Level name="Plan Igualdad de Genero Year" key_column="instrumentos_gestion_plan_igualdad_genero_anio" />
+            </Hierarchy>
+        </Dimension>
+        <Dimension name="Razon no tiene Plan Igualdad de Genero" foreign_key="instrumentos_gestion_plan_igualdad_genero_razon_no_tiene">
+            <Hierarchy name="Razon no tiene Plan Igualdad de Genero" primary_key="id">
+                <InlineTable alias="dim_instrumentos_gestion_plan_igualdad_genero_razon_no_tiene">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Falta aprobar por el Concejo Municipal</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">En elaboracion</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Falta de recursos para su elaboración</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Otro</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Razon no tiene Plan Igualdad de Genero" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Número Municipios" column="ubigeo" aggregator="count" />
+        <Measure name="Número Autos y Camionetas Operativos" column="n_autos_operativos" aggregator="sum" />
+        <Measure name="Número Motocicletas Operativas" column="n_motocicletas_operativos" aggregator="sum" /> 
+        <Measure name="Número Ambulancias Operativas" column="n_ambulancias_operativos" aggregator="sum" /> 
+        <Measure name="Número Volquetes Operativos" column="n_volquetes_operativos" aggregator="sum" /> 
+        <Measure name="Número Camiones Basura Operativos" column="n_camiones_basura_operativos" aggregator="sum" /> 
+        <Measure name="Número Cisternas Operativas" column="n_cisternas_operativos" aggregator="sum" /> 
+        <Measure name="Número Camiones Operativos" column="n_camiones_operativos" aggregator="sum" /> 
+        <Measure name="Número Grupos Electrógenos Operativos" column="n_grupos_electrogenos_operativos" aggregator="sum" /> 
+        <Measure name="Número Paneles Solares Operativos" column="n_paneles_solares_operativos" aggregator="sum" /> 
+        <Measure name="Número Otros Vehículos Operativos" column="n_otros_vehiculos_operativos" aggregator="sum" /> 
+        <Measure name="Número Excavadoras Operativas" column="n_excavadoras_operativos" aggregator="sum" /> 
+        <Measure name="Número Retroexcavadoras Operativas" column="n_retroexcavadoras_operativos" aggregator="sum" /> 
+        <Measure name="Número Motoniveladoras Operativos" column="n_motoniveladoras_operativos" aggregator="sum" /> 
+        <Measure name="Número Cargadores Frontales Operativos" column="n_cargadores_frontales_operativos" aggregator="sum" /> 
+        <Measure name="Número Tractores Oruga Operativos" column="n_tractores_oruga_operativos" aggregator="sum" /> 
+        <Measure name="Número Tractores Agrúcola Operativos" column="n_tractores_agricola_operativos" aggregator="sum" /> 
+        <Measure name="Número Compactadoras Suelo Operativas" column="n_compatadora_suelo_operativos" aggregator="sum" /> 
+        <Measure name="Número Otra Maquinaria Pesada Operativas" column="n_otra_maquinaria_pesada_operativo" aggregator="sum" /> 
+        <Measure name="Número Computadoras Acceso Internet" column="n_computadores_acceso_internet" aggregator="sum" />
+        <Measure name="Utiliza Sistema Informático (RUEEP)" column="utiliza_sistema_informatico_rueep" aggregator="sum" />
+        <Measure name="Utiliza Sistema Informático (SUT)" column="utiliza_sistema_informatico_sut" aggregator="sum" />
+        <Measure name="Utiliza Sistema Informático (SIGA)" column="utiliza_sistema_informatico_siga" aggregator="sum" />
+        <Measure name="Utiliza Sistema Informático (SIAF)" column="utiliza_sistema_informatico_siaf" aggregator="sum" />
+        <Measure name="Utiliza Sistema Informático (SRTM)" column="utiliza_sistema_informatico_strm" aggregator="sum" />
+        <Measure name="Utiliza Sistema Informático (SAFOP)" column="utiliza_sistema_informatico_safop" aggregator="sum" />
+        <Measure name="Utiliza Sistema Informático (SISCO)" column="utiliza_sistema_informatico_sisco" aggregator="sum" />
+        <Measure name="Utiliza Sistema Informático (AIRHSP)" column="utiliza_sistema_informatico_airhsp" aggregator="sum" />
+        <Measure name="Utiliza Sistema Informático (Otro)" column="utiliza_sistema_informatico_otro" aggregator="sum" />
+        <Measure name="Funcionarios Nombrados Mujer (DL 276)" column="personal_mujer_nombrado_dl_276_funcionario" aggregator="sum" />
+        <Measure name="Funcionarios Nombrados Hombre (DL 276)" column="personal_hombre_nombrado_dl_276_funcionario" aggregator="sum" />
+        <Measure name="Funcionarios Contratado Mujer (DL 276)" column="personal_mujer_contratado_dl_276_funcionario" aggregator="sum" />
+        <Measure name="Funcionarios Contratado Hombre (DL 276)" column="personal_hombre_contratado_dl_276_funcionario" aggregator="sum" />
+        <Measure name="Funcionarios Mujer (DL 728)" column="personal_mujer_dl_728_funcionario" aggregator="sum" />
+        <Measure name="Funcionarios Hombre (DL 728)" column="personal_hombre_dl_728_funcionario" aggregator="sum" />
+        <Measure name="Funcionarios Mujer (CAS)" column="personal_mujer_cas_funcionario" aggregator="sum" />
+        <Measure name="Funcionarios Hombre (CAS)" column="personal_hombre_cas_funcionario" aggregator="sum" />
+        <Measure name="Funcionarios Mujer (Locación Servicios)" column="personal_mujer_locacion_servicios_funcionario" aggregator="sum" />
+        <Measure name="Funcionarios Hombre (Locación Servicios)" column="personal_hombre_locacion_servicios_funcionario" aggregator="sum" />
+        <Measure name="Profesionales Nombrados Mujer (DL 276)" column="personal_mujer_nombrado_dl_276_empleados_profesionales" aggregator="sum" />
+        <Measure name="Profesionales Nombrados Hombre (DL 276)" column="personal_hombre_nombrado_dl_276_empleados_profesionales" aggregator="sum" />
+        <Measure name="Profesionales Contratado Mujer (DL 276)" column="personal_mujer_contratado_dl_276_empleados_profesionales" aggregator="sum" />
+        <Measure name="Profesionales Contratado Hombre (DL 276)" column="personal_hombre_contratado_dl_276_empleados_profesionales" aggregator="sum" />
+        <Measure name="Profesionales Mujer (DL 728)" column="personal_mujer_dl_728_empleados_profesionales" aggregator="sum" />
+        <Measure name="Profesionales Hombre (DL 728)" column="personal_hombre_dl_728_empleados_profesionales" aggregator="sum" />
+        <Measure name="Profesionales Mujer (CAS)" column="personal_mujer_cas_empleados_profesionales" aggregator="sum" />
+        <Measure name="Profesionales Hombre (CAS)" column="personal_hombre_cas_empleados_profesionales" aggregator="sum" />
+        <Measure name="Profesionales Mujer (Locación Servicios)" column="personal_mujer_locacion_servicios_empleados_profesionales" aggregator="sum" />
+        <Measure name="Profesionales Hombre (Locación Servicios)" column="personal_hombre_locacion_servicios_empleados_profesionales" aggregator="sum" />
+        <Measure name="Técnicos Nombrados Mujer (DL 276)" column="personal_mujer_nombrado_dl_276_empleados_tecnicos" aggregator="sum" />
+        <Measure name="Técnicos Nombrados Hombre (DL 276)" column="personal_hombre_nombrado_dl_276_empleados_tecnicos" aggregator="sum" />
+        <Measure name="Técnicos Contratado Mujer (DL 276)" column="personal_mujer_contratado_dl_276_empleados_tecnicos" aggregator="sum" />
+        <Measure name="Técnicos Contratado Hombre (DL 276)" column="personal_hombre_contratado_dl_276_empleados_tecnicos" aggregator="sum" />
+        <Measure name="Técnicos Mujer (DL 728)" column="personal_mujer_dl_728_empleados_tecnicos" aggregator="sum" />
+        <Measure name="Técnicos Hombre (DL 728)" column="personal_hombre_dl_728_empleados_tecnicos" aggregator="sum" />
+        <Measure name="Técnicos Mujer (CAS)" column="personal_mujer_cas_empleados_tecnicos" aggregator="sum" />
+        <Measure name="Técnicos Hombre (CAS)" column="personal_hombre_cas_empleados_tecnicos" aggregator="sum" />
+        <Measure name="Técnicos Mujer (Locación Servicios)" column="personal_mujer_locacion_servicios_empleados_tecnicos" aggregator="sum" />
+        <Measure name="Técnicos Hombre (Locación Servicios)" column="personal_hombre_locacion_servicios_empleados_tecnicos" aggregator="sum" />
+        <Measure name="Auxiliares Nombrados Mujer (DL 276)" column="personal_mujer_nombrado_dl_276_empleados_auxiliares" aggregator="sum" />
+        <Measure name="Auxiliares Nombrados Hombre (DL 276)" column="personal_hombre_nombrado_dl_276_empleados_auxiliares" aggregator="sum" />
+        <Measure name="Auxiliares Contratado Mujer (DL 276)" column="personal_mujer_contratado_dl_276_empleados_auxiliares" aggregator="sum" />
+        <Measure name="Auxiliares Contratado Hombre (DL 276)" column="personal_hombre_contratado_dl_276_empleados_auxiliares" aggregator="sum" />
+        <Measure name="Auxiliares Mujer (DL 728)" column="personal_mujer_dl_728_empleados_auxiliares" aggregator="sum" />
+        <Measure name="Auxiliares Hombre (DL 728)" column="personal_hombre_dl_728_empleados_auxiliares" aggregator="sum" />
+        <Measure name="Auxiliares Mujer (CAS)" column="personal_mujer_cas_empleados_auxiliares" aggregator="sum" />
+        <Measure name="Auxiliares Hombre (CAS)" column="personal_hombre_cas_empleados_auxiliares" aggregator="sum" />
+        <Measure name="Auxiliares Mujer (Locación Servicios)" column="personal_mujer_locacion_servicios_empleados_auxiliares" aggregator="sum" />
+        <Measure name="Auxiliares Hombre (Locación Servicios)" column="personal_hombre_locacion_servicios_empleados_auxiliares" aggregator="sum" />
+        <Measure name="Obreros Limpieza Nombrados Mujer (DL 276)" column="personal_mujer_nombrado_dl_276_obreros_limpieza" aggregator="sum" />
+        <Measure name="Obreros Limpieza Nombrados Hombre (DL 276)" column="personal_hombre_nombrado_dl_276_obreros_limpieza" aggregator="sum" />
+        <Measure name="Obreros Limpieza Contratado Mujer (DL 276)" column="personal_mujer_contratado_dl_276_obreros_limpieza" aggregator="sum" />
+        <Measure name="Obreros Limpieza Contratado Hombre (DL 276)" column="personal_hombre_contratado_dl_276_obreros_limpieza" aggregator="sum" />
+        <Measure name="Obreros Limpieza Mujer (DL 728)" column="personal_mujer_dl_728_obreros_limpieza" aggregator="sum" />
+        <Measure name="Obreros Limpieza Hombre (DL 728)" column="personal_hombre_dl_728_obreros_limpieza" aggregator="sum" />
+        <Measure name="Obreros Limpieza Mujer (CAS)" column="personal_mujer_cas_obreros_limpieza" aggregator="sum" />
+        <Measure name="Obreros Limpieza Hombre (CAS)" column="personal_hombre_cas_obreros_limpieza" aggregator="sum" />
+        <Measure name="Obreros Limpieza Mujer (Locación Servicios)" column="personal_mujer_locacion_servicios_obreros_limpieza" aggregator="sum" />
+        <Measure name="Obreros Limpieza Hombre (Locación Servicios)" column="personal_hombre_locacion_servicios_obreros_limpieza" aggregator="sum" />
+        <Measure name="Otros Obreros Nombrados Mujer (DL 276)" column="personal_mujer_nombrado_dl_276_obreros_otro" aggregator="sum" />
+        <Measure name="Otros Obreros Nombrados Hombre (DL 276)" column="personal_hombre_nombrado_dl_276_obreros_otro" aggregator="sum" />
+        <Measure name="Otros Obreros Contratado Mujer (DL 276)" column="personal_mujer_contratado_dl_276_obreros_otro" aggregator="sum" />
+        <Measure name="Otros Obreros Contratado Hombre (DL 276)" column="personal_hombre_contratado_dl_276_obreros_otro" aggregator="sum" />
+        <Measure name="Otros Obreros Mujer (DL 728)" column="personal_mujer_dl_728_obreros_otro" aggregator="sum" />
+        <Measure name="Otros Obreros Hombre (DL 728)" column="personal_hombre_dl_728_obreros_otro" aggregator="sum" />
+        <Measure name="Otros Obreros Mujer (CAS)" column="personal_mujer_cas_obreros_otro" aggregator="sum" />
+        <Measure name="Otros Obreros Hombre (CAS)" column="personal_hombre_cas_obreros_otro" aggregator="sum" />
+        <Measure name="Otros Obreros Mujer (Locación Servicios)" column="personal_mujer_locacion_servicios_obreros_otro" aggregator="sum" />
+        <Measure name="Otros Obreros Hombre (Locación Servicios)" column="personal_hombre_locacion_servicios_obreros_otro" aggregator="sum" />
+        <Measure name="Personal Vigilancia Nombrados Mujer (DL 276)" column="personal_mujer_nombrado_dl_276_vigilancia" aggregator="sum" />
+        <Measure name="Personal Vigilancia Nombrados Hombre (DL 276)" column="personal_hombre_nombrado_dl_276_vigilancia" aggregator="sum" />
+        <Measure name="Personal Vigilancia Contratado Mujer (DL 276)" column="personal_mujer_contratado_dl_276_vigilancia" aggregator="sum" />
+        <Measure name="Personal Vigilancia Contratado Hombre (DL 276)" column="personal_hombre_contratado_dl_276_vigilancia" aggregator="sum" />
+        <Measure name="Personal Vigilancia Mujer (DL 728)" column="personal_mujer_dl_728_vigilancia" aggregator="sum" />
+        <Measure name="Personal Vigilancia Hombre (DL 728)" column="personal_hombre_dl_728_vigilancia" aggregator="sum" />
+        <Measure name="Personal Vigilancia Mujer (CAS)" column="personal_mujer_cas_vigilancia" aggregator="sum" />
+        <Measure name="Personal Vigilancia Hombre (CAS)" column="personal_hombre_cas_vigilancia" aggregator="sum" />
+        <Measure name="Personal Vigilancia Mujer (Locación Servicios)" column="personal_mujer_locacion_servicios_vigilancia" aggregator="sum" />
+        <Measure name="Personal Vigilancia Hombre (Locación Servicios)" column="personal_hombre_locacion_servicios_vigilancia" aggregator="sum" />
+        <Measure name="Personal Mujer Discapacidad" column="personal_mujer_discapacidad" aggregator="sum" />
+        <Measure name="Personal Hombre Discapacidad" column="personal_hombre_discapacidad" aggregator="sum" />
+        <Measure name="Pensionistas Mujer (DL 19.990)" column="pensionistas_mujer_dl_19990" aggregator="sum" />
+        <Measure name="Pensionistas Hombre (DL 19.990)" column="pensionistas_hombre_dl_19990" aggregator="sum" />
+        <Measure name="Pensionistas Mujer (DL 20.530)" column="pensionistas_mujer_dl_20530" aggregator="sum" />
+        <Measure name="Pensionistas Hombre (DL 20.530)" column="pensionistas_hombre_dl_20530" aggregator="sum" />
+        <Measure name="Requiere Asistencia Acondicionamiento Territorial" column="requiere_asistencia_tecnica_acondicionamiento_territorial" aggregator="sum" />
+        <Measure name="Requiere Asistencia Administración Tributaria" column="requiere_asistencia_tecnica_administacion_tributaria" aggregator="sum" />
+        <Measure name="Requiere Asistencia Catastro Urbano Rural" column="requiere_asistencia_tecnica_catastro_urbano_rural" aggregator="sum" />
+        <Measure name="Requiere Asistencia Control Gubernamental" column="requiere_asistencia_tecnica_control_gubernamental" aggregator="sum" />
+        <Measure name="Requiere Asistencia Gestión Financiera" column="requiere_asistencia_tecnica_gestion_financiera" aggregator="sum" />
+        <Measure name="Requiere Asistencia Evaluación de Riesgos" column="requiere_asistencia_tecnica_evaluacion_riesgo" aggregator="sum" />
+        <Measure name="Requiere Asistencia Formulación de Proyectos" column="requiere_asistencia_tecnica_formulacion_proyectos" aggregator="sum" />
+        <Measure name="Requiere Asistencia Estándares de Atención" column="requiere_asistencia_tecnica_gestion_estandares_atencion" aggregator="sum" />
+        <Measure name="Requiere Asistencia Gestión de Desarrollo Urbano" column="requiere_asistencia_tecnica_gestion_desarrollo_urbano" aggregator="sum" />
+        <Measure name="Requiere Asistencia Gobierno Electrónico" column="requiere_asistencia_tecnica_gobierno_electronico" aggregator="sum" />
+        <Measure name="Requiere Asistencia Indicadores de Gestión" column="requiere_asistencia_tecnica_indicadores_gestion" aggregator="sum" />
+        <Measure name="Requiere Asistencia Metodología Portal de Transparencia" column="requiere_asistencia_tecnica_metodologia_portal_transparencia" aggregator="sum" />
+        <Measure name="Requiere Asistencia Metodología de Simplificación" column="requiere_asistencia_tecnica_metodologia_simplificacion" aggregator="sum" />
+        <Measure name="Requiere Asistencia Plan de Prevención de Riesgos" column="requiere_asistencia_tecnica_plan_prevencion_riesgo" aggregator="sum" />
+        <Measure name="Requiere Asistencia Plan de Reasentamiento" column="requiere_asistencia_tecnica_plan_reasentamiento" aggregator="sum" />
+        <Measure name="Requiere Asistencia Plan de Reconstrucción" column="requiere_asistencia_tecnica_plan_reconstruccion" aggregator="sum" />
+        <Measure name="Requiere Asistencia Planificación Estratégica" column="requiere_asistencia_tecnica_planificacion_estrategica" aggregator="sum" />
+        <Measure name="Requiere Asistencia Población y Desarrollo" column="requiere_asistencia_tecnica_poblacion_desarrollo" aggregator="sum" />
+        <Measure name="Requiere Asistencia Política de Desarrollo" column="requiere_asistencia_tecnica_politica_desarrollo" aggregator="sum" />
+        <Measure name="Requiere Asistencia Presupuesto con Enfoque a Resultados" column="requiere_asistencia_tecnica_presupuesto_resultados" aggregator="sum" />
+        <Measure name="Requiere Asistencia Procedimientos Administrativos" column="requiere_asistencia_tecnica_procedimientos_administrativos" aggregator="sum" />
+        <Measure name="Requiere Asistencia Programa de Incentivos" column="requiere_asistencia_tecnica_programas_incentivos" aggregator="sum" />
+        <Measure name="Requiere Asistencia Sistema de Focalización" column="requiere_asistencia_tecnica_sistema_focalizacion" aggregator="sum" />
+        <Measure name="Requiere Asistencia Otro" column="requiere_asistencia_tecnica_otro" aggregator="sum" />
+        <Measure name="Requiere Capacitación Acondicionamiento Territorial" column="requiere_capacitacion_acondicionamiento_territorial" aggregator="sum" />
+        <Measure name="Requiere Capacitación Administración Tributaria" column="requiere_capacitacion_administacion_tributaria" aggregator="sum" />
+        <Measure name="Requiere Capacitación Catastro Urbano Rural" column="requiere_capacitacion_catastro_urbano_rural" aggregator="sum" />
+        <Measure name="Requiere Capacitación Control Gubernamental" column="requiere_capacitacion_control_gubernamental" aggregator="sum" />
+        <Measure name="Requiere Capacitación Gestión Financiera" column="requiere_capacitacion_gestion_financiera" aggregator="sum" />
+        <Measure name="Requiere Capacitación Evaluación de Riesgos" column="requiere_capacitacion_evaluacion_riesgo" aggregator="sum" />
+        <Measure name="Requiere Capacitación Formulación de Proyectos" column="requiere_capacitacion_formulacion_proyectos" aggregator="sum" />
+        <Measure name="Requiere Capacitación Estándares de Atención" column="requiere_capacitacion_gestion_estandares_atencion" aggregator="sum" />
+        <Measure name="Requiere Capacitación Gestión de Desarrollo Urbano" column="requiere_capacitacion_gestion_desarrollo_urbano" aggregator="sum" />
+        <Measure name="Requiere Capacitación Gobierno Electrónico" column="requiere_capacitacion_gobierno_electronico" aggregator="sum" />
+        <Measure name="Requiere Capacitación Indicadores de Gestión" column="requiere_capacitacion_indicadores_gestion" aggregator="sum" />
+        <Measure name="Requiere Capacitación Metodología Portal de Transparencia" column="requiere_capacitacion_metodologia_portal_transparencia" aggregator="sum" />
+        <Measure name="Requiere Capacitación Metodología de Simplificación" column="requiere_capacitacion_metodologia_simplificacion" aggregator="sum" />
+        <Measure name="Requiere Capacitación Plan de Prevención de Riesgos" column="requiere_capacitacion_plan_prevencion_riesgo" aggregator="sum" />
+        <Measure name="Requiere Capacitación Plan de Reasentamiento" column="requiere_capacitacion_plan_reasentamiento" aggregator="sum" />
+        <Measure name="Requiere Capacitación Plan de Reconstrucción" column="requiere_capacitacion_plan_reconstruccion" aggregator="sum" />
+        <Measure name="Requiere Capacitación Planificación Estratégica" column="requiere_capacitacion_planificacion_estrategica" aggregator="sum" />
+        <Measure name="Requiere Capacitación Población y Desarrollo" column="requiere_capacitacion_poblacion_desarrollo" aggregator="sum" />
+        <Measure name="Requiere Capacitación Política de Desarrollo" column="requiere_capacitacion_politica_desarrollo" aggregator="sum" />
+        <Measure name="Requiere Capacitación Presupuesto con Enfoque a Resultados" column="requiere_capacitacion_presupuesto_resultados" aggregator="sum" />
+        <Measure name="Requiere Capacitación Procedimientos Administrativos" column="requiere_capacitacion_procedimientos_administrativos" aggregator="sum" />
+        <Measure name="Requiere Capacitación Programa de Incentivos" column="requiere_capacitacion_programas_incentivos" aggregator="sum" />
+        <Measure name="Requiere Capacitación Sistema de Focalización" column="requiere_capacitacion_sistema_focalizacion" aggregator="sum" />
+        <Measure name="Requiere Capacitación Otro" column="requiere_capacitacion_otro" aggregator="sum" />
+        <Measure name="Ingresos Corrientes Impuestos Obligatorios" column="ingresos_corrientes_impuestos_obligatorios" aggregator="sum" />
+        <Measure name="Ingresos Corrientes Contribuciones Sociales" column="ingresos_corrientes_contribuciones_sociales" aggregator="sum" />
+        <Measure name="Ingresos Corrientes Venta Bienes y Servicios" column="ingresos_corrientes_venta_bienes_servicios" aggregator="sum" />
+        <Measure name="Ingresos Corrientes Renta de Propiedades" column="ingresos_corrientes_renta_propiedad" aggregator="sum" />
+        <Measure name="Ingresos Corrientes Multas" column="ingresos_corrientes_multas" aggregator="sum" />
+        <Measure name="Ingresos Corrientes Otros" column="ingresos_corrientes_otros" aggregator="sum" />
+        <Measure name="Ingresos Capital Venta Activos No Producidos" column="ingresos_capital_venta_activos_no_producidos" aggregator="sum" />
+        <Measure name="Ingresos Capital Activos No Financieros" column="ingresos_capital_venta_activos_no_financieros" aggregator="sum" />
+        <Measure name="Ingresos Transferencias Canon y Sobrecanon" column="ingresos_transferencias_canon_sobrecanon" aggregator="sum" />
+        <Measure name="Ingresos Transferencias Regalías" column="ingresos_transferencias_regalias" aggregator="sum" />
+        <Measure name="Ingresos Transferencias Fondo Compensación" column="ingresos_transferencias_fondo_compensacion" aggregator="sum" />
+        <Measure name="Ingresos Transferencias Incentivos Mejora de Gestión" column="ingresos_transferencias_incentivos_mejora_gestion" aggregator="sum" />
+        <Measure name="Ingresos Transferencias Otros" column="ingresos_transferencias_otros" aggregator="sum" />
+        <Measure name="Ingresos Financiamiento Endeudamiento" column="ingresos_financiamiento_endeudamiento" aggregator="sum" />
+        <Measure name="Ingresos Financiamiento Saldos" column="ingresos_financiamiento_saldos" aggregator="sum" />
+        <Measure name="Gastos Corrientes Personal" column="gastos_corrientes_personal" aggregator="sum" />
+        <Measure name="Gastos Corrientes Pensiones" column="gastos_corrientes_pensiones" aggregator="sum" />
+        <Measure name="Gastos Corrientes Bienes y Servicios" column="gastos_corrientes_bienes_servicios" aggregator="sum" />
+        <Measure name="Gastos Corrientes Donaciones" column="gastos_corrientes_donaciones" aggregator="sum" />
+        <Measure name="Gastos Corrientes Otros" column="gastos_corrientes_otros" aggregator="sum" />
+        <Measure name="Gastos Capital Adquisicion Activos No Financieros" column="gastos_capital_adquisicion_activos_no_financieros" aggregator="sum" />
+        <Measure name="Gastos Capital Donaciones" column="gastos_capital_donaciones" aggregator="sum" />
+        <Measure name="Gastos Capital Otros" column="gastos_capital_otros" aggregator="sum" />
+        <Measure name="Gastos Servicio Deuda" column="gastos_servicio_deuda" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Establecimientos hasta 100m2 (ITSE Básica) Aprobadas" column="n_licencia_funcionamiento_itse_basica_100_aprobadas" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Establecimientos hasta 100m2 (ITSE Básica) Desaprobadas" column="n_licencia_funcionamiento_itse_basica_100_desaprobadas" aggregator="sum" />
+        <Measure name="Costo Unitario Licencias Funcionamiento Establecimientos hasta 100m2 (ITSE Básica)" column="costo_unitario_licencia_funcionamiento_itse_basica_100" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Establecimientos entre 100m2 y 500m2 (ITSE Básica) Aprobadas" column="n_licencia_funcionamiento_itse_basica_100_500_aprobadas" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Establecimientos entre 100m2 y 500m2 (ITSE Básica) Desaprobadas" column="n_licencia_funcionamiento_itse_basica_100_500_desaprobadas" aggregator="sum" />
+        <Measure name="Costo Unitario Licencias Funcionamiento Establecimientos entre 100m2 y 500m2 (ITSE Básica)" column="costo_unitario_licencia_funcionamiento_itse_basica_100_500" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Establecimientos mayor 500m2 (ITSE Detalle) Aprobadas" column="n_licencia_funcionamiento_itse_detalle_500_aprobadas" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Establecimientos mayor 500m2 (ITSE Detalle) Desaprobadas" column="n_licencia_funcionamiento_itse_detalle_500_desaprobadas" aggregator="sum" />
+        <Measure name="Costo Unitario Licencias Funcionamiento Establecimientos mayor 500m2 (ITSE Detalle)" column="costo_unitario_licencia_funcionamiento_itse_detalle_500" aggregator="sum" />
+        <Measure name="Número Licencias Edificación Viviendas hasta 5 pisos Aprobadas" column="n_licencia_edificacion_vivienda_5_pisos_aprobadas" aggregator="sum" />
+        <Measure name="Número Licencias Edificación Viviendas hasta 5 pisos Desaprobadas" column="n_licencia_edificacion_vivienda_5_pisos_desaprobadas" aggregator="sum" />
+        <Measure name="Costo Unitario Licencias Edificación Viviendas hasta 5 pisos" column="costo_unitario_licencia_edificacion_vivienda_5_pisos" aggregator="sum" />
+        <Measure name="Número Autorizaciones Interferencias Servicios Aprobadas" column="n_autorizacion_interferencia_servicios_aprobadas" aggregator="sum" />
+        <Measure name="Número Autorizaciones Interferencias Servicios Desaprobadas" column="n_autorizacion_interferencia_servicios_desaprobadas" aggregator="sum" />
+        <Measure name="Costo Unitario Autorizaciones Interferencias Servicios" column="costo_unitario_autorizacion_interferencia_servicios" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Servicios Hoteles" column="n_licencia_funcionamiento_servicios_hoteles" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Servicios Restaurantes" column="n_licencia_funcionamiento_servicios_restaurantes" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Servicios Agencias Viaje" column="n_licencia_funcionamiento_servicios_agencias_viajes" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Servicios Peliquerías" column="n_licencia_funcionamiento_servicios_peluquerias" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Servicios Instituciones Financieras" column="n_licencia_funcionamiento_servicios_instituciones_financiamiento" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Servicios Artes Cultura" column="n_licencia_funcionamiento_servicios_artes_cultura" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Servicios Recreación" column="n_licencia_funcionamiento_servicios_deportes_recreacion" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Servicios Actividades Profesionales" column="n_licencia_funcionamiento_servicios_actividades_profesionales" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Servicios Empresas Transporte" column="n_licencia_funcionamiento_servicios_empresas_transporte" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Servicios Cabinas Internet" column="n_licencia_funcionamiento_servicios_cabinas_internet" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Servicios Juegos Azar" column="n_licencia_funcionamiento_servicios_juegos_azar" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Servicios Otro" column="n_licencia_funcionamiento_servicios_otro" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Agropecuario Granjas Avícolas" column="n_licencia_funcionamiento_agropecuario_granjas_avicolas" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Agropecuario Establos Lecheros" column="n_licencia_funcionamiento_agropecuario_establos_lecheros" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Agropecuario Otro" column="n_licencia_funcionamiento_agropecuario_otro" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Manufactura Artesanías" column="n_licencia_funcionamiento_manufactura_artesanias" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Manufactura Fábicas" column="n_licencia_funcionamiento_manufactura_fabricas" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Manufactura Plantas Agroindustriales" column="n_licencia_funcionamiento_manufactura_plantas_agroindustriales" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Manufactura Cueros y Pieles" column="n_licencia_funcionamiento_manufactura_cueros_pieles" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Manufactura Panaderías" column="n_licencia_funcionamiento_manufactura_panaderias" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Manufactura Otro" column="n_licencia_funcionamiento_manufactura_otro" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Comercio Bodegas" column="n_licencia_funcionamiento_comercio_bodegas" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Comercio Farmacias" column="n_licencia_funcionamiento_comercio_farmacias" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Comercio Ferreterías" column="n_licencia_funcionamiento_comercio_ferreterias" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Comercio Vestimenta" column="n_licencia_funcionamiento_comercio_vestimenta" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Comercio Calzado" column="n_licencia_funcionamiento_comercio_calzado" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Comercio Mercados Abasto" column="n_licencia_funcionamiento_comercio_mercados_abasto" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Comercio Centros Comerciales" column="n_licencia_funcionamiento_comercio_centros_comerciales" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Comercio Proveedores Agropecuarios" column="n_licencia_funcionamiento_comercio_proveedores_agropecuarios" aggregator="sum" />
+        <Measure name="Número Licencias Funcionamiento Comercio Otro" column="n_licencia_funcionamiento_comercio_otro" aggregator="sum" />
+        <Measure name="Número Licencias Edificación Viviendas Unifamiliares" column="n_licencia_edificacion_viviendas_unifamiliares" aggregator="sum" />
+        <Measure name="Número Licencias Edificación Viviendas Multifamiliares" column="n_licencia_edificacion_viviendas_multifamiliares" aggregator="sum" />
+        <Measure name="Número Licencias Edificación Viviendas Uso Mixto" column="n_licencia_edificacion_viviendas_uso_mixto" aggregator="sum" />
+        <Measure name="Número Licencias Edificación Restaurantes" column="n_licencia_edificacion_restaurantes" aggregator="sum" />
+        <Measure name="Número Licencias Edificación Centros Comerciales" column="n_licencia_edificacion_centros_comerciales" aggregator="sum" />
+        <Measure name="Número Licencias Edificación Campos Feriales" column="n_licencia_edificacion_campos_feriales" aggregator="sum" />
+        <Measure name="Número Licencias Edificación Hoteles" column="n_licencia_edificacion_hoteles" aggregator="sum" />
+        <Measure name="Número Licencias Edificación Fábricas Industriales" column="n_licencia_edificacion_fabricas_industriales" aggregator="sum" />
+        <Measure name="Número Licencias Edificación Instituciones Estado" column="n_licencia_edificacion_instituciones_estado" aggregator="sum" />
+        <Measure name="Número Licencias Edificación Terminales Transporte Terrestre" column="n_licencia_edificacion_terminales_transporte_terrestre" aggregator="sum" />
+        <Measure name="Número Licencias Edificación Otro" column="n_licencia_edificacion_otro" aggregator="sum" />
+        <Measure name="Número Licencias Habilitación Urbana Vivienda" column="n_licencia_habilitacion_urbana_vivienda" aggregator="sum" />
+        <Measure name="Número Licencias Habilitación Urbana Comercio" column="n_licencia_habilitacion_urbana_comercio" aggregator="sum" />
+        <Measure name="Número Licencias Habilitación Urbana Servicio" column="n_licencia_habilitacion_urbana_servicio" aggregator="sum" />
+        <Measure name="Número Licencias Habilitación Urbana Industria" column="n_licencia_habilitacion_urbana_industria" aggregator="sum" />
+        <Measure name="Número Licencias Habilitación Urbana Otro" column="n_licencia_habilitacion_urbana_otro" aggregator="sum" />
+        <Measure name="Área Terrenos para Vivienda No Ocupados" column="area_terrenos_vivienda_no_ocupados" aggregator="sum" />
+        <Measure name="Área Reparación Pistas" column="area_reparacion_pistas" aggregator="sum" />
+        <Measure name="Gasto Anual Reparación Pistas" column="gasto_anual_reparacion_pistas" aggregator="sum" />
+        <Measure name="Área Construcción Pistas" column="area_construccion_pistas" aggregator="sum" />
+        <Measure name="Gasto Anual Construcción Pistas" column="gasto_anual_construccion_pistas" aggregator="sum" />
+        <Measure name="Área Reparación Veredas" column="area_reparacion_veredas" aggregator="sum" />
+        <Measure name="Gasto Anual Reparación Veredas" column="gasto_anual_reparacion_veredas" aggregator="sum" />
+        <Measure name="Área Construcción Veredas" column="area_construccion_veredas" aggregator="sum" />
+        <Measure name="Gasto Anual Construcción Veredas" column="gasto_anual_construccion_veredas" aggregator="sum" />
+        <Measure name="Área Reparación Escalinatas" column="area_reparacion_escalinatas" aggregator="sum" />
+        <Measure name="Gasto Anual Reparación Escalinatas" column="gasto_anual_reparacion_escalinatas" aggregator="sum" />
+        <Measure name="Área Construcción Escalinatas" column="area_construccion_escalinatas" aggregator="sum" />
+        <Measure name="Gasto Anual Construcción Escalinatas" column="gasto_anual_construccion_escalinatas" aggregator="sum" />
+        <Measure name="Longitud Reparación Caminos Rurales Afirmados" column="longitud_reparacion_caminos_rurales_afirmados" aggregator="sum" />
+        <Measure name="Gasto Anual Reparación Caminos Rurales Afirmados" column="gasto_anual_reparacion_caminos_rurales_afirmados" aggregator="sum" />
+        <Measure name="Longitud Construcción Caminos Rurales Afirmados" column="longitud_construccion_caminos_rurales_afirmados" aggregator="sum" />
+        <Measure name="Gasto Anual Construcción Caminos Rurales Afirmados" column="gasto_anual_construccion_caminos_rurales_afirmados" aggregator="sum" />
+        <Measure name="Longitud Reparación Caminos Rurales No Afirmados" column="longitud_reparacion_caminos_rurales_no_afirmados" aggregator="sum" />
+        <Measure name="Gasto Anual Reparación Caminos Rurales No Afirmados" column="gasto_anual_reparacion_caminos_rurales_no_afirmados" aggregator="sum" />
+        <Measure name="Longitud Construcción Caminos Rurales No Afirmados" column="longitud_construccion_caminos_rurales_no_afirmados" aggregator="sum" />
+        <Measure name="Gasto Anual Construcción Caminos Rurales No Afirmados" column="gasto_anual_construccion_caminos_rurales_no_afirmados" aggregator="sum" />
+        
+        <Measure name="Instrumentos Gestión Residuos Plan Integral Gestión Ambiental" column="instrumentos_gestion_residuos_plan_integral_gestion_ambiental" aggregator="sum" />
+        <Measure name="Instrumentos Gestión Residuos Plan Manejo Residuos" column="instrumentos_gestion_residuos_plan_manejo_residuos" aggregator="sum" />
+        <Measure name="Instrumentos Gestión Residuos Sistema Recojo Residuos" column="instrumentos_gestion_residuos_sistema_recojo_residuos" aggregator="sum" />
+        <Measure name="Instrumentos Gestión Residuos Programa Transformación Residuos" column="instrumentos_gestion_residuos_programa_transformacion_residuos" aggregator="sum" />
+        <Measure name="Instrumentos Gestión Residuos Programa Recolección Selectiva" column="instrumentos_gestion_residuos_programa_recoleccion_selectiva" aggregator="sum" />
+        <Measure name="Instrumentos Gestión Residuos Otro" column="instrumentos_gestion_residuos_otro" aggregator="sum" />
+        <Measure name="Instrumentos Gestión Residuos Sin Instrumento" column="instrumentos_gestion_residuos_sin_instrumento" aggregator="sum" />
+        <Measure name="Gasto Limpieza Pública Recojo Domiciliario" column="gasto_limpieza_publica_recojo_domiciliario" aggregator="sum" />
+        <Measure name="Gasto Limpieza Pública Mantenimiento Espacios Públicos" column="gasto_limpieza_publica_mantenimiento_espacios_publicos" aggregator="sum" />
+        <Measure name="Gasto Limpieza Pública Otro" column="gasto_limpieza_publica_otro" aggregator="sum" />
+        <Measure name="Número Operativos Control Aseo" column="n_operativo_control_aseo" aggregator="sum" />
+        <Measure name="Número Operativos Control Verificación de Pesas" column="n_operativo_control_verificacion_pesas" aggregator="sum" />
+        <Measure name="Número Operativos Control Comercio Ambulatorio" column="n_operativo_control_comercio_ambulatorio" aggregator="sum" />
+        <Measure name="Número Operativos Control Vigencia Licencia Funcionamiento" column="n_operativo_control_vigencia_licencia_funcionamiento" aggregator="sum" />
+        <Measure name="Número Operativos Control Vigencia Licencia Edificación" column="n_operativo_control_vigencia_licencia_edificacion" aggregator="sum" />
+        <Measure name="Número Operativos Control Certificado ITSE" column="n_operativo_control_certificado_itse" aggregator="sum" />
+        <Measure name="Número Operativos Control Anuncios Publicitarios" column="n_operativo_control_anuncios_publicitarios" aggregator="sum" />
+        <Measure name="Número Operativos Control Transporte Urbano" column="n_operativo_control_transporte_urbano" aggregator="sum" />
+        <Measure name="Número Operativos Control Tránsito" column="n_operativo_control_transito" aggregator="sum" />
+        <Measure name="Número Operativos Control Emisión de Gases" column="n_operativo_control_emision_gases" aggregator="sum" />
+        <Measure name="Número Operativos Control Ruidos Molestos" column="n_operativo_control_ruidos_molestos" aggregator="sum" />
+        <Measure name="Número Operativos Control Otro" column="n_operativo_control_otros" aggregator="sum" />
+        <Measure name="Número Beneficiarios Comité Vaso de Leche" column="n_beneficiarios_comite_vaso_leche" aggregator="sum" />
+        <Measure name="Número Beneficiarios Comedor Popular" column="n_beneficiarios_comedor_popular" aggregator="sum" />
+        <Measure name="Número Beneficiarios Club de Madres" column="n_beneficiarios_club_madres" aggregator="sum" />
+        <Measure name="Número Beneficiarios Organizaciones Juveniles" column="n_beneficiarios_organizaciones_juveniles" aggregator="sum" />
+        <Measure name="Número Beneficiarios Organizaciones Sociales" column="n_beneficiarios_organizaciones_sociales" aggregator="sum" />
+        <Measure name="Número Beneficiarios Vaso de Leche Niños (0 a 6 años)" column="n_beneficiarios_vaso_leche_ninos_0_6" aggregator="sum" />
+        <Measure name="Número Beneficiarios Vaso de Leche Niños (7 a 13 años)" column="n_beneficiarios_vaso_leche_ninos_7_13" aggregator="sum" />
+        <Measure name="Número Beneficiarios Vaso de Leche Madres Gestantes" column="n_beneficiarios_vaso_leche_madres_gestantes" aggregator="sum" />
+        <Measure name="Número Beneficiarios Vaso de Leche Madres en Lactancia" column="n_beneficiarios_vaso_leche_madres_lactancia" aggregator="sum" />
+        <Measure name="Número Beneficiarios Vaso de Leche Enfermos Tuberculosis" column="n_beneficiarios_vaso_leche_enfermos_tuberculosis" aggregator="sum" />
+        <Measure name="Número Beneficiarios Vaso de Adultos Mayores" column="n_beneficiarios_vaso_leche_adultos_mayores" aggregator="sum" />
+        <Measure name="Número Beneficiarios Vaso de Leche Personas Discapacitadas" column="n_beneficiarios_vaso_leche_personas_discapacitadas" aggregator="sum" />
+        <Measure name="Número Beneficiarios Vaso de Leche Otro" column="n_beneficiarios_vaso_leche_otros" aggregator="sum" />
+        <Measure name="Número Beneficiarios CIAM" column="n_beneficiarios_ciam" aggregator="sum" />
+        <Measure name="Número Beneficiarios OMAPED" column="n_beneficiarios_omaped" aggregator="sum" />
+        <Measure name="Número Casos Atentidos DEMUNA Alimentos" column="n_casos_atendidos_demuna_alimentos" aggregator="sum" />
+        <Measure name="Número Casos Atentidos DEMUNA Tenencia de Hijos" column="n_casos_atendidos_demuna_tenencia_hijos" aggregator="sum" />
+        <Measure name="Número Casos Atentidos DEMUNA Régimen de Visita" column="n_casos_atendidos_demuna_regimen_visita" aggregator="sum" />
+        <Measure name="Número Casos Atentidos DEMUNA Normas de Comportamiento" column="n_casos_atendidos_demuna_normas_comportamiento" aggregator="sum" />
+        <Measure name="Número Casos Atentidos DEMUNA Reconocimiento Voluntario de Filiación" column="n_casos_atendidos_demuna_reconocimiento_voluntario_filiacion" aggregator="sum" />
+        <Measure name="Número Casos Atentidos DEMUNA Violencia en el Hogar" column="n_casos_atendidos_demuna_violencia_hogar" aggregator="sum" />
+        <Measure name="Número Casos Atentidos DEMUNA Violencia en la Escuela" column="n_casos_atendidos_demuna_violencia_escuela" aggregator="sum" />
+        <Measure name="Número Casos Atentidos DEMUNA Violencia fuera del Hogar" column="n_casos_atendidos_demuna_violencia_fuera_hogar" aggregator="sum" />
+        <Measure name="Número Casos Atentidos DEMUNA Nombre e Identidad" column="n_casos_atendidos_demuna_nombre_identidad" aggregator="sum" />
+        <Measure name="Número Casos Atentidos DEMUNA Matrícula Escolar" column="n_casos_atendidos_demuna_matricula_escolar" aggregator="sum" />
+        <Measure name="Número Casos Atentidos DEMUNA Integridad Sexual" column="n_casos_atendidos_demuna_integridad_sexual" aggregator="sum" />
+        <Measure name="Número Casos Atentidos DEMUNA Casos Sociales" column="n_casos_atendidos_demuna_casos_sociales" aggregator="sum" />
+        <Measure name="Número Casos Atentidos DEMUNA Trabajo Infantil" column="n_casos_atendidos_demuna_trabajo_infantil" aggregator="sum" />
+        <Measure name="Número Casos Atentidos DEMUNA Estado Abandono" column="n_casos_atendidos_demuna_estado_abandono" aggregator="sum" />
+        <Measure name="Número Casos Atentidos DEMUNA Asesoría Psicológica" column="n_casos_atendidos_demuna_asesoria_psicologica" aggregator="sum" />
+        <Measure name="Número Casos Atentidos DEMUNA Asesoría Legal" column="n_casos_atendidos_demuna_asesoria_legal" aggregator="sum" />
+        <Measure name="Número Casos Atentidos DEMUNA Otro" column="n_casos_atendidos_demuna_otro" aggregator="sum" />
+        <Measure name="Número Proyectos Transferencia Insfraestructura Agua" column="n_proyectos_transferencia_infraestructura_agua" aggregator="sum" />
+        <Measure name="Número Proyectos Transferencia Insfraestructura Eléctrica" column="n_proyectos_transferencia_infraestructura_electricidad" aggregator="sum" />
+        <Measure name="Número Proyectos Transferencia Insfraestructura Hospital" column="n_proyectos_transferencia_infraestructura_hospital" aggregator="sum" />
+        <Measure name="Número Proyectos Transferencia Insfraestructura Centro Salud" column="n_proyectos_transferencia_infraestructura_centro_salud" aggregator="sum" />
+        <Measure name="Número Proyectos Transferencia Insfraestructura Posta Salud" column="n_proyectos_transferencia_infraestructura_posta_salud" aggregator="sum" />
+        <Measure name="Número Proyectos Transferencia Insfraestructura Aulas Escolares" column="n_proyectos_transferencia_infraestructura_aulas_escolaes" aggregator="sum" />
+        <Measure name="Número Proyectos Transferencia Insfraestructura Vial" column="n_proyectos_transferencia_infraestructura_vial" aggregator="sum" />
+        <Measure name="Número Proyectos por Transferencia Insfraestructura Sistemas Riego" column="n_proyectos_transferencia_infraestructura_sistemas_riego" aggregator="sum" />
+        <Measure name="Número Proyectos por Transferencia Insfraestructura Otro" column="n_proyectos_transferencia_infraestructura_otro" aggregator="sum" />
+        <Measure name="Número Establecimietnos Municipales Hospital" column="n_establecimientos_municipales_hospital" aggregator="sum" />
+        <Measure name="Número Establecimietnos Municipales Centro Salud" column="n_establecimientos_municipales_centro_salud" aggregator="sum" />
+        <Measure name="Número Establecimietnos Municipales Posta Salud" column="n_establecimientos_municipales_posta_salud" aggregator="sum" />
+        <Measure name="Número Establecimietnos Municipales Consultorio Médico" column="n_establecimientos_municipales_consultorio_medico" aggregator="sum" />
+        <Measure name="Número Establecimietnos Municipales Consultorio Odontológico" column="n_establecimientos_municipales_consultorio_odontologico" aggregator="sum" />
+        <Measure name="Número Establecimietnos Municipales Cada de Reposo" column="n_establecimientos_municipales_casa_reposo" aggregator="sum" />
+        <Measure name="Número Establecimietnos Municipales Centro de Rehabilitación" column="n_establecimientos_municipales_centro_rehabilitacion" aggregator="sum" />
+        <Measure name="Número Establecimietnos Municipales Farmacia" column="n_establecimientos_municipales_farmacia" aggregator="sum" />
+        <Measure name="Número Establecimietnos Municipales Botica" column="n_establecimientos_municipales_botica" aggregator="sum" />
+        <Measure name="Número Establecimietnos Municipales Botiquín Comunal" column="n_establecimientos_municipales_botiquin_comunal" aggregator="sum" />
+        <Measure name="Número Intervenciones Serenazgo Robo Transeúntes" column="n_intervenciones_serenazgo_robo_transeuntes" aggregator="sum" />
+        <Measure name="Número Intervenciones Serenazgo Robo Domicilio" column="n_intervenciones_serenazgo_robo_domicilio" aggregator="sum" />
+        <Measure name="Número Intervenciones Serenazgo Robo Vehículos" column="n_intervenciones_serenazgo_robo_vehiculos" aggregator="sum" />
+        <Measure name="Número Intervenciones Serenazgo Robo Autopartes" column="n_intervenciones_serenazgo_robo_autopartes" aggregator="sum" />
+        <Measure name="Número Intervenciones Serenazgo Robo Establecimientos" column="n_intervenciones_serenazgo_robo_establecimientos" aggregator="sum" />
+        <Measure name="Número Intervenciones Serenazgo Consumo Alcohol Vía Pública" column="n_intervenciones_serenazgo_consumo_alcohol_via_publica" aggregator="sum" />
+        <Measure name="Número Intervenciones Serenazgo Consumo Drogas" column="n_intervenciones_serenazgo_consumo_drogas" aggregator="sum" />
+        <Measure name="Número Intervenciones Serenazgo Accidentes de Tránsito" column="n_intervenciones_serenazgo_accidentes_transito" aggregator="sum" />
+        <Measure name="Número Intervenciones Serenazgo Comercio Informal" column="n_intervenciones_serenazgo_comercio_informal" aggregator="sum" />
+        <Measure name="Número Intervenciones Serenazgo Violencia Familiar" column="n_intervenciones_serenazgo_violencia_familar" aggregator="sum" />
+        <Measure name="Número Intervenciones Serenazgo Pandillaje" column="n_intervenciones_serenazgo_pandillaje" aggregator="sum" />
+        <Measure name="Número Intervenciones Serenazgo Otro" column="n_intervenciones_serenazgo_otro" aggregator="sum" />
+        <Measure name="Plan Seguridad Ciudadana Mapa Delito" column="plan_seguridad_ciudadana_incluye_mapa_delito" aggregator="sum" />
+        <Measure name="Plan Seguridad Ciudadana Mapa Riesgo" column="plan_seguridad_ciudadana_incluye_mapa_riesgo" aggregator="sum" />
+        <Measure name="Plan Seguridad Ciudadana Plan Integrado PNP" column="plan_seguridad_ciudadana_incluye_plan_integrado_pnp" aggregator="sum" />
+        <Measure name="Plan Seguridad Ciudadana Otro" column="plan_seguridad_ciudadana_incluye_otro" aggregator="sum" />
+        <Measure name="Gestión Riesgo Desastres Plan de Prevención de Riesgo" column="gestion_riesgo_desastres_plan_prevencion_riesgo" aggregator="sum" />
+        <Measure name="Gestión Riesgo Desastres Plan de Preparación" column="gestion_riesgo_desastres_plan_preparacion" aggregator="sum" />
+        <Measure name="Gestión Riesgo Desastres Plan Operaciones Emergencia" column="gestion_riesgo_desastres_plan_operaciones_emergencia" aggregator="sum" />
+        <Measure name="Gestión Riesgo Desastres Plan Educación Comunitaria" column="gestion_riesgo_desastres_plan_educacion_comunitaria" aggregator="sum" />
+        <Measure name="Gestión Riesgo Desastres Plan Rehabilitación" column="gestion_riesgo_desastres_plan_rehabilitacion" aggregator="sum" />
+        <Measure name="Gestión Riesgo Desastres Plan Contingencia" column="gestion_riesgo_desastres_plan_contingencia" aggregator="sum" />
+        <Measure name="Gestión Riesgo Desastres Sistema Alerta Temprana Comunitaria" column="gestion_riesgo_desastres_sistema_arleta_temprana_comunitaria" aggregator="sum" />
+        <Measure name="Gestión Riesgo Desastres Mapa Comunitario de Riesgos" column="gestion_riesgo_desastres_mapa_comunitario_riesgos" aggregator="sum" />
+        <Measure name="Gestión Riesgo Desastres Zonificación Ecológica" column="gestion_riesgo_desastres_zonificacion_ecologica" aggregator="sum" />
+        <Measure name="Gestión Riesgo Desastres Informe de Evaluación de Riesgo" column="gestion_riesgo_desastres_informe_evaluacion_riesgo" aggregator="sum" />
+        <Measure name="Gestión Riesgo Desastres Otro" column="gestion_riesgo_desastres_otro" aggregator="sum" />
+        <Measure name="Bienes de Ayuda Humanitaria Techo" column="bienes_ayuda_humanitaria_techo" aggregator="sum" />
+        <Measure name="Bienes de Ayuda Humanitaria Alimentos" column="bienes_ayuda_humanitaria_alimentos" aggregator="sum" />
+        <Measure name="Bienes de Ayuda Humanitaria Agua" column="bienes_ayuda_humanitaria_agua" aggregator="sum" />
+        <Measure name="Bienes de Ayuda Humanitaria Botiquines" column="bienes_ayuda_humanitaria_botiquines" aggregator="sum" />
+        <Measure name="Bienes de Ayuda Humanitaria Abrigo" column="bienes_ayuda_humanitaria_abrigo" aggregator="sum" />
+        <Measure name="Bienes de Ayuda Humanitaria Enseres" column="bienes_ayuda_humanitaria_enseres" aggregator="sum" />
+        <Measure name="Bienes de Ayuda Humanitaria Herramientas" column="bienes_ayuda_humanitaria_herramientas" aggregator="sum" />
+        <Measure name="Bienes de Ayuda Humanitaria Otro" column="bienes_ayuda_humanitaria_otro" aggregator="sum" />
+        <Measure name="Incentivo Micro y Pequeña Empresa Promoción" column="incentivo_micro_pequena_empresas_promocion" aggregator="sum" />
+        <Measure name="Incentivo Micro y Pequeña Empresa Ferias" column="incentivo_micro_pequena_empresas_ferias" aggregator="sum" />
+        <Measure name="Incentivo Micro y Pequeña Empresa Convenios" column="incentivo_micro_pequena_empresas_convenios" aggregator="sum" />
+        <Measure name="Incentivo Micro y Pequeña Empresa Capacitaciones" column="incentivo_micro_pequena_empresas_capacitaciones" aggregator="sum" />
+        <Measure name="Incentivo Micro y Pequeña Empresa Simplificación Licencia" column="incentivo_micro_pequena_empresas_simplificacion_licencia" aggregator="sum" />
+        <Measure name="Incentivo Micro y Pequeña Empresa Educación Financiera" column="incentivo_micro_pequena_empresas_educacion_financiera" aggregator="sum" />
+        <Measure name="Incentivo Micro y Pequeña Empresa Otro" column="incentivo_micro_pequena_empresas_otra" aggregator="sum" />
+        <Measure name="Número Denuncias Ambientales Contaminación Agua Recepcionadas" column="denuncias_ambientales_contaminacion_agua_recepcionadas" aggregator="sum" />
+        <Measure name="Número Denuncias Ambientales Contaminación Agua Atendidas" column="denuncias_ambientales_contaminacion_agua_atendidas" aggregator="sum" />
+        <Measure name="Número Denuncias Ambientales Contaminación Suelo Recepcionadas" column="denuncias_ambientales_contaminacion_suelo_recepcionadas" aggregator="sum" />
+        <Measure name="Número Denuncias Ambientales Contaminación Suelo Atendidas" column="denuncias_ambientales_contaminacion_suelo_atendidas" aggregator="sum" />
+        <Measure name="Número Denuncias Ambientales Contaminación Aire Recepcionadas" column="denuncias_ambientales_contaminacion_aire_recepcionadas" aggregator="sum" />
+        <Measure name="Número Denuncias Ambientales Contaminación Aire Atendidas" column="denuncias_ambientales_contaminacion_aire_atendidas" aggregator="sum" />
+        <Measure name="Número Denuncias Ambientales Tala y Quema de Bosques Recepcionadas" column="denuncias_ambientales_quema_bosques_recepcionadas" aggregator="sum" />
+        <Measure name="Número Denuncias Ambientales Tala y Quema de Bosques Atendidas" column="denuncias_ambientales_quema_bosques_atendidas" aggregator="sum" />
+        <Measure name="Número Denuncias Ambientales Contaminación Sonora Recepcionadas" column="denuncias_ambientales_contaminacion_sonora_recepcionadas" aggregator="sum" />
+        <Measure name="Número Denuncias Ambientales Contaminación Sonora Atendidas" column="denuncias_ambientales_contaminacion_sonora_atendidas" aggregator="sum" />
+        <Measure name="Número Denuncias Ambientales Otro Recepcionadas" column="denuncias_ambientales_otro_recepcionadas" aggregator="sum" />
+        <Measure name="Número Denuncias Ambientales Otro Atendidas" column="denuncias_ambientales_otro_atendidas" aggregator="sum" />
+
     </Cube>
 
 </Schema>
