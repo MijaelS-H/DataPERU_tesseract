@@ -9,14 +9,21 @@
             <Level name="Clase" key_column="class_id" name_column="class_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
-    <SharedDimension name="Ubigeo" type="geo">
-        <Hierarchy name="Ubigeo">
+
+    <SharedDimension name="Ubigeo Nacion" type="geo">
+        <Hierarchy name="Ubigeo Nacion">
+            <Table name="dim_shared_ubigeo" />
+
+            <Level name="Nacion" key_column="nation_id" name_column="nation_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Ubigeo Departamento" type="geo">
+        <Hierarchy name="Ubigeo Departamento">
             <Table name="dim_shared_ubigeo" />
 
             <Level name="Nacion" key_column="nation_id" name_column="nation_name" key_type="text" />
             <Level name="Departamento" key_column="department_id" name_column="department_name" key_type="text" />
-            <Level name="Provincia" key_column="province_id" name_column="province_name" key_type="text" />
-            <Level name="Distrito" key_column="district_id" name_column="district_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
 
@@ -30,20 +37,14 @@
         </Hierarchy>
     </SharedDimension>
 
-    <SharedDimension name="Ubigeo Departamento" type="geo">
-        <Hierarchy name="Ubigeo Departamento">
+    <SharedDimension name="Ubigeo" type="geo">
+        <Hierarchy name="Ubigeo">
             <Table name="dim_shared_ubigeo" />
 
             <Level name="Nacion" key_column="nation_id" name_column="nation_name" key_type="text" />
             <Level name="Departamento" key_column="department_id" name_column="department_name" key_type="text" />
-        </Hierarchy>
-    </SharedDimension>
-
-    <SharedDimension name="Ubigeo Nacion" type="geo">
-        <Hierarchy name="Ubigeo Nacion">
-            <Table name="dim_shared_ubigeo" />
-
-            <Level name="Nacion" key_column="nation_id" name_column="nation_name" key_type="text" />
+            <Level name="Provincia" key_column="province_id" name_column="province_name" key_type="text" />
+            <Level name="Distrito" key_column="district_id" name_column="district_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
 

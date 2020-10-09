@@ -9,14 +9,21 @@
             <Level name="Clase" key_column="class_id" name_column="class_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
-    <SharedDimension name="Ubigeo" type="geo">
-        <Hierarchy name="Ubigeo">
+
+    <SharedDimension name="Ubigeo Nacion" type="geo">
+        <Hierarchy name="Ubigeo Nacion">
+            <Table name="dim_shared_ubigeo" />
+
+            <Level name="Nacion" key_column="nation_id" name_column="nation_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Ubigeo Departamento" type="geo">
+        <Hierarchy name="Ubigeo Departamento">
             <Table name="dim_shared_ubigeo" />
 
             <Level name="Nacion" key_column="nation_id" name_column="nation_name" key_type="text" />
             <Level name="Departamento" key_column="department_id" name_column="department_name" key_type="text" />
-            <Level name="Provincia" key_column="province_id" name_column="province_name" key_type="text" />
-            <Level name="Distrito" key_column="district_id" name_column="district_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
 
@@ -30,20 +37,14 @@
         </Hierarchy>
     </SharedDimension>
 
-    <SharedDimension name="Ubigeo Departamento" type="geo">
-        <Hierarchy name="Ubigeo Departamento">
+    <SharedDimension name="Ubigeo" type="geo">
+        <Hierarchy name="Ubigeo">
             <Table name="dim_shared_ubigeo" />
 
             <Level name="Nacion" key_column="nation_id" name_column="nation_name" key_type="text" />
             <Level name="Departamento" key_column="department_id" name_column="department_name" key_type="text" />
-        </Hierarchy>
-    </SharedDimension>
-
-    <SharedDimension name="Ubigeo Nacion" type="geo">
-        <Hierarchy name="Ubigeo Nacion">
-            <Table name="dim_shared_ubigeo" />
-
-            <Level name="Nacion" key_column="nation_id" name_column="nation_name" key_type="text" />
+            <Level name="Provincia" key_column="province_id" name_column="province_name" key_type="text" />
+            <Level name="Distrito" key_column="district_id" name_column="district_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
     <Cube name="itp_indicators_y_act_dept">
@@ -54,7 +55,7 @@
 
     	<Table name="itp_indicators_y_act_dept" primary_key="ubigeo" />
 
-    	<DimensionUsage foreign_key="ubigeo" source="Ubigeo Departamento" name="Ubigeo" />
+    	<DimensionUsage foreign_key="ubigeo" source="Ubigeo Departamento" name="Ubigeo Departamento" />
 
     	<Dimension name="Year" foreign_key="year">
       		<Hierarchy name="Year">
@@ -116,11 +117,11 @@
       		</Hierarchy>
     	</Dimension>
 
-    	<Measure name="Línea de pobreza alimentaria" column="valor_agregado_bruto_2007" aggregator="sum" />
-    	<Measure name="Línea de pobreza total" column="valor_agregado_bruto_cte" aggregator="sum" />
+    	<Measure name="Valor Agregado Bruto (S/ 2007)" column="valor_agregado_bruto_2007" aggregator="sum" />
+    	<Measure name="Valor Agregado Bruto (S/ Corrientes)" column="valor_agregado_bruto_cte" aggregator="sum" />
 
   	</Cube>
-    <Cube name="inei_renamu_dist">
+<Cube name="inei_renamu_dist">
         <Annotation name="source_name">INEI</Annotation>
         <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
         <Annotation name="dataset_name">Registro Nacional de Municipalidades 2019</Annotation>
@@ -860,7 +861,6 @@
         <Measure name="Gasto Anual Reparación Caminos Rurales No Afirmados" column="gasto_anual_reparacion_caminos_rurales_no_afirmados" aggregator="sum" />
         <Measure name="Longitud Construcción Caminos Rurales No Afirmados" column="longitud_construccion_caminos_rurales_no_afirmados" aggregator="sum" />
         <Measure name="Gasto Anual Construcción Caminos Rurales No Afirmados" column="gasto_anual_construccion_caminos_rurales_no_afirmados" aggregator="sum" />
-        
         <Measure name="Instrumentos Gestión Residuos Plan Integral Gestión Ambiental" column="instrumentos_gestion_residuos_plan_integral_gestion_ambiental" aggregator="sum" />
         <Measure name="Instrumentos Gestión Residuos Plan Manejo Residuos" column="instrumentos_gestion_residuos_plan_manejo_residuos" aggregator="sum" />
         <Measure name="Instrumentos Gestión Residuos Sistema Recojo Residuos" column="instrumentos_gestion_residuos_sistema_recojo_residuos" aggregator="sum" />

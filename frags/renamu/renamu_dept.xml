@@ -739,7 +739,6 @@
         <Measure name="Gasto Anual Reparación Caminos Rurales No Afirmados" column="gasto_anual_reparacion_caminos_rurales_no_afirmados" aggregator="sum" />
         <Measure name="Longitud Construcción Caminos Rurales No Afirmados" column="longitud_construccion_caminos_rurales_no_afirmados" aggregator="sum" />
         <Measure name="Gasto Anual Construcción Caminos Rurales No Afirmados" column="gasto_anual_construccion_caminos_rurales_no_afirmados" aggregator="sum" />
-        
         <Measure name="Instrumentos Gestión Residuos Plan Integral Gestión Ambiental" column="instrumentos_gestion_residuos_plan_integral_gestion_ambiental" aggregator="sum" />
         <Measure name="Instrumentos Gestión Residuos Plan Manejo Residuos" column="instrumentos_gestion_residuos_plan_manejo_residuos" aggregator="sum" />
         <Measure name="Instrumentos Gestión Residuos Sistema Recojo Residuos" column="instrumentos_gestion_residuos_sistema_recojo_residuos" aggregator="sum" />
