@@ -12,7 +12,7 @@
 
     <SharedDimension name="Ubigeo Nacion" type="geo">
         <Hierarchy name="Ubigeo Nacion">
-            <Table name="dim_shared_ubigeo" />
+            <Table name="dim_shared_ubigeo_nation" />
 
             <Level name="Nacion" key_column="nation_id" name_column="nation_name" key_type="text" />
         </Hierarchy>
@@ -20,7 +20,7 @@
 
     <SharedDimension name="Ubigeo Departamento" type="geo">
         <Hierarchy name="Ubigeo Departamento">
-            <Table name="dim_shared_ubigeo" />
+            <Table name="dim_shared_ubigeo_department" />
 
             <Level name="Nacion" key_column="nation_id" name_column="nation_name" key_type="text" />
             <Level name="Departamento" key_column="department_id" name_column="department_name" key_type="text" />
@@ -29,7 +29,7 @@
 
     <SharedDimension name="Ubigeo Provincia" type="geo">
         <Hierarchy name="Ubigeo Provincia">
-            <Table name="dim_shared_ubigeo" />
+            <Table name="dim_shared_ubigeo_province" />
 
             <Level name="Nacion" key_column="nation_id" name_column="nation_name" key_type="text" />
             <Level name="Departamento" key_column="department_id" name_column="department_name" key_type="text" />
@@ -39,7 +39,7 @@
 
     <SharedDimension name="Ubigeo" type="geo">
         <Hierarchy name="Ubigeo">
-            <Table name="dim_shared_ubigeo" />
+            <Table name="dim_shared_ubigeo_district" />
 
             <Level name="Nacion" key_column="nation_id" name_column="nation_name" key_type="text" />
             <Level name="Departamento" key_column="department_id" name_column="department_name" key_type="text" />

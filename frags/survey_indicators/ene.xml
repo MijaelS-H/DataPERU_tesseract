@@ -2,12 +2,12 @@
     <Cube name="ene">
         <Annotation name="source_name">INEI</Annotation>
         <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
-        <Annotation name="dataset_name">Encuestas Nacional de Empresas</Annotation>
+        <Annotation name="dataset_name">Encuesta Nacional de Empresas</Annotation>
         <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/</Annotation>
 
         <Table name="ene" primary_key="ubigeo" />
 
-        <DimensionUsage foreign_key="nation_id" source="Ubigeo Nacion" name="Nacion" />
+        <DimensionUsage foreign_key="nation_id" source="Ubigeo Nacion" name="Ubigeo Nacion" />
 
         <Dimension name="Year" foreign_key="year">
             <Hierarchy name="Year">
