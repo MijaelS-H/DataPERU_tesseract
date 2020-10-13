@@ -1062,7 +1062,7 @@
         </Hierarchy>
         </Dimension>
 
-        <Measure name="Población" column="popul_size" aggregator="sum" />
+        <Measure name="Tamaño de Población" column="popul_size" aggregator="sum" />
         <Measure name="Estimación" column="estimate" aggregator="sum" /> 
         <Measure name="Coeficiente de Variación" column="coef_var" aggregator="avg" />
 
