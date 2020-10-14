@@ -1009,28 +1009,28 @@
 
         <Dimension name="Categoria" foreign_key="category_id">
             <Hierarchy name="Categoria">
-                <Table name="dim_category_ene" />
+                <Table name="dim_category_enaho" />
                 <Level name="Categoria" key_column="category_id" name_column="category_name" key_type="nontext" />
             </Hierarchy>
         </Dimension>
 
         <Dimension name="Indicador" foreign_key="indicator_id">
             <Hierarchy name="Indicador">
-                <Table name="dim_indicator_ene" />
+                <Table name="dim_indicator_enaho" />
                 <Level name="Indicador" key_column="indicator_id" name_column="indicator_name" key_type="nontext" />
             </Hierarchy>
         </Dimension>
 
         <Dimension name="Geo" foreign_key="geo_id">
             <Hierarchy name="Geo">
-                <Table name="dim_indicator_ene" />
+                <Table name="dim_geo_enaho" />
                 <Level name="Geo" key_column="geo_id" name_column="geo_name" key_type="nontext" />
             </Hierarchy>
         </Dimension>
 
         <Dimension name="Region" foreign_key="region_id">
             <Hierarchy name="Region">
-                <Table name="dim_indicator_ene" />
+                <Table name="dim_region_enaho" />
                 <Level name="Region" key_column="region_id" name_column="region_name" key_type="nontext" />
             </Hierarchy>
         </Dimension>
