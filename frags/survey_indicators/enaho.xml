@@ -8,7 +8,7 @@
         <Table name="inei_enaho" primary_key="nation_id" />
 
         <DimensionUsage foreign_key="nation_id" source="Ubigeo Nacion" name="Ubigeo Nacion" />
-        <DimensionUsage foreign_key="department_id" source="Ubigeo Departamento" name="Ubigeo Departamento" />
+        <DimensionUsage foreign_key="department_id" source="Ubigeo Departamento Lite" name="Ubigeo Departamento" />
 
         <Dimension name="Year" foreign_key="year">
             <Hierarchy name="Year">
