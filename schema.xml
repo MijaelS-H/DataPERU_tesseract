@@ -12,7 +12,7 @@
 
     <SharedDimension name="Ubigeo Nacion" type="geo">
         <Hierarchy name="Ubigeo Nacion">
-            <Table name="dim_shared_ubigeo" />
+            <Table name="dim_shared_ubigeo_nation" />
 
             <Level name="Nacion" key_column="nation_id" name_column="nation_name" key_type="text" />
         </Hierarchy>
@@ -20,7 +20,7 @@
 
     <SharedDimension name="Ubigeo Departamento" type="geo">
         <Hierarchy name="Ubigeo Departamento">
-            <Table name="dim_shared_ubigeo" />
+            <Table name="dim_shared_ubigeo_department" />
 
             <Level name="Nacion" key_column="nation_id" name_column="nation_name" key_type="text" />
             <Level name="Departamento" key_column="department_id" name_column="department_name" key_type="text" />
@@ -29,7 +29,7 @@
 
     <SharedDimension name="Ubigeo Provincia" type="geo">
         <Hierarchy name="Ubigeo Provincia">
-            <Table name="dim_shared_ubigeo" />
+            <Table name="dim_shared_ubigeo_province" />
 
             <Level name="Nacion" key_column="nation_id" name_column="nation_name" key_type="text" />
             <Level name="Departamento" key_column="department_id" name_column="department_name" key_type="text" />
@@ -39,7 +39,7 @@
 
     <SharedDimension name="Ubigeo" type="geo">
         <Hierarchy name="Ubigeo">
-            <Table name="dim_shared_ubigeo" />
+            <Table name="dim_shared_ubigeo_district" />
 
             <Level name="Nacion" key_column="nation_id" name_column="nation_name" key_type="text" />
             <Level name="Departamento" key_column="department_id" name_column="department_name" key_type="text" />
@@ -121,7 +121,7 @@
     	<Measure name="Valor Agregado Bruto (S/ Corrientes)" column="valor_agregado_bruto_cte" aggregator="sum" />
 
   	</Cube>
-<Cube name="inei_renamu_dist">
+    <Cube name="inei_renamu_dist">
         <Annotation name="source_name">INEI</Annotation>
         <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
         <Annotation name="dataset_name">Registro Nacional de Municipalidades 2019</Annotation>
@@ -988,6 +988,83 @@
         <Measure name="Número Denuncias Ambientales Contaminación Sonora Atendidas" column="denuncias_ambientales_contaminacion_sonora_atendidas" aggregator="sum" />
         <Measure name="Número Denuncias Ambientales Otro Recepcionadas" column="denuncias_ambientales_otro_recepcionadas" aggregator="sum" />
         <Measure name="Número Denuncias Ambientales Otro Atendidas" column="denuncias_ambientales_otro_atendidas" aggregator="sum" />
+
+    </Cube>
+    <Cube name="inei_ene">
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Encuestas Nacional de Empresas</Annotation>
+        <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/</Annotation>
+
+        <Table name="inei_ene" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="nation_id" source="Ubigeo Nacion" name="Ubigeo Nacion" />
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Categoria" type="geo" foreign_key="category_id">
+            <Hierarchy name="Categoria">
+                <Table name="dim_category_ene" />
+                <Level name="Categoria" key_column="category_id" name_column="category_name" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Indicador" type="geo" foreign_key="indicator_id">
+            <Hierarchy name="Indicador">
+                <Table name="dim_indicator_ene" />
+                <Level name="Indicador" key_column="indicator_id" name_column="indicator_name" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Industria" foreign_key="industry_id">
+        <Hierarchy name="Industria" primary_key="id">
+            <InlineTable alias="dim_inline_industry_id">
+            <ColumnDef name="id" key_type="nontext" />
+            <ColumnDef name="name" key_type="text" />
+            <Row>
+                <Value column="id">1</Value>
+                <Value column="name">Pesca y acuicultura</Value>
+            </Row>
+            <Row>
+                <Value column="id">2</Value>
+                <Value column="name">Explotación de minas y canteras</Value>
+            </Row>
+            <Row>
+                <Value column="id">3</Value>
+                <Value column="name">Industrias manufactureras</Value>
+            </Row>
+            <Row>
+                <Value column="id">4</Value>
+                <Value column="name">Suministro de electricidad, gas y agua</Value>
+            </Row>
+            <Row>
+                <Value column="id">5</Value>
+                <Value column="name">Construcción</Value>
+            </Row>
+            <Row>
+                <Value column="id">6</Value>
+                <Value column="name">Comercio</Value>
+            </Row>
+            <Row>
+                <Value column="id">7</Value>
+                <Value column="name">Transporte y almacenamiento</Value>
+            </Row>
+            <Row>
+                <Value column="id">8</Value>
+                <Value column="name">Servicios</Value>
+            </Row>
+            </InlineTable>
+            <Level name="Industria" key_column="id" name_column="name" />
+        </Hierarchy>
+        </Dimension>
+
+        <Measure name="Tamaño de Población" column="popul_size" aggregator="sum" />
+        <Measure name="Estimación" column="estimate" aggregator="sum" /> 
+        <Measure name="Coeficiente de Variación" column="coef_var" aggregator="avg" />
 
     </Cube>
 
