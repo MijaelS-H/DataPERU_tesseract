@@ -27,6 +27,14 @@
         </Hierarchy>
     </SharedDimension>
 
+    <SharedDimension name="Ubigeo Departamento Lite" type="geo">
+        <Hierarchy name="Ubigeo Departamento Lite">
+            <Table name="dim_shared_ubigeo_department" />
+
+            <Level name="Departamento" key_column="department_id" name_column="department_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
     <SharedDimension name="Ubigeo Provincia" type="geo">
         <Hierarchy name="Ubigeo Provincia">
             <Table name="dim_shared_ubigeo_province" />

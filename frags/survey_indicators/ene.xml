@@ -1,11 +1,11 @@
 <Schema name="dataperu" default_locale="es">
-    <Cube name="ene">
+    <Cube name="inei_ene">
         <Annotation name="source_name">INEI</Annotation>
         <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
         <Annotation name="dataset_name">Encuesta Nacional de Empresas</Annotation>
         <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/</Annotation>
 
-        <Table name="ene" primary_key="ubigeo" />
+        <Table name="inei_ene" primary_key="nation_id" />
 
         <DimensionUsage foreign_key="nation_id" source="Ubigeo Nacion" name="Ubigeo Nacion" />
 
@@ -15,14 +15,14 @@
             </Hierarchy>
         </Dimension>
 
-        <Dimension name="Categoria" type="geo" foreign_key="category_id">
+        <Dimension name="Categoria" foreign_key="category_id">
             <Hierarchy name="Categoria">
                 <Table name="dim_category_ene" />
                 <Level name="Categoria" key_column="category_id" name_column="category_name" key_type="nontext" />
             </Hierarchy>
         </Dimension>
 
-        <Dimension name="Indicador" type="geo" foreign_key="indicator_id">
+        <Dimension name="Indicador" foreign_key="indicator_id">
             <Hierarchy name="Indicador">
                 <Table name="dim_indicator_ene" />
                 <Level name="Indicador" key_column="indicator_id" name_column="indicator_name" key_type="nontext" />

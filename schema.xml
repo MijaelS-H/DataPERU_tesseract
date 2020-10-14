@@ -27,6 +27,14 @@
         </Hierarchy>
     </SharedDimension>
 
+    <SharedDimension name="Ubigeo Departamento Lite" type="geo">
+        <Hierarchy name="Ubigeo Departamento Lite">
+            <Table name="dim_shared_ubigeo_department" />
+
+            <Level name="Departamento" key_column="department_id" name_column="department_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
     <SharedDimension name="Ubigeo Provincia" type="geo">
         <Hierarchy name="Ubigeo Provincia">
             <Table name="dim_shared_ubigeo_province" />
@@ -990,13 +998,63 @@
         <Measure name="Número Denuncias Ambientales Otro Atendidas" column="denuncias_ambientales_otro_atendidas" aggregator="sum" />
 
     </Cube>
-    <Cube name="inei_ene">
+    <Cube name="inei_enaho">
         <Annotation name="source_name">INEI</Annotation>
-        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Hogares</Annotation>
         <Annotation name="dataset_name">Encuestas Nacional de Empresas</Annotation>
         <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/</Annotation>
 
-        <Table name="inei_ene" primary_key="ubigeo" />
+        <Table name="inei_enaho" primary_key="nation_id" />
+
+        <DimensionUsage foreign_key="nation_id" source="Ubigeo Nacion" name="Ubigeo Nacion" />
+        <DimensionUsage foreign_key="department_id" source="Ubigeo Departamento Lite" name="Ubigeo Departamento" />
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Categoria" foreign_key="category_id">
+            <Hierarchy name="Categoria">
+                <Table name="dim_category_enaho" />
+                <Level name="Categoria" key_column="category_id" name_column="category_name" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Indicador" foreign_key="indicator_id">
+            <Hierarchy name="Indicador">
+                <Table name="dim_indicator_enaho" />
+                <Level name="Indicador" key_column="indicator_id" name_column="indicator_name" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Geo" foreign_key="geo_id">
+            <Hierarchy name="Geo">
+                <Table name="dim_geo_enaho" />
+                <Level name="Geo" key_column="geo_id" name_column="geo_name" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Region" foreign_key="region_id">
+            <Hierarchy name="Region">
+                <Table name="dim_region_enaho" />
+                <Level name="Region" key_column="region_id" name_column="region_name" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Tamaño de Población" column="popul_size" aggregator="sum" />
+        <Measure name="Estimación" column="estimate" aggregator="sum" /> 
+        <Measure name="Coeficiente de Variación" column="coef_var" aggregator="avg" />
+
+    </Cube>
+    <Cube name="inei_ene">
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Encuesta Nacional de Empresas</Annotation>
+        <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/</Annotation>
+
+        <Table name="inei_ene" primary_key="nation_id" />
 
         <DimensionUsage foreign_key="nation_id" source="Ubigeo Nacion" name="Ubigeo Nacion" />
 
@@ -1006,14 +1064,14 @@
             </Hierarchy>
         </Dimension>
 
-        <Dimension name="Categoria" type="geo" foreign_key="category_id">
+        <Dimension name="Categoria" foreign_key="category_id">
             <Hierarchy name="Categoria">
                 <Table name="dim_category_ene" />
                 <Level name="Categoria" key_column="category_id" name_column="category_name" key_type="nontext" />
             </Hierarchy>
         </Dimension>
 
-        <Dimension name="Indicador" type="geo" foreign_key="indicator_id">
+        <Dimension name="Indicador" foreign_key="indicator_id">
             <Hierarchy name="Indicador">
                 <Table name="dim_indicator_ene" />
                 <Level name="Indicador" key_column="indicator_id" name_column="indicator_name" key_type="nontext" />
