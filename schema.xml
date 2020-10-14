@@ -1000,7 +1000,7 @@
     </Cube>
     <Cube name="inei_enaho">
         <Annotation name="source_name">INEI</Annotation>
-        <Annotation name="source_description">Instituto Nacional de Hogares</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
         <Annotation name="dataset_name">Encuestas Nacional de Empresas</Annotation>
         <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/</Annotation>
 
@@ -1040,6 +1040,122 @@
             <Hierarchy name="Region">
                 <Table name="dim_region_enaho" />
                 <Level name="Region" key_column="region_id" name_column="region_name" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Tamaño de Población" column="popul_size" aggregator="sum" />
+        <Measure name="Estimación" column="estimate" aggregator="sum" /> 
+        <Measure name="Coeficiente de Variación" column="coef_var" aggregator="avg" />
+
+    </Cube>
+    <Cube name="inei_enave">
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Encuestas Nacional de Victimización de Empresas</Annotation>
+        <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/</Annotation>
+
+        <Table name="inei_enave" primary_key="nation_id" />
+
+        <DimensionUsage foreign_key="nation_id" source="Ubigeo Nacion" name="Ubigeo Nacion" />
+        <DimensionUsage foreign_key="department_id" source="Ubigeo Departamento Lite" name="Ubigeo Departamento" />
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Categoria" foreign_key="category_id">
+            <Hierarchy name="Categoria">
+                <Table name="dim_category_enave" />
+                <Level name="Categoria" key_column="category_id" name_column="category_name" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Indicador" foreign_key="indicator_id">
+            <Hierarchy name="Indicador">
+                <Table name="dim_indicator_enave" />
+                <Level name="Indicador" key_column="indicator_id" name_column="indicator_name" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Industria" foreign_key="industry_id">
+            <Hierarchy name="Industria" primary_key="id">
+                <InlineTable alias="dim_inline_industry_id">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Caza, silvicultura, extracción de madera y pesca</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Comercio</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Comunicaciones</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Construcción</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">Electricidad, gas, agua</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">6</Value>
+                        <Value column="name">Finanzas y seguros</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">7</Value>
+                        <Value column="name">Hospedaje</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">8</Value>
+                        <Value column="name">Manufactura</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">9</Value>
+                        <Value column="name">Minería y petróleo</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">10</Value>
+                        <Value column="name">Otros servicios excl. públicos</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">11</Value>
+                        <Value column="name">Transporte</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Industria" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Tamano Empresa" foreign_key="size_id">
+            <Hierarchy name="Tamano Empresa" primary_key="id">
+                <InlineTable alias="dim_inline_size_id">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Micro</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Pequeña</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Mediana</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Grande</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Tamano Empresa" key_column="id" name_column="name" />
             </Hierarchy>
         </Dimension>
 
