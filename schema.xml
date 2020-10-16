@@ -10,6 +10,41 @@
         </Hierarchy>
     </SharedDimension>
 
+    <SharedDimension name="CIIU Seccion" type="standard">
+        <Hierarchy name="CIIU Seccion">
+            <Table name="dim_shared_ciiu_section" />
+
+            <Level name="Seccion" key_column="section_id" name_column="section_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="CIIU Division" type="standard">
+        <Hierarchy name="CIIU Division">
+            <Table name="dim_shared_ciiu_division" />
+
+            <Level name="Seccion" key_column="section_id" name_column="section_name" key_type="text" />
+            <Level name="Division" key_column="division_id" name_column="division_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="CIIU Division Lite" type="standard">
+        <Hierarchy name="CIIU Division Lite">
+            <Table name="dim_shared_ciiu_division" />
+
+            <Level name="Division" key_column="division_id" name_column="division_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="CIIU Grupo" type="standard">
+        <Hierarchy name="CIIU Grupo">
+            <Table name="dim_shared_ciiu_group" />
+
+            <Level name="Seccion" key_column="section_id" name_column="section_name" key_type="text" />
+            <Level name="Division" key_column="division_id" name_column="division_name" key_type="text" />
+            <Level name="Grupo" key_column="group_id" name_column="group_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
     <SharedDimension name="Ubigeo Nacion" type="geo">
         <Hierarchy name="Ubigeo Nacion">
             <Table name="dim_shared_ubigeo_nation" />
@@ -1234,6 +1269,48 @@
             </InlineTable>
             <Level name="Industria" key_column="id" name_column="name" />
         </Hierarchy>
+        </Dimension>
+
+        <Measure name="Tamaño de Población" column="popul_size" aggregator="sum" />
+        <Measure name="Estimación" column="estimate" aggregator="sum" /> 
+        <Measure name="Coeficiente de Variación" column="coef_var" aggregator="avg" />
+
+    </Cube>
+    <Cube name="inei_enima">
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Encuesta Nacional de de Innovación en las Empresas Manufactureras</Annotation>
+        <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/</Annotation>
+
+        <Table name="inei_enima" primary_key="nation_id" />
+
+        <DimensionUsage foreign_key="nation_id" source="Ubigeo Nacion" name="Ubigeo Nacion" />
+        <DimensionUsage foreign_key="industry_id" source="CIIU Division Lite" name="CIIU Division" />
+
+        <Dimension name="Year Final" foreign_key="year_end">
+            <Hierarchy name="Year Final">
+                <Level name="Year Final" key_column="year_end" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Year Inicio" foreign_key="year_start">
+            <Hierarchy name="Year Inicio">
+                <Level name="Year Inicio" key_column="year_start" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Categoria" foreign_key="category_id">
+            <Hierarchy name="Categoria">
+                <Table name="dim_category_enima" />
+                <Level name="Categoria" key_column="category_id" name_column="category_name" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Indicador" foreign_key="indicator_id">
+            <Hierarchy name="Indicador">
+                <Table name="dim_indicator_enima" />
+                <Level name="Indicador" key_column="indicator_id" name_column="indicator_name" key_type="nontext" />
+            </Hierarchy>
         </Dimension>
 
         <Measure name="Tamaño de Población" column="popul_size" aggregator="sum" />
