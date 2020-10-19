@@ -90,6 +90,50 @@
             <Level name="Distrito" key_column="district_id" name_column="district_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
+
+    <SharedDimension name="Trade Flow" type="standard">
+        <Hierarchy name="Trade Flow">
+            <Table name="dim_shared_trade_flow" />
+
+            <Level name="Trade Flow" key_column="trade_flow_id" name_column="trade_flow" key_type="nontext" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Pais">
+        <Hierarchy name="Pais" primary_key="iso2">
+            <Table name="dim_shared_country"/>
+            <Level name="Continente" key_column="continent_id" name_column="continent_es" key_type="text" />
+            <Level name="Pais" key_column="iso2" name_column="country_name_es" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Date Day" type="time">
+        <Hierarchy name="Date" primary_key="date_id">
+            <Table name="dim_shared_date_month_day" />
+            <Level name="Year" key_column="year" />
+            <Level name="Quarter" key_column="quarter_id" name_column="quarter">
+                <Property name="Quarter ES" column="quarter" caption_set="es" />
+            </Level>
+            <Level name="Month" key_column="month_id" name_column="month">
+                <Property name="Month ES" column="month" caption_set="es" />
+            </Level>
+            <Level name="Date" key_column="date_id" name_column="date">
+                <Property name="Date ES" column="date" caption_set="es" />
+            </Level>
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Producto" type="standard">
+        <Hierarchy name="Producto">
+            <Table name="dim_shared_hs" />
+
+            <Level name="Capítulo" key_column="chapter_id" name_column="chapter_name" key_type="text" />
+            <Level name="HS2" key_column="hs2_id" name_column="hs2_name" key_type="text" />
+            <Level name="HS4" key_column="hs4_id" name_column="hs4_name" key_type="text" />
+            <Level name="HS6" key_column="hs6_id" name_column="hs6_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
     <Cube name="itp_indicators_y_act_dept">
 
     	<Annotation name="topic">Economia</Annotation>
@@ -1032,6 +1076,41 @@
         <Measure name="Número Denuncias Ambientales Otro Recepcionadas" column="denuncias_ambientales_otro_recepcionadas" aggregator="sum" />
         <Measure name="Número Denuncias Ambientales Otro Atendidas" column="denuncias_ambientales_otro_atendidas" aggregator="sum" />
 
+    </Cube>
+    <Cube name="sunat_subnational_trade">
+        <Annotation name="source_name">SUNAT</Annotation>
+        <Annotation name="source_description">Superintendencia Nacional de Aduanas y de Administración Tributaria</Annotation>
+        <Annotation name="dataset_name">Registro de Exportaciones Definitivas</Annotation>
+        <Annotation name="dataset_link">https://www.sunat.gob.pe/</Annotation>
+
+        <Table name="sunat_exports" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="trade_flow_id" source="Trade Flow" name="Trade Flow" />
+        <DimensionUsage foreign_key="country_id" source="Pais" name="Pais Destino" />
+        <DimensionUsage foreign_key="shipment_date_id" source="Date Day" name="Fecha Envio" />
+        <DimensionUsage foreign_key="hs6_id" source="Producto" name="Producto" />
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+        
+
+        <Dimension name="Aduana" foreign_key="aduana_id">
+            <Hierarchy name="Aduana">
+                <Table name="dim_shared_aduanas" />
+
+                <Level name="Aduana" key_column="aduana_id" name_column="aduana" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Unidad" foreign_key="unit">
+            <Hierarchy name="Unidad">
+                <Table name="dim_shared_customs_unities" />
+
+                <Level name="Unidad" key_column="measure_unit_id" name_column="measure_unit_name" key_type="text" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Trade Value" column="trade_value" aggregator="sum" />
+        <Measure name="Peso Neto" column="net_weight_value" aggregator="sum" />
+        <Measure name="Cantidad" column="quantity" aggregator="sum" />
     </Cube>
     <Cube name="inei_eea">
         <Annotation name="source_name">INEI</Annotation>
