@@ -1,0 +1,31 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="inei_eea">
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Encuesta Económica Anual</Annotation>
+        <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/</Annotation>
+
+        <Table name="inei_eea" primary_key="nation_id" />
+
+        <DimensionUsage foreign_key="nation_id" source="Ubigeo Nacion" name="Ubigeo Nacion" />
+        <DimensionUsage foreign_key="industry_id" source="CIIU Division Lite" name="CIIU Division" />
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Indicador" foreign_key="indicator_id">
+            <Hierarchy name="Indicador">
+                <Table name="dim_indicator_eea" />
+                <Level name="Indicador" key_column="indicator_id" name_column="indicator_name" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Tamaño de Población" column="popul_size" aggregator="sum" />
+        <Measure name="Estimación" column="estimate" aggregator="sum" /> 
+        <Measure name="Coeficiente de Variación" column="coef_var" aggregator="avg" />
+
+    </Cube>
+</Schema>
