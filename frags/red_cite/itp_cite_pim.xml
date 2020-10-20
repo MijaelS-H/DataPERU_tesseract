@@ -1,0 +1,30 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="itp_cite_descriptivo">
+        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
+
+        <Table name="itp_cite_pim" primary_key="cite_id"/>
+
+    
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+
+
+        <Dimension name="Year" foreign_key="anio">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="anio" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+
+        <Dimension name="PIM" foreign_key="pim">
+            <Hierarchy name="PIM">
+                <Level name="PIM" key_column="pim" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Numero de CITE" column="cite_id" aggregator="count" />
+
+    </Cube>
+</Schema>       

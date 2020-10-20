@@ -1,0 +1,82 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="itp_cite_descriptivo">
+        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
+
+        <Table name="itp_cite_empresas_ciiu_agg" primary_key="cite_id"/>
+
+    
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+        <DimensionUsage foreign_key="cad_prod_id" source="Cadena productiva" name="Cadena productiva" />       
+    <!--
+        <DimensionUsage foreign_key="partida_id" source="????" name="???" />       
+        -->
+    
+
+        <Dimension name="Sector" foreign_key="sector_id">
+            <Hierarchy name="Sector" primary_key="id">
+                <InlineTable alias="dim_inline_sector_id_cite">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Agropecuario</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Maderas y papeles</Value>
+                    </Row>
+                      <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Metalmecanico</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Mineria no metalica</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">Pesquero</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">6</Value>
+                        <Value column="name">Quimico</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">7</Value>
+                        <Value column="name">Resto no tradicionales</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">8</Value>
+                        <Value column="name">Textil</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Sector" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Tipo exportacion" foreign_key="sector_id">
+            <Hierarchy name="Tipo exportacion" primary_key="id">
+                <InlineTable alias="dim_inline_sector_id_cite">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">No tradicional</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Tradicional</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Tipo exportacion" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+
+        <Measure name="Cantidad CITE" column="cantidad_cite" aggregator="count" />
+
+    </Cube>
+</Schema>       

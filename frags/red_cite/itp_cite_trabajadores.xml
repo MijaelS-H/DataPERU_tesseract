@@ -1,0 +1,81 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="itp_cite_descriptivo">
+        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
+
+        <Table name="itp_cite_trabajadores" primary_key="cite_id"/>
+
+    
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+
+
+        <Dimension name="Year" foreign_key="anio">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="anio" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Modalidad" foreign_key="modalidad_id">
+            <Hierarchy name="Modalidad" primary_key="id">
+                <InlineTable alias="dim_inline_modalidad_id_cite">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Contrato Administrativo de Servicios</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Contrato a Plazo Indeterminado</Value>
+                    </Row>
+                      <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Practicantes</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Servicios de Terceros</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Modalidad" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Tipo trabajador" foreign_key="tipo_trabajador_id">
+            <Hierarchy name="Tipo trabajador" primary_key="id">
+                <InlineTable alias="dim_inline_tipo_trabajador_id_cite">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Administrativo</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Directivo</Value>
+                    </Row>
+                      <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Operativo</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Practicante</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">Tecnico</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Tipo trabajador" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+
+
+        <Measure name="Cantidad" column="cantidad" aggregator="sum" />
+
+    </Cube>
+</Schema>       

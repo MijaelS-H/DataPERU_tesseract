@@ -91,6 +91,31 @@
         </Hierarchy>
     </SharedDimension>
 
+    <SharedDimension name="CITE" type="geo">
+        <Hierarchy name="CITE">
+            <Table name="dim_shared_cite" />
+            <Level name="CITE" key_column="cite_id" name_column="cite_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    
+    <SharedDimension name="Contribuyente" type="standard">
+        <Hierarchy name="Contribuyente">
+            <Table name="dim_shared_cite_contribuyente" />
+            <Level name="Contribuyente" key_column="contribuyente_id" name_column="contribuyente" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Cadena productiva" type="standard">
+        <Hierarchy name="Cadena productiva">
+            <Table name="dim_shared_cite_cad_prod" />
+            <Level name="Cadena productiva" key_column="cad_prod_id" name_column="cadena_productiva" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+
+
+
     <!--
     <SharedDimension name="Edad">
         <Hierarchy name="Edad" type="standard">

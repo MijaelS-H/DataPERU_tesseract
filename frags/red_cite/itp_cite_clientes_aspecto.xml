@@ -1,0 +1,71 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="itp_cite_descriptivo">
+        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
+
+        <Table name="itp_cite_clientes_aspecto" primary_key="cite_id"/>
+
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+
+
+        <Dimension name="Aspecto" foreign_key="aspecto_id">
+            <Hierarchy name="Aspecto" primary_key="id">
+                <InlineTable alias="dim_inline_aspecto_id_cite">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Aguas residuales</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Capacitación y asistencia técnica</Value>
+                    </Row>
+                      <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Equipamiento</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Fecha prevista de inauguración</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">Infraestructura</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">6</Value>
+                        <Value column="name">Proyecto</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">7</Value>
+                        <Value column="name">Saneamiento físico</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">8</Value>
+                        <Value column="name">Suministro de agua</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">9</Value>
+                        <Value column="name">Suministro eléctrico</Value>
+                    </Row>
+
+
+                </InlineTable>
+                <Level name="Aspecto" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+
+        <Dimension name="Estado" foreign_key="estado">
+            <Hierarchy name="Estado">
+                <Level name ="Estado" key_column="estado" key_type="text" />
+              </Hierarchy>
+        </Dimension>
+
+        <Measure name="CITE" column="cite_id" aggregator="count" />
+
+    </Cube>
+</Schema>       
