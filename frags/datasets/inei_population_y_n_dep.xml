@@ -54,4 +54,4 @@
         <Measure name = "Numero de denuncias de robo" column = "n_denuncias_robo_vehiculos" aggregator = "sum" />
 
     </Cube>
-</Schema
+</Schema>
