@@ -1,0 +1,142 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="inei_population_y_age_nat_travel">
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Registro Nacional de Municipalidades 2019</Annotation>
+        <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/catalog/709</Annotation>
+
+        <Table name="inei_population_y_age_nat_travel" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Producto Interno Bruto" column="producto_interno_bruto" aggregator="sum" />
+        <Measure name="Remuneraciones" column="remuneraciones" aggregator="sum" />
+        <Measure name="Derechos importacion" column="derechos_importacion" aggregator="sum" />
+        <Measure name="Impuestos oroductos" column="impuestos_productos" aggregator="sum" />
+        <Measure name="Otros impuestos" column="otros_impuestos" aggregator="sum" />
+        <Measure name="Ingreso explotacion" column="ingreso_explotacion" aggregator="sum" />
+        <Measure name="Excedente explotacion bruto" column="excedente_explotacion_bruto" aggregator="sum" />
+        <Measure name="Ingreso mixto" column="ingreso_mixto" aggregator="sum" />
+        <Measure name="Agricultura, ganaderia, caza y silvicultura" column="agricultura_ganaderia_caza_silvicultura" aggregator="sum" />
+        <Measure name="Pesca" column="pesca" aggregator="sum" />
+        <Measure name="Mineria" column="mineria" aggregator="sum" />
+        <Measure name="Industria manufacturera" column="industria_manufacturera" aggregator="sum" />
+        <Measure name="Electricidad, gas y agua" column="electricidad_gas_agua" aggregator="sum" />
+        <Measure name="Construccion" column="construccion" aggregator="sum" />
+        <Measure name="Extraccion de petroleo, gas, minerales y servicios conexos" column="extraccion_petroleo_gas_minerales_servicios_conexos" aggregator="sum" />
+        <Measure name="Manufactura" column="manufactura" aggregator="sum" />
+        <Measure name="Comercio" column="comercio" aggregator="sum" />
+        <Measure name="Hoteles y restaurantes" column="hoteles_restaurantes" aggregator="sum" />
+        <Measure name="Transporte, almacenamiento y comunicaciones" column="transporte_almacenamiento_comunicaciones" aggregator="sum" />
+        <Measure name="Intermediacion financiera" column="intermediacion_financiera" aggregator="sum" />
+        <Measure name="Actividades inmobiliarias, empresariales y de alquiler" column="actividad_inmobiliarias_empresariales_alquiler" aggregator="sum" />
+        <Measure name="Administracion publica defensa" column="administracion_publica_defensa" aggregator="sum" />
+        <Measure name="Enseñanza" column="enseñanza" aggregator="sum" />
+        <Measure name="Servicios sociales y de salud" column="servicios_sociales_salud" aggregator="sum" />
+        <Measure name="Otras actividades y servicios comunitarios" column="otras_actividades_servicios_comunitarios" aggregator="sum" />
+        <Measure name="Hogares privados y organizaciones extraterritoriales" column="hogares_privados_organizaciones_extraterritoriales" aggregator="sum" />
+        <Measure name="Creditos hipotecarios para la vivienda" column="creditos_hipotecariosvivienda" aggregator="sum" />
+        <Measure name="Creditos de consumo" column="creditos_consumo" aggregator="sum" />
+        <Measure name="Exportaciones" column="exportaciones" aggregator="sum" />
+        <Measure name="Importaciones" column="importaciones" aggregator="sum" />
+        <Measure name="Balanza comercial" column="balanza_comercial" aggregator="sum" />
+        <Measure name="Balanza de pagos" column="balanza_pagos" aggregator="sum" />
+        <Measure name="Activos externos netos de corto plazo" column="activos_externos_netos_corto_plazo" aggregator="sum" />
+        <Measure name="Deuda publica externa" column="deuda_publica_externa" aggregator="sum" />
+        <Measure name="Activos reserva BCRP" column="act_reserva_BCRP" aggregator="sum" />
+        <Measure name="Activos sistema financiero sin BCRP" column="act_sist_financiero_sin_BCRP" aggregator="sum" />
+        <Measure name="Activos otros activos" column="act_otros_activos" aggregator="sum" />
+        <Measure name="Pasivos med/lar plazo sector privado" column="pas_med_lar_sector_privado" aggregator="sum" />
+        <Measure name="Pasivos med/lar plazo sector publico" column="pas_med_lar_sector_publico" aggregator="sum" />
+        <Measure name="Pasivos cort plazo sist financiero sin BCRP" column="pas_cort_sist_financiero_sin_BCRP" aggregator="sum" />
+        <Measure name="Pasivos cort plazo BCRP" column="pas_cort_BCRP" aggregator="sum" />
+        <Measure name="Pasivos cort plazo otros" column="pas_cort_otros" aggregator="sum" />
+        <Measure name="Pasivos inversion directa" column="pas_inversion_directa" aggregator="sum" />
+        <Measure name="Pasivos participacion capital" column="pas_participacion_capital" aggregator="sum" />
+        <Measure name="Poblacion total" column="poblacion_total" aggregator="sum" />
+        <Measure name="Poblacion censada" column="poblacion_censada" aggregator="sum" />
+        <Measure name="Poblacion omitida" column="poblacion_omitida" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa hombres" column="pea_hombres" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa mujeres" column="pea_mujeres" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa 14 a 24" column="pea_14_24_yrs" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa 25 a 44" column="pea_25_44_yrs" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa 45 a 64" column="pea_45_64_yrs" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa 65 o mas" column="pea_65_o_mas_yrs" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa primaria o inferior" column="pea_primaria_o_inferior" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa secundaria" column="pea_secundaria" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa superior no universitaria" column="pea_superior_no_universitaria" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa universitaria" column="pea_universitaria" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa en empresa 1 10 empleados" column="pea_empresa_1_10_empleados" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa en empresa 11 50 empleados" column="pea_empresa_11_50_empleados" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa en empresa 50 o mas empleados" column="pea_empresa_50_o_mas_empleados" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa en agricultura pesca mineria" column="pea_agricultura_pesca_mineria" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa en manufactura" column="pea_manufactura" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa en construccion" column="pea_construccion" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa en comercio" column="pea_comercio" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa en transporte comunicaciones" column="pea_transporte_comunicaciones" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa en otros servicios" column="pea_otros_servicios" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa sin seguro medico" column="pea_sin_seguro_medico" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa con seguro medico" column="pea_con_seguro_medico" aggregator="sum" />
+        <Measure name="Porcentaje poblacion con 1 necesidad basica insatisfecha" column="perc_poblacion_con_1_nbi" aggregator="avg" />
+        <Measure name="Porcentaje poblacion con 2 o mas necesidad basica insatisfecha" column="perc_poblacion_con_2_a_5_nbi" aggregator="avg" />
+        <Measure name="Porcentaje poblacion (nbi) vivienda inadecuada" column="perc_poblacion_nbi_vivienda_inadecuada" aggregator="avg" />
+        <Measure name="Porcentaje poblacion (nbi) vivienda hacinada" column="perc_poblacion_nbi_vivienda_hacinada" aggregator="avg" />
+        <Measure name="Porcentaje poblacion (nbi) carecen servicios higienicos" column="perc_poblacion_nbi_servicios_higienicos" aggregator="avg" />
+        <Measure name="Porcentaje poblacion (nbi) menores sin escuela" column="perc_poblacion_nbi_menores_sin_escuela" aggregator="avg" />
+        <Measure name="Porcentaje poblacion (nbi) alta dependencia economica" column="perc_poblacion_nbi_alta_dependencia_economica" aggregator="avg" />
+        <Measure name="Gasto social en educacion inicial" column="gasto_social_educacion_inicial" aggregator="sum" />
+        <Measure name="Gasto social en educacion primaria" column="gasto_social_educacion_primaria" aggregator="sum" />
+        <Measure name="Gasto social en educacion secundaria" column="gasto_social_educacion_secundaria" aggregator="sum" />
+        <Measure name="Gasto social en asistencia social" column="gasto_social_asistencia_social" aggregator="sum" />
+        <Measure name="Gasto social en salud colectiva" column="gasto_social_salud_colectiva" aggregator="sum" />
+        <Measure name="Gasto social en salud individual" column="gasto_social_salud_individual" aggregator="sum" />
+        <Measure name="Gasto gobierno en sector publico" column="gasto_gobierno_sector_publico" aggregator="sum" />
+        <Measure name="Gasto gobierno en sector privado" column="gasto_gobierno_sector_privado" aggregator="sum" />
+        <Measure name="Analfabetismo total entre edades de 15 a 19" column="analfabetismo_total_15_19" aggregator="sum" />
+        <Measure name="Analfabetismo total entre edades de 20 a 29" column="analfabetismo_total_20_29" aggregator="sum" />
+        <Measure name="Analfabetismo total entre edades de 30 a 39" column="analfabetismo_total_30_39" aggregator="sum" />
+        <Measure name="Analfabetismo total entre edades de 40 a 49" column="analfabetismo_total_40_49" aggregator="sum" />
+        <Measure name="Analfabetismo total entre edades de 50 a 59" column="analfabetismo_total_50_59" aggregator="sum" />
+        <Measure name="Analfabetismo total en edad de 60 y mas" column="analfabetismo_total_60_y_mas" aggregator="sum" />
+        <Measure name="Analfabetismo en hombres entre edades de 15 a 19" column="analfabetismo_h_15_19" aggregator="sum" />
+        <Measure name="Analfabetismo en mujeres entre edades de 15 a 19" column="analfabetismo_f_15_19" aggregator="sum" />
+        <Measure name="Analfabetismo en hombres entre edades de 20 a 29" column="analfabetismo_h_20_29" aggregator="sum" />
+        <Measure name="Analfabetismo en mujeres entre edades de 20 a 29" column="analfabetismo_f_20_29" aggregator="sum" />
+        <Measure name="Analfabetismo en hombres entre edades de 30 a 39" column="analfabetismo_h_30_39" aggregator="sum" />
+        <Measure name="Analfabetismo en mujeres entre edades de 30 a 39" column="analfabetismo_f_30_39" aggregator="sum" />
+        <Measure name="Analfabetismo en hombres entre edades de 40 a 49" column="analfabetismo_h_40_49" aggregator="sum" />
+        <Measure name="Analfabetismo en mujeres entre edades de 40 a 49" column="analfabetismo_f_40_49" aggregator="sum" />
+        <Measure name="Analfabetismo en hombres entre edades de 50 a 59" column="analfabetismo_h_50_59" aggregator="sum" />
+        <Measure name="Analfabetismo en mujeres entre edades de 50 a 59" column="analfabetismo_f_50_59" aggregator="sum" />
+        <Measure name="Analfabetismo en hombres en edad de 60 y mas" column="analfabetismo_h_60_y_mas" aggregator="sum" />
+        <Measure name="Analfabetismo en mujeres en edad de 60 y mas" column="analfabetismo_f_60_y_mas" aggregator="sum" />
+        <Measure name="Millones de toneladas de CO2 equivalente" column="millones_toneladas_co2_equivalente" aggregator="sum" />
+        <Measure name="Delitos contra vida cuerpo salud" column="delitos_vida_cuerpo_salud" aggregator="sum" />
+        <Measure name="Delitos contra honor" column="delitos_honor" aggregator="sum" />
+        <Measure name="Delitos contra familia" column="delitos_familia" aggregator="sum" />
+        <Measure name="Delitos contra libertad" column="delitos_libertad" aggregator="sum" />
+        <Measure name="Delitos contra patrimonio" column="delitos_patrimonio" aggregator="sum" />
+        <Measure name="Delitos contra confianza buena fe negocios" column="delitos_confianza_buena_fe_negocios" aggregator="sum" />
+        <Measure name="Delitos contra derechos intelectuales" column="delitos_derechos_intelectuales" aggregator="sum" />
+        <Measure name="Delitos contra patrimonio cultural" column="delitos_patrimonio_cultural" aggregator="sum" />
+        <Measure name="Delitos contra orden economico" column="delitos_orden_economico" aggregator="sum" />
+        <Measure name="Delitos contra orden financiero monetario" column="delitos_orden_financiero_monetario" aggregator="sum" />
+        <Measure name="Delitos contra tributarios" column="delitos_tributarios" aggregator="sum" />
+        <Measure name="Delitos contra seguridad publica" column="delitos_seguridad_publica" aggregator="sum" />
+        <Measure name="Delitos contra ambientales" column="delitos_ambientales" aggregator="sum" />
+        <Measure name="Delitos contra tranquilidad publica" column="delitos_tranquilidad_publica" aggregator="sum" />
+        <Measure name="Delitos contra humanidad" column="delitos_humanidad" aggregator="sum" />
+        <Measure name="Delitos contra estado defensa nacional" column="delitos_estado_defensa_nacional" aggregator="sum" />
+        <Measure name="Delitos contra poderes estado orden const" column="delitos_poderes_estado_orden_const" aggregator="sum" />
+        <Measure name="Delitos contra voluntad popular" column="delitos_voluntad_popular" aggregator="sum" />
+        <Measure name="Delitos contra administracion publica" column="delitos_administracion_publica" aggregator="sum" />
+        <Measure name="Delitos contra fe publica" column="delitos_fe_publica" aggregator="sum" />
+
+    </Cube>
+</Schema>

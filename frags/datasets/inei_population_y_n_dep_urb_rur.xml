@@ -1,0 +1,46 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="inei_population_y_n_dep_urb_rur">
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Registro Nacional de Municipalidades 2019</Annotation>
+        <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/catalog/709</Annotation>
+
+        <Table name="inei_population_y_n_dep_urb_rur" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Tipo de indicador" foreign_key="measure">
+            <Hierarchy name="Tipo de indicador" primary_key="id">
+                <InlineTable alias="dim_measure">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">evo_pob_censada_urb</Value>
+                        <Value column="name">Evolucion poblacion censada urbana</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">evo_pob_censada_rur</Value>
+                        <Value column="name">Evolucion poblacion censada rural</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">matriculados_sist_educa_urb</Value>
+                        <Value column="name">Matriculados sistema educativo urbano</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">matriculados_sist_educa_rur</Value>
+                        <Value column="name">Matriculados sistema educativo rural</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Tipo de migracion" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Poblacion" column="poblacion" aggregator="sum" />
+    </Cube>
+</Schema>

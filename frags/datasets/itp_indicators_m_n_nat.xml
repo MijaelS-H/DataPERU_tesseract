@@ -1,0 +1,27 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="itp_indicators_m_n_nat">
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Registro Nacional de Municipalidades 2019</Annotation>
+        <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/catalog/709</Annotation>
+
+        <Table name="itp_indicators_m_n_nat" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+
+        <Dimension name="Month" foreign_key="month_id">
+            <Hierarchy name="Month">
+                <Level name="Month" key_column="month_id" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="IPC base observado (2011)" column="ipc_base_2011_observado" aggregator="sum" />
+        <Measure name="IPC base variacion mes anterior (2011)" column="ipc_base_2011_var_mes_anterior" aggregator="sum" />
+        <Measure name="IPC base variacion acumulada (2011)" column="ipc_base_2011_var_acumulado" aggregator="sum" />
+        <Measure name="IPC base variacion año anterior (2011)" column="ipc_base_2011_var_anio_anterior" aggregator="sum" />
+        <Measure name="IPM base observado (2013)" column="ipm_base_2013_observado" aggregator="sum" />
+        <Measure name="IPM base variacion mes anterior(2013)" column="ipm_base_2013_var_mes_anterior" aggregator="sum" />
+        <Measure name="IPM base variacion acumulada(2013)" column="ipm_base_2013_var_acumulado" aggregator="sum" />
+
+    </Cube>
+</Schema>

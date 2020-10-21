@@ -1,0 +1,29 @@
+<Schema name="dataperu" default_locale="es">
+	<Cube name="itp_indicators_y_act_dept">
+
+    	<Annotation name="topic">Economia</Annotation>
+      	<Annotation name="subtopic">Economia</Annotation>
+      	<Annotation name="source_name">Indicadores ITP</Annotation>
+
+    	<Table name="itp_indicators_y_act_dept" primary_key="ubigeo" />
+
+    	<DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+
+    	<Dimension name="Year" foreign_key="year">
+      		<Hierarchy name="Year">
+	  	  		<Level name="Year" key_column="year" />
+      		</Hierarchy>
+    	</Dimension>
+
+    	<Dimension name="Actividad economica" foreign_key="act_economica">
+      		<Hierarchy name="Actividad economica" primary_key="id">
+
+        		<Level name="Actividad economica" key_column="id" name_column="name" />
+      		</Hierarchy>
+    	</Dimension>
+
+    	<Measure name="Producto Interno Bruto (S/ 2007)" column="pib_54_2007" aggregator="sum" />
+    	<Measure name="Producto Interno Bruto (S/ Corrientes)" column="pib_54_cte" aggregator="sum" />
+
+  	</Cube>
+</Schema>

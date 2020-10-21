@@ -1,0 +1,118 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="inei_population_y_age_nat_travel">
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Registro Nacional de Municipalidades 2019</Annotation>
+        <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/catalog/709</Annotation>
+
+        <Table name="inei_population_y_age_nat_travel" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Grupo de edad" foreign_key="age_group">
+            <Hierarchy name="Grupo de edad" primary_key="id">
+                <InlineTable alias="dim_age_group">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">0 - 9</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">10 - 19</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">20 - 29</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">30 - 39</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">40 - 49</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">6</Value>
+                        <Value column="name">50 - 59</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">7</Value>
+                        <Value column="name">60 - 69</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">8</Value>
+                        <Value column="name">70 - 79</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">9</Value>
+                        <Value column="name">80 y más</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Grupo de edad" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Tipo de migracion" foreign_key="inmigration_flow">
+            <Hierarchy name="Tipo de migracion" primary_key="id">
+                <InlineTable alias="dim_inmigration_flow">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Emigracion</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Inmigracion</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Tipo de migracion" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Continente de origen/destino" foreign_key="continente">
+            <Hierarchy name="Continente de origen/destino" primary_key="id">
+                <InlineTable alias="dim_continente">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">América del Norte</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">América del Centro</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">América del Sur</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">Europa</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">Asia</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">África</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">Oceanía</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">Otros</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Continente de origen/destino" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Poblacion" column="poblacion" aggregator="sum" />
+    </Cube>
+</Schema>

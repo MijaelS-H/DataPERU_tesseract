@@ -1,0 +1,39 @@
+<Schema name="dataperu" default_locale="es">
+	<Cube name="proinversion_fdi_y_origin_nat">
+
+    	<Annotation name="topic">Economia</Annotation>
+      	<Annotation name="subtopic">Economia</Annotation>
+      	<Annotation name="source_name">Indicadores ITP</Annotation>
+
+        <Table name="proinversion_fdi_y_origin_nat" primary_key="ubigeo" />
+
+
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+              <Level name="Year" key_column="year" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Pais" foreign_key="country_name_es">
+            <Hierarchy name="Pais">
+              <Level name="Pais" key_column="country_name_es" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="ISO3" foreign_key="iso3">
+            <Hierarchy name="ISO3">
+              <Level name="ISO3" key_column="iso3" />
+            </Hierarchy>
+        </Dimension>
+
+
+
+
+        <Measure name="Numero de pacientes" column="poblacion" aggregator="sum" />
+
+  	</Cube>
+</Schema>
+

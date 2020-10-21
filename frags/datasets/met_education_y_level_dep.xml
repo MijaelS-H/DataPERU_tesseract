@@ -1,0 +1,120 @@
+<Schema name="dataperu" default_locale="es">
+	<Cube name="met_education_y_level_dep">
+
+    	<Annotation name="topic">Economia</Annotation>
+      	<Annotation name="subtopic">Economia</Annotation>
+      	<Annotation name="source_name">Indicadores ITP</Annotation>
+
+        <Table name="met_education_y_level_dep" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+              <Level name="Year" key_column="year" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Causas de hospitalizacion" foreign_key="causas">
+            <Hierarchy name="Causas de hospitalizacion" primary_key="id">
+              <InlineTable alias="dim_inline_causas">
+                  <ColumnDef name="id" key_type="nontext" />
+                  <ColumnDef name="name" key_type="text" />
+                  <Row>
+                    <Value column="id">Ciertas enfermedades infecciosas y parasitarias</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Tumores (Neoplasias)</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Enfermedades de la sangre y de los órganos hematopoyéticos</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Enfermedades  endocrinas, nutricionales y metabólicas</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Trastornos mentales y del comportamiento</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Enfermedades del sistema nervioso </Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Enfermedades del ojo y de sus anexos</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Enfermedades del oído y de la apófisis mastoidea</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Enfermedades del sistema circulatorio</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Enfermedades del sistema respiratorio </Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Enfermedades del sistema digestivo </Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Enfermedades de la piel  y del tejido subcutáneo</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Enfermedades del sistema osteomuscular y del tejido</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Enfermedades del sistema genito urinario</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Embarazo, parto y puerperio</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Ciertas afecciones originadas en el período perinatal</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Malformaciones congénitas, deformidades y anomalías </Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Síntomas, signos y hallazgos anormales clínicos</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Traumatismos y envenenamientos</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Factores que influyen en el estado de salud</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Causas externas de morbilidad y mortalidad</Value>
+                  </Row>
+              </InlineTable>
+              <Level name="Causas de hospitalizacion" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Grupo de edad" foreign_key="age_group">
+            <Hierarchy name="Grupo de edad" primary_key="id">
+                <InlineTable alias="dim_age_group">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">Menores de 15 años</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">De 15 a 24 años</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">De 25 a 49 años</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">50 y más años</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">Ignorado</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Grupo de edad" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Numero de pacientes" column="poblacion" aggregator="sum" />
+
+  	</Cube>
+</Schema>
+
+
