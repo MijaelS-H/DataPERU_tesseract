@@ -356,6 +356,421 @@
         <Measure name="Número de denuncias atendidas por contaminación sonora" column="RENAMU_187" aggregator="sum" />
 ​
     </Cube>
+    <Cube name="inei_population_y_age_nat_travel">
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Registro Nacional de Municipalidades 2019</Annotation>
+        <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/catalog/709</Annotation>
+
+        <Table name="inei_population_y_age_nat_travel" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Grupo de edad" foreign_key="age_group">
+            <Hierarchy name="Grupo de edad" primary_key="id">
+                <InlineTable alias="dim_age_group">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">0 - 9</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">10 - 19</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">20 - 29</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">30 - 39</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">40 - 49</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">6</Value>
+                        <Value column="name">50 - 59</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">7</Value>
+                        <Value column="name">60 - 69</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">8</Value>
+                        <Value column="name">70 - 79</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">9</Value>
+                        <Value column="name">80 y más</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Grupo de edad" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Tipo de migracion" foreign_key="inmigration_flow">
+            <Hierarchy name="Tipo de migracion" primary_key="id">
+                <InlineTable alias="dim_inmigration_flow">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Emigracion</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Inmigracion</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Tipo de migracion" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Continente de origen/destino" foreign_key="continente">
+            <Hierarchy name="Continente de origen/destino" primary_key="id">
+                <InlineTable alias="dim_continente">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">América del Norte</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">América del Centro</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">América del Sur</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">Europa</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">Asia</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">África</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">Oceanía</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">Otros</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Continente de origen/destino" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Poblacion" column="poblacion" aggregator="sum" />
+    </Cube>
+    <Cube name="inei_population_y_gender_dep">
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Registro Nacional de Municipalidades 2019</Annotation>
+        <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/catalog/709</Annotation>
+
+        <Table name="inei_population_y_gender_dep" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Poblacion masculina" column="poblacion_masculina" aggregator="sum" />
+        <Measure name="Poblacion femenina" column="poblacion_femenina" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa total masculina" column="pea_total_masculina" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa total femenina" column="pea_total_femenina" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa ocupada masculina" column="pea_ocupada_masculina" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa ocupada femenina" column="pea_ocupada_femenina" aggregator="sum" />
+        <Measure name="Ingreso promedio mensual total nominal" column="ingreso_promedio_mensual_soles_nom" aggregator="sum" />
+        <Measure name="Ingreso promedio mensual masculina nominal" column="ingreso_promedio_m_mensual_soles_nom" aggregator="sum" />
+        <Measure name="Ingreso promedio mensual femenina nominal" column="ingreso_promedio_f_mensual_soles_nom" aggregator="sum" />
+
+    </Cube>
+    <Cube name="inei_population_y_gender_nat_travel">
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Registro Nacional de Municipalidades 2019</Annotation>
+        <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/catalog/709</Annotation>
+
+        <Table name="inei_population_y_gender_nat_travel" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Sexo" foreign_key="sexo">
+            <Hierarchy name="Sexo" primary_key="id">
+                <InlineTable alias="dim_sexo">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Hombre</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Mujer</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Sexo" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Tipo de migracion" foreign_key="inmigration_flow">
+            <Hierarchy name="Tipo de migracion" primary_key="id">
+                <InlineTable alias="dim_inmigration_flow">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Emigracion</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Inmigracion</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Tipo de migracion" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Continente de origen/destino" foreign_key="continente">
+            <Hierarchy name="Continente de origen/destino" primary_key="id">
+                <InlineTable alias="dim_continente">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">América del Norte</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">América del Centro</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">América del Sur</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">Europa</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">Asia</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">África</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">Oceanía</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">Otros</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Continente de origen/destino" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Poblacion" column="poblacion" aggregator="sum" />
+    </Cube>
+    <Cube name="inei_population_y_n_dep">
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Registro Nacional de Municipalidades 2019</Annotation>
+        <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/catalog/709</Annotation>
+
+        <Table name="inei_population_y_n_dep" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name = "Nacimientos" column = "nacimientos" aggregator = "sum" />
+        <Measure name = "Defunciones" column = "defunciones" aggregator = "sum" />
+        <Measure name = "Inmigrantes" column = "inmigrantes" aggregator = "sum" />
+        <Measure name = "Emigrantes" column = "emigrantes" aggregator = "sum" />
+        <Measure name = "Poblacion economicamente activa afiliada (pensiones)" column = "peao_afiliada_pensiones" aggregator = "sum" />
+        <Measure name = "Poblacion necesidad basica insatisfecha" column = "nbi_1_o_mas_perc_pob" aggregator = "avg" />
+        <Measure name = "" column = "mbpa_1_o_mas_members_perc_hog" aggregator = "avg" />
+        <Measure name = "" column = "mbpa_1_o_mas_members_perc_hog_pob" aggregator = "avg" />
+        <Measure name = "Numero medicos colegiados" column = "n_medicos_colegiados" aggregator = "sum" />
+        <Measure name = "Numero de habitantes por medicos" column = "n_habitantes_por_medico" aggregator = "sum" />
+        <Measure name = "Numero enfermeras(os) colegiados" column = "n_enfermeras_os_colegiados" aggregator = "sum" />
+        <Measure name = "Numero de habitantes por enfermeras(os)" column = "n_habitantes_por_enfermera_os" aggregator = "sum" />
+        <Measure name = "Desnutricion infantil en mejores de 5" column = "desnutricion_5yrs_perc" aggregator = "avg" />
+        <Measure name = "Enfermedades respiratorias en menores de 5" column = "enfermedades_ra_5yrs_perc" aggregator = "avg" />
+        <Measure name = "Promedio de años de estudios de mayores de 15" column = "estudios_prom_15yrs" aggregator = "sum" />
+        <Measure name = "Hectareas de superficie agricola" column = "superficie_agricola_hect" aggregator = "sum" />
+        <Measure name = "Hectareas de superficie no agricola" column = "superficie_no_agricola_hect" aggregator = "sum" />
+        <Measure name = "Hectareas de superficie agricola en cultivos" column = "sup_agr_cultivos_hect" aggregator = "sum" />
+        <Measure name = "Hectareas de superficie agricola en barbencho" column = "sup_agr_en_barbencho_hect" aggregator = "sum" />
+        <Measure name = "Hectareas de superficie agricola no trabajadas" column = "sup_agr_no_trabajadas_hect" aggregator = "sum" />
+        <Measure name = "Hectareas de superficie agricola en descanso" column = "sup_agr_en_descanso_hect" aggregator = "sum" />
+        <Measure name = "Hectareas de bosque humedo amazonico" column = "sup_bosque_humedo_amazonico_hect" aggregator = "sum" />
+        <Measure name = "Porcentaje de hogares con tec. informacion" column = "hogares_tecn_informacion_perc" aggregator = "avg" />
+        <Measure name = "Porcentaje de hogares con television" column = "hogares_television_perc" aggregator = "avg" />
+        <Measure name = "Porcentaje de hogares con cable" column = "hogares_cable_perc" aggregator = "avg" />
+        <Measure name = "Porcentaje de hogares con telefono fijo" column = "hogares_telefono_fijo_perc" aggregator = "avg" />
+        <Measure name = "Porcentaje de hogares con telefono movil" column = "hogares_telefono_movil_perc" aggregator = "avg" />
+        <Measure name = "Porcentaje de hogares con computadora" column = "hogares_computadora_perc" aggregator = "avg" />
+        <Measure name = "Porcentaje de hogares con internet" column = "hogares_internet_perc" aggregator = "avg" />
+        <Measure name = "Numero de faltas registradas" column = "n_faltas_registradas" aggregator = "sum" />
+        <Measure name = "Numero de comision de delitos" column = "n_comision_delitos" aggregator = "sum" />
+        <Measure name = "Numero de personas detenidas por delitos" column = "n_personas_detenidas_delitos" aggregator = "sum" />
+        <Measure name = "Numero de bandas delictuales desarticuladas" column = "n_bandas_delictuales_desarticuladas" aggregator = "sum" />
+        <Measure name = "Numero de victimas de femicidios" column = "n_victimas_femicidios" aggregator = "sum" />
+        <Measure name = "Numero de denuncias por violencia fisica familiar" column = "n_denuncias_violencia_familiar_fisica" aggregator = "sum" />
+        <Measure name = "Numero de denuncias por violencia sicologica familiar" column = "n_denuncias_violencia_familiar_sicolo" aggregator = "sum" />
+        <Measure name = "Numero de denuncias de robo" column = "n_denuncias_robo_vehiculos" aggregator = "sum" />
+
+    </Cube>
+    <Cube name="inei_population_y_n_dep_urb_rur">
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Registro Nacional de Municipalidades 2019</Annotation>
+        <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/catalog/709</Annotation>
+
+        <Table name="inei_population_y_n_dep_urb_rur" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Tipo de indicador" foreign_key="measure">
+            <Hierarchy name="Tipo de indicador" primary_key="id">
+                <InlineTable alias="dim_measure">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">evo_pob_censada_urb</Value>
+                        <Value column="name">Evolucion poblacion censada urbana</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">evo_pob_censada_rur</Value>
+                        <Value column="name">Evolucion poblacion censada rural</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">matriculados_sist_educa_urb</Value>
+                        <Value column="name">Matriculados sistema educativo urbano</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">matriculados_sist_educa_rur</Value>
+                        <Value column="name">Matriculados sistema educativo rural</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Tipo de migracion" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Poblacion" column="poblacion" aggregator="sum" />
+    </Cube>
+    <Cube name="itp_indicators_m_n_nat">
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Registro Nacional de Municipalidades 2019</Annotation>
+        <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/catalog/709</Annotation>
+
+        <Table name="itp_indicators_m_n_nat" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+
+        <Dimension name="Month" foreign_key="month_id">
+            <Hierarchy name="Month">
+                <Level name="Month" key_column="month_id" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="IPC base observado (2011)" column="ipc_base_2011_observado" aggregator="sum" />
+        <Measure name="IPC base variacion mes anterior (2011)" column="ipc_base_2011_var_mes_anterior" aggregator="sum" />
+        <Measure name="IPC base variacion acumulada (2011)" column="ipc_base_2011_var_acumulado" aggregator="sum" />
+        <Measure name="IPC base variacion año anterior (2011)" column="ipc_base_2011_var_anio_anterior" aggregator="sum" />
+        <Measure name="IPM base observado (2013)" column="ipm_base_2013_observado" aggregator="sum" />
+        <Measure name="IPM base variacion mes anterior(2013)" column="ipm_base_2013_var_mes_anterior" aggregator="sum" />
+        <Measure name="IPM base variacion acumulada(2013)" column="ipm_base_2013_var_acumulado" aggregator="sum" />
+
+    </Cube>
+    <Cube name="itp_indicators_q_n_nat">
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Registro Nacional de Municipalidades 2019</Annotation>
+        <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/catalog/709</Annotation>
+
+        <Table name="itp_indicators_q_n_nat" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+
+        <Dimension name="Quarter" foreign_key="quarter_id">
+            <Hierarchy name="Quarter">
+                <Level name="Quarter" key_column="quarter_id" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Producto interno bruto (S/ 2007)" column="producto_bruto_interno_2007" aggregator="sum" />
+        <Measure name="Gasto consumo final privado (S/ 2007)" column="gasto_consumo_final_privado_2007" aggregator="sum" />
+        <Measure name="Gasto consumo gobierno (S/ 2007)" column="gasto_consumo_gobierno_2007" aggregator="sum" />
+        <Measure name="Formacion bruta capital (S/ 2007)" column="formacion_bruta_capital_2007" aggregator="sum" />
+        <Measure name="Formacion bruta capital fijo (S/ 2007)" column="formacion_bruta_capital_fijo_2007" aggregator="sum" />
+        <Measure name="Exportaciones (S/ 2007)" column="exportaciones_2007" aggregator="sum" />
+        <Measure name="Importaciones (S/ 2007)" column="importaciones_2007" aggregator="sum" />
+        <Measure name="Producto interno bruto (S/ Corrientes)" column="producto_bruto_interno_nominal" aggregator="sum" />
+        <Measure name="Gasto consumo final privado (S/ Corrientes)" column="gasto_consumo_final_privado_nominal" aggregator="sum" />
+        <Measure name="Gasto consumo gobierno (S/ Corrientes)" column="gasto_consumo_gobierno_nominal" aggregator="sum" />
+        <Measure name="Formacion bruta capital (S/ Corrientes)" column="formacion_bruta_capital_nominal" aggregator="sum" />
+        <Measure name="Formacion bruta capital fijo (S/ Corrientes)" column="formacion_bruta_capital_fijo_nominal" aggregator="sum" />
+        <Measure name="Exportaciones (S/ Corrientes)" column="exportaciones_nominal" aggregator="sum" />
+        <Measure name="Importaciones (S/ Corrientes)" column="importaciones_nominal" aggregator="sum" />
+        <Measure name="Producto interno bruto" column="producto_interno_bruto" aggregator="sum" />
+        <Measure name="Derechos importacion y otros impuestos" column="derechos_importacion_otros_impuestos" aggregator="sum" />
+        <Measure name="Valor agregado bruto total" column="valor_agregado_bruto_total" aggregator="sum" />
+        <Measure name="Agricultura, ganaderia, caza y silvicultura" column="agricultura_ganaderia_caza_silvicultura" aggregator="sum" />
+        <Measure name="Pesca y acuicultura" column="pesca_acuicultura" aggregator="sum" />
+        <Measure name="Extraccion de petroleo, gas, minerales y servicios conexos" column="extraccion_petroleo_gas_minerales_servicios_conexos" aggregator="sum" />
+        <Measure name="Manufactura" column="manufactura" aggregator="sum" />
+        <Measure name="Construccion" column="construccion" aggregator="sum" />
+        <Measure name="Electricidad, gas y agua" column="electricidad_gas_agua" aggregator="sum" />
+        <Measure name="Comercio, mantenimiento y reparacion de vehiculos" column="comercio_mantenimiento_reparacion_vehiculos" aggregator="sum" />
+        <Measure name="Transporte, almacenamiento, correos y mensajeria" column="transporte_almacenamiento_correo_mensajeria" aggregator="sum" />
+        <Measure name="Alojamiento y restaurantes" column="alojamiento_restaurantes" aggregator="sum" />
+        <Measure name="Telecomunicaciones y otros servicios informacion" column="telecomunicaciones_otros_servicios_informacion" aggregator="sum" />
+        <Measure name="Servicios financieros, seguros y pensiones" column="servicios_financieros_seguros_pensiones" aggregator="sum" />
+        <Measure name="Servicios prestados empresas" column="servicios_prestados_empresas" aggregator="sum" />
+        <Measure name="Administracion publica defensa" column="administracion_publica_defensa" aggregator="sum" />
+        <Measure name="Otros servicios" column="otros_servicios" aggregator="sum" />
+        <Measure name="Formacion bruta capital fijo publico (S/ 2007)" column="formacion_bruta_cap_fijo_publico_2007" aggregator="sum" />
+        <Measure name="Formacion bruta capital fijo privado (S/ 2007)" column="formacion_bruta_cap_fijo_privado_2007" aggregator="sum" />
+        <Measure name="Formacion bruta capital fijo construccion (S/ 2007)" column="formacion_bruta_cap_fijo_construccion_2007" aggregator="sum" />
+        <Measure name="Formacion bruta capital fijo maq_nac (S/ 2007)" column="formacion_bruta_cap_fijo_maq_nac_2007" aggregator="sum" />
+        <Measure name="Formacion bruta capital fijo maq_imp (S/ 2007)" column="formacion_bruta_cap_fijo_maq_imp_2007" aggregator="sum" />
+        <Measure name="Formacion bruta capital fijo publico (S/ Corrientes)" column="formacion_bruta_cap_fijo_publico_nom" aggregator="sum" />
+        <Measure name="Formacion bruta capital fijo privado (S/ Corrientes)" column="formacion_bruta_cap_fijo_privado_nom" aggregator="sum" />
+        <Measure name="Formacion bruta capital fijo construccion (S/ Corrientes)" column="formacion_bruta_cap_fijo_construccion_nom" aggregator="sum" />
+        <Measure name="Formacion bruta capital fijo maq_nac (S/ Corrientes)" column="formacion_bruta_cap_fijo_maq_nac_nom" aggregator="sum" />
+        <Measure name="Formacion bruta capital fijo maq_imp (S/ Corrientes)" column="formacion_bruta_cap_fijo_maq_imp_nom" aggregator="sum" />
+        <Measure name="Poblacion anual" column="poblacion_anual" aggregator="sum" />
+
+    </Cube>
     <Cube name="itp_indicators_y_act_dept">
 
     	<Annotation name="topic">Economia</Annotation>
@@ -364,7 +779,7 @@
 
     	<Table name="itp_indicators_y_act_dept" primary_key="ubigeo" />
 
-    	<DimensionUsage foreign_key="ubigeo" source="Ubigeo Departamento" name="Ubigeo Departamento" />
+    	<DimensionUsage foreign_key="ubigeo" source="Ubigeo Departamento Lite" name="Ubigeo" />
 
     	<Dimension name="Year" foreign_key="year">
       		<Hierarchy name="Year">
@@ -428,6 +843,295 @@
 
     	<Measure name="Valor Agregado Bruto (S/ 2007)" column="valor_agregado_bruto_2007" aggregator="sum" />
     	<Measure name="Valor Agregado Bruto (S/ Corrientes)" column="valor_agregado_bruto_cte" aggregator="sum" />
+
+  	</Cube>
+    <Cube name="itp_indicators_y_n_nat">
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Registro Nacional de Municipalidades 2019</Annotation>
+        <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/catalog/709</Annotation>
+
+        <Table name="itp_indicators_y_n_nat" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Producto Interno Bruto" column="producto_interno_bruto" aggregator="sum" />
+        <Measure name="Remuneraciones" column="remuneraciones" aggregator="sum" />
+        <Measure name="Derechos importacion" column="derechos_importacion" aggregator="sum" />
+        <Measure name="Impuestos oroductos" column="impuestos_productos" aggregator="sum" />
+        <Measure name="Otros impuestos" column="otros_impuestos" aggregator="sum" />
+        <Measure name="Ingreso explotacion" column="ingreso_explotacion" aggregator="sum" />
+        <Measure name="Excedente explotacion bruto" column="excedente_explotacion_bruto" aggregator="sum" />
+        <Measure name="Ingreso mixto" column="ingreso_mixto" aggregator="sum" />
+        <Measure name="Agricultura, ganaderia, caza y silvicultura" column="agricultura_ganaderia_caza_silvicultura" aggregator="sum" />
+        <Measure name="Pesca" column="pesca" aggregator="sum" />
+        <Measure name="Mineria" column="mineria" aggregator="sum" />
+        <Measure name="Industria manufacturera" column="industria_manufacturera" aggregator="sum" />
+        <Measure name="Electricidad, gas y agua" column="electricidad_gas_agua" aggregator="sum" />
+        <Measure name="Construccion" column="construccion" aggregator="sum" />
+        <Measure name="Extraccion de petroleo, gas, minerales y servicios conexos" column="extraccion_petroleo_gas_minerales_servicios_conexos" aggregator="sum" />
+        <Measure name="Manufactura" column="manufactura" aggregator="sum" />
+        <Measure name="Comercio" column="comercio" aggregator="sum" />
+        <Measure name="Hoteles y restaurantes" column="hoteles_restaurantes" aggregator="sum" />
+        <Measure name="Transporte, almacenamiento y comunicaciones" column="transporte_almacenamiento_comunicaciones" aggregator="sum" />
+        <Measure name="Intermediacion financiera" column="intermediacion_financiera" aggregator="sum" />
+        <Measure name="Actividades inmobiliarias, empresariales y de alquiler" column="actividad_inmobiliarias_empresariales_alquiler" aggregator="sum" />
+        <Measure name="Administracion publica defensa" column="administracion_publica_defensa" aggregator="sum" />
+        <Measure name="Enseñanza" column="enseñanza" aggregator="sum" />
+        <Measure name="Servicios sociales y de salud" column="servicios_sociales_salud" aggregator="sum" />
+        <Measure name="Otras actividades y servicios comunitarios" column="otras_actividades_servicios_comunitarios" aggregator="sum" />
+        <Measure name="Hogares privados y organizaciones extraterritoriales" column="hogares_privados_organizaciones_extraterritoriales" aggregator="sum" />
+        <Measure name="Creditos hipotecarios para la vivienda" column="creditos_hipotecariosvivienda" aggregator="sum" />
+        <Measure name="Creditos de consumo" column="creditos_consumo" aggregator="sum" />
+        <Measure name="Exportaciones" column="exportaciones" aggregator="sum" />
+        <Measure name="Importaciones" column="importaciones" aggregator="sum" />
+        <Measure name="Balanza comercial" column="balanza_comercial" aggregator="sum" />
+        <Measure name="Balanza de pagos" column="balanza_pagos" aggregator="sum" />
+        <Measure name="Activos externos netos de corto plazo" column="activos_externos_netos_corto_plazo" aggregator="sum" />
+        <Measure name="Deuda publica externa" column="deuda_publica_externa" aggregator="sum" />
+        <Measure name="Activos reserva BCRP" column="act_reserva_BCRP" aggregator="sum" />
+        <Measure name="Activos sistema financiero sin BCRP" column="act_sist_financiero_sin_BCRP" aggregator="sum" />
+        <Measure name="Activos otros activos" column="act_otros_activos" aggregator="sum" />
+        <Measure name="Pasivos med/lar plazo sector privado" column="pas_med_lar_sector_privado" aggregator="sum" />
+        <Measure name="Pasivos med/lar plazo sector publico" column="pas_med_lar_sector_publico" aggregator="sum" />
+        <Measure name="Pasivos cort plazo sist financiero sin BCRP" column="pas_cort_sist_financiero_sin_BCRP" aggregator="sum" />
+        <Measure name="Pasivos cort plazo BCRP" column="pas_cort_BCRP" aggregator="sum" />
+        <Measure name="Pasivos cort plazo otros" column="pas_cort_otros" aggregator="sum" />
+        <Measure name="Pasivos inversion directa" column="pas_inversion_directa" aggregator="sum" />
+        <Measure name="Pasivos participacion capital" column="pas_participacion_capital" aggregator="sum" />
+        <Measure name="Poblacion total" column="poblacion_total" aggregator="sum" />
+        <Measure name="Poblacion censada" column="poblacion_censada" aggregator="sum" />
+        <Measure name="Poblacion omitida" column="poblacion_omitida" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa hombres" column="pea_hombres" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa mujeres" column="pea_mujeres" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa 14 a 24" column="pea_14_24_yrs" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa 25 a 44" column="pea_25_44_yrs" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa 45 a 64" column="pea_45_64_yrs" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa 65 o mas" column="pea_65_o_mas_yrs" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa primaria o inferior" column="pea_primaria_o_inferior" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa secundaria" column="pea_secundaria" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa superior no universitaria" column="pea_superior_no_universitaria" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa universitaria" column="pea_universitaria" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa en empresa 1 10 empleados" column="pea_empresa_1_10_empleados" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa en empresa 11 50 empleados" column="pea_empresa_11_50_empleados" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa en empresa 50 o mas empleados" column="pea_empresa_50_o_mas_empleados" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa en agricultura pesca mineria" column="pea_agricultura_pesca_mineria" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa en manufactura" column="pea_manufactura" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa en construccion" column="pea_construccion" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa en comercio" column="pea_comercio" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa en transporte comunicaciones" column="pea_transporte_comunicaciones" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa en otros servicios" column="pea_otros_servicios" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa sin seguro medico" column="pea_sin_seguro_medico" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa con seguro medico" column="pea_con_seguro_medico" aggregator="sum" />
+        <Measure name="Porcentaje poblacion con 1 necesidad basica insatisfecha" column="perc_poblacion_con_1_nbi" aggregator="avg" />
+        <Measure name="Porcentaje poblacion con 2 o mas necesidad basica insatisfecha" column="perc_poblacion_con_2_a_5_nbi" aggregator="avg" />
+        <Measure name="Porcentaje poblacion (nbi) vivienda inadecuada" column="perc_poblacion_nbi_vivienda_inadecuada" aggregator="avg" />
+        <Measure name="Porcentaje poblacion (nbi) vivienda hacinada" column="perc_poblacion_nbi_vivienda_hacinada" aggregator="avg" />
+        <Measure name="Porcentaje poblacion (nbi) carecen servicios higienicos" column="perc_poblacion_nbi_servicios_higienicos" aggregator="avg" />
+        <Measure name="Porcentaje poblacion (nbi) menores sin escuela" column="perc_poblacion_nbi_menores_sin_escuela" aggregator="avg" />
+        <Measure name="Porcentaje poblacion (nbi) alta dependencia economica" column="perc_poblacion_nbi_alta_dependencia_economica" aggregator="avg" />
+        <Measure name="Gasto social en educacion inicial" column="gasto_social_educacion_inicial" aggregator="sum" />
+        <Measure name="Gasto social en educacion primaria" column="gasto_social_educacion_primaria" aggregator="sum" />
+        <Measure name="Gasto social en educacion secundaria" column="gasto_social_educacion_secundaria" aggregator="sum" />
+        <Measure name="Gasto social en asistencia social" column="gasto_social_asistencia_social" aggregator="sum" />
+        <Measure name="Gasto social en salud colectiva" column="gasto_social_salud_colectiva" aggregator="sum" />
+        <Measure name="Gasto social en salud individual" column="gasto_social_salud_individual" aggregator="sum" />
+        <Measure name="Gasto gobierno en sector publico" column="gasto_gobierno_sector_publico" aggregator="sum" />
+        <Measure name="Gasto gobierno en sector privado" column="gasto_gobierno_sector_privado" aggregator="sum" />
+        <Measure name="Analfabetismo total entre edades de 15 a 19" column="analfabetismo_total_15_19" aggregator="sum" />
+        <Measure name="Analfabetismo total entre edades de 20 a 29" column="analfabetismo_total_20_29" aggregator="sum" />
+        <Measure name="Analfabetismo total entre edades de 30 a 39" column="analfabetismo_total_30_39" aggregator="sum" />
+        <Measure name="Analfabetismo total entre edades de 40 a 49" column="analfabetismo_total_40_49" aggregator="sum" />
+        <Measure name="Analfabetismo total entre edades de 50 a 59" column="analfabetismo_total_50_59" aggregator="sum" />
+        <Measure name="Analfabetismo total en edad de 60 y mas" column="analfabetismo_total_60_y_mas" aggregator="sum" />
+        <Measure name="Analfabetismo en hombres entre edades de 15 a 19" column="analfabetismo_h_15_19" aggregator="sum" />
+        <Measure name="Analfabetismo en mujeres entre edades de 15 a 19" column="analfabetismo_f_15_19" aggregator="sum" />
+        <Measure name="Analfabetismo en hombres entre edades de 20 a 29" column="analfabetismo_h_20_29" aggregator="sum" />
+        <Measure name="Analfabetismo en mujeres entre edades de 20 a 29" column="analfabetismo_f_20_29" aggregator="sum" />
+        <Measure name="Analfabetismo en hombres entre edades de 30 a 39" column="analfabetismo_h_30_39" aggregator="sum" />
+        <Measure name="Analfabetismo en mujeres entre edades de 30 a 39" column="analfabetismo_f_30_39" aggregator="sum" />
+        <Measure name="Analfabetismo en hombres entre edades de 40 a 49" column="analfabetismo_h_40_49" aggregator="sum" />
+        <Measure name="Analfabetismo en mujeres entre edades de 40 a 49" column="analfabetismo_f_40_49" aggregator="sum" />
+        <Measure name="Analfabetismo en hombres entre edades de 50 a 59" column="analfabetismo_h_50_59" aggregator="sum" />
+        <Measure name="Analfabetismo en mujeres entre edades de 50 a 59" column="analfabetismo_f_50_59" aggregator="sum" />
+        <Measure name="Analfabetismo en hombres en edad de 60 y mas" column="analfabetismo_h_60_y_mas" aggregator="sum" />
+        <Measure name="Analfabetismo en mujeres en edad de 60 y mas" column="analfabetismo_f_60_y_mas" aggregator="sum" />
+        <Measure name="Millones de toneladas de CO2 equivalente" column="millones_toneladas_co2_equivalente" aggregator="sum" />
+        <Measure name="Delitos contra vida cuerpo salud" column="delitos_vida_cuerpo_salud" aggregator="sum" />
+        <Measure name="Delitos contra honor" column="delitos_honor" aggregator="sum" />
+        <Measure name="Delitos contra familia" column="delitos_familia" aggregator="sum" />
+        <Measure name="Delitos contra libertad" column="delitos_libertad" aggregator="sum" />
+        <Measure name="Delitos contra patrimonio" column="delitos_patrimonio" aggregator="sum" />
+        <Measure name="Delitos contra confianza buena fe negocios" column="delitos_confianza_buena_fe_negocios" aggregator="sum" />
+        <Measure name="Delitos contra derechos intelectuales" column="delitos_derechos_intelectuales" aggregator="sum" />
+        <Measure name="Delitos contra patrimonio cultural" column="delitos_patrimonio_cultural" aggregator="sum" />
+        <Measure name="Delitos contra orden economico" column="delitos_orden_economico" aggregator="sum" />
+        <Measure name="Delitos contra orden financiero monetario" column="delitos_orden_financiero_monetario" aggregator="sum" />
+        <Measure name="Delitos contra tributarios" column="delitos_tributarios" aggregator="sum" />
+        <Measure name="Delitos contra seguridad publica" column="delitos_seguridad_publica" aggregator="sum" />
+        <Measure name="Delitos contra ambientales" column="delitos_ambientales" aggregator="sum" />
+        <Measure name="Delitos contra tranquilidad publica" column="delitos_tranquilidad_publica" aggregator="sum" />
+        <Measure name="Delitos contra humanidad" column="delitos_humanidad" aggregator="sum" />
+        <Measure name="Delitos contra estado defensa nacional" column="delitos_estado_defensa_nacional" aggregator="sum" />
+        <Measure name="Delitos contra poderes estado orden const" column="delitos_poderes_estado_orden_const" aggregator="sum" />
+        <Measure name="Delitos contra voluntad popular" column="delitos_voluntad_popular" aggregator="sum" />
+        <Measure name="Delitos contra administracion publica" column="delitos_administracion_publica" aggregator="sum" />
+        <Measure name="Delitos contra fe publica" column="delitos_fe_publica" aggregator="sum" />
+
+    </Cube>
+    <Cube name="met_education_y_level_dep">
+
+    	<Annotation name="topic">Economia</Annotation>
+      	<Annotation name="subtopic">Economia</Annotation>
+      	<Annotation name="source_name">Indicadores ITP</Annotation>
+
+        <Table name="met_education_y_level_dep" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+              <Level name="Year" key_column="year" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Causas de hospitalizacion" foreign_key="causas">
+            <Hierarchy name="Causas de hospitalizacion" primary_key="id">
+              <InlineTable alias="dim_inline_causas">
+                  <ColumnDef name="id" key_type="nontext" />
+                  <ColumnDef name="name" key_type="text" />
+                  <Row>
+                    <Value column="id">Ciertas enfermedades infecciosas y parasitarias</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Tumores (Neoplasias)</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Enfermedades de la sangre y de los órganos hematopoyéticos</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Enfermedades  endocrinas, nutricionales y metabólicas</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Trastornos mentales y del comportamiento</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Enfermedades del sistema nervioso </Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Enfermedades del ojo y de sus anexos</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Enfermedades del oído y de la apófisis mastoidea</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Enfermedades del sistema circulatorio</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Enfermedades del sistema respiratorio </Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Enfermedades del sistema digestivo </Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Enfermedades de la piel  y del tejido subcutáneo</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Enfermedades del sistema osteomuscular y del tejido</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Enfermedades del sistema genito urinario</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Embarazo, parto y puerperio</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Ciertas afecciones originadas en el período perinatal</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Malformaciones congénitas, deformidades y anomalías </Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Síntomas, signos y hallazgos anormales clínicos</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Traumatismos y envenenamientos</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Factores que influyen en el estado de salud</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">Causas externas de morbilidad y mortalidad</Value>
+                  </Row>
+              </InlineTable>
+              <Level name="Causas de hospitalizacion" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Grupo de edad" foreign_key="age_group">
+            <Hierarchy name="Grupo de edad" primary_key="id">
+                <InlineTable alias="dim_age_group">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">Menores de 15 años</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">De 15 a 24 años</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">De 25 a 49 años</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">50 y más años</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">Ignorado</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Grupo de edad" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Numero de pacientes" column="poblacion" aggregator="sum" />
+
+  	</Cube>
+    <Cube name="proinversion_fdi_y_origin_nat">
+
+    	<Annotation name="topic">Economia</Annotation>
+      	<Annotation name="subtopic">Economia</Annotation>
+      	<Annotation name="source_name">Indicadores ITP</Annotation>
+
+        <Table name="proinversion_fdi_y_origin_nat" primary_key="ubigeo" />
+
+
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+              <Level name="Year" key_column="year" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Pais" foreign_key="country_name_es">
+            <Hierarchy name="Pais">
+              <Level name="Pais" key_column="country_name_es" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="ISO3" foreign_key="iso3">
+            <Hierarchy name="ISO3">
+              <Level name="ISO3" key_column="iso3" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Numero de pacientes" column="poblacion" aggregator="sum" />
 
   	</Cube>
     <Cube name="sunat_subnational_trade">

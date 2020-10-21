@@ -1,11 +1,11 @@
 <Schema name="dataperu" default_locale="es">
-    <Cube name="inei_population_y_age_nat_travel">
+    <Cube name="itp_indicators_y_n_nat">
         <Annotation name="source_name">INEI</Annotation>
         <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
         <Annotation name="dataset_name">Registro Nacional de Municipalidades 2019</Annotation>
         <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/catalog/709</Annotation>
 
-        <Table name="inei_population_y_age_nat_travel" primary_key="ubigeo" />
+        <Table name="itp_indicators_y_n_nat" primary_key="ubigeo" />
 
         <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
 

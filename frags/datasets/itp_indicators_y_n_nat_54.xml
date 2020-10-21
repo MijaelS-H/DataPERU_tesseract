@@ -1,11 +1,11 @@
 <Schema name="dataperu" default_locale="es">
-	<Cube name="itp_indicators_y_act_dept">
+	<Cube name="itp_indicators_y_n_nat_54">
 
     	<Annotation name="topic">Economia</Annotation>
       	<Annotation name="subtopic">Economia</Annotation>
       	<Annotation name="source_name">Indicadores ITP</Annotation>
 
-    	<Table name="itp_indicators_y_act_dept" primary_key="ubigeo" />
+    	<Table name="itp_indicators_y_n_nat_54" primary_key="ubigeo" />
 
     	<DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
 
