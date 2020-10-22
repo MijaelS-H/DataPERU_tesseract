@@ -15,10 +15,12 @@
       		</Hierarchy>
     	</Dimension>
 
-    	<Dimension name="Actividad economica" foreign_key="act_economica">
-      		<Hierarchy name="Actividad economica" primary_key="id">
+    	<Dimension name="Actividad economica" foreign_key="sub_actividad_economica_id">
+      		<Hierarchy name="Actividad economica" primary_key="sub_actividad_economica_id">
+						<Table name="dim_shared_actividad_economica_54" />
 
-        		<Level name="Actividad economica" key_column="id" name_column="name" />
+        		<Level name="Actividad economica" key_column="actividad_economica_id" name_column="actividad_economica" />
+        		<Level name="Subactividad economica" key_column="sub_actividad_economica_id" name_column="sub_actividad_economica" />
       		</Hierarchy>
     	</Dimension>
 
@@ -27,3 +29,5 @@
 
   	</Cube>
 </Schema>
+
+
