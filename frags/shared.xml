@@ -113,7 +113,68 @@
         </Hierarchy>
     </SharedDimension>
 
+    <SharedDimension name="Asociaciones Culturales" type="standard">
+        <Hierarchy name="Asociaciones Culturales">
+            <Table name="dim_asociaciones_culturales" />
+            <Level name="Asociaciones Culturales" key_column="codigo_asociacion" name_column="asociacion_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
 
+    <SharedDimension name="Manifestacion 1" type="standard">
+        <Hierarchy name="Manifestacion 1">
+            <Table name="dim_asociaciones_culturales_manifestacion_n_1" />
+            <Level name="Manifestacion 1" key_column="manifestacion_n_1_id" name_column="manifestacion_n_1_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Manifestacion 2" type="standard">
+        <Hierarchy name="Manifestacion 2">
+            <Table name="dim_asociaciones_culturales_manifestacion_n_2" />
+            <Level name="Manifestacion 2" key_column="manifestacion_n_2_id" name_column="manifestacion_n_2_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+     <SharedDimension name="Manifestacion 2" type="standard">
+        <Hierarchy name="Manifestacion 3">
+            <Table name="dim_asociaciones_culturales_manifestacion_n_3" />
+            <Level name="Manifestacion 3" key_column="manifestacion_n_3_id" name_column="manifestacion_n_3_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Razon Social Agentes" type="standard">
+        <Hierarchy name="Razon Social Agentes">
+            <Table name="dim_razon_social_agentes" />
+            <Level name="Razon Social" key_column="razon_social_id" name_column="razon_social_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>           
+
+    <SharedDimension name="Razon Social Cine" type="standard">
+        <Hierarchy name="Razon Social Cine">
+            <Table name="dim_cine_razon_social" />
+            <Level name="Razon Social Cine" key_column="razon_social_id" name_column="razon_social_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Estimulo Economico" type="standard">
+        <Hierarchy name="Estimulo Economico">
+            <Table name="dim_eec_estimulo_economico" />
+            <Level name="Estimulo Economico" key_column="estimulo_economico_id" name_column="estimulo_economico_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>   
+
+    <SharedDimension name="Nombre Proyecto" type="standard">
+        <Hierarchy name="Nombre Proyecto">
+            <Table name="dim_eec_nombre_proyecto" />
+            <Level name="Nombre Proyecto" key_column="nombre_proyecto_id" name_column="nombre_proyecto_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>   
+
+    <SharedDimension name="Postulante Cine" type="standard">
+        <Hierarchy name="Razon Social Cine">
+            <Table name="dim_eec_postulante" />
+            <Level name="Postulante Cine" key_column="postulante_id" name_column="postulante_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>      
 
 
     <!--
