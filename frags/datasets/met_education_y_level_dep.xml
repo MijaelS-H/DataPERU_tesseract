@@ -7,7 +7,7 @@
 
         <Table name="met_education_y_level_dep" primary_key="ubigeo" />
 
-        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo Departamento" name="Ubigeo" />
         <Dimension name="Year" foreign_key="year">
             <Hierarchy name="Year">
               <Level name="Year" key_column="year" />

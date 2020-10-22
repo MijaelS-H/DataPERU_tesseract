@@ -7,7 +7,7 @@
 
     	<Table name="itp_indicators_y_act_dept" primary_key="ubigeo" />
 
-    	<DimensionUsage foreign_key="ubigeo" source="Ubigeo Departamento Lite" name="Ubigeo" />
+    	<DimensionUsage foreign_key="ubigeo" source="Ubigeo Departamento" name="Ubigeo" />
 
     	<Dimension name="Year" foreign_key="year">
       		<Hierarchy name="Year">
