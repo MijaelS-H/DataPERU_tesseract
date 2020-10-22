@@ -35,7 +35,6 @@
               </Hierarchy>
         </Dimension>
 
-
         <Dimension name="Latitud" foreign_key="latitud">
             <Hierarchy name="Latitud">
                 <Level name ="Latitud" key_column="latitud" key_type="nontext" />
@@ -48,7 +47,7 @@
               </Hierarchy>
         </Dimension>
 
-        <Dimension name="Descriptivo" foreign_key="longitud">
+        <Dimension name="Descriptivo" foreign_key="descriptivo">
             <Hierarchy name="Descriptivo">
                 <Level name ="Descriptivo" key_column="descriptivo" key_type="text" />
               </Hierarchy>

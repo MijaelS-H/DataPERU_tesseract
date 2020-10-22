@@ -64,20 +64,13 @@
             </Hierarchy>
         </Dimension>
 
-
-        <Dimension name="Time" foreign_key="time_id">
-            <Hierarchy name="Time">
-                <Level name="Time" key_column="time_id" key_type="nontext" />
-            </Hierarchy>
-        </Dimension>
-
-      <Dimension name="Inversion" foreign_key="inversion">
+        <Dimension name="Inversion" foreign_key="inversion">
             <Hierarchy name="Inversion">
                 <Level name="Inversion" key_column="inversion" key_type="nontext" />
             </Hierarchy>
         </Dimension>
 
-      <Dimension name="Ejecucion" foreign_key="ejecucion">
+        <Dimension name="Ejecucion" foreign_key="ejecucion">
             <Hierarchy name="Ejecucion">
                 <Level name="Ejecucion" key_column="ejecucion" key_type="nontext" />
             </Hierarchy>
