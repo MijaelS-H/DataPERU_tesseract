@@ -142,6 +142,19 @@
         </Hierarchy>
     </SharedDimension>
 
+    <SharedDimension name="Date Month" type="time">
+        <Hierarchy name="Date" primary_key="month_id">
+            <Table name="dim_shared_date_month" />
+            <Level name="Year" key_column="year" />
+            <Level name="Quarter" key_column="quarter_id" name_column="quarter">
+                <Property name="Quarter ES" column="quarter" caption_set="es" />
+            </Level>
+            <Level name="Month" key_column="month_id" name_column="month">
+                <Property name="Month ES" column="month" caption_set="es" />
+            </Level>
+        </Hierarchy>
+    </SharedDimension>
+
     <SharedDimension name="Date Day" type="time">
         <Hierarchy name="Date" primary_key="date_id">
             <Table name="dim_shared_date_month_day" />
@@ -166,6 +179,14 @@
             <Level name="HS2" key_column="hs2_id" name_column="hs2_name" key_type="text" />
             <Level name="HS4" key_column="hs4_id" name_column="hs4_name" key_type="text" />
             <Level name="HS6" key_column="hs6_id" name_column="hs6_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Cultivo" type="standard">
+        <Hierarchy name="Cultivo">
+            <Table name="dim_shared_dinamica_agricola" />
+
+            <Level name="Cultivo" key_column="cultivo_id" name_column="cultivo_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
     <Cube name="inei_renamu_municipalities">
@@ -487,14 +508,13 @@
 
     </Cube>
     <Cube name="inei_population_y_age_nat_travel">
-        <Annotation name="source_name">INEI</Annotation>
-        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
-        <Annotation name="dataset_name">Registro Nacional de Municipalidades 2019</Annotation>
-        <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/catalog/709</Annotation>
+        <Annotation name="topic">Poblacion y Vivienda</Annotation>
+        <Annotation name="subtopic">Poblacion y Vivienda</Annotation>
+        <Annotation name="source_name">Indicadores ITP</Annotation>
 
         <Table name="inei_population_y_age_nat_travel" primary_key="ubigeo" />
 
-        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo Nacion" name="Ubigeo" />
 
         <Dimension name="Year" foreign_key="year">
             <Hierarchy name="Year">
@@ -603,10 +623,9 @@
         <Measure name="Poblacion" column="poblacion" aggregator="sum" />
     </Cube>
     <Cube name="inei_population_y_gender_dep">
-        <Annotation name="source_name">INEI</Annotation>
-        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
-        <Annotation name="dataset_name">Registro Nacional de Municipalidades 2019</Annotation>
-        <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/catalog/709</Annotation>
+        <Annotation name="topic">Empleo</Annotation>
+        <Annotation name="subtopic">Empleo</Annotation>
+        <Annotation name="source_name">Indicadores ITP</Annotation>
 
         <Table name="inei_population_y_gender_dep" primary_key="ubigeo" />
 
@@ -630,14 +649,14 @@
 
     </Cube>
     <Cube name="inei_population_y_gender_nat_travel">
-        <Annotation name="source_name">INEI</Annotation>
-        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
-        <Annotation name="dataset_name">Registro Nacional de Municipalidades 2019</Annotation>
-        <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/catalog/709</Annotation>
+        <Annotation name="topic">Poblacion y Vivienda</Annotation>
+        <Annotation name="subtopic">Poblacion y Vivienda</Annotation>
+        <Annotation name="source_name">Indicadores ITP</Annotation>
+
 
         <Table name="inei_population_y_gender_nat_travel" primary_key="ubigeo" />
 
-        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo Nacion" name="Ubigeo" />
 
         <Dimension name="Year" foreign_key="year">
             <Hierarchy name="Year">
@@ -718,10 +737,9 @@
         <Measure name="Poblacion" column="poblacion" aggregator="sum" />
     </Cube>
     <Cube name="inei_population_y_n_dep">
-        <Annotation name="source_name">INEI</Annotation>
-        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
-        <Annotation name="dataset_name">Registro Nacional de Municipalidades 2019</Annotation>
-        <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/catalog/709</Annotation>
+        <Annotation name="topic">Poblacion, Sociales, Tecnologia y Seguridad</Annotation>
+        <Annotation name="subtopic">Poblacion, Sociales, Tecnologia y Seguridad</Annotation>
+        <Annotation name="source_name">Indicadores ITP</Annotation>
 
         <Table name="inei_population_y_n_dep" primary_key="ubigeo" />
 
@@ -773,10 +791,9 @@
 
     </Cube>
     <Cube name="inei_population_y_n_dep_urb_rur">
-        <Annotation name="source_name">INEI</Annotation>
-        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
-        <Annotation name="dataset_name">Registro Nacional de Municipalidades 2019</Annotation>
-        <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/catalog/709</Annotation>
+        <Annotation name="topic">Poblacion, Vivienda y Sociales</Annotation>
+        <Annotation name="subtopic">Poblacion, Vivienda y Sociales</Annotation>
+        <Annotation name="source_name">Indicadores ITP</Annotation>
 
         <Table name="inei_population_y_n_dep_urb_rur" primary_key="ubigeo" />
 
@@ -817,14 +834,13 @@
         <Measure name="Poblacion" column="poblacion" aggregator="sum" />
     </Cube>
     <Cube name="itp_indicators_m_n_nat">
-        <Annotation name="source_name">INEI</Annotation>
-        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
-        <Annotation name="dataset_name">Registro Nacional de Municipalidades 2019</Annotation>
-        <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/catalog/709</Annotation>
+        <Annotation name="topic">Economia</Annotation>
+        <Annotation name="subtopic">Economia</Annotation>
+        <Annotation name="source_name">Indicadores ITP</Annotation>
 
         <Table name="itp_indicators_m_n_nat" primary_key="ubigeo" />
 
-        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo Nacion" name="Ubigeo" />
 
         <Dimension name="Month" foreign_key="month_id">
             <Hierarchy name="Month">
@@ -841,15 +857,14 @@
         <Measure name="IPM base variacion acumulada(2013)" column="ipm_base_2013_var_acumulado" aggregator="sum" />
 
     </Cube>
-<Cube name="itp_indicators_q_n_nat">
-        <Annotation name="source_name">INEI</Annotation>
-        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
-        <Annotation name="dataset_name">Registro Nacional de Municipalidades 2019</Annotation>
-        <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/catalog/709</Annotation>
+    <Cube name="itp_indicators_q_n_nat">
+        <Annotation name="topic">Economia</Annotation>
+        <Annotation name="subtopic">Economia</Annotation>
+        <Annotation name="source_name">Indicadores ITP</Annotation>
 
         <Table name="itp_indicators_q_n_nat" primary_key="ubigeo" />
 
-        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo Nacion" name="Ubigeo" />
 
         <Dimension name="Quarter" foreign_key="quarter_id">
             <Hierarchy name="Quarter">
@@ -976,14 +991,13 @@
 
   	</Cube>
     <Cube name="itp_indicators_y_n_nat">
-        <Annotation name="source_name">INEI</Annotation>
-        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
-        <Annotation name="dataset_name">Registro Nacional de Municipalidades 2019</Annotation>
-        <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/catalog/709</Annotation>
+        <Annotation name="topic">Economia, Poblacion, Empleo y Sociales</Annotation>
+        <Annotation name="subtopic">Economia, Poblacion, Empleo y Sociales</Annotation>
+        <Annotation name="source_name">Indicadores ITP</Annotation>
 
         <Table name="itp_indicators_y_n_nat" primary_key="ubigeo" />
 
-        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo Nacion" name="Ubigeo" />
 
         <Dimension name="Year" foreign_key="year">
             <Hierarchy name="Year">
@@ -1115,10 +1129,39 @@
         <Measure name="Delitos contra fe publica" column="delitos_fe_publica" aggregator="sum" />
 
     </Cube>
-    <Cube name="met_education_y_level_dep">
+    <Cube name="itp_indicators_y_n_nat_54">
 
     	<Annotation name="topic">Economia</Annotation>
       	<Annotation name="subtopic">Economia</Annotation>
+      	<Annotation name="source_name">Indicadores ITP</Annotation>
+
+    	<Table name="itp_indicators_y_n_nat_54" primary_key="ubigeo" />
+
+    	<DimensionUsage foreign_key="ubigeo" source="Ubigeo Nacion" name="Ubigeo" />
+
+    	<Dimension name="Year" foreign_key="year">
+      		<Hierarchy name="Year">
+	  	  		<Level name="Year" key_column="year" />
+      		</Hierarchy>
+    	</Dimension>
+
+    	<Dimension name="Actividad economica" foreign_key="sub_actividad_economica_id">
+      		<Hierarchy name="Actividad economica" primary_key="sub_actividad_economica_id">
+						<Table name="dim_shared_actividad_economica_54" />
+
+        		<Level name="Actividad economica" key_column="actividad_economica_id" name_column="actividad_economica" />
+        		<Level name="Subactividad economica" key_column="sub_actividad_economica_id" name_column="sub_actividad_economica" />
+      		</Hierarchy>
+    	</Dimension>
+
+    	<Measure name="Producto Interno Bruto (S/ 2007)" column="pib_54_2007" aggregator="sum" />
+    	<Measure name="Producto Interno Bruto (S/ Corrientes)" column="pib_54_cte" aggregator="sum" />
+
+  	</Cube>
+    <Cube name="met_education_y_level_dep">
+
+    	<Annotation name="topic">Sociales</Annotation>
+      	<Annotation name="subtopic">Sociales</Annotation>
       	<Annotation name="source_name">Indicadores ITP</Annotation>
 
         <Table name="met_education_y_level_dep" primary_key="ubigeo" />
@@ -1130,105 +1173,49 @@
             </Hierarchy>
         </Dimension>
 
-        <Dimension name="Causas de hospitalizacion" foreign_key="causas">
-            <Hierarchy name="Causas de hospitalizacion" primary_key="id">
-              <InlineTable alias="dim_inline_causas">
-                  <ColumnDef name="id" key_type="nontext" />
-                  <ColumnDef name="name" key_type="text" />
-                  <Row>
-                    <Value column="id">Ciertas enfermedades infecciosas y parasitarias</Value>
-                  </Row>
-                  <Row>
-                    <Value column="id">Tumores (Neoplasias)</Value>
-                  </Row>
-                  <Row>
-                    <Value column="id">Enfermedades de la sangre y de los órganos hematopoyéticos</Value>
-                  </Row>
-                  <Row>
-                    <Value column="id">Enfermedades  endocrinas, nutricionales y metabólicas</Value>
-                  </Row>
-                  <Row>
-                    <Value column="id">Trastornos mentales y del comportamiento</Value>
-                  </Row>
-                  <Row>
-                    <Value column="id">Enfermedades del sistema nervioso </Value>
-                  </Row>
-                  <Row>
-                    <Value column="id">Enfermedades del ojo y de sus anexos</Value>
-                  </Row>
-                  <Row>
-                    <Value column="id">Enfermedades del oído y de la apófisis mastoidea</Value>
-                  </Row>
-                  <Row>
-                    <Value column="id">Enfermedades del sistema circulatorio</Value>
-                  </Row>
-                  <Row>
-                    <Value column="id">Enfermedades del sistema respiratorio </Value>
-                  </Row>
-                  <Row>
-                    <Value column="id">Enfermedades del sistema digestivo </Value>
-                  </Row>
-                  <Row>
-                    <Value column="id">Enfermedades de la piel  y del tejido subcutáneo</Value>
-                  </Row>
-                  <Row>
-                    <Value column="id">Enfermedades del sistema osteomuscular y del tejido</Value>
-                  </Row>
-                  <Row>
-                    <Value column="id">Enfermedades del sistema genito urinario</Value>
-                  </Row>
-                  <Row>
-                    <Value column="id">Embarazo, parto y puerperio</Value>
-                  </Row>
-                  <Row>
-                    <Value column="id">Ciertas afecciones originadas en el período perinatal</Value>
-                  </Row>
-                  <Row>
-                    <Value column="id">Malformaciones congénitas, deformidades y anomalías </Value>
-                  </Row>
-                  <Row>
-                    <Value column="id">Síntomas, signos y hallazgos anormales clínicos</Value>
-                  </Row>
-                  <Row>
-                    <Value column="id">Traumatismos y envenenamientos</Value>
-                  </Row>
-                  <Row>
-                    <Value column="id">Factores que influyen en el estado de salud</Value>
-                  </Row>
-                  <Row>
-                    <Value column="id">Causas externas de morbilidad y mortalidad</Value>
-                  </Row>
-              </InlineTable>
-              <Level name="Causas de hospitalizacion" key_column="id" name_column="name" />
-            </Hierarchy>
-        </Dimension>
-
         <Dimension name="Grupo de edad" foreign_key="age_group">
             <Hierarchy name="Grupo de edad" primary_key="id">
                 <InlineTable alias="dim_age_group">
                     <ColumnDef name="id" key_type="nontext" />
                     <ColumnDef name="name" key_type="text" />
                     <Row>
-                        <Value column="id">Menores de 15 años</Value>
+                        <Value column="id">1</Value>
+                        <Value column="name">Inicial</Value>
                     </Row>
                     <Row>
-                        <Value column="id">De 15 a 24 años</Value>
+                        <Value column="id">2</Value>
+                        <Value column="name">Primaria</Value>
                     </Row>
                     <Row>
-                        <Value column="id">De 25 a 49 años</Value>
+                        <Value column="id">3</Value>
+                        <Value column="name">Secundaria</Value>
                     </Row>
                     <Row>
-                        <Value column="id">50 y más años</Value>
+                        <Value column="id">4</Value>
+                        <Value column="name">Básica Alternativa</Value>
                     </Row>
                     <Row>
-                        <Value column="id">Ignorado</Value>
+                        <Value column="id">5</Value>
+                        <Value column="name">Básica Especial</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">6</Value>
+                        <Value column="name">Técnico Productiva</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">7</Value>
+                        <Value column="name">Superior No Universitaria</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">8</Value>
+                        <Value column="name">Superior Universitaria</Value>
                     </Row>
                 </InlineTable>
                 <Level name="Grupo de edad" key_column="id" name_column="name" />
             </Hierarchy>
         </Dimension>
 
-        <Measure name="Numero de pacientes" column="poblacion" aggregator="sum" />
+        <Measure name="Numero de estudiantes" column="estudiantes" aggregator="sum" />
 
   	</Cube>
     <Cube name="proinversion_fdi_y_origin_nat">
@@ -1239,9 +1226,7 @@
 
         <Table name="proinversion_fdi_y_origin_nat" primary_key="ubigeo" />
 
-
-        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
-
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo Nacion" name="Ubigeo" />
 
         <Dimension name="Year" foreign_key="year">
             <Hierarchy name="Year">
@@ -1261,9 +1246,160 @@
             </Hierarchy>
         </Dimension>
 
-        <Measure name="Numero de pacientes" column="poblacion" aggregator="sum" />
+        <Measure name="IED (Millones de dolares)" column="ied_millones_USD" aggregator="sum" />
 
   	</Cube>
+    <Cube name="minagri_dinamica_agricola">
+        <Annotation name="source_name">MINAGRI</Annotation>
+        <Annotation name="source_description">Ministerio de Agricultura y Riego</Annotation>
+        <Annotation name="dataset_name">Registro de Dinámicas Agrícolas</Annotation>
+        <Annotation name="dataset_link">https://www.gob.pe/minagri</Annotation>
+
+        <Table name="minagri_dinamica_agricola" primary_key="district_id" />
+
+        <DimensionUsage foreign_key="cultivo_id" source="Cultivo" name="Cultivo" />
+        <DimensionUsage foreign_key="district_id" source="Ubigeo" name="Ubigeo" />
+        <DimensionUsage foreign_key="month_id" source="Date Month" name="Date" />
+
+        <Dimension name="Tipo Cultivo" foreign_key="tipo">
+            <Hierarchy name="Tipo Cultivo" primary_key="id">
+                <InlineTable alias="dim_tipo_cultivo">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Transitorios</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Permanentes</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Cultivos de Manejo Especial</Value>
+                    </Row>  
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Pastos</Value>
+                    </Row> 
+                </InlineTable>
+                <Level name="Tipo Cultivo" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Unidad Superficie Sembrada" foreign_key="superficie_sembrada_unidad">
+            <Hierarchy name="Unidad Superficie Sembrada" primary_key="id">
+                <InlineTable alias="dim_unidad_superficie_sembrada">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Hectárea (ha)</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Unidad Superficie Sembrada" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Unidad Superficie Cosechada" foreign_key="superficie_cosechada_unidad">
+            <Hierarchy name="Unidad Superficie Cosechada" primary_key="id">
+                <InlineTable alias="dim_unidad_superficie_cosechada">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Hectárea (ha)</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Unidad Superficie Cosechada" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Unidad Produccion" foreign_key="produccion_unidad">
+            <Hierarchy name="Unidad Produccion" primary_key="id">
+                <InlineTable alias="dim_unidad_produccion">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Tonelada (t)</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Unidad Produccion" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Unidad Rendimiento" foreign_key="rendimiento_unidad">
+            <Hierarchy name="Unidad Rendimiento" primary_key="id">
+                <InlineTable alias="dim_unidad_rendimiento">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Kilogramo/Hectárea (kg/ha)</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Unidad Rendimiento" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Unidad Precio" foreign_key="precio_unidad">
+            <Hierarchy name="Unidad Precio" primary_key="id">
+                <InlineTable alias="dim_unidad_precio">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Soles/Kilogramo (soles/kg)</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Unidad Precio" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Superficie sembrada" column="superficie_sembrada" aggregator="sum" />
+        <Measure name="Superficie cosechada" column="superficie_cosechada" aggregator="sum" />
+        <Measure name="Producción" column="produccion" aggregator="sum" />  
+        <Measure name="Rendimiento" column="rendimiento" aggregator="sum" />  
+        <Measure name="Precio" column="precio" aggregator="sum" />  
+
+    </Cube>
+    <Cube name="minagri_dinamica_pecuaria">
+        <Annotation name="source_name">MINAGRI</Annotation>
+        <Annotation name="source_description">Ministerio de Agricultura y Riego</Annotation>
+        <Annotation name="dataset_name">Registro de Dinámicas Pecuarias</Annotation>
+        <Annotation name="dataset_link">https://www.gob.pe/minagri</Annotation>
+
+        <Table name="minagri_dinamica_pecuaria" primary_key="district_id" />
+
+        <DimensionUsage foreign_key="department_id" source="Ubigeo Departamento" name="Ubigeo" />
+        <DimensionUsage foreign_key="month_id" source="Date Month" name="Date" />
+
+        <Dimension name="Producto" foreign_key="producto_id">
+            <Hierarchy name="Producto" primary_key="producto_id">
+                <Table name="dim_shared_dinamica_pecuaria" />
+                
+                <Level name="Producto" key_column="producto_id" name_column="producto_name" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Unidad Produccion" foreign_key="produccion_unidad">
+            <Hierarchy name="Unidad Produccion" primary_key="id">
+                <InlineTable alias="dim_unidad_produccion">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Tonelada (t)</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Unidad Produccion" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Producción" column="produccion" aggregator="sum" />  
+
+    </Cube>
     <Cube name="sunat_subnational_trade">
         <Annotation name="source_name">SUNAT</Annotation>
         <Annotation name="source_description">Superintendencia Nacional de Aduanas y de Administración Tributaria</Annotation>
