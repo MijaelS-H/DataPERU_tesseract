@@ -7,9 +7,7 @@
 
         <Table name="proinversion_fdi_y_origin_nat" primary_key="ubigeo" />
 
-
         <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
-
 
         <Dimension name="Year" foreign_key="year">
             <Hierarchy name="Year">
@@ -29,10 +27,7 @@
             </Hierarchy>
         </Dimension>
 
-
-
-
-        <Measure name="Numero de pacientes" column="poblacion" aggregator="sum" />
+        <Measure name="IED (Millones de dolares)" column="ied_millones_USD" aggregator="sum" />
 
   	</Cube>
 </Schema>

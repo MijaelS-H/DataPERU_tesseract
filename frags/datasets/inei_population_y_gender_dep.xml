@@ -1,9 +1,8 @@
 <Schema name="dataperu" default_locale="es">
     <Cube name="inei_population_y_gender_dep">
-        <Annotation name="source_name">INEI</Annotation>
-        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
-        <Annotation name="dataset_name">Registro Nacional de Municipalidades 2019</Annotation>
-        <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/catalog/709</Annotation>
+        <Annotation name="topic">Empleo</Annotation>
+        <Annotation name="subtopic">Empleo</Annotation>
+        <Annotation name="source_name">Indicadores ITP</Annotation>
 
         <Table name="inei_population_y_gender_dep" primary_key="ubigeo" />
 

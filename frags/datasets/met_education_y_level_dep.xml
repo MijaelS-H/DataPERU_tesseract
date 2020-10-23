@@ -1,8 +1,8 @@
 <Schema name="dataperu" default_locale="es">
 	<Cube name="met_education_y_level_dep">
 
-    	<Annotation name="topic">Economia</Annotation>
-      	<Annotation name="subtopic">Economia</Annotation>
+    	<Annotation name="topic">Sociales</Annotation>
+      	<Annotation name="subtopic">Sociales</Annotation>
       	<Annotation name="source_name">Indicadores ITP</Annotation>
 
         <Table name="met_education_y_level_dep" primary_key="ubigeo" />
