@@ -18,7 +18,7 @@
             </Hierarchy>
         </Dimension>
 
-        <Measure name=" Número de computadoras operativas" column="RENAMU_1" aggregator="sum" />
+        <Measure name="Número de computadoras operativas" column="RENAMU_1" aggregator="sum" />
         <Measure name="Disponibilidad de sistemas informáticos implementados en la municipalidad para apoyar la gestión de los trámites documentarios" column="RENAMU_2" aggregator="sum" />
         <Measure name="Porcentaje de municipalidades con sistemas informáticos implementados en la municipalidad para apoyar la gestión de los trámites documentarios" column="RENAMU_3" aggregator="sum" />
         <Measure name="Disponibilidad de sistemas informáticos implementados en la municipalidad para apoyar la gestión de las licencias de edificación y habilitación urbana" column="RENAMU_4" aggregator="sum" />
