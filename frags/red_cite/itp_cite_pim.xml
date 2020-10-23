@@ -17,13 +17,7 @@
             </Hierarchy>
         </Dimension>
 
-
-        <Dimension name="PIM" foreign_key="pim">
-            <Hierarchy name="PIM">
-                <Level name="PIM" key_column="pim" key_type="nontext" />
-            </Hierarchy>
-        </Dimension>
-
+        <Measure name="PIM" column="pim" aggregator="sum" />
         <Measure name="Numero de CITE" column="numero_cite" aggregator="count" />
 
     </Cube>

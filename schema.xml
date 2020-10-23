@@ -113,69 +113,25 @@
         </Hierarchy>
     </SharedDimension>
 
-    <SharedDimension name="Asociaciones Culturales" type="standard">
-        <Hierarchy name="Asociaciones Culturales">
-            <Table name="dim_asociaciones_culturales" />
-            <Level name="Asociaciones Culturales" key_column="codigo_asociacion" name_column="asociacion_name" key_type="text" />
+    <SharedDimension name="Producto" type="standard">
+        <Hierarchy name="Producto">
+            <Table name="dim_shared_hs" />
+            <Level name="Capítulo" key_column="chapter_id" name_column="chapter_name" key_type="text" />
+            <Level name="HS2" key_column="hs2_id" name_column="hs2_name" key_type="text" />
+            <Level name="HS4" key_column="hs4_id" name_column="hs4_name" key_type="text" />
+            <Level name="HS6" key_column="hs6_id" name_column="hs6_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
 
-    <SharedDimension name="Manifestacion 1" type="standard">
-        <Hierarchy name="Manifestacion 1">
-            <Table name="dim_asociaciones_culturales_manifestacion_n_1" />
-            <Level name="Manifestacion 1" key_column="manifestacion_n_1_id" name_column="manifestacion_n_1_name" key_type="text" />
+        <SharedDimension name="Cadena CITE" type="standard">
+        <Hierarchy name="Cadena CITE">
+            <Table name="dim_shared_cite_cadena_atencion" />
+            <Level name="Cadena Resolucion" key_column="cadena_resolucion_id" name_column="cadena_resolucion" key_type="text" />
+            <Level name="Cadena Pip" key_column="cadena_pip_id" name_column="cadena_pip" key_type="text" />
+            <Level name="Cadena Atencion" key_column="cadena_atencion_id" name_column="cadena_atencion" key_type="text" />
         </Hierarchy>
     </SharedDimension>
-
-    <SharedDimension name="Manifestacion 2" type="standard">
-        <Hierarchy name="Manifestacion 2">
-            <Table name="dim_asociaciones_culturales_manifestacion_n_2" />
-            <Level name="Manifestacion 2" key_column="manifestacion_n_2_id" name_column="manifestacion_n_2_name" key_type="text" />
-        </Hierarchy>
-    </SharedDimension>
-
-     <SharedDimension name="Manifestacion 2" type="standard">
-        <Hierarchy name="Manifestacion 3">
-            <Table name="dim_asociaciones_culturales_manifestacion_n_3" />
-            <Level name="Manifestacion 3" key_column="manifestacion_n_3_id" name_column="manifestacion_n_3_name" key_type="text" />
-        </Hierarchy>
-    </SharedDimension>
-
-    <SharedDimension name="Razon Social Agentes" type="standard">
-        <Hierarchy name="Razon Social Agentes">
-            <Table name="dim_razon_social_agentes" />
-            <Level name="Razon Social" key_column="razon_social_id" name_column="razon_social_name" key_type="text" />
-        </Hierarchy>
-    </SharedDimension>           
-
-    <SharedDimension name="Razon Social Cine" type="standard">
-        <Hierarchy name="Razon Social Cine">
-            <Table name="dim_cine_razon_social" />
-            <Level name="Razon Social Cine" key_column="razon_social_id" name_column="razon_social_name" key_type="text" />
-        </Hierarchy>
-    </SharedDimension>
-
-    <SharedDimension name="Estimulo Economico" type="standard">
-        <Hierarchy name="Estimulo Economico">
-            <Table name="dim_eec_estimulo_economico" />
-            <Level name="Estimulo Economico" key_column="estimulo_economico_id" name_column="estimulo_economico_name" key_type="text" />
-        </Hierarchy>
-    </SharedDimension>   
-
-    <SharedDimension name="Nombre Proyecto" type="standard">
-        <Hierarchy name="Nombre Proyecto">
-            <Table name="dim_eec_nombre_proyecto" />
-            <Level name="Nombre Proyecto" key_column="nombre_proyecto_id" name_column="nombre_proyecto_name" key_type="text" />
-        </Hierarchy>
-    </SharedDimension>   
-
-    <SharedDimension name="Postulante Cine" type="standard">
-        <Hierarchy name="Razon Social Cine">
-            <Table name="dim_eec_postulante" />
-            <Level name="Postulante Cine" key_column="postulante_id" name_column="postulante_name" key_type="text" />
-        </Hierarchy>
-    </SharedDimension>   
-<Cube name="itp_indicators_y_act_dept">
+    <Cube name="itp_indicators_y_act_dept">
 
     	<Annotation name="topic">Economia</Annotation>
       	<Annotation name="subtopic">Economia</Annotation>
@@ -249,7 +205,7 @@
     	<Measure name="Valor Agregado Bruto (S/ Corrientes)" column="valor_agregado_bruto_cte" aggregator="sum" />
 
   	</Cube>
-<Cube name="itp_cite_descriptivo">
+    <Cube name="itp_cite_clientes_aspecto">
         <Annotation name="source_name">ITP</Annotation>
         <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
         <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
@@ -273,7 +229,7 @@
                         <Value column="id">2</Value>
                         <Value column="name">Capacitación y asistencia técnica</Value>
                     </Row>
-                      <Row>
+                    <Row>
                         <Value column="id">3</Value>
                         <Value column="name">Equipamiento</Value>
                     </Row>
@@ -315,10 +271,10 @@
               </Hierarchy>
         </Dimension>
 
-        <Measure name="CITE" column="cite_id" aggregator="count" />
+        <Measure name="Cantidad CITE" column="cantidad_cite" aggregator="count" />
 
     </Cube>
-<Cube name="itp_cite_descriptivo">
+    <Cube name="itp_cite_clientes_subcategorias">
         <Annotation name="source_name">ITP</Annotation>
         <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
         <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
@@ -342,7 +298,7 @@
                         <Value column="id">2</Value>
                         <Value column="name">Capacitación</Value>
                     </Row>
-                      <Row>
+                    <Row>
                         <Value column="id">3</Value>
                         <Value column="name">Certificación de competencias laborales</Value>
                     </Row>
@@ -374,9 +330,9 @@
         </Dimension>
 
 
-        <Dimension name="Time" foreign_key="time_id">
+        <Dimension name="Time" foreign_key="time">
             <Hierarchy name="Time">
-                <Level name="Time" key_column="time_id" key_type="nontext" />
+                <Level name="Time" key_column="time" key_type="nontext" />
             </Hierarchy>
         </Dimension>
 
@@ -384,7 +340,128 @@
         <Measure name="Empresas" column="empresas" aggregator="sum" />
 
     </Cube>
-<Cube name="itp_cite_descriptivo">
+    <Cube name="itp_cite_descriptivo">
+        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
+
+        <Table name="itp_cite_descriptivo" primary_key="cite_id"/>
+
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+        <DimensionUsage foreign_key="district_id" source="Ubigeo" name="Ubigeo" />
+        <DimensionUsage foreign_key="cadena_atencion_id" source="Cadena CITE" name="Cadena CITE" />
+
+        <Dimension name="Tipo CITE" foreign_key="tipo_id">
+            <Hierarchy name="Tipo CITE" primary_key="id">
+                <InlineTable alias="dim_inline_tipo_id_cite">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">CITE</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">UT</Value>
+                    </Row>
+
+                </InlineTable>
+                <Level name="Tipo CITE" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+
+        <Dimension name="CITE Slug" foreign_key="cite_slug">
+            <Hierarchy name="CITE Slug">
+                <Level name ="CITE Slug" key_column="cite_slug" key_type="text" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Latitud" foreign_key="latitud">
+            <Hierarchy name="Latitud">
+                <Level name ="Latitud" key_column="latitud" key_type="text" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Longitud" foreign_key="longitud">
+            <Hierarchy name="Longitud">
+                <Level name ="Longitud" key_column="longitud" key_type="text" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Descriptivo" foreign_key="descriptivo">
+            <Hierarchy name="Descriptivo">
+                <Level name ="Descriptivo" key_column="descriptivo" key_type="text" />
+             </Hierarchy>
+        </Dimension>
+
+        <Measure name="Cantidad CITE" column="cantidad_cite" aggregator="count" />
+
+    </Cube>
+    <Cube name="itp_cite_ejecucion_presupuestal">
+        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
+
+        <Table name="itp_cite_ejecucion_presupuestal" primary_key="cite_id"/>
+
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+ 
+
+        <Dimension name="Time" foreign_key="time" type="time">
+            <Hierarchy name="Time">
+                <Level name="Time" key_column="time" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Ejecucion presupuestal" column="ejecucion_presupuestal" aggregator="sum" />
+
+    </Cube>
+    <Cube name="itp_cite_empresas_ciiu">
+        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
+
+        <Table name="itp_cite_empresas_ciiu" primary_key="cite_id"/>
+
+        <DimensionUsage foreign_key="class_id" source="CIIU" name="CIIU" />
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+
+
+        <Dimension name="Year" foreign_key="anio">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="anio" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+
+        <Measure name="Empresas" column="empresas" aggregator="sum" />
+
+    </Cube>
+    <Cube name="itp_cite_empresas_ciiu_agg">
+        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
+
+        <Table name="itp_cite_empresas_ciiu_agg" primary_key="class_id"/>
+
+        <DimensionUsage foreign_key="class_id" source="CIIU" name="CIIU" />
+        
+        <Dimension name="Year" foreign_key="anio">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="anio" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+
+        <Measure name="Empresas" column="empresas" aggregator="sum" />
+
+    </Cube>
+    <Cube name="itp_cite_empresas_contribuyente">
         <Annotation name="source_name">ITP</Annotation>
         <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
         <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
@@ -407,13 +484,13 @@
         <Measure name="Empresas" column="empresas" aggregator="sum" />
 
     </Cube>
-<Cube name="itp_cite_descriptivo">
+    <Cube name="itp_cite_empresas_contribuyente_agg">
         <Annotation name="source_name">ITP</Annotation>
         <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
         <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
         <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
 
-        <Table name="itp_cite_empresas_contribuyente_agg" primary_key="cite_id"/>
+        <Table name="itp_cite_empresas_contribuyente_agg" primary_key="contribuyente_id"/>
 
     
         <DimensionUsage foreign_key="contribuyente_id" source="Contribuyente" name="Contribuyente" />
@@ -429,117 +506,7 @@
         <Measure name="Empresas" column="empresas" aggregator="sum" />
 
     </Cube>
-<Cube name="itp_cite_descriptivo">
-        <Annotation name="source_name">ITP</Annotation>
-        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
-        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
-        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
-
-        <Table name="itp_cite_descriptivo" primary_key="cite_id"/>
-
-        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
-
-
-        <Dimension name="Tipo CITE" foreign_key="tipo_id">
-            <Hierarchy name="Tipo CITE" primary_key="id">
-                <InlineTable alias="dim_inline_tipo_id_cite">
-                    <ColumnDef name="id" key_type="nontext" />
-                    <ColumnDef name="name" key_type="text" />
-                    <Row>
-                        <Value column="id">1</Value>
-                        <Value column="name">CITE</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">2</Value>
-                        <Value column="name">UT</Value>
-                    </Row>
-
-                </InlineTable>
-                <Level name="Tipo CITE" key_column="id" name_column="name" />
-            </Hierarchy>
-        </Dimension>
-
-        <Dimension name="CITE Slug" foreign_key="cite_slug">
-            <Hierarchy name="CITE Slug">
-                <Level name ="CITE Slug" key_column="cite_slug" key_type="nontext" />
-              </Hierarchy>
-        </Dimension>
-
-
-
-
-        <Dimension name="Descriptivo" foreign_key="descriptivo">
-            <Hierarchy name="Descriptivo">
-                <Level name ="Descriptivo" key_column="descriptivo" key_type="text" />
-              </Hierarchy>
-        </Dimension>
-
-        <Measure name="CITE" column="cite_id" aggregator="count" />
-
-    </Cube>
-<Cube name="itp_cite_descriptivo">
-        <Annotation name="source_name">ITP</Annotation>
-        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
-        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
-        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
-
-        <Table name="itp_cite_ejecucion_presupuestal" primary_key="cite_id"/>
-
-        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
-
-        <Dimension name="Time" foreign_key="time_id">
-            <Hierarchy name="Time">
-                <Level name="Time" key_column="time_id" key_type="nontext" />
-            </Hierarchy>
-        </Dimension>
-
-        <Measure name="Ejecucion presupuestal" column="ejecucion_presupuestal" aggregator="sum" />
-
-    </Cube>
-<Cube name="itp_cite_descriptivo">
-        <Annotation name="source_name">ITP</Annotation>
-        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
-        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
-        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
-
-        <Table name="itp_cite_empresas_ciiu" primary_key="cite_id"/>
-
-        <DimensionUsage foreign_key="class_id" source="CIIU" name="CIIU" />
-
-
-
-        <Dimension name="Year" foreign_key="anio">
-            <Hierarchy name="Year">
-                <Level name="Year" key_column="anio" key_type="nontext" />
-            </Hierarchy>
-        </Dimension>
-
-
-        <Measure name="Empresas" column="empresas" aggregator="sum" />
-
-    </Cube>
-<Cube name="itp_cite_descriptivo">
-        <Annotation name="source_name">ITP</Annotation>
-        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
-        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
-        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
-
-        <Table name="itp_cite_empresas_ciiu_agg" primary_key="cite_id"/>
-
-        <DimensionUsage foreign_key="class_id" source="CIIU" name="CIIU" />
-        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
-        
-        <Dimension name="Year" foreign_key="anio">
-            <Hierarchy name="Year">
-                <Level name="Year" key_column="anio" key_type="nontext" />
-            </Hierarchy>
-        </Dimension>
-
-
-        <Measure name="Empresas" column="empresas" aggregator="sum" />
-
-    </Cube>
-<Cube name="itp_cite_descriptivo">
+    <Cube name="itp_cite_empresas_tipo">
         <Annotation name="source_name">ITP</Annotation>
         <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
         <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
@@ -562,7 +529,7 @@
                         <Value column="id">2</Value>
                         <Value column="name">Mediana empresa</Value>
                     </Row>
-                      <Row>
+                    <Row>
                         <Value column="id">3</Value>
                         <Value column="name">Microempresa</Value>
                     </Row>
@@ -586,9 +553,9 @@
         </Dimension>
 
 
-        <Dimension name="Time" foreign_key="time_id">
+        <Dimension name="Time" foreign_key="time">
             <Hierarchy name="Time">
-                <Level name="Time" key_column="time_id" key_type="nontext" />
+                <Level name="Time" key_column="time" key_type="nontext" />
             </Hierarchy>
         </Dimension>
 
@@ -596,13 +563,13 @@
         <Measure name="Empresas" column="empresas" aggregator="sum" />
 
     </Cube>
-<Cube name="itp_cite_descriptivo">
+    <Cube name="itp_cite_empresas_tipo_agg">
         <Annotation name="source_name">ITP</Annotation>
         <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
         <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
         <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
 
-        <Table name="itp_cite_empresas_tipo_agg" primary_key="cite_id"/>
+        <Table name="itp_cite_empresas_tipo_agg" primary_key="empresa_id"/>
 
         <Dimension name="Tipo empresa" foreign_key="empresa_id">
             <Hierarchy name="Tipo empresa" primary_key="id">
@@ -617,7 +584,7 @@
                         <Value column="id">2</Value>
                         <Value column="name">Mediana empresa</Value>
                     </Row>
-                      <Row>
+                    <Row>
                         <Value column="id">3</Value>
                         <Value column="name">Microempresa</Value>
                     </Row>
@@ -641,9 +608,9 @@
         </Dimension>
 
 
-        <Dimension name="Time" foreign_key="time_id">
+        <Dimension name="Time" foreign_key="time">
             <Hierarchy name="Time">
-                <Level name="Time" key_column="time_id" key_type="nontext" />
+                <Level name="Time" key_column="time" key_type="nontext" />
             </Hierarchy>
         </Dimension>
 
@@ -651,7 +618,7 @@
         <Measure name="Empresas" column="empresas" aggregator="sum" />
 
     </Cube>
-<Cube name="itp_cite_descriptivo">
+    <Cube name="itp_cite_inversion">
         <Annotation name="source_name">ITP</Annotation>
         <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
         <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
@@ -674,7 +641,7 @@
                         <Value column="id">2</Value>
                         <Value column="name">Equipamiento</Value>
                     </Row>
-                      <Row>
+                    <Row>
                         <Value column="id">3</Value>
                         <Value column="name">Estudio de Impacto Ambiental</Value>
                     </Row>
@@ -715,36 +682,25 @@
                 <Level name="Componente" key_column="id" name_column="name" />
             </Hierarchy>
         </Dimension>
-        
-      <Dimension name="Inversion" foreign_key="inversion">
-            <Hierarchy name="Inversion">
-                <Level name="Inversion" key_column="inversion" key_type="nontext" />
-            </Hierarchy>
-        </Dimension>
 
-      <Dimension name="Ejecucion" foreign_key="ejecucion">
-            <Hierarchy name="Ejecucion">
-                <Level name="Ejecucion" key_column="ejecucion" key_type="nontext" />
-            </Hierarchy>
-        </Dimension>
-
-        <Measure name="Numero de CITE" column="cite_id" aggregator="count" />
+        <Measure name="Inversion" column="inversion" aggregator="sum" />
+        <Measure name="Ejecucion" column="ejecucion" aggregator="sum" />
+        <Measure name="Numero de CITE" column="numero_cites" aggregator="count" />
 
     </Cube>
-<Cube name="itp_cite_descriptivo">
+    <Cube name="itp_cite_partidas">
         <Annotation name="source_name">ITP</Annotation>
         <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
         <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
         <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
 
-        <Table name="itp_cite_empresas_ciiu_agg" primary_key="cite_id"/>
+        <Table name="itp_cite_partidas" primary_key="cite_id"/>
 
     
         <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
         <DimensionUsage foreign_key="cad_prod_id" source="Cadena productiva" name="Cadena productiva" />       
-    <!--
-        <DimensionUsage foreign_key="partida_id" source="????" name="???" />       
-        -->
+        <DimensionUsage foreign_key="hs6_id" source="Producto" name="Producto" />       
+     
     
 
         <Dimension name="Sector" foreign_key="sector_id">
@@ -811,7 +767,7 @@
         <Measure name="Cantidad CITE" column="cantidad_cite" aggregator="count" />
 
     </Cube>
-<Cube name="itp_cite_descriptivo">
+    <Cube name="itp_cite_pim">
         <Annotation name="source_name">ITP</Annotation>
         <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
         <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
@@ -829,17 +785,11 @@
             </Hierarchy>
         </Dimension>
 
-
-        <Dimension name="PIM" foreign_key="pim">
-            <Hierarchy name="PIM">
-                <Level name="PIM" key_column="pim" key_type="nontext" />
-            </Hierarchy>
-        </Dimension>
-
-        <Measure name="Numero de CITE" column="cite_id" aggregator="count" />
+        <Measure name="PIM" column="pim" aggregator="sum" />
+        <Measure name="Numero de CITE" column="numero_cite" aggregator="count" />
 
     </Cube>
-<Cube name="itp_cite_descriptivo">
+    <Cube name="itp_cite_trabajadores">
         <Annotation name="source_name">ITP</Annotation>
         <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
         <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
@@ -918,7 +868,7 @@
         <Measure name="Cantidad" column="cantidad" aggregator="sum" />
 
     </Cube>
-<Cube name="inei_eea">
+    <Cube name="inei_eea">
         <Annotation name="source_name">INEI</Annotation>
         <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
         <Annotation name="dataset_name">Encuesta Económica Anual</Annotation>
@@ -947,7 +897,7 @@
         <Measure name="Coeficiente de Variación" column="coef_var" aggregator="avg" />
 
     </Cube>
-<Cube name="inei_enaho">
+    <Cube name="inei_enaho">
         <Annotation name="source_name">INEI</Annotation>
         <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
         <Annotation name="dataset_name">Encuestas Nacional de Empresas</Annotation>
@@ -997,7 +947,7 @@
         <Measure name="Coeficiente de Variación" column="coef_var" aggregator="avg" />
 
     </Cube>
-<Cube name="inei_enave">
+    <Cube name="inei_enave">
         <Annotation name="source_name">INEI</Annotation>
         <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
         <Annotation name="dataset_name">Encuestas Nacional de Victimización de Empresas</Annotation>
@@ -1113,7 +1063,7 @@
         <Measure name="Coeficiente de Variación" column="coef_var" aggregator="avg" />
 
     </Cube>
-<Cube name="inei_ene">
+    <Cube name="inei_ene">
         <Annotation name="source_name">INEI</Annotation>
         <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
         <Annotation name="dataset_name">Encuesta Nacional de Empresas</Annotation>
@@ -1190,7 +1140,7 @@
         <Measure name="Coeficiente de Variación" column="coef_var" aggregator="avg" />
 
     </Cube>
-<Cube name="inei_enhat">
+    <Cube name="inei_enhat">
         <Annotation name="source_name">INEI</Annotation>
         <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
         <Annotation name="dataset_name">Encuesta Nacional de Habilidades al Trabajo</Annotation>
@@ -1291,7 +1241,7 @@
         <Measure name="Coeficiente de Variación" column="coef_var" aggregator="avg" />
 
     </Cube>
-<Cube name="inei_enima">
+    <Cube name="inei_enima">
         <Annotation name="source_name">INEI</Annotation>
         <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
         <Annotation name="dataset_name">Encuesta Nacional de de Innovación en las Empresas Manufactureras</Annotation>

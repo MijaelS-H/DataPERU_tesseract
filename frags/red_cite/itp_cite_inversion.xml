@@ -64,19 +64,8 @@
             </Hierarchy>
         </Dimension>
 
-
-      <Dimension name="Inversion" foreign_key="inversion">
-            <Hierarchy name="Inversion">
-                <Level name="Inversion" key_column="inversion" key_type="nontext" />
-            </Hierarchy>
-        </Dimension>
-
-        <Dimension name="Ejecucion" foreign_key="ejecucion">
-            <Hierarchy name="Ejecucion">
-                <Level name="Ejecucion" key_column="ejecucion" key_type="nontext" />
-            </Hierarchy>
-        </Dimension>
-
+        <Measure name="Inversion" column="inversion" aggregator="sum" />
+        <Measure name="Ejecucion" column="ejecucion" aggregator="sum" />
         <Measure name="Numero de CITE" column="numero_cites" aggregator="count" />
 
     </Cube>

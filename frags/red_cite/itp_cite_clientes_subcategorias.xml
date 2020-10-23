@@ -55,9 +55,9 @@
         </Dimension>
 
 
-        <Dimension name="Time" foreign_key="time_id">
+        <Dimension name="Time" foreign_key="time">
             <Hierarchy name="Time">
-                <Level name="Time" key_column="time_id" key_type="nontext" />
+                <Level name="Time" key_column="time" key_type="nontext" />
             </Hierarchy>
         </Dimension>
 
