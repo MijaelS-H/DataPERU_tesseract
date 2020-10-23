@@ -23,7 +23,7 @@
                         <Value column="id">2</Value>
                         <Value column="name">Capacitación</Value>
                     </Row>
-                      <Row>
+                    <Row>
                         <Value column="id">3</Value>
                         <Value column="name">Certificación de competencias laborales</Value>
                     </Row>
