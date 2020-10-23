@@ -10,9 +10,9 @@
         <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
  
 
-        <Dimension name="Time" foreign_key="time">
+        <Dimension name="Time" foreign_key="time_id">
             <Hierarchy name="Time">
-                <Level name="Time" key_column="time" key_type="nontext" />
+                <Level name="Time" key_column="time_id" key_type="nontext" />
             </Hierarchy>
         </Dimension>
 

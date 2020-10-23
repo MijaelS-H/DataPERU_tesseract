@@ -71,7 +71,7 @@
             </Hierarchy>
         </Dimension>
 
-      <Dimension name="Ejecucion" foreign_key="ejecucion">
+        <Dimension name="Ejecucion" foreign_key="ejecucion">
             <Hierarchy name="Ejecucion">
                 <Level name="Ejecucion" key_column="ejecucion" key_type="nontext" />
             </Hierarchy>
