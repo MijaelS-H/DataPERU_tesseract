@@ -8,7 +8,8 @@
         <Table name="itp_cite_descriptivo" primary_key="cite_id"/>
 
         <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
-
+        <DimensionUsage foreign_key="district_id" source="Ubigeo" name="Ubigeo" />
+        <DimensionUsage foreign_key="cadena_atencion_id" source="Cadena CITE" name="Cadena CITE" />
 
         <Dimension name="Tipo CITE" foreign_key="tipo_id">
             <Hierarchy name="Tipo CITE" primary_key="id">
@@ -29,32 +30,33 @@
             </Hierarchy>
         </Dimension>
 
+
         <Dimension name="CITE Slug" foreign_key="cite_slug">
             <Hierarchy name="CITE Slug">
-                <Level name ="CITE Slug" key_column="cite_slug" key_type="nontext" />
-              </Hierarchy>
+                <Level name ="CITE Slug" key_column="cite_slug" key_type="text" />
+            </Hierarchy>
         </Dimension>
 
 
         <Dimension name="Latitud" foreign_key="latitud">
             <Hierarchy name="Latitud">
-                <Level name ="Latitud" key_column="latitud" key_type="nontext" />
-              </Hierarchy>
+                <Level name ="Latitud" key_column="latitud" key_type="text" />
+            </Hierarchy>
         </Dimension>
 
         <Dimension name="Longitud" foreign_key="longitud">
             <Hierarchy name="Longitud">
-                <Level name ="Longitud" key_column="longitud" key_type="nontext" />
-              </Hierarchy>
+                <Level name ="Longitud" key_column="longitud" key_type="text" />
+            </Hierarchy>
         </Dimension>
 
         <Dimension name="Descriptivo" foreign_key="longitud">
             <Hierarchy name="Descriptivo">
                 <Level name ="Descriptivo" key_column="descriptivo" key_type="text" />
-              </Hierarchy>
+             </Hierarchy>
         </Dimension>
 
-        <Measure name="CITE" column="cite_id" aggregator="count" />
+        <Measure name="Cantidad CITE" column="cantidad_cite" aggregator="count" />
 
     </Cube>
 </Schema>       

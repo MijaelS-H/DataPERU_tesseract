@@ -1,11 +1,11 @@
 <Schema name="dataperu" default_locale="es">
-    <Cube name="itp_cite_descriptivo">
+    <Cube name="itp_cite_empresas_tipo_agg">
         <Annotation name="source_name">ITP</Annotation>
         <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
         <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
         <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
 
-        <Table name="itp_cite_empresas_tipo_agg" primary_key="cite_id"/>
+        <Table name="itp_cite_empresas_tipo_agg" primary_key="empresa_id"/>
 
         <Dimension name="Tipo empresa" foreign_key="empresa_id">
             <Hierarchy name="Tipo empresa" primary_key="id">
@@ -20,7 +20,7 @@
                         <Value column="id">2</Value>
                         <Value column="name">Mediana empresa</Value>
                     </Row>
-                      <Row>
+                    <Row>
                         <Value column="id">3</Value>
                         <Value column="name">Microempresa</Value>
                     </Row>
@@ -44,9 +44,9 @@
         </Dimension>
 
 
-        <Dimension name="Time" foreign_key="time_id">
+        <Dimension name="Time" foreign_key="time">
             <Hierarchy name="Time">
-                <Level name="Time" key_column="time_id" key_type="nontext" />
+                <Level name="Time" key_column="time" key_type="nontext" />
             </Hierarchy>
         </Dimension>
 

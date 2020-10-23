@@ -1,5 +1,5 @@
 <Schema name="dataperu" default_locale="es">
-    <Cube name="itp_cite_descriptivo">
+    <Cube name="itp_cite_ejecucion_presupuestal">
         <Annotation name="source_name">ITP</Annotation>
         <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
         <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
@@ -8,6 +8,7 @@
         <Table name="itp_cite_ejecucion_presupuestal" primary_key="cite_id"/>
 
         <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+ 
 
         <Dimension name="Time" foreign_key="time">
             <Hierarchy name="Time">

@@ -1,18 +1,17 @@
 <Schema name="dataperu" default_locale="es">
-    <Cube name="itp_cite_descriptivo">
+    <Cube name="itp_cite_partidas">
         <Annotation name="source_name">ITP</Annotation>
         <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
         <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
         <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
 
-        <Table name="itp_cite_empresas_ciiu_agg" primary_key="cite_id"/>
+        <Table name="itp_cite_partidas" primary_key="cite_id"/>
 
     
         <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
         <DimensionUsage foreign_key="cad_prod_id" source="Cadena productiva" name="Cadena productiva" />       
-    <!--
-        <DimensionUsage foreign_key="partida_id" source="????" name="???" />       
-        -->
+        <DimensionUsage foreign_key="hs6_id" source="Producto" name="Producto" />       
+     
     
 
         <Dimension name="Sector" foreign_key="sector_id">

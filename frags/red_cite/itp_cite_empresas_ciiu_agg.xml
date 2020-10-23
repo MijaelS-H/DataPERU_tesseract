@@ -1,14 +1,13 @@
 <Schema name="dataperu" default_locale="es">
-    <Cube name="itp_cite_descriptivo">
+    <Cube name="itp_cite_empresas_ciiu_agg">
         <Annotation name="source_name">ITP</Annotation>
         <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
         <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
         <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
 
-        <Table name="itp_cite_empresas_ciiu_agg" primary_key="cite_id"/>
+        <Table name="itp_cite_empresas_ciiu_agg" primary_key="class_id"/>
 
         <DimensionUsage foreign_key="class_id" source="CIIU" name="CIIU" />
-        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
         
         <Dimension name="Year" foreign_key="anio">
             <Hierarchy name="Year">

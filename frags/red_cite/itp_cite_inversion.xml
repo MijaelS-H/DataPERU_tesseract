@@ -1,5 +1,5 @@
 <Schema name="dataperu" default_locale="es">
-    <Cube name="itp_cite_descriptivo">
+    <Cube name="itp_cite_inversion">
         <Annotation name="source_name">ITP</Annotation>
         <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
         <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
@@ -65,12 +65,6 @@
         </Dimension>
 
 
-        <Dimension name="Time" foreign_key="time_id">
-            <Hierarchy name="Time">
-                <Level name="Time" key_column="time_id" key_type="nontext" />
-            </Hierarchy>
-        </Dimension>
-
       <Dimension name="Inversion" foreign_key="inversion">
             <Hierarchy name="Inversion">
                 <Level name="Inversion" key_column="inversion" key_type="nontext" />
@@ -83,7 +77,7 @@
             </Hierarchy>
         </Dimension>
 
-        <Measure name="Numero de CITE" column="cite_id" aggregator="count" />
+        <Measure name="Numero de CITE" column="numero_cites" aggregator="count" />
 
     </Cube>
 </Schema>       

@@ -1,5 +1,5 @@
 <Schema name="dataperu" default_locale="es">
-    <Cube name="itp_cite_descriptivo">
+    <Cube name="itp_cite_pim">
         <Annotation name="source_name">ITP</Annotation>
         <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
         <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
@@ -24,7 +24,7 @@
             </Hierarchy>
         </Dimension>
 
-        <Measure name="Numero de CITE" column="cite_id" aggregator="count" />
+        <Measure name="Numero de CITE" column="numero_cite" aggregator="count" />
 
     </Cube>
 </Schema>       
