@@ -1,14 +1,11 @@
 <Schema name="dataperu" default_locale="es">
-    <Cube name="itp_cite_clientes_subcategorias">
+    <Cube name="itp_cite_clientes_subcategorias_agg">
         <Annotation name="source_name">ITP</Annotation>
         <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
         <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
         <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
 
-        <Table name="itp_cite_clientes_subcategorias" primary_key="cite_id"/>
-
-        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
-
+        <Table name="itp_cite_servcios_subcategorias_agg" primary_key="subcategoria_id"/>
 
         <Dimension name="Subcategoria" foreign_key="subcategoria_id">
             <Hierarchy name="Subcategoria" primary_key="id">

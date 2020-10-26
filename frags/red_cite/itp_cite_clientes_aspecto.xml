@@ -8,7 +8,7 @@
         <Table name="itp_cite_clientes_aspecto" primary_key="cite_id"/>
 
         <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
-
+        <DimensionUsage foreign_key="estado_id" source="Estado CITE" name="Estado CITE" />
 
         <Dimension name="Aspecto" foreign_key="aspecto_id">
             <Hierarchy name="Aspecto" primary_key="id">
@@ -56,13 +56,6 @@
                 </InlineTable>
                 <Level name="Aspecto" key_column="id" name_column="name" />
             </Hierarchy>
-        </Dimension>
-
-
-        <Dimension name="Estado" foreign_key="estado">
-            <Hierarchy name="Estado">
-                <Level name ="Estado" key_column="estado" key_type="text" />
-              </Hierarchy>
         </Dimension>
 
         <Measure name="Cantidad CITE" column="cantidad_cite" aggregator="count" />

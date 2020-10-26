@@ -18,7 +18,6 @@
         </Dimension>
 
         <Measure name="PIM" column="pim" aggregator="sum" />
-        <Measure name="Numero de CITE" column="numero_cite" aggregator="count" />
 
     </Cube>
 </Schema>       

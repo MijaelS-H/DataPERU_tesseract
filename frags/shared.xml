@@ -91,14 +91,6 @@
         </Hierarchy>
     </SharedDimension>
 
-    <SharedDimension name="CITE" type="geo">
-        <Hierarchy name="CITE">
-            <Table name="dim_shared_cite" />
-            <Level name="CITE" key_column="cite_id" name_column="cite_name" key_type="text" />
-        </Hierarchy>
-    </SharedDimension>
-
-    
     <SharedDimension name="Contribuyente" type="standard">
         <Hierarchy name="Contribuyente">
             <Table name="dim_shared_cite_contribuyente" />
@@ -123,16 +115,56 @@
         </Hierarchy>
     </SharedDimension>
 
-        <SharedDimension name="Cadena CITE" type="standard">
-        <Hierarchy name="Cadena CITE">
+    <SharedDimension name="Cadena Atencion CITE" type="standard">
+        <Hierarchy name="Cadena Atencion CITE">
             <Table name="dim_shared_cite_cadena_atencion" />
-            <Level name="Cadena Resolucion" key_column="cadena_resolucion_id" name_column="cadena_resolucion" key_type="text" />
-            <Level name="Cadena Pip" key_column="cadena_pip_id" name_column="cadena_pip" key_type="text" />
-            <Level name="Cadena Atencion" key_column="cadena_atencion_id" name_column="cadena_atencion" key_type="text" />
+            <Level name="Cadena Atencion CITE" key_column="cadena_atencion_id" name_column="cadena_atencion" key_type="nontext" />
+        </Hierarchy>
+    </SharedDimension>
+
+    
+    <SharedDimension name="Cadena Pip CITE" type="standard">
+        <Hierarchy name="Cadena Pip CITE">
+            <Table name="dim_shared_cite_cadena_pip" />
+            <Level name="Cadena Pip CITE" key_column="cadena_pip_id" name_column="cadena_pip" key_type="nontext" />
+        </Hierarchy>
+    </SharedDimension>
+
+    
+    <SharedDimension name="Cadena Resolucion CITE" type="standard">
+        <Hierarchy name="Cadena Resolucion CITE">
+            <Table name="dim_shared_cite_cadena_resolucion" />
+            <Level name="Cadena Resolucion CITE" key_column="cadena_resolucion_id" name_column="cadena_resolucion" key_type="nontext" />
+        </Hierarchy>
+    </SharedDimension>
+
+        
+    <SharedDimension name="Estado CITE" type="standard">
+        <Hierarchy name="Estado CITE">
+            <Table name="dim_shared_cite_estado" />
+            <Level name="Estado CITE" key_column="estado_id" name_column="estado" key_type="nontext" />
         </Hierarchy>
     </SharedDimension>
 
 
+    <SharedDimension name="CITE" type="geo">
+        <Hierarchy name="CITE">
+          <Table name="dim_shared_cite" />
+          <Level name="CITE" key_column="cite_id" name_column="cite" key_type="nontext">
+            <Property name="Tipo" column="tipo"/>
+            <Property name="Director" column="director"/>
+            <Property name="Coordinador UT" column="coordinador_ut"/>
+            <Property name="Directiva" column="lista_miembros"/>
+            <Property name="Ambito" column="ambito"/>
+            <Property name="Ubigeo" column="district_id"/>
+            <Property name="Direccion" column="direccion"/>
+            <Property name="Latitud" column="latitud"/>
+            <Property name="Longitud" column="longitud"/>
+            <Property name="Descripcion" column="descriptivo"/>
+            <Property name="CITE Slug" column="cite_slug"/>
+          </Level>
+        </Hierarchy>
+    </SharedDimension>    
 
 
     <!--
