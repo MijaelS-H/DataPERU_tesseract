@@ -19,8 +19,9 @@
         <Measure name="IPC base variacion acumulada (2011)" column="ipc_base_2011_var_acumulado" aggregator="sum" />
         <Measure name="IPC base variacion año anterior (2011)" column="ipc_base_2011_var_anio_anterior" aggregator="sum" />
         <Measure name="IPM base observado (2013)" column="ipm_base_2013_observado" aggregator="sum" />
-        <Measure name="IPM base variacion mes anterior(2013)" column="ipm_base_2013_var_mes_anterior" aggregator="sum" />
-        <Measure name="IPM base variacion acumulada(2013)" column="ipm_base_2013_var_acumulado" aggregator="sum" />
+        <Measure name="IPM base variacion mes anterior (2013)" column="ipm_base_2013_var_mes_anterior" aggregator="sum" />
+        <Measure name="IPM base variacion acumulada (2013)" column="ipm_base_2013_var_acumulado" aggregator="sum" />
+        <Measure name="Porcentaje morosidad de credito de la banca" column="perc_morosidad_credi_banca_mult" aggregator="sum" />
 
     </Cube>
 </Schema>
