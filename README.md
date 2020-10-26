@@ -71,3 +71,7 @@ Una vez instalado `moncat`, es necesario ejecutar el siguiente comando, el cual 
 ### 3. Agregar contenido de `shared.xml`
 
 Actualmente, `moncat` no permite la agregación automática de dimensiones compartidas bajo el objeto `<SharedDimension />`, como lo son las dimensiones definidas en el archivo `frags/shared.xml`. Dado lo anterior, es necesario de manera manual al inicio del archivo `schema.xml` generado por moncat.
+
+### 4. Reiniciar servicio de Tesseract
+
+Cada modificación del esquema utilizado por Tesseract, requiere que el servicio sea reiniciado para acceder a los nuevos cambios definidos. Favor contactar al administrador del servidor de backend para reiniciar el servicio correspondiente.
