@@ -142,6 +142,19 @@
         </Hierarchy>
     </SharedDimension>
 
+    <SharedDimension name="Date Month" type="time">
+        <Hierarchy name="Date" primary_key="month_id">
+            <Table name="dim_shared_date_month" />
+            <Level name="Year" key_column="year" />
+            <Level name="Quarter" key_column="quarter_id" name_column="quarter">
+                <Property name="Quarter ES" column="quarter" caption_set="es" />
+            </Level>
+            <Level name="Month" key_column="month_id" name_column="month">
+                <Property name="Month ES" column="month" caption_set="es" />
+            </Level>
+        </Hierarchy>
+    </SharedDimension>
+
     <SharedDimension name="Date Day" type="time">
         <Hierarchy name="Date" primary_key="date_id">
             <Table name="dim_shared_date_month_day" />
@@ -166,6 +179,22 @@
             <Level name="HS2" key_column="hs2_id" name_column="hs2_name" key_type="text" />
             <Level name="HS4" key_column="hs4_id" name_column="hs4_name" key_type="text" />
             <Level name="HS6" key_column="hs6_id" name_column="hs6_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Cultivo" type="standard">
+        <Hierarchy name="Cultivo">
+            <Table name="dim_shared_dinamica_agricola" />
+
+            <Level name="Cultivo" key_column="cultivo_id" name_column="cultivo_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Mercado" type="standard">
+        <Hierarchy name="Mercado">
+            <Table name="dim_market" />
+            
+            <Level name="Mercado" key_column="market_id" name_column="market_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
 </Schema>
