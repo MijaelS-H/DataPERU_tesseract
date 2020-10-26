@@ -13,6 +13,18 @@
         <DimensionUsage foreign_key="district_id" source="Ubigeo Lite" name="Ubigeo Distrito" />
         <DimensionUsage foreign_key="market_id" source="Mercado" name="Mercado" />
 
+        <Dimension name="Latitud" foreign_key="gps_lat">
+            <Hierarchy name="Latitud">
+                <Level name="Latitud" key_column="gps_lat" key_type="text" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Longitud" foreign_key="gps_lon">
+            <Hierarchy name="Longitud">
+                <Level name="Longitud" key_column="gps_lon" key_type="text" />
+            </Hierarchy>
+        </Dimension>
+
         <Dimension name="Year" foreign_key="year">
             <Hierarchy name="Year">
                 <Level name="Year" key_column="year" key_type="nontext" />
