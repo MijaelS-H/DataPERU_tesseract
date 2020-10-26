@@ -2,7 +2,7 @@
     <Cube name="inei_cenama">
         <Annotation name="source_name">INEI</Annotation>
         <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
-        <Annotation name="dataset_name">Registro Nacional de Municipalidades</Annotation>
+        <Annotation name="dataset_name">Censo Nacional de Mercados de Abasto</Annotation>
         <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/</Annotation>
 
         <Table name="inei_cenama" primary_key="district_id" />
