@@ -14,50 +14,50 @@
             </Hierarchy>
         </Dimension>
 
-        <Measure name="Producto Interno Bruto" column="producto_interno_bruto" aggregator="sum" />
-        <Measure name="Remuneraciones" column="remuneraciones" aggregator="sum" />
-        <Measure name="Derechos importacion" column="derechos_importacion" aggregator="sum" />
-        <Measure name="Impuestos oroductos" column="impuestos_productos" aggregator="sum" />
-        <Measure name="Otros impuestos" column="otros_impuestos" aggregator="sum" />
-        <Measure name="Ingreso explotacion" column="ingreso_explotacion" aggregator="sum" />
-        <Measure name="Excedente explotacion bruto" column="excedente_explotacion_bruto" aggregator="sum" />
-        <Measure name="Ingreso mixto" column="ingreso_mixto" aggregator="sum" />
-        <Measure name="Agricultura, ganaderia, caza y silvicultura" column="agricultura_ganaderia_caza_silvicultura" aggregator="sum" />
-        <Measure name="Pesca" column="pesca" aggregator="sum" />
-        <Measure name="Mineria" column="mineria" aggregator="sum" />
-        <Measure name="Industria manufacturera" column="industria_manufacturera" aggregator="sum" />
-        <Measure name="Electricidad, gas y agua" column="electricidad_gas_agua" aggregator="sum" />
-        <Measure name="Construccion" column="construccion" aggregator="sum" />
-        <Measure name="Extraccion de petroleo, gas, minerales y servicios conexos" column="extraccion_petroleo_gas_minerales_servicios_conexos" aggregator="sum" />
+        <Measure name="Producto Interno Bruto (millones de soles)" column="producto_interno_bruto_mill_n_soles" aggregator="sum" />
+        <Measure name="Remuneraciones (millones de soles)" column="remuneraciones_mill_n_soles" aggregator="sum" />
+        <Measure name="Derechos importacion (millones de soles)" column="derechos_importacion_mill_n_soles" aggregator="sum" />
+        <Measure name="Impuestos oroductos (millones de soles)" column="impuestos_productos_mill_n_soles" aggregator="sum" />
+        <Measure name="Otros impuestos (millones de soles)" column="otros_impuestos_mill_n_soles" aggregator="sum" />
+        <Measure name="Ingreso explotacion (millones de soles)" column="ingreso_explotacion_mill_n_soles" aggregator="sum" />
+        <Measure name="Excedente explotacion bruto (millones de soles)" column="excedente_explotacion_bruto_mill_n_soles" aggregator="sum" />
+        <Measure name="Ingreso mixto (millones de soles)" column="ingreso_mixto_mill_n_soles" aggregator="sum" />
+        <Measure name="Agricultura, ganaderia, caza y silvicultura (millones de soles)" column="agricultura_ganaderia_caza_silvicultura_mill_soles" aggregator="sum" />
+        <Measure name="Pesca (millones de soles)" column="pesca_mill_soles" aggregator="sum" />
+        <Measure name="Mineria (millones de soles)" column="mineria_mill_soles" aggregator="sum" />
+        <Measure name="Industria manufacturera (millones de soles)" column="industria_manufacturera_mill_soles" aggregator="sum" />
+        <Measure name="Electricidad, gas y agua (millones de soles)" column="electricidad_gas_agua_mill_soles" aggregator="sum" />
+        <Measure name="Construccion (millones de soles)" column="construccion_mill_soles" aggregator="sum" />
+        <Measure name="Extraccion de petroleo, gas, minerales y servicios conexos (millones de soles)" column="extraccion_petroleo_gas_minerales_servicios_conexos_mill_soles" aggregator="sum" />
         <Measure name="Manufactura" column="manufactura" aggregator="sum" />
-        <Measure name="Comercio" column="comercio" aggregator="sum" />
-        <Measure name="Hoteles y restaurantes" column="hoteles_restaurantes" aggregator="sum" />
-        <Measure name="Transporte, almacenamiento y comunicaciones" column="transporte_almacenamiento_comunicaciones" aggregator="sum" />
-        <Measure name="Intermediacion financiera" column="intermediacion_financiera" aggregator="sum" />
-        <Measure name="Actividades inmobiliarias, empresariales y de alquiler" column="actividad_inmobiliarias_empresariales_alquiler" aggregator="sum" />
-        <Measure name="Administracion publica defensa" column="administracion_publica_defensa" aggregator="sum" />
-        <Measure name="Enseñanza" column="enseñanza" aggregator="sum" />
-        <Measure name="Servicios sociales y de salud" column="servicios_sociales_salud" aggregator="sum" />
-        <Measure name="Otras actividades y servicios comunitarios" column="otras_actividades_servicios_comunitarios" aggregator="sum" />
-        <Measure name="Hogares privados y organizaciones extraterritoriales" column="hogares_privados_organizaciones_extraterritoriales" aggregator="sum" />
-        <Measure name="Creditos hipotecarios para la vivienda" column="creditos_hipotecariosvivienda" aggregator="sum" />
-        <Measure name="Creditos de consumo" column="creditos_consumo" aggregator="sum" />
-        <Measure name="Exportaciones" column="exportaciones" aggregator="sum" />
-        <Measure name="Importaciones" column="importaciones" aggregator="sum" />
-        <Measure name="Balanza comercial" column="balanza_comercial" aggregator="sum" />
-        <Measure name="Balanza de pagos" column="balanza_pagos" aggregator="sum" />
-        <Measure name="Activos externos netos de corto plazo" column="activos_externos_netos_corto_plazo" aggregator="sum" />
-        <Measure name="Deuda publica externa" column="deuda_publica_externa" aggregator="sum" />
-        <Measure name="Activos reserva BCRP" column="act_reserva_BCRP" aggregator="sum" />
-        <Measure name="Activos sistema financiero sin BCRP" column="act_sist_financiero_sin_BCRP" aggregator="sum" />
-        <Measure name="Activos otros activos" column="act_otros_activos" aggregator="sum" />
-        <Measure name="Pasivos med/lar plazo sector privado" column="pas_med_lar_sector_privado" aggregator="sum" />
-        <Measure name="Pasivos med/lar plazo sector publico" column="pas_med_lar_sector_publico" aggregator="sum" />
-        <Measure name="Pasivos cort plazo sist financiero sin BCRP" column="pas_cort_sist_financiero_sin_BCRP" aggregator="sum" />
-        <Measure name="Pasivos cort plazo BCRP" column="pas_cort_BCRP" aggregator="sum" />
-        <Measure name="Pasivos cort plazo otros" column="pas_cort_otros" aggregator="sum" />
-        <Measure name="Pasivos inversion directa" column="pas_inversion_directa" aggregator="sum" />
-        <Measure name="Pasivos participacion capital" column="pas_participacion_capital" aggregator="sum" />
+        <Measure name="Comercio (millones de soles)" column="comercio_mill_soles" aggregator="sum" />
+        <Measure name="Hoteles y restaurantes (millones de soles)" column="hoteles_restaurantes_mill_soles" aggregator="sum" />
+        <Measure name="Transporte, almacenamiento y comunicaciones (millones de soles)" column="transporte_almacenamiento_comunicaciones_mill_soles" aggregator="sum" />
+        <Measure name="Intermediacion financiera (millones de soles)" column="intermediacion_financiera_mill_soles" aggregator="sum" />
+        <Measure name="Actividades inmobiliarias, empresariales y de alquiler (millones de soles)" column="actividad_inmobiliarias_empresariales_alquiler_mill_soles" aggregator="sum" />
+        <Measure name="Administracion publica defensa (millones de soles)" column="administracion_publica_defensa_mill_soles" aggregator="sum" />
+        <Measure name="Enseñanza (millones de soles)" column="ensenianza_mill_soles" aggregator="sum" />
+        <Measure name="Servicios sociales y de salud (millones de soles)" column="servicios_sociales_salud_mill_soles" aggregator="sum" />
+        <Measure name="Otras actividades y servicios comunitarios (millones de soles)" column="otras_actividades_servicios_comunitarios_mill_soles" aggregator="sum" />
+        <Measure name="Hogares privados y organizaciones extraterritoriales (millones de soles)" column="hogares_privados_organizaciones_extraterritoriales_mill_soles" aggregator="sum" />
+        <Measure name="Creditos hipotecarios para la vivienda (millones de soles)" column="creditos_hipotecariosvivienda_mill_soles" aggregator="sum" />
+        <Measure name="Creditos de consumo (millones de soles)" column="creditos_consumo_mill_soles" aggregator="sum" />
+        <Measure name="Exportaciones (millones de dolares)" column="exportaciones_mill_dolares" aggregator="sum" />
+        <Measure name="Importaciones (millones de dolares)" column="importaciones_mill_dolares" aggregator="sum" />
+        <Measure name="Balanza comercial (millones de dolares)" column="balanza_comercial_mill_dolares" aggregator="sum" />
+        <Measure name="Balanza de pagos (millones de dolares)" column="balanza_pagos_mill_dolares" aggregator="sum" />
+        <Measure name="Activos externos netos de corto plazo (millones de dolares)" column="activos_externos_netos_corto_plazo_mill_dolares" aggregator="sum" />
+        <Measure name="Deuda publica externa (millones de dolares)" column="deuda_publica_externa_mill_dolares" aggregator="sum" />
+        <Measure name="Activos reserva BCRP (millones de dolares)" column="act_reserva_BCRP_mill_dolares" aggregator="sum" />
+        <Measure name="Activos sistema financiero sin BCRP (millones de dolares)" column="act_sist_financiero_sin_BCRP_mill_dolares" aggregator="sum" />
+        <Measure name="Activos otros activos (millones de dolares)" column="act_otros_activos_mill_dolares" aggregator="sum" />
+        <Measure name="Pasivos med/lar plazo sector privado (millones de dolares)" column="pas_med_lar_sector_privado_mill_dolares" aggregator="sum" />
+        <Measure name="Pasivos med/lar plazo sector publico (millones de dolares)" column="pas_med_lar_sector_publico_mill_dolares" aggregator="sum" />
+        <Measure name="Pasivos cort plazo sist financiero sin BCRP (millones de dolares)" column="pas_cort_sist_financiero_sin_BCRP_mill_dolares" aggregator="sum" />
+        <Measure name="Pasivos cort plazo BCRP (millones de dolares)" column="pas_cort_BCRP_mill_dolares" aggregator="sum" />
+        <Measure name="Pasivos cort plazo otros (millones de dolares)" column="pas_cort_otros_mill_dolares" aggregator="sum" />
+        <Measure name="Pasivos inversion directa (millones de dolares)" column="pas_inversion_directa_mill_dolares" aggregator="sum" />
+        <Measure name="Pasivos participacion capital (millones de dolares)" column="pas_participacion_capital_mill_dolares" aggregator="sum" />
         <Measure name="Poblacion total" column="poblacion_total" aggregator="sum" />
         <Measure name="Poblacion censada" column="poblacion_censada" aggregator="sum" />
         <Measure name="Poblacion omitida" column="poblacion_omitida" aggregator="sum" />
@@ -89,14 +89,14 @@
         <Measure name="Porcentaje poblacion (nbi) carecen servicios higienicos" column="perc_poblacion_nbi_servicios_higienicos" aggregator="avg" />
         <Measure name="Porcentaje poblacion (nbi) menores sin escuela" column="perc_poblacion_nbi_menores_sin_escuela" aggregator="avg" />
         <Measure name="Porcentaje poblacion (nbi) alta dependencia economica" column="perc_poblacion_nbi_alta_dependencia_economica" aggregator="avg" />
-        <Measure name="Gasto social en educacion inicial" column="gasto_social_educacion_inicial" aggregator="sum" />
-        <Measure name="Gasto social en educacion primaria" column="gasto_social_educacion_primaria" aggregator="sum" />
-        <Measure name="Gasto social en educacion secundaria" column="gasto_social_educacion_secundaria" aggregator="sum" />
-        <Measure name="Gasto social en asistencia social" column="gasto_social_asistencia_social" aggregator="sum" />
-        <Measure name="Gasto social en salud colectiva" column="gasto_social_salud_colectiva" aggregator="sum" />
-        <Measure name="Gasto social en salud individual" column="gasto_social_salud_individual" aggregator="sum" />
-        <Measure name="Gasto gobierno en sector publico" column="gasto_gobierno_sector_publico" aggregator="sum" />
-        <Measure name="Gasto gobierno en sector privado" column="gasto_gobierno_sector_privado" aggregator="sum" />
+        <Measure name="Gasto social en educacion inicial (millones de soles)" column="gasto_social_educacion_inicial_mill_soles" aggregator="sum" />
+        <Measure name="Gasto social en educacion primaria (millones de soles)" column="gasto_social_educacion_primaria_mill_soles" aggregator="sum" />
+        <Measure name="Gasto social en educacion secundaria (millones de soles)" column="gasto_social_educacion_secundaria_mill_soles" aggregator="sum" />
+        <Measure name="Gasto social en asistencia social (millones de soles)" column="gasto_social_asistencia_social_mill_soles" aggregator="sum" />
+        <Measure name="Gasto social en salud colectiva (millones de soles)" column="gasto_social_salud_colectiva_mill_soles" aggregator="sum" />
+        <Measure name="Gasto social en salud individual (millones de soles)" column="gasto_social_salud_individual_mill_soles" aggregator="sum" />
+        <Measure name="Gasto gobierno en sector publico (millones de soles)" column="gasto_gobierno_sector_publico_mill_soles" aggregator="sum" />
+        <Measure name="Gasto gobierno en sector privado (millones de soles)" column="gasto_gobierno_sector_privado_mill_soles" aggregator="sum" />
         <Measure name="Analfabetismo total entre edades de 15 a 19" column="analfabetismo_total_15_19" aggregator="sum" />
         <Measure name="Analfabetismo total entre edades de 20 a 29" column="analfabetismo_total_20_29" aggregator="sum" />
         <Measure name="Analfabetismo total entre edades de 30 a 39" column="analfabetismo_total_30_39" aggregator="sum" />
@@ -136,6 +136,14 @@
         <Measure name="Delitos contra voluntad popular" column="delitos_voluntad_popular" aggregator="sum" />
         <Measure name="Delitos contra administracion publica" column="delitos_administracion_publica" aggregator="sum" />
         <Measure name="Delitos contra fe publica" column="delitos_fe_publica" aggregator="sum" />
+        <Measure name="Analfabetismo en hombres entre edades de 30 a 39" column="analfabetismo_h_30_39" aggregator="sum" />
+        <Measure name="Analfabetismo en mujeres entre edades de 30 a 39" column="analfabetismo_f_30_39" aggregator="sum" />
+        <Measure name="Analfabetismo en hombres entre edades de 40 a 49" column="analfabetismo_h_40_49" aggregator="sum" />
+        <Measure name="Analfabetismo en mujeres entre edades de 40 a 49" column="analfabetismo_f_40_49" aggregator="sum" />
+        <Measure name="Analfabetismo en hombres entre edades de 50 a 59" column="analfabetismo_h_50_59" aggregator="sum" />
+        <Measure name="Analfabetismo en mujeres entre edades de 50 a 59" column="analfabetismo_f_50_59" aggregator="sum" />
+        <Measure name="Analfabetismo en hombres en edad de 60 y mas" column="analfabetismo_h_60_y_mas" aggregator="sum" />
+        <Measure name="Analfabetismo en mujeres en edad de 60 y mas" column="analfabetismo_f_60_y_mas" aggregator="sum" />
 
     </Cube>
 </Schema>
