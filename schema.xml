@@ -182,14 +182,6 @@
         </Hierarchy>
     </SharedDimension>
 
-    <SharedDimension name="Mercado" type="standard">
-        <Hierarchy name="Mercado">
-            <Table name="dim_market" />
-            
-            <Level name="Mercado" key_column="market_id" name_column="market_name" key_type="text" />
-        </Hierarchy>
-    </SharedDimension>
-    
     <SharedDimension name="Cultivo" type="standard">
         <Hierarchy name="Cultivo">
             <Table name="dim_shared_dinamica_agricola" />
@@ -197,7 +189,14 @@
             <Level name="Cultivo" key_column="cultivo_id" name_column="cultivo_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
-  
+
+    <SharedDimension name="Mercado" type="standard">
+        <Hierarchy name="Mercado">
+            <Table name="dim_market" />
+            
+            <Level name="Mercado" key_column="market_id" name_column="market_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
     <Cube name="inei_cenama">
         <Annotation name="source_name">INEI</Annotation>
         <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
