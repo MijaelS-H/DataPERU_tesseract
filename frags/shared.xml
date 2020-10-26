@@ -65,7 +65,6 @@
     <SharedDimension name="Ubigeo Departamento Lite" type="geo">
         <Hierarchy name="Ubigeo Departamento Lite">
             <Table name="dim_shared_ubigeo_department" />
-
             <Level name="Departamento" key_column="department_id" name_column="department_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
@@ -114,30 +113,6 @@
             <Level name="HS6" key_column="hs6_id" name_column="hs6_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
-
-    <SharedDimension name="Cadena Atencion CITE" type="standard">
-        <Hierarchy name="Cadena Atencion CITE">
-            <Table name="dim_shared_cite_cadena_atencion" />
-            <Level name="Cadena Atencion CITE" key_column="cadena_atencion_id" name_column="cadena_atencion" key_type="nontext" />
-        </Hierarchy>
-    </SharedDimension>
-
-    
-    <SharedDimension name="Cadena Pip CITE" type="standard">
-        <Hierarchy name="Cadena Pip CITE">
-            <Table name="dim_shared_cite_cadena_pip" />
-            <Level name="Cadena Pip CITE" key_column="cadena_pip_id" name_column="cadena_pip" key_type="nontext" />
-        </Hierarchy>
-    </SharedDimension>
-
-    
-    <SharedDimension name="Cadena Resolucion CITE" type="standard">
-        <Hierarchy name="Cadena Resolucion CITE">
-            <Table name="dim_shared_cite_cadena_resolucion" />
-            <Level name="Cadena Resolucion CITE" key_column="cadena_resolucion_id" name_column="cadena_resolucion" key_type="nontext" />
-        </Hierarchy>
-    </SharedDimension>
-
         
     <SharedDimension name="Estado CITE" type="standard">
         <Hierarchy name="Estado CITE">
@@ -162,6 +137,9 @@
             <Property name="Longitud" column="longitud"/>
             <Property name="Descripcion" column="descriptivo"/>
             <Property name="CITE Slug" column="cite_slug"/>
+            <Property name="Cadena atencion" column="cadena_atencion"/>
+            <Property name="Cadena pip" column="cadena_pip"/>
+            <Property name="Cadena resolucion" column="cadena_resolucion"/>
           </Level>
         </Hierarchy>
     </SharedDimension>    
