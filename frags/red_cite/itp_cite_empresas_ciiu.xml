@@ -7,7 +7,7 @@
 
         <Table name="itp_cite_empresas_ciiu" primary_key="cite_id"/>
 
-        <DimensionUsage foreign_key="class_id" source="CIIU" name="CIIU" />
+        <DimensionUsage foreign_key="class_id" source="CIIU Rev 3" name="CIIU" />
         <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
 
 

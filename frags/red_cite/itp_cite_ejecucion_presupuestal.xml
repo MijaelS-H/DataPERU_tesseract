@@ -16,7 +16,7 @@
             </Hierarchy>
         </Dimension>
 
-        <Measure name="Ejecucion presupuestal" column="ejecucion_presupuestal" aggregator="sum" />
+        <Measure name="Ejecución presupuestal" column="ejecucion_presupuestal" aggregator="sum" />
 
     </Cube>
 </Schema>       

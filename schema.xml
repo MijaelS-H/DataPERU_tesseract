@@ -1,4 +1,15 @@
 <Schema name="dataperu">
+    <SharedDimension name="CIIU Rev 3" type="standard">
+        <Hierarchy name="CIIU Rev 3">
+            <Table name="dim_shared_ciiu_rev_3" />
+
+            <Level name="Seccion" key_column="section_id" name_column="section_name" key_type="text" />
+            <Level name="Division" key_column="division_id" name_column="division_name" key_type="text" />
+            <Level name="Grupo" key_column="group_id" name_column="group_name" key_type="text" />
+            <Level name="Clase" key_column="class_id" name_column="class_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
     <SharedDimension name="CIIU" type="standard">
         <Hierarchy name="CIIU">
             <Table name="dim_shared_ciiu" />
@@ -65,7 +76,6 @@
     <SharedDimension name="Ubigeo Departamento Lite" type="geo">
         <Hierarchy name="Ubigeo Departamento Lite">
             <Table name="dim_shared_ubigeo_department" />
-
             <Level name="Departamento" key_column="department_id" name_column="department_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
@@ -91,14 +101,6 @@
         </Hierarchy>
     </SharedDimension>
 
-    <SharedDimension name="CITE" type="geo">
-        <Hierarchy name="CITE">
-            <Table name="dim_shared_cite" />
-            <Level name="CITE" key_column="cite_id" name_column="cite_name" key_type="text" />
-        </Hierarchy>
-    </SharedDimension>
-
-    
     <SharedDimension name="Contribuyente" type="standard">
         <Hierarchy name="Contribuyente">
             <Table name="dim_shared_cite_contribuyente" />
@@ -122,15 +124,36 @@
             <Level name="HS6" key_column="hs6_id" name_column="hs6_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
-
-        <SharedDimension name="Cadena CITE" type="standard">
-        <Hierarchy name="Cadena CITE">
-            <Table name="dim_shared_cite_cadena_atencion" />
-            <Level name="Cadena Resolucion" key_column="cadena_resolucion_id" name_column="cadena_resolucion" key_type="text" />
-            <Level name="Cadena Pip" key_column="cadena_pip_id" name_column="cadena_pip" key_type="text" />
-            <Level name="Cadena Atencion" key_column="cadena_atencion_id" name_column="cadena_atencion" key_type="text" />
+        
+    <SharedDimension name="Estado CITE" type="standard">
+        <Hierarchy name="Estado CITE">
+            <Table name="dim_shared_cite_estado" />
+            <Level name="Estado CITE" key_column="estado_id" name_column="estado" key_type="nontext" />
         </Hierarchy>
     </SharedDimension>
+
+
+    <SharedDimension name="CITE" type="geo">
+        <Hierarchy name="CITE">
+          <Table name="dim_shared_cite" />
+          <Level name="CITE" key_column="cite_id" name_column="cite" key_type="nontext">
+            <Property name="Tipo" column="tipo"/>
+            <Property name="Director" column="director"/>
+            <Property name="Coordinador UT" column="coordinador_ut"/>
+            <Property name="Directiva" column="lista_miembros"/>
+            <Property name="Ambito" column="ambito"/>
+            <Property name="Ubigeo" column="district_id"/>
+            <Property name="Direccion" column="direccion"/>
+            <Property name="Latitud" column="latitud"/>
+            <Property name="Longitud" column="longitud"/>
+            <Property name="Descripcion" column="descriptivo"/>
+            <Property name="CITE Slug" column="cite_slug"/>
+            <Property name="Cadena atencion" column="cadena_atencion"/>
+            <Property name="Cadena pip" column="cadena_pip"/>
+            <Property name="Cadena resolucion" column="cadena_resolucion"/>
+          </Level>
+        </Hierarchy>
+    </SharedDimension> 
     <Cube name="itp_indicators_y_act_dept">
 
     	<Annotation name="topic">Economia</Annotation>
@@ -214,7 +237,7 @@
         <Table name="itp_cite_clientes_aspecto" primary_key="cite_id"/>
 
         <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
-
+        <DimensionUsage foreign_key="estado_id" source="Estado CITE" name="Estado CITE" />
 
         <Dimension name="Aspecto" foreign_key="aspecto_id">
             <Hierarchy name="Aspecto" primary_key="id">
@@ -264,138 +287,6 @@
             </Hierarchy>
         </Dimension>
 
-
-        <Dimension name="Estado" foreign_key="estado">
-            <Hierarchy name="Estado">
-                <Level name ="Estado" key_column="estado" key_type="text" />
-              </Hierarchy>
-        </Dimension>
-
-        <Measure name="Cantidad CITE" column="cantidad_cite" aggregator="count" />
-
-    </Cube>
-    <Cube name="itp_cite_clientes_subcategorias">
-        <Annotation name="source_name">ITP</Annotation>
-        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
-        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
-        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
-
-        <Table name="itp_cite_clientes_subcategorias" primary_key="cite_id"/>
-
-        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
-
-
-        <Dimension name="Subcategoria" foreign_key="subcategoria_id">
-            <Hierarchy name="Subcategoria" primary_key="id">
-                <InlineTable alias="dim_inline_subcategoria_id_cite">
-                    <ColumnDef name="id" key_type="nontext" />
-                    <ColumnDef name="name" key_type="text" />
-                    <Row>
-                        <Value column="id">1</Value>
-                        <Value column="name">Asistencia técnica</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">2</Value>
-                        <Value column="name">Capacitación</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">3</Value>
-                        <Value column="name">Certificación de competencias laborales</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">4</Value>
-                        <Value column="name">Diseño y desarrollo de productos</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">5</Value>
-                        <Value column="name">Ensayos de laboratorio</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">6</Value>
-                        <Value column="name">Información tecnológica especializada</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">7</Value>
-                        <Value column="name">Promoción de investigación, desarrollo y gestión de la innovación (I+D+i)</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">8</Value>
-                        <Value column="name">Soporte productivo</Value>
-                    </Row>
-             
-
-                </InlineTable>
-                <Level name="Subcategoria" key_column="id" name_column="name" />
-            </Hierarchy>
-        </Dimension>
-
-
-        <Dimension name="Time" foreign_key="time">
-            <Hierarchy name="Time">
-                <Level name="Time" key_column="time" key_type="nontext" />
-            </Hierarchy>
-        </Dimension>
-
-
-        <Measure name="Empresas" column="empresas" aggregator="sum" />
-
-    </Cube>
-    <Cube name="itp_cite_descriptivo">
-        <Annotation name="source_name">ITP</Annotation>
-        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
-        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
-        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
-
-        <Table name="itp_cite_descriptivo" primary_key="cite_id"/>
-
-        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
-        <DimensionUsage foreign_key="district_id" source="Ubigeo" name="Ubigeo" />
-        <DimensionUsage foreign_key="cadena_atencion_id" source="Cadena CITE" name="Cadena CITE" />
-
-        <Dimension name="Tipo CITE" foreign_key="tipo_id">
-            <Hierarchy name="Tipo CITE" primary_key="id">
-                <InlineTable alias="dim_inline_tipo_id_cite">
-                    <ColumnDef name="id" key_type="nontext" />
-                    <ColumnDef name="name" key_type="text" />
-                    <Row>
-                        <Value column="id">1</Value>
-                        <Value column="name">CITE</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">2</Value>
-                        <Value column="name">UT</Value>
-                    </Row>
-
-                </InlineTable>
-                <Level name="Tipo CITE" key_column="id" name_column="name" />
-            </Hierarchy>
-        </Dimension>
-
-
-        <Dimension name="CITE Slug" foreign_key="cite_slug">
-            <Hierarchy name="CITE Slug">
-                <Level name ="CITE Slug" key_column="cite_slug" key_type="text" />
-            </Hierarchy>
-        </Dimension>
-
-        <Dimension name="Latitud" foreign_key="latitud">
-            <Hierarchy name="Latitud">
-                <Level name ="Latitud" key_column="latitud" key_type="text" />
-            </Hierarchy>
-        </Dimension>
-
-        <Dimension name="Longitud" foreign_key="longitud">
-            <Hierarchy name="Longitud">
-                <Level name ="Longitud" key_column="longitud" key_type="text" />
-            </Hierarchy>
-        </Dimension>
-
-        <Dimension name="Descriptivo" foreign_key="descriptivo">
-            <Hierarchy name="Descriptivo">
-                <Level name ="Descriptivo" key_column="descriptivo" key_type="text" />
-             </Hierarchy>
-        </Dimension>
-
         <Measure name="Cantidad CITE" column="cantidad_cite" aggregator="count" />
 
     </Cube>
@@ -410,13 +301,13 @@
         <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
  
 
-        <Dimension name="Time" foreign_key="time" type="time">
+        <Dimension name="Time" foreign_key="time">
             <Hierarchy name="Time">
                 <Level name="Time" key_column="time" key_type="nontext" />
             </Hierarchy>
         </Dimension>
 
-        <Measure name="Ejecucion presupuestal" column="ejecucion_presupuestal" aggregator="sum" />
+        <Measure name="Ejecución presupuestal" column="ejecucion_presupuestal" aggregator="sum" />
 
     </Cube>
     <Cube name="itp_cite_empresas_ciiu">
@@ -427,7 +318,7 @@
 
         <Table name="itp_cite_empresas_ciiu" primary_key="cite_id"/>
 
-        <DimensionUsage foreign_key="class_id" source="CIIU" name="CIIU" />
+        <DimensionUsage foreign_key="class_id" source="CIIU Rev 3" name="CIIU" />
         <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
 
 
@@ -449,7 +340,7 @@
 
         <Table name="itp_cite_empresas_ciiu_agg" primary_key="class_id"/>
 
-        <DimensionUsage foreign_key="class_id" source="CIIU" name="CIIU" />
+        <DimensionUsage foreign_key="class_id" source="CIIU Rev 3" name="CIIU" />
         
         <Dimension name="Year" foreign_key="anio">
             <Hierarchy name="Year">
@@ -668,13 +559,9 @@
                     <Row>
                         <Value column="id">9</Value>
                         <Value column="name">Supervisión</Value>
-                    </Row>
+                    </Row>         
                     <Row>
                         <Value column="id">10</Value>
-                        <Value column="name">Total</Value>
-                    </Row>                    
-                    <Row>
-                        <Value column="id">11</Value>
                         <Value column="name">Transferencia Tecnológica</Value>
                     </Row>
 
@@ -685,7 +572,6 @@
 
         <Measure name="Inversion" column="inversion" aggregator="sum" />
         <Measure name="Ejecucion" column="ejecucion" aggregator="sum" />
-        <Measure name="Numero de CITE" column="numero_cites" aggregator="count" />
 
     </Cube>
     <Cube name="itp_cite_partidas">
@@ -786,7 +672,135 @@
         </Dimension>
 
         <Measure name="PIM" column="pim" aggregator="sum" />
-        <Measure name="Numero de CITE" column="numero_cite" aggregator="count" />
+
+    </Cube>
+    <Cube name="itp_cite_servicios_subcategorias">
+        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
+
+        <Table name="itp_cite_servicios_subcategorias" primary_key="cite_id"/>
+
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+
+
+        <Dimension name="Subcategoria" foreign_key="subcategoria_id">
+            <Hierarchy name="Subcategoria" primary_key="id">
+                <InlineTable alias="dim_inline_subcategoria_id_cite">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Asistencia técnica</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Capacitación</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Certificación de competencias laborales</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Diseño y desarrollo de productos</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">Ensayos de laboratorio</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">6</Value>
+                        <Value column="name">Información tecnológica especializada</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">7</Value>
+                        <Value column="name">Promoción de investigación, desarrollo y gestión de la innovación (I+D+i)</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">8</Value>
+                        <Value column="name">Soporte productivo</Value>
+                    </Row>
+             
+
+                </InlineTable>
+                <Level name="Subcategoria" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+
+        <Dimension name="Time" foreign_key="time">
+            <Hierarchy name="Time">
+                <Level name="Time" key_column="time" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+
+        <Measure name="Servicios" column="servicios" aggregator="sum" />
+
+    </Cube>
+    <Cube name="itp_cite_servicios_subcategorias_agg">
+        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
+
+        <Table name="itp_cite_servicios_subcategorias_agg" primary_key="subcategoria_id"/>
+
+        <Dimension name="Subcategoria" foreign_key="subcategoria_id">
+            <Hierarchy name="Subcategoria" primary_key="id">
+                <InlineTable alias="dim_inline_subcategoria_id_cite">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Asistencia técnica</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Capacitación</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Certificación de competencias laborales</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Diseño y desarrollo de productos</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">Ensayos de laboratorio</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">6</Value>
+                        <Value column="name">Información tecnológica especializada</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">7</Value>
+                        <Value column="name">Promoción de investigación, desarrollo y gestión de la innovación (I+D+i)</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">8</Value>
+                        <Value column="name">Soporte productivo</Value>
+                    </Row>
+             
+
+                </InlineTable>
+                <Level name="Subcategoria" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+
+        <Dimension name="Time" foreign_key="time">
+            <Hierarchy name="Time">
+                <Level name="Time" key_column="time" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+
+        <Measure name="Servicios" column="servicios" aggregator="sum" />
 
     </Cube>
     <Cube name="itp_cite_trabajadores">

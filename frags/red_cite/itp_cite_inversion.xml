@@ -49,13 +49,9 @@
                     <Row>
                         <Value column="id">9</Value>
                         <Value column="name">Supervisión</Value>
-                    </Row>
+                    </Row>         
                     <Row>
                         <Value column="id">10</Value>
-                        <Value column="name">Total</Value>
-                    </Row>                    
-                    <Row>
-                        <Value column="id">11</Value>
                         <Value column="name">Transferencia Tecnológica</Value>
                     </Row>
 
