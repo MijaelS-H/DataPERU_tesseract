@@ -190,4 +190,11 @@
         </Hierarchy>
     </SharedDimension>
 
+    <SharedDimension name="Mercado" type="standard">
+        <Hierarchy name="Mercado">
+            <Table name="dim_market" />
+            
+            <Level name="Mercado" key_column="market_id" name_column="market_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
 </Schema>
