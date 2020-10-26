@@ -13,12 +13,12 @@ El repositorio actual se encuentra estructurado de la siguiente forma:
 
 Recopilación de esquemas de múltiples fuentes (ej: MINAGRI, MEF, ITP, entre otros). 
 Su estructura responde a carpetas de archivos organizados según fuente de datos o temáticas similares (ej: Indicadores de Censos o Encuestas).
-Cada archivo ```.xml``` corresponde al esquema de la fuente de datos correspondiente (ej: /frags/minagri/dinamica_agricola.xml hace referencia el esquema correspondiente al set de datos de dinámica agrícola otorgado por MINAGRI).
-Adicionalmente, es posible encontrar el archivo `shared.xml`, el cual corresponde a la recopilación de variables compartidas dentro de un esquema, las cuales corresponden a variables de uso común en más de un fragmento de esquema (ej: Tiempo, Ubigeo, CIIU, entre otros).
+Cada archivo `.xml` corresponde al esquema de la fuente de datos correspondiente (ej: `/frags/minagri/dinamica_agricola.xml` hace referencia el esquema correspondiente al set de datos de dinámica agrícola otorgado por MINAGRI).
+Adicionalmente, es posible encontrar el archivo `frags/shared.xml`, el cual corresponde a la recopilación de variables compartidas dentro de un esquema, las cuales corresponden a variables de uso común en más de un fragmento de esquema (ej: Tiempo, Ubigeo, CIIU, entre otros).
 
 ### justfile
 
-Archivo de comando requerido para la contanenación de esquemas, proceso necesario para la generación del esquema general compuesto de cada fragmento de esquema disponible en la carpeta frags/
+Archivo de comando requerido para la contanenación de esquemas, proceso necesario para la generación del esquema general compuesto de cada fragmento de esquema disponible en la carpeta `frags/`.
 
 ### logic-layer-config.json
 
@@ -46,7 +46,7 @@ pip install -r requirements.txt
 
 ### schema.xml
 
-Corresponde al esquema general utilizado por Tesseract. Su estructura corresponde a la concatenación de los fragmentos de esquemas definidos en `frags/` y las dimensiones compartidas definidas en `shared.xml`.
+Corresponde al esquema general utilizado por Tesseract. Su estructura corresponde a la concatenación de los fragmentos de esquemas definidos en `frags/` y las dimensiones compartidas definidas en `frags/shared.xml`.
 
 ## Actualización de esquemas
 
