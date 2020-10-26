@@ -1,0 +1,117 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="minagri_dinamica_agricola">
+        <Annotation name="source_name">MINAGRI</Annotation>
+        <Annotation name="source_description">Ministerio de Agricultura y Riego</Annotation>
+        <Annotation name="dataset_name">Registro de Dinámicas Agrícolas</Annotation>
+        <Annotation name="dataset_link">https://www.gob.pe/minagri</Annotation>
+
+        <Table name="minagri_dinamica_agricola" primary_key="district_id" />
+
+        <DimensionUsage foreign_key="cultivo_id" source="Cultivo" name="Cultivo" />
+        <DimensionUsage foreign_key="district_id" source="Ubigeo" name="Ubigeo" />
+        <DimensionUsage foreign_key="month_id" source="Date Month" name="Date" />
+
+        <Dimension name="Tipo Cultivo" foreign_key="tipo">
+            <Hierarchy name="Tipo Cultivo" primary_key="id">
+                <InlineTable alias="dim_tipo_cultivo">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Transitorios</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Permanentes</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Cultivos de Manejo Especial</Value>
+                    </Row>  
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Pastos</Value>
+                    </Row> 
+                </InlineTable>
+                <Level name="Tipo Cultivo" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Unidad Superficie Sembrada" foreign_key="superficie_sembrada_unidad">
+            <Hierarchy name="Unidad Superficie Sembrada" primary_key="id">
+                <InlineTable alias="dim_unidad_superficie_sembrada">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Hectárea (ha)</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Unidad Superficie Sembrada" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Unidad Superficie Cosechada" foreign_key="superficie_cosechada_unidad">
+            <Hierarchy name="Unidad Superficie Cosechada" primary_key="id">
+                <InlineTable alias="dim_unidad_superficie_cosechada">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Hectárea (ha)</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Unidad Superficie Cosechada" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Unidad Produccion" foreign_key="produccion_unidad">
+            <Hierarchy name="Unidad Produccion" primary_key="id">
+                <InlineTable alias="dim_unidad_produccion">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Tonelada (t)</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Unidad Produccion" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Unidad Rendimiento" foreign_key="rendimiento_unidad">
+            <Hierarchy name="Unidad Rendimiento" primary_key="id">
+                <InlineTable alias="dim_unidad_rendimiento">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Kilogramo/Hectárea (kg/ha)</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Unidad Rendimiento" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Unidad Precio" foreign_key="precio_unidad">
+            <Hierarchy name="Unidad Precio" primary_key="id">
+                <InlineTable alias="dim_unidad_precio">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Soles/Kilogramo (soles/kg)</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Unidad Precio" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Superficie sembrada" column="superficie_sembrada" aggregator="sum" />
+        <Measure name="Superficie cosechada" column="superficie_cosechada" aggregator="sum" />
+        <Measure name="Producción" column="produccion" aggregator="sum" />  
+        <Measure name="Rendimiento" column="rendimiento" aggregator="sum" />  
+        <Measure name="Precio" column="precio" aggregator="sum" />  
+
+    </Cube>
+</Schema>
