@@ -104,14 +104,14 @@
     <SharedDimension name="Contribuyente" type="standard">
         <Hierarchy name="Contribuyente">
             <Table name="dim_shared_cite_contribuyente" />
-            <Level name="Contribuyente" key_column="contribuyente_id" name_column="contribuyente" key_type="text" />
+            <Level name="Contribuyente" key_column="contribuyente_id" name_column="contribuyente" key_type="nontext" />
         </Hierarchy>
     </SharedDimension>
 
     <SharedDimension name="Cadena productiva" type="standard">
         <Hierarchy name="Cadena productiva">
             <Table name="dim_shared_cite_cad_prod" />
-            <Level name="Cadena productiva" key_column="cad_prod_id" name_column="cadena_productiva" key_type="text" />
+            <Level name="Cadena productiva" key_column="cad_prod_id" name_column="cadena_productiva" key_type="nontext" />
         </Hierarchy>
     </SharedDimension>
 
@@ -153,7 +153,7 @@
             <Property name="Cadena resolucion" column="cadena_resolucion"/>
           </Level>
         </Hierarchy>
-    </SharedDimension> 
+    </SharedDimension>  
     <Cube name="itp_indicators_y_act_dept">
 
     	<Annotation name="topic">Economia</Annotation>
@@ -582,13 +582,10 @@
 
         <Table name="itp_cite_partidas" primary_key="cite_id"/>
 
-    
         <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
         <DimensionUsage foreign_key="cad_prod_id" source="Cadena productiva" name="Cadena productiva" />       
         <DimensionUsage foreign_key="hs6_id" source="Producto" name="Producto" />       
      
-    
-
         <Dimension name="Sector" foreign_key="sector_id">
             <Hierarchy name="Sector" primary_key="id">
                 <InlineTable alias="dim_inline_sector_id_cite">
@@ -631,9 +628,9 @@
             </Hierarchy>
         </Dimension>
 
-        <Dimension name="Tipo exportacion" foreign_key="sector_id">
+        <Dimension name="Tipo exportacion" foreign_key="tipo_exp_id">
             <Hierarchy name="Tipo exportacion" primary_key="id">
-                <InlineTable alias="dim_inline_sector_id_cite">
+                <InlineTable alias="dim_inline_tipo_exp_id_cite">
                     <ColumnDef name="id" key_type="nontext" />
                     <ColumnDef name="name" key_type="text" />
                     <Row>
