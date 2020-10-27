@@ -14,7 +14,7 @@
             <Hierarchy name="Sector" primary_key="sector">
                 <Table name="dim_mef_ingresos_sector" />
                 
-                <Level name="Sector" key_column="sector" name_column="sector_name" key_type="nontext" />
+                <Level name="Sector" key_column="sector" name_column="sector_nombre" key_type="nontext" />
             </Hierarchy>
         </Dimension>
 
@@ -22,7 +22,7 @@
             <Hierarchy name="Pliego" primary_key="pliego">
                 <Table name="dim_mef_ingresos_pliego" />
                 
-                <Level name="Pliego" key_column="pliego" name_column="pliego_name" key_type="nontext" />
+                <Level name="Pliego" key_column="pliego" name_column="pliego_nombre" key_type="nontext" />
             </Hierarchy>
         </Dimension>
 
@@ -30,7 +30,7 @@
             <Hierarchy name="Rubro" primary_key="rubro">
                 <Table name="dim_mef_ingresos_rubro" />
                 
-                <Level name="Rubro" key_column="rubro" name_column="rubro_name" key_type="nontext" />
+                <Level name="Rubro" key_column="rubro" name_column="rubro_nombre" key_type="nontext" />
             </Hierarchy>
         </Dimension>
 
@@ -38,7 +38,7 @@
             <Hierarchy name="Fuente de Financiamiento" primary_key="fuente_financiamiento">
                 <Table name="dim_mef_ingresos_fuente_financiamiento" />
                 
-                <Level name="Fuente de Financiamiento" key_column="fuente_financiamiento" name_column="fuente_financiamiento_name" key_type="nontext" />
+                <Level name="Fuente de Financiamiento" key_column="fuente_financiamiento" name_column="fuente_financiamiento_nombre" key_type="nontext" />
             </Hierarchy>
         </Dimension>
 
