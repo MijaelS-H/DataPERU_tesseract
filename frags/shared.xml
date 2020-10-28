@@ -205,7 +205,7 @@
             <ColumnDef name="name" key_type="text" />
             <Row>
                 <Value column="id">1</Value>
-                <Value column="name">Gobiernos Nacional</Value>
+                <Value column="name">Gobierno Nacional</Value>
             </Row>
             <Row>
                 <Value column="id">2</Value>
