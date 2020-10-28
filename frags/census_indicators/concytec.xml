@@ -11,7 +11,6 @@
         <DimensionUsage foreign_key="department_id" source="Ubigeo Departamento Lite" name="Ubigeo Departamento" />
         <DimensionUsage foreign_key="province_id" source="Ubigeo Provincia Lite" name="Ubigeo Provincia" />
         <DimensionUsage foreign_key="district_id" source="Ubigeo Lite" name="Ubigeo Distrito" />
-        <DimensionUsage foreign_key="market_id" source="Mercado" name="Mercado" />
 
         <Dimension name="Year" foreign_key="year">
             <Hierarchy name="Year">
