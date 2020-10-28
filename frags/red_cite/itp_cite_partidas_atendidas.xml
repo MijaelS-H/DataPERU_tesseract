@@ -1,0 +1,19 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="itp_cite_partidas_atendidas">
+        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
+
+        <Table name="itp_cite_partidas_atendidas" primary_key="cite_id"/>
+
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+        <DimensionUsage foreign_key="cadena_productiva_id" source="Cadena productiva atendida" name="Cadena productiva atendida" />       
+        <DimensionUsage foreign_key="hs6_id" source="Producto" name="Producto" />       
+     
+
+        <Measure name="Cadena atencion atendida" column="cadena_atencion" aggregator="count" />
+        <Measure name="Cadena pip atendida" column="cadena_pip" aggregator="count" />
+        <Measure name="Cadena resolucion atendida" column="cadena_resolucion" aggregator="count" />
+    </Cube>
+</Schema>       
