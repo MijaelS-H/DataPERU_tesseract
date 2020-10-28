@@ -20,14 +20,15 @@
         <Measure name = "Emigrantes" column = "emigrantes" aggregator = "sum" />
         <Measure name = "Poblacion economicamente activa afiliada (pensiones)" column = "peao_afiliada_pensiones" aggregator = "sum" />
         <Measure name = "Poblacion necesidad basica insatisfecha" column = "nbi_1_o_mas_perc_pob" aggregator = "avg" />
-        <Measure name = "" column = "mbpa_1_o_mas_members_perc_hog" aggregator = "avg" />
-        <Measure name = "" column = "mbpa_1_o_mas_members_perc_hog_pob" aggregator = "avg" />
+        <Measure name = "Porcentaje hogares con uno o mas miembros con nbi" column = "mbpa_1_o_mas_members_perc_hog" aggregator = "avg" />
+        <Measure name = "Porcentaje hogares con uno o mas miembros con nbi" column = "mbpa_1_o_mas_members_perc_hog_pob" aggregator = "avg" />
         <Measure name = "Numero medicos colegiados" column = "n_medicos_colegiados" aggregator = "sum" />
         <Measure name = "Numero de habitantes por medicos" column = "n_habitantes_por_medico" aggregator = "sum" />
         <Measure name = "Numero enfermeras(os) colegiados" column = "n_enfermeras_os_colegiados" aggregator = "sum" />
         <Measure name = "Numero de habitantes por enfermeras(os)" column = "n_habitantes_por_enfermera_os" aggregator = "sum" />
         <Measure name = "Desnutricion infantil en mejores de 5" column = "desnutricion_5yrs_perc" aggregator = "avg" />
         <Measure name = "Enfermedades respiratorias en menores de 5" column = "enfermedades_ra_5yrs_perc" aggregator = "avg" />
+        <Measure name = "Enfermedades diarreicas en menores de 5" column = "enfer_diarreicas_5yrs" aggregator = "avg" />
         <Measure name = "Promedio de años de estudios de mayores de 15" column = "estudios_prom_15yrs" aggregator = "sum" />
         <Measure name = "Hectareas de superficie agricola" column = "superficie_agricola_hect" aggregator = "sum" />
         <Measure name = "Hectareas de superficie no agricola" column = "superficie_no_agricola_hect" aggregator = "sum" />
@@ -51,6 +52,12 @@
         <Measure name = "Numero de denuncias por violencia fisica familiar" column = "n_denuncias_violencia_familiar_fisica" aggregator = "sum" />
         <Measure name = "Numero de denuncias por violencia sicologica familiar" column = "n_denuncias_violencia_familiar_sicolo" aggregator = "sum" />
         <Measure name = "Numero de denuncias de robo" column = "n_denuncias_robo_vehiculos" aggregator = "sum" />
+
+        <Measure name = "Numero de huespedes de origen nacional" column = "huespedes_nacionales" aggregator = "sum" />
+        <Measure name = "Numero de huespedes de origen internacional" column = "huespedes_extranjeros" aggregator = "sum" />
+        <Measure name = "Numero de visitantes de sitios arquelogicos y/o museos de origen nacional" column = "visitantes_nacionales_museos_arqueologia" aggregator = "sum" />
+        <Measure name = "Numero de visitantes de sitios arquelogicos y/o museos de origen internacional" column = "visitantes_extranjeros_museos_arqueologia" aggregator = "sum" />
+
 
     </Cube>
 </Schema>
