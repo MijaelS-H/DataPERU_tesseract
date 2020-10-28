@@ -223,6 +223,20 @@
             <Table name="dim_eec_postulante" />
             <Level name="Postulante Cine" key_column="postulante_id" name_column="postulante_name" key_type="nontext" />
         </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Indicadores Anuales INFOCULTURA" type="standard">
+        <Hierarchy name="Indicadores Anuales INFOCULTURA">
+            <Table name="dim_shared_infocultura_indicators" />
+            <Level name="Indicadores Anuales INFOCULTURA" key_column="indicator_id" name_column="indicator_name" key_type="nontext" />
+        </Hierarchy>
     </SharedDimension>       
+
+    <SharedDimension name="Respuestas Anuales INFOCULTURA" type="standard">
+        <Hierarchy name="Respuestas Anuales INFOCULTURA">
+            <Table name="dim_shared_infocultura_responses" />
+            <Level name="Respuestas Anuales INFOCULTURA" key_column="response_id" name_column="response_name" key_type="nontext" />
+        </Hierarchy>
+    </SharedDimension>              
 
 </Schema>
