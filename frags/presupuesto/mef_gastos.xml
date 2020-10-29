@@ -22,7 +22,7 @@
             <Hierarchy name="Sector" primary_key="sector">
                 <Table name="dim_mef_sector" />
                 
-                <Level name="Sector" key_column="sector" name_column="sector_nombre" key_type="nontext" />
+                <Level name="Sector" key_column="sector" name_column="sector_name" key_type="nontext" />
             </Hierarchy>
         </Dimension>
 
@@ -30,7 +30,7 @@
             <Hierarchy name="Pliego" primary_key="pliego">
                 <Table name="dim_mef_pliego" />
                 
-                <Level name="Pliego" key_column="pliego" name_column="pliego_nombre" key_type="nontext" />
+                <Level name="Pliego" key_column="pliego" name_column="pliego_name" key_type="nontext" />
             </Hierarchy>
         </Dimension>
 
@@ -46,7 +46,7 @@
             <Hierarchy name="Programa Ppto" primary_key="programa_ppto">
                 <Table name="dim_mef_programa_ppto" />
                 
-                <Level name="Programa Ppto" key_column="programa_ppto" name_column="programa_ppto_nombre" key_type="nontext" />
+                <Level name="Programa Ppto" key_column="programa_ppto" name_column="programa_ppto_name" key_type="nontext" />
             </Hierarchy>
         </Dimension>
 
@@ -54,7 +54,7 @@
             <Hierarchy name="Producto Proyecto" primary_key="producto_proyecto">
                 <Table name="dim_mef_producto_proyecto" />
                 
-                <Level name="Producto Proyecto" key_column="producto_proyecto" name_column="producto_proyecto_nombre" key_type="nontext" />
+                <Level name="Producto Proyecto" key_column="producto_proyecto" name_column="producto_proyecto_name" key_type="nontext" />
             </Hierarchy>
         </Dimension>
 
@@ -62,7 +62,7 @@
             <Hierarchy name="Funcion" primary_key="funcion">
                 <Table name="dim_mef_funcion" />
                 
-                <Level name="Funcion" key_column="funcion" name_column="funcion_nombre" key_type="nontext" />
+                <Level name="Funcion" key_column="funcion" name_column="funcion_name" key_type="nontext" />
             </Hierarchy>
         </Dimension>
 
@@ -70,7 +70,7 @@
             <Hierarchy name="Division Funcional" primary_key="division_funcional">
                 <Table name="dim_mef_division_funcional" />
                 
-                <Level name="Division Funcional" key_column="division_funcional" name_column="division_funcional_nombre" key_type="nontext" />
+                <Level name="Division Funcional" key_column="division_funcional" name_column="division_funcional_name" key_type="nontext" />
             </Hierarchy>
         </Dimension>
 
