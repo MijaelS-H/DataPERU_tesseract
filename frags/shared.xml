@@ -227,16 +227,30 @@
 
     <SharedDimension name="Indicadores Anuales INFOCULTURA" type="standard">
         <Hierarchy name="Indicadores Anuales INFOCULTURA">
-            <Table name="dim_shared_infocultura_indicators" />
+            <Table name="dim_shared_infocultura_indicators_year" />
             <Level name="Indicadores Anuales INFOCULTURA" key_column="indicator_id" name_column="indicator_name" key_type="nontext" />
         </Hierarchy>
     </SharedDimension>       
 
     <SharedDimension name="Respuestas Anuales INFOCULTURA" type="standard">
         <Hierarchy name="Respuestas Anuales INFOCULTURA">
-            <Table name="dim_shared_infocultura_responses" />
+            <Table name="dim_shared_infocultura_indicators_year" />
             <Level name="Respuestas Anuales INFOCULTURA" key_column="response_id" name_column="response_name" key_type="nontext" />
         </Hierarchy>
-    </SharedDimension>              
+    </SharedDimension>
+
+    <SharedDimension name="Indicadores Mensuales INFOCULTURA" type="standard">
+        <Hierarchy name="Indicadores Mensuales INFOCULTURA">
+            <Table name="dim_shared_infocultura_indicators_month" />
+            <Level name="Indicadores Mensuales INFOCULTURA" key_column="indicator_id" name_column="indicator_name" key_type="nontext" />
+        </Hierarchy>
+    </SharedDimension>       
+
+    <SharedDimension name="Respuestas Mensuales INFOCULTURA" type="standard">
+        <Hierarchy name="Respuestas Mensuales INFOCULTURA">
+            <Table name="dim_shared_infocultura_responses_month" />
+            <Level name="Respuestas Mensuales INFOCULTURA" key_column="response_id" name_column="response_name" key_type="nontext" />
+        </Hierarchy>
+    </SharedDimension>                  
 
 </Schema>
