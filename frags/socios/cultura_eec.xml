@@ -10,8 +10,8 @@
         <DimensionUsage foreign_key="district_id" source="Ubigeo" name="Ubigeo" />
         <DimensionUsage foreign_key="estimulo_economico_id" source="Estimulo Economico" name="Estimulo Economico" />
         <DimensionUsage foreign_key="nombre_proyecto_id" source="Nombre Proyecto" name="Nombre Proyecto" />
-        <DimensionUsage foreign_key="postulante_id" source="Postulante Cine" name="Postulante Cine" />
-   
+        <DimensionUsage foreign_key="postulante_id" source="Postulante" name="Postulante" />
+
         <Dimension name="Fase Cadena Valor" foreign_key="fase_cadena_valor_id">
         <Hierarchy name="Fase Cadena Valor" primary_key="id">
             <InlineTable alias="dim_inline_fase_cadena_valor_id">
@@ -37,7 +37,6 @@
                 <Value column="id">5</Value>
                 <Value column="name">Formación</Value>
             </Row>
-
             </InlineTable>
             <Level name="Fase Cadena Valor" key_column="id" name_column="name" />
         </Hierarchy>
@@ -60,7 +59,6 @@
                 <Value column="id">3</Value>
                 <Value column="name">Otro</Value>
             </Row>
-
             </InlineTable>
             <Level name="Tipo Postulante" key_column="id" name_column="name" />
         </Hierarchy>
@@ -83,7 +81,6 @@
                 <Value column="id">3</Value>
                 <Value column="name">No evaluado</Value>
             </Row>
-
             </InlineTable>
             <Level name="Estado Beneficio" key_column="id" name_column="name" />
         </Hierarchy>

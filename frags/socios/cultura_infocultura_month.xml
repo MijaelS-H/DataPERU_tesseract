@@ -9,12 +9,10 @@
 
         <DimensionUsage foreign_key="nation_id" source="Ubigeo Nacion" name="Ubigeo Nacion" />
         <DimensionUsage foreign_key="department_id" source="Ubigeo Departamento Lite" name="Ubigeo Departamento" />
-
         <DimensionUsage foreign_key="indicator_id" source="Indicadores Mensuales INFOCULTURA" name="Indicadores Mensuales INFOCULTURA" />
         <DimensionUsage foreign_key="response_id" source="Respuestas Mensuales INFOCULTURA" name="Respuestas Mensuales INFOCULTURA" />
         <DimensionUsage foreign_key="month_id" source="Date Day" name="Month" />
  
-
         <Measure name="Valor indicador" column="total" aggregator="sum" />
 
     </Cube>

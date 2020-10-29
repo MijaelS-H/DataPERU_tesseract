@@ -5,13 +5,14 @@
         <Annotation name="dataset_name">Registro Nacional Cinematográfico</Annotation>
         <Annotation name="dataset_link">https://www.gob.pe/cultura</Annotation>
 
-        <Table name="cultura_agentes_libro" primary_key="district_id" />
+        <Table name="cultura_cine" primary_key="district_id" />
 
         <DimensionUsage foreign_key="district_id" source="Ubigeo" name="Ubigeo" />
         <DimensionUsage foreign_key="razon_social_id" source="Razon Social Cine" name="Razon Social Cine" />
-
-        <Dimension name="Tipo Constitucion" foreign_key="tipo_constitucion_id">
-        <Hierarchy name="Tipo Constitucion" primary_key="id">
+        <DimensionUsage foreign_key="year" source="Date Day" name="Year" />
+        
+        <Dimension name="Tipo Constitución" foreign_key="tipo_constitucion_id">
+        <Hierarchy name="Tipo Constitución" primary_key="id">
             <InlineTable alias="dim_inline_tipo_constitucion_id">
             <ColumnDef name="id" key_type="nontext" />
             <ColumnDef name="name" key_type="text" />
@@ -24,7 +25,7 @@
                 <Value column="name">Asociación</Value>
             </Row>         
             </InlineTable>
-            <Level name="Tipo Constitucion" key_column="id" name_column="name" />
+            <Level name="Tipo Constitución" key_column="id" name_column="name" />
         </Hierarchy>
         </Dimension>
 
@@ -53,7 +54,6 @@
                 <Value column="id">5</Value>
                 <Value column="name">Formación</Value>
             </Row>
-    
             </InlineTable>
             <Level name="Actividad 1" key_column="id" name_column="name" />
         </Hierarchy>
@@ -76,7 +76,6 @@
                 <Value column="id">3</Value>
                 <Value column="name">Exhibidora</Value>
             </Row>
-    
             </InlineTable>
             <Level name="Actividad 2" key_column="id" name_column="name" />
         </Hierarchy>
@@ -87,12 +86,10 @@
             <InlineTable alias="dim_inline_actividad_3_id_cine">
             <ColumnDef name="id" key_type="nontext" />
             <ColumnDef name="name" key_type="text" />
-
             <Row>
                 <Value column="id">1</Value>
                 <Value column="name">Exhibidora</Value>
             </Row>
-    
             </InlineTable>
             <Level name="Actividad 3" key_column="id" name_column="name" />
         </Hierarchy>
@@ -103,12 +100,10 @@
             <InlineTable alias="dim_inline_actividad_4_id_cine">
             <ColumnDef name="id" key_type="nontext" />
             <ColumnDef name="name" key_type="text" />
-
             <Row>
                 <Value column="id">1</Value>
                 <Value column="name">Servicios conexos</Value>
             </Row>
-    
             </InlineTable>
             <Level name="Actividad 4" key_column="id" name_column="name" />
         </Hierarchy>

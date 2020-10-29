@@ -204,6 +204,13 @@
         </Hierarchy>
     </SharedDimension>
 
+    <SharedDimension name="Razon Social Cine" type="standard">
+        <Hierarchy name="Razon Social Cine">
+            <Table name="dim_cine_razon_social" />
+            <Level name="Razon Social Cine" key_column="razon_social_id" name_column="razon_social_name" key_type="nontext" />
+        </Hierarchy>
+    </SharedDimension>
+
     <SharedDimension name="Estimulo Economico" type="standard">
         <Hierarchy name="Estimulo Economico">
             <Table name="dim_eec_estimulo_economico" />
@@ -218,10 +225,10 @@
         </Hierarchy>
     </SharedDimension>
 
-     <SharedDimension name="Postulante Cine" type="standard">
-        <Hierarchy name="Postulante Cine">
+    <SharedDimension name="Postulante" type="standard">
+        <Hierarchy name="Postulante">
             <Table name="dim_eec_postulante" />
-            <Level name="Postulante Cine" key_column="postulante_id" name_column="postulante_name" key_type="nontext" />
+            <Level name="Postulante" key_column="postulante_id" name_column="postulante_name" key_type="nontext" />
         </Hierarchy>
     </SharedDimension>
 
