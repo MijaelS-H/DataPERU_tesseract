@@ -1,0 +1,36 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="itp_indicators_y_n_tourism">
+        <Annotation name="topic">Turismo</Annotation>
+        <Annotation name="subtopic">Turismo</Annotation>
+        <Annotation name="source_name">Indicadores ITP</Annotation>
+
+        <Table name="itp_indicators_y_n_tourism" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo Nacion" name="Ubigeo" />
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Pais" foreign_key="country_name_es">
+            <Hierarchy name="Pais">
+              <Level name="Pais" key_column="country_name_es" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="ISO3" foreign_key="iso3">
+            <Hierarchy name="ISO3">
+              <Level name="ISO3" key_column="iso3" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Ingreso de turistas internacionales, por origen" column="n_ingresos_turistas_internacionales" aggregator="sum" />
+        <Measure name="Salida de turistas peruanos, por destino" column="n_salidas_turistas_internacionales" aggregator="sum" />
+        <Measure name="Arribos extranjeros establecimientos hospedaje" column="arribos_turistas_extranjeros" aggregator="sum" />
+        <Measure name="Pernoctaciones extranjeros establecimientos hospedaje" column="prenoctacion_turistas_extranjeros" aggregator="sum" />
+        <Measure name="Permanencia extranjeros establecimientos hospedaje (n noches)" column="permanencia_prom_noche_turistas_extranjeros" aggregator="sum" />
+
+    </Cube>
+</Schema>
