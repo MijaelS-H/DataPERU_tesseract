@@ -11,7 +11,12 @@
         <DimensionUsage foreign_key="department_id" source="Ubigeo Departamento Lite" name="Ubigeo Departamento" />
         <DimensionUsage foreign_key="indicator_id" source="Indicadores Anuales INFOCULTURA" name="Indicadores Anuales INFOCULTURA" />
         <DimensionUsage foreign_key="response_id" source="Respuestas Anuales INFOCULTURA" name="Respuestas Anuales INFOCULTURA" />
-        <DimensionUsage foreign_key="year" source="Date Day" name="Year" />
+        
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
 
         <Measure name="Valor indicador" column="total" aggregator="sum" />
 

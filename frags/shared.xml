@@ -142,6 +142,19 @@
         </Hierarchy>
     </SharedDimension>
 
+    <SharedDimension name="Date Month" type="time">
+        <Hierarchy name="Date" primary_key="month_id">
+            <Table name="dim_shared_date_month" />
+            <Level name="Year" key_column="year" />
+            <Level name="Quarter" key_column="quarter_id" name_column="quarter">
+                <Property name="Quarter ES" column="quarter" caption_set="es" />
+            </Level>
+            <Level name="Month" key_column="month_id" name_column="month">
+                <Property name="Month ES" column="month" caption_set="es" />
+            </Level>
+        </Hierarchy>
+    </SharedDimension>
+
     <SharedDimension name="Date Day" type="time">
         <Hierarchy name="Date" primary_key="date_id">
             <Table name="dim_shared_date_month_day" />
@@ -241,7 +254,7 @@
 
     <SharedDimension name="Respuestas Anuales INFOCULTURA" type="standard">
         <Hierarchy name="Respuestas Anuales INFOCULTURA">
-            <Table name="dim_shared_infocultura_indicators_year" />
+            <Table name="dim_shared_infocultura_responses_year" />
             <Level name="Respuestas Anuales INFOCULTURA" key_column="response_id" name_column="response_name" key_type="nontext" />
         </Hierarchy>
     </SharedDimension>
