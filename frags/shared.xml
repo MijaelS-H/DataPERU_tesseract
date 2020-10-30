@@ -1,15 +1,4 @@
 <Schema name="dataperu">
-    <SharedDimension name="CIIU Rev 3" type="standard">
-        <Hierarchy name="CIIU Rev 3">
-            <Table name="dim_shared_ciiu_rev_3" />
-
-            <Level name="Seccion" key_column="section_id" name_column="section_name" key_type="text" />
-            <Level name="Division" key_column="division_id" name_column="division_name" key_type="text" />
-            <Level name="Grupo" key_column="group_id" name_column="group_name" key_type="text" />
-            <Level name="Clase" key_column="class_id" name_column="class_name" key_type="text" />
-        </Hierarchy>
-    </SharedDimension>
-
     <SharedDimension name="CIIU" type="standard">
         <Hierarchy name="CIIU">
             <Table name="dim_shared_ciiu" />
@@ -76,6 +65,7 @@
     <SharedDimension name="Ubigeo Departamento Lite" type="geo">
         <Hierarchy name="Ubigeo Departamento Lite">
             <Table name="dim_shared_ubigeo_department" />
+
             <Level name="Departamento" key_column="department_id" name_column="department_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
@@ -90,6 +80,14 @@
         </Hierarchy>
     </SharedDimension>
 
+    <SharedDimension name="Ubigeo Provincia Lite" type="geo">
+        <Hierarchy name="Ubigeo Provincia Lite">
+            <Table name="dim_shared_ubigeo_province" />
+
+            <Level name="Provincia" key_column="province_id" name_column="province_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
     <SharedDimension name="Ubigeo" type="geo">
         <Hierarchy name="Ubigeo">
             <Table name="dim_shared_ubigeo_district" />
@@ -98,6 +96,105 @@
             <Level name="Departamento" key_column="department_id" name_column="department_name" key_type="text" />
             <Level name="Provincia" key_column="province_id" name_column="province_name" key_type="text" />
             <Level name="Distrito" key_column="district_id" name_column="district_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Ubigeo Lite" type="geo">
+        <Hierarchy name="Ubigeo Lite">
+            <Table name="dim_shared_ubigeo_district" />
+            
+            <Level name="Distrito" key_column="district_id" name_column="district_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Centros Poblados" type="geo">
+        <Hierarchy name="Centros Poblados">
+            <Table name="dim_shared_populated_centers" />
+
+            <Level name="Nacion" key_column="nation_id" name_column="nation_name" key_type="text" />
+            <Level name="Departamento" key_column="department_id" name_column="department_name" key_type="text" />
+            <Level name="Provincia" key_column="province_id" name_column="province_name" key_type="text" />
+            <Level name="Centro Poblado" key_column="populated_center_id" name_column="populated_center_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Centros Poblados Lite" type="geo">
+        <Hierarchy name="Centros Poblados Lite">
+            <Table name="dim_shared_populated_centers" />
+
+            <Level name="Centro Poblado" key_column="populated_center_id" name_column="populated_center_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Trade Flow" type="standard">
+        <Hierarchy name="Trade Flow">
+            <Table name="dim_shared_trade_flow" />
+
+            <Level name="Trade Flow" key_column="trade_flow_id" name_column="trade_flow" key_type="nontext" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Pais">
+        <Hierarchy name="Pais" primary_key="iso2">
+            <Table name="dim_shared_country"/>
+            <Level name="Continente" key_column="continent_id" name_column="continent_es" key_type="text" />
+            <Level name="Pais" key_column="iso2" name_column="country_name_es" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Date Month" type="time">
+        <Hierarchy name="Date" primary_key="month_id">
+            <Table name="dim_shared_date_month" />
+            <Level name="Year" key_column="year" />
+            <Level name="Quarter" key_column="quarter_id" name_column="quarter">
+                <Property name="Quarter ES" column="quarter" caption_set="es" />
+            </Level>
+            <Level name="Month" key_column="month_id" name_column="month">
+                <Property name="Month ES" column="month" caption_set="es" />
+            </Level>
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Date Day" type="time">
+        <Hierarchy name="Date" primary_key="date_id">
+            <Table name="dim_shared_date_month_day" />
+            <Level name="Year" key_column="year" />
+            <Level name="Quarter" key_column="quarter_id" name_column="quarter">
+                <Property name="Quarter ES" column="quarter" caption_set="es" />
+            </Level>
+            <Level name="Month" key_column="month_id" name_column="month">
+                <Property name="Month ES" column="month" caption_set="es" />
+            </Level>
+            <Level name="Date" key_column="date_id" name_column="date">
+                <Property name="Date ES" column="date" caption_set="es" />
+            </Level>
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Producto" type="standard">
+        <Hierarchy name="Producto">
+            <Table name="dim_shared_hs" />
+
+            <Level name="Capítulo" key_column="chapter_id" name_column="chapter_name" key_type="text" />
+            <Level name="HS2" key_column="hs2_id" name_column="hs2_name" key_type="text" />
+            <Level name="HS4" key_column="hs4_id" name_column="hs4_name" key_type="text" />
+            <Level name="HS6" key_column="hs6_id" name_column="hs6_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Cultivo" type="standard">
+        <Hierarchy name="Cultivo">
+            <Table name="dim_shared_dinamica_agricola" />
+
+            <Level name="Cultivo" key_column="cultivo_id" name_column="cultivo_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Mercado" type="standard">
+        <Hierarchy name="Mercado">
+            <Table name="dim_market" />
+            
+            <Level name="Mercado" key_column="market_id" name_column="market_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
 
@@ -121,16 +218,6 @@
             <Level name="Cadena productiva atendida" key_column="cadena_productiva_id" name_column="cadena_productiva" key_type="nontext" />
         </Hierarchy>
     </SharedDimension>
-
-    <SharedDimension name="Producto" type="standard">
-        <Hierarchy name="Producto">
-            <Table name="dim_shared_hs" />
-            <Level name="Capítulo" key_column="chapter_id" name_column="chapter_name" key_type="text" />
-            <Level name="HS2" key_column="hs2_id" name_column="hs2_name" key_type="text" />
-            <Level name="HS4" key_column="hs4_id" name_column="hs4_name" key_type="text" />
-            <Level name="HS6" key_column="hs6_id" name_column="hs6_name" key_type="text" />
-        </Hierarchy>
-    </SharedDimension>
         
     <SharedDimension name="Estado CITE" type="standard">
         <Hierarchy name="Estado CITE">
@@ -138,7 +225,6 @@
             <Level name="Estado CITE" key_column="estado_id" name_column="estado" key_type="nontext" />
         </Hierarchy>
     </SharedDimension>
-
 
     <SharedDimension name="CITE" type="geo">
         <Hierarchy name="CITE">
@@ -162,497 +248,15 @@
         </Hierarchy>
     </SharedDimension>    
 
-
-    <!--
-    <SharedDimension name="Edad">
-        <Hierarchy name="Edad" type="standard">
-            <Table name="dim_shared_age" />
-
-            <Row>
-                <Value column="id">1</Value>
-                <Value column="name">1</Value>
-            </Row>
-            <Row>
-                <Value column="id">2</Value>
-                <Value column="name">2</Value>
-            </Row>
-            <Row>
-                <Value column="id">3</Value>
-                <Value column="name">3</Value>
-            </Row>
-            <Row>
-                <Value column="id">4</Value>
-                <Value column="name">4</Value>
-            </Row>
-            <Row>
-                <Value column="id">5</Value>
-                <Value column="name">5</Value>
-            </Row>
-            <Row>
-                <Value column="id">6</Value>
-                <Value column="name">6</Value>
-            </Row>
-            <Row>
-                <Value column="id">7</Value>
-                <Value column="name">7</Value>
-            </Row>
-            <Row>
-                <Value column="id">8</Value>
-                <Value column="name">8</Value>
-            </Row>
-            <Row>
-                <Value column="id">9</Value>
-                <Value column="name">9</Value>
-            </Row>
-            <Row>
-                <Value column="id">10</Value>
-                <Value column="name">10</Value>
-            </Row>
-            <Row>
-                <Value column="id">11</Value>
-                <Value column="name">11</Value>
-            </Row>
-            <Row>
-                <Value column="id">12</Value>
-                <Value column="name">12</Value>
-            </Row>
-            <Row>
-                <Value column="id">13</Value>
-                <Value column="name">13</Value>
-            </Row>
-            <Row>
-                <Value column="id">14</Value>
-                <Value column="name">14</Value>
-            </Row>
-            <Row>
-                <Value column="id">15</Value>
-                <Value column="name">15</Value>
-            </Row>
-            <Row>
-                <Value column="id">16</Value>
-                <Value column="name">16</Value>
-            </Row>
-            <Row>
-                <Value column="id">17</Value>
-                <Value column="name">17</Value>
-            </Row>
-            <Row>
-                <Value column="id">18</Value>
-                <Value column="name">18</Value>
-            </Row>
-            <Row>
-                <Value column="id">19</Value>
-                <Value column="name">19</Value>
-            </Row>
-            <Row>
-                <Value column="id">20</Value>
-                <Value column="name">20</Value>
-            </Row>
-            <Row>
-                <Value column="id">21</Value>
-                <Value column="name">21</Value>
-            </Row>
-            <Row>
-                <Value column="id">22</Value>
-                <Value column="name">22</Value>
-            </Row>
-            <Row>
-                <Value column="id">23</Value>
-                <Value column="name">23</Value>
-            </Row>
-            <Row>
-                <Value column="id">24</Value>
-                <Value column="name">24</Value>
-            </Row>
-            <Row>
-                <Value column="id">25</Value>
-                <Value column="name">25</Value>
-            </Row>
-            <Row>
-                <Value column="id">26</Value>
-                <Value column="name">26</Value>
-            </Row>
-            <Row>
-                <Value column="id">27</Value>
-                <Value column="name">27</Value>
-            </Row>
-            <Row>
-                <Value column="id">28</Value>
-                <Value column="name">28</Value>
-            </Row>
-            <Row>
-                <Value column="id">29</Value>
-                <Value column="name">29</Value>
-            </Row>
-            <Row>
-                <Value column="id">30</Value>
-                <Value column="name">30</Value>
-            </Row>
-            <Row>
-                <Value column="id">31</Value>
-                <Value column="name">31</Value>
-            </Row>
-            <Row>
-                <Value column="id">32</Value>
-                <Value column="name">32</Value>
-            </Row>
-            <Row>
-                <Value column="id">33</Value>
-                <Value column="name">33</Value>
-            </Row>
-            <Row>
-                <Value column="id">34</Value>
-                <Value column="name">34</Value>
-            </Row>
-            <Row>
-                <Value column="id">35</Value>
-                <Value column="name">35</Value>
-            </Row>
-            <Row>
-                <Value column="id">36</Value>
-                <Value column="name">36</Value>
-            </Row>
-            <Row>
-                <Value column="id">37</Value>
-                <Value column="name">37</Value>
-            </Row>
-            <Row>
-                <Value column="id">38</Value>
-                <Value column="name">38</Value>
-            </Row>
-            <Row>
-                <Value column="id">39</Value>
-                <Value column="name">39</Value>
-            </Row>
-            <Row>
-                <Value column="id">40</Value>
-                <Value column="name">40</Value>
-            </Row>
-            <Row>
-                <Value column="id">41</Value>
-                <Value column="name">41</Value>
-            </Row>
-            <Row>
-                <Value column="id">42</Value>
-                <Value column="name">42</Value>
-            </Row>
-            <Row>
-                <Value column="id">43</Value>
-                <Value column="name">43</Value>
-            </Row>
-            <Row>
-                <Value column="id">44</Value>
-                <Value column="name">44</Value>
-            </Row>
-            <Row>
-                <Value column="id">45</Value>
-                <Value column="name">45</Value>
-            </Row>
-            <Row>
-                <Value column="id">46</Value>
-                <Value column="name">46</Value>
-            </Row>
-            <Row>
-                <Value column="id">47</Value>
-                <Value column="name">47</Value>
-            </Row>
-            <Row>
-                <Value column="id">48</Value>
-                <Value column="name">48</Value>
-            </Row>
-            <Row>
-                <Value column="id">49</Value>
-                <Value column="name">49</Value>
-            </Row>
-            <Row>
-                <Value column="id">50</Value>
-                <Value column="name">50</Value>
-            </Row>
-            <Row>
-                <Value column="id">51</Value>
-                <Value column="name">51</Value>
-            </Row>
-            <Row>
-                <Value column="id">52</Value>
-                <Value column="name">52</Value>
-            </Row>
-            <Row>
-                <Value column="id">53</Value>
-                <Value column="name">53</Value>
-            </Row>
-            <Row>
-                <Value column="id">54</Value>
-                <Value column="name">54</Value>
-            </Row>
-            <Row>
-                <Value column="id">55</Value>
-                <Value column="name">55</Value>
-            </Row>
-            <Row>
-                <Value column="id">56</Value>
-                <Value column="name">56</Value>
-            </Row>
-            <Row>
-                <Value column="id">57</Value>
-                <Value column="name">57</Value>
-            </Row>
-            <Row>
-                <Value column="id">58</Value>
-                <Value column="name">58</Value>
-            </Row>
-            <Row>
-                <Value column="id">59</Value>
-                <Value column="name">59</Value>
-            </Row>
-            <Row>
-                <Value column="id">60</Value>
-                <Value column="name">60</Value>
-            </Row>
-            <Row>
-                <Value column="id">61</Value>
-                <Value column="name">61</Value>
-            </Row>
-            <Row>
-                <Value column="id">62</Value>
-                <Value column="name">62</Value>
-            </Row>
-            <Row>
-                <Value column="id">63</Value>
-                <Value column="name">63</Value>
-            </Row>
-            <Row>
-                <Value column="id">64</Value>
-                <Value column="name">64</Value>
-            </Row>
-            <Row>
-                <Value column="id">65</Value>
-                <Value column="name">65</Value>
-            </Row>
-            <Row>
-                <Value column="id">66</Value>
-                <Value column="name">66</Value>
-            </Row>
-            <Row>
-                <Value column="id">67</Value>
-                <Value column="name">67</Value>
-            </Row>
-            <Row>
-                <Value column="id">68</Value>
-                <Value column="name">68</Value>
-            </Row>
-            <Row>
-                <Value column="id">69</Value>
-                <Value column="name">69</Value>
-            </Row>
-            <Row>
-                <Value column="id">70</Value>
-                <Value column="name">70</Value>
-            </Row>
-            <Row>
-                <Value column="id">71</Value>
-                <Value column="name">71</Value>
-            </Row>
-            <Row>
-                <Value column="id">72</Value>
-                <Value column="name">72</Value>
-            </Row>
-            <Row>
-                <Value column="id">73</Value>
-                <Value column="name">73</Value>
-            </Row>
-            <Row>
-                <Value column="id">74</Value>
-                <Value column="name">74</Value>
-            </Row>
-            <Row>
-                <Value column="id">75</Value>
-                <Value column="name">75</Value>
-            </Row>
-            <Row>
-                <Value column="id">76</Value>
-                <Value column="name">76</Value>
-            </Row>
-            <Row>
-                <Value column="id">77</Value>
-                <Value column="name">77</Value>
-            </Row>
-            <Row>
-                <Value column="id">78</Value>
-                <Value column="name">78</Value>
-            </Row>
-            <Row>
-                <Value column="id">79</Value>
-                <Value column="name">79</Value>
-            </Row>
-            <Row>
-                <Value column="id">80</Value>
-                <Value column="name">80</Value>
-            </Row>
-            <Row>
-                <Value column="id">81</Value>
-                <Value column="name">81</Value>
-            </Row>
-            <Row>
-                <Value column="id">82</Value>
-                <Value column="name">82</Value>
-            </Row>
-            <Row>
-                <Value column="id">83</Value>
-                <Value column="name">83</Value>
-            </Row>
-            <Row>
-                <Value column="id">84</Value>
-                <Value column="name">84</Value>
-            </Row>
-            <Row>
-                <Value column="id">85</Value>
-                <Value column="name">85</Value>
-            </Row>
-            <Row>
-                <Value column="id">86</Value>
-                <Value column="name">86</Value>
-            </Row>
-            <Row>
-                <Value column="id">87</Value>
-                <Value column="name">87</Value>
-            </Row>
-            <Row>
-                <Value column="id">88</Value>
-                <Value column="name">88</Value>
-            </Row>
-            <Row>
-                <Value column="id">89</Value>
-                <Value column="name">89</Value>
-            </Row>
-            <Row>
-                <Value column="id">90</Value>
-                <Value column="name">90</Value>
-            </Row>
-            <Row>
-                <Value column="id">91</Value>
-                <Value column="name">91</Value>
-            </Row>
-            <Row>
-                <Value column="id">92</Value>
-                <Value column="name">92</Value>
-            </Row>
-            <Row>
-                <Value column="id">93</Value>
-                <Value column="name">93</Value>
-            </Row>
-            <Row>
-                <Value column="id">94</Value>
-                <Value column="name">94</Value>
-            </Row>
-            <Row>
-                <Value column="id">95</Value>
-                <Value column="name">95</Value>
-            </Row>
-            <Row>
-                <Value column="id">96</Value>
-                <Value column="name">96</Value>
-            </Row>
-            <Row>
-                <Value column="id">97</Value>
-                <Value column="name">97</Value>
-            </Row>
-            <Row>
-                <Value column="id">98</Value>
-                <Value column="name">98</Value>
-            </Row>
-            <Row>
-                <Value column="id">99</Value>
-                <Value column="name">99</Value>
-            </Row>
-            <Row>
-                <Value column="id">100</Value>
-                <Value column="name">100</Value>
-            </Row>
-            <Row>
-                <Value column="id">101</Value>
-                <Value column="name">101</Value>
-            </Row>
-            <Row>
-                <Value column="id">102</Value>
-                <Value column="name">102</Value>
-            </Row>
-            <Row>
-                <Value column="id">103</Value>
-                <Value column="name">103</Value>
-            </Row>
-            <Row>
-                <Value column="id">104</Value>
-                <Value column="name">104</Value>
-            </Row>
-            <Row>
-                <Value column="id">105</Value>
-                <Value column="name">105</Value>
-            </Row>
-            <Row>
-                <Value column="id">106</Value>
-                <Value column="name">106</Value>
-            </Row>
-            <Row>
-                <Value column="id">107</Value>
-                <Value column="name">107</Value>
-            </Row>
-            <Row>
-                <Value column="id">108</Value>
-                <Value column="name">108</Value>
-            </Row>
-            <Row>
-                <Value column="id">109</Value>
-                <Value column="name">109</Value>
-            </Row>
-            <Row>
-                <Value column="id">110</Value>
-                <Value column="name">110</Value>
-            </Row>
-            <Row>
-                <Value column="id">111</Value>
-                <Value column="name">111</Value>
-            </Row>
-            <Row>
-                <Value column="id">112</Value>
-                <Value column="name">112</Value>
-            </Row>
-            <Row>
-                <Value column="id">113</Value>
-                <Value column="name">113</Value>
-            </Row>
-            <Row>
-                <Value column="id">114</Value>
-                <Value column="name">114</Value>
-            </Row>
-            <Row>
-                <Value column="id">115</Value>
-                <Value column="name">115</Value>
-            </Row>
-            <Row>
-                <Value column="id">116</Value>
-                <Value column="name">116</Value>
-            </Row>
-            <Row>
-                <Value column="id">117</Value>
-                <Value column="name">117</Value>
-            </Row>
-            <Row>
-                <Value column="id">118</Value>
-                <Value column="name">118</Value>
-            </Row>
-            <Row>
-                <Value column="id">119</Value>
-                <Value column="name">119</Value>
-            </Row>
-            <Row>
-                <Value column="id">120</Value>
-                <Value column="name">120</Value>
-            </Row>
-
-            <Level name="Edad" key_column="id" name_column="name" />
+    <SharedDimension name="Producto HS10" type="standard">
+        <Hierarchy name="Producto HS10">
+            <Table name="dim_shared_hs10" />
+            <Level name="Capítulo" key_column="chapter_id" name_column="chapter_name" key_type="text" />
+            <Level name="HS2" key_column="hs2_id" name_column="hs2_name" key_type="text" />
+            <Level name="HS4" key_column="hs4_id" name_column="hs4_name" key_type="text" />
+            <Level name="HS6" key_column="hs6_id" name_column="hs6_name" key_type="text" />
+            <Level name="HS10" key_column="hs10_id" name_column="hs10_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
-
-    -->
 
 </Schema>
