@@ -1,5 +1,5 @@
 <Schema name="dataperu" default_locale="es">
-    <Cube name="inei_concytec">
+    <Cube name="inei_investigacion_desarrollo">
         <Annotation name="source_name">INEI</Annotation>
         <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
         <Annotation name="dataset_name">Censo Nacional de Investigación y Desarrollo</Annotation>
