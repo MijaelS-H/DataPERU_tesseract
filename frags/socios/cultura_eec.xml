@@ -13,81 +13,81 @@
         <DimensionUsage foreign_key="postulante_id" source="Postulante" name="Postulante" />
 
         <Dimension name="Fase Cadena Valor" foreign_key="fase_cadena_valor_id">
-        <Hierarchy name="Fase Cadena Valor" primary_key="id">
-            <InlineTable alias="dim_inline_fase_cadena_valor_id">
-            <ColumnDef name="id" key_type="nontext" />
-            <ColumnDef name="name" key_type="text" />
-            <Row>
-                <Value column="id">1</Value>
-                <Value column="name">Producción</Value>
-            </Row>
-            <Row>
-                <Value column="id">2</Value>
-                <Value column="name">Acceso</Value>
-            </Row>
-            <Row>
-                <Value column="id">3</Value>
-                <Value column="name">Creación</Value>
-            </Row>
-            <Row>
-                <Value column="id">4</Value>
-                <Value column="name">Circulación</Value>
-            </Row>
-            <Row>
-                <Value column="id">5</Value>
-                <Value column="name">Formación</Value>
-            </Row>
-            </InlineTable>
-            <Level name="Fase Cadena Valor" key_column="id" name_column="name" />
-        </Hierarchy>
+            <Hierarchy name="Fase Cadena Valor" primary_key="id">
+                <InlineTable alias="dim_inline_fase_cadena_valor_id_eec">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Producción</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Acceso</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Creación</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Circulación</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">Formación</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Fase Cadena Valor" key_column="id" name_column="name" />
+            </Hierarchy>
         </Dimension>
 
         <Dimension name="Tipo Postulante" foreign_key="tipo_postulante_id">
-        <Hierarchy name="Tipo Postulante" primary_key="id">
-            <InlineTable alias="dim_inline_tipo_postulante_id">
-            <ColumnDef name="id" key_type="nontext" />
-            <ColumnDef name="name" key_type="text" />
-            <Row>
-                <Value column="id">1</Value>
-                <Value column="name">Persona Jurídica</Value>
-            </Row>
-            <Row>
-                <Value column="id">2</Value>
-                <Value column="name">Persona Natural</Value>
-            </Row>
-            <Row>
-                <Value column="id">3</Value>
-                <Value column="name">Otro</Value>
-            </Row>
-            </InlineTable>
-            <Level name="Tipo Postulante" key_column="id" name_column="name" />
-        </Hierarchy>
+            <Hierarchy name="Tipo Postulante" primary_key="id">
+                <InlineTable alias="dim_inline_tipo_postulante_id_eec">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Persona Jurídica</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Persona Natural</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Otro</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Tipo Postulante" key_column="id" name_column="name" />
+            </Hierarchy>
         </Dimension>
 
         <Dimension name="Estado Beneficio" foreign_key="estado_id">
-        <Hierarchy name="Estado Beneficio" primary_key="id">
-            <InlineTable alias="dim_inline_estado_id">
-            <ColumnDef name="id" key_type="nontext" />
-            <ColumnDef name="name" key_type="text" />
-            <Row>
-                <Value column="id">1</Value>
-                <Value column="name">No beneficiario</Value>
-            </Row>
-            <Row>
-                <Value column="id">2</Value>
-                <Value column="name">Beneficiario</Value>
-            </Row>
-            <Row>
-                <Value column="id">3</Value>
-                <Value column="name">No evaluado</Value>
-            </Row>
-            </InlineTable>
-            <Level name="Estado Beneficio" key_column="id" name_column="name" />
-        </Hierarchy>
+            <Hierarchy name="Estado Beneficio" primary_key="id">
+                <InlineTable alias="dim_inline_estado_id_eec">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">No beneficiario</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Beneficiario</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">No evaluado</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Estado Beneficio" key_column="id" name_column="name" />
+            </Hierarchy>
         </Dimension>
 
 
-        <Measure name="Cantidad Postulantes" column="cantidad_postulante" aggregator="count" />
+        <Measure name="Cantidad Postulantes" column="cantidad_postulante" aggregator="sum" />
 
     </Cube>
 </Schema>

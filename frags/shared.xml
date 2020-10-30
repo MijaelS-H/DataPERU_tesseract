@@ -182,6 +182,22 @@
         </Hierarchy>
     </SharedDimension>
 
+    <SharedDimension name="Cultivo" type="standard">
+        <Hierarchy name="Cultivo">
+            <Table name="dim_shared_dinamica_agricola" />
+
+            <Level name="Cultivo" key_column="cultivo_id" name_column="cultivo_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Mercado" type="standard">
+        <Hierarchy name="Mercado">
+            <Table name="dim_market" />
+            
+            <Level name="Mercado" key_column="market_id" name_column="market_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
     <SharedDimension name="Razon Social Agentes" type="standard">
         <Hierarchy name="Razon Social Agentes">
             <Table name="dim_razon_social_agentes" />
@@ -271,6 +287,5 @@
             <Table name="dim_shared_infocultura_responses_month" />
             <Level name="Respuestas Mensuales INFOCULTURA" key_column="response_id" name_column="response_name" key_type="nontext" />
         </Hierarchy>
-    </SharedDimension>                  
-
+    </SharedDimension>  
 </Schema>
