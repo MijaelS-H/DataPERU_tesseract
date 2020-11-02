@@ -20,11 +20,7 @@
             </Hierarchy>
         </Dimension>
 
-        <Dimension name="ISO3" foreign_key="iso3">
-            <Hierarchy name="ISO3">
-              <Level name="ISO3" key_column="iso3" />
-            </Hierarchy>
-        </Dimension>
+        <DimensionUsage foreign_key="iso3" source="Pais" name="Pais Origen" />
 
         <Measure name="Ingreso de turistas internacionales, por origen" column="n_ingresos_turistas_internacionales" aggregator="sum" />
         <Measure name="Salida de turistas peruanos, por destino" column="n_salidas_turistas_internacionales" aggregator="sum" />
