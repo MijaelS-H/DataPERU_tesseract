@@ -1125,14 +1125,15 @@
         <Measure name = "Emigrantes" column = "emigrantes" aggregator = "sum" />
         <Measure name = "Poblacion economicamente activa afiliada (pensiones)" column = "peao_afiliada_pensiones" aggregator = "sum" />
         <Measure name = "Poblacion necesidad basica insatisfecha" column = "nbi_1_o_mas_perc_pob" aggregator = "avg" />
-        <Measure name = "" column = "mbpa_1_o_mas_members_perc_hog" aggregator = "avg" />
-        <Measure name = "" column = "mbpa_1_o_mas_members_perc_hog_pob" aggregator = "avg" />
+        <Measure name = "Porcentaje hogares con uno o mas miembros con nbi" column = "mbpa_1_o_mas_members_perc_hog" aggregator = "avg" />
+        <Measure name = "Porcentaje hogares con uno o mas miembros con nbi" column = "mbpa_1_o_mas_members_perc_hog_pob" aggregator = "avg" />
         <Measure name = "Numero medicos colegiados" column = "n_medicos_colegiados" aggregator = "sum" />
         <Measure name = "Numero de habitantes por medicos" column = "n_habitantes_por_medico" aggregator = "sum" />
         <Measure name = "Numero enfermeras(os) colegiados" column = "n_enfermeras_os_colegiados" aggregator = "sum" />
         <Measure name = "Numero de habitantes por enfermeras(os)" column = "n_habitantes_por_enfermera_os" aggregator = "sum" />
         <Measure name = "Desnutricion infantil en mejores de 5" column = "desnutricion_5yrs_perc" aggregator = "avg" />
         <Measure name = "Enfermedades respiratorias en menores de 5" column = "enfermedades_ra_5yrs_perc" aggregator = "avg" />
+        <Measure name = "Enfermedades diarreicas en menores de 5" column = "enfer_diarreicas_5yrs" aggregator = "avg" />
         <Measure name = "Promedio de años de estudios de mayores de 15" column = "estudios_prom_15yrs" aggregator = "sum" />
         <Measure name = "Hectareas de superficie agricola" column = "superficie_agricola_hect" aggregator = "sum" />
         <Measure name = "Hectareas de superficie no agricola" column = "superficie_no_agricola_hect" aggregator = "sum" />
@@ -1156,6 +1157,12 @@
         <Measure name = "Numero de denuncias por violencia fisica familiar" column = "n_denuncias_violencia_familiar_fisica" aggregator = "sum" />
         <Measure name = "Numero de denuncias por violencia sicologica familiar" column = "n_denuncias_violencia_familiar_sicolo" aggregator = "sum" />
         <Measure name = "Numero de denuncias de robo" column = "n_denuncias_robo_vehiculos" aggregator = "sum" />
+
+        <Measure name = "Numero de huespedes de origen nacional" column = "huespedes_nacionales" aggregator = "sum" />
+        <Measure name = "Numero de huespedes de origen internacional" column = "huespedes_extranjeros" aggregator = "sum" />
+        <Measure name = "Numero de visitantes de sitios arquelogicos y/o museos de origen nacional" column = "visitantes_nacionales_museos_arqueologia" aggregator = "sum" />
+        <Measure name = "Numero de visitantes de sitios arquelogicos y/o museos de origen internacional" column = "visitantes_extranjeros_museos_arqueologia" aggregator = "sum" />
+
 
     </Cube>
     <Cube name="inei_population_y_n_dep_urb_rur">
@@ -1224,6 +1231,20 @@
         <Measure name="IPM base variacion mes anterior (2013)" column="ipm_base_2013_var_mes_anterior" aggregator="sum" />
         <Measure name="IPM base variacion acumulada (2013)" column="ipm_base_2013_var_acumulado" aggregator="sum" />
         <Measure name="Porcentaje morosidad de credito de la banca" column="perc_morosidad_credi_banca_mult" aggregator="sum" />
+
+        <Measure name="Visitas Museo Nacional de arqueologia e historia del Peru" column="m_nacional_arquelogia_historia_Peru" aggregator="sum" />
+        <Measure name="Visitas Museo de la Nacion" column="museo_de_la_Nacion" aggregator="sum" />
+        <Measure name="Visitas Museo de Arte Italiano" column="museo_de_arte_italiano" aggregator="sum" />
+        <Measure name="Visitas Museo de la Cultura Peruana" column="m_de_la_cultura_peruana" aggregator="sum" />
+        <Measure name="Visitas Zona Arqueologica y Museo de Sitio Pachacamac" column="z_arqueologica_m_sitio_Pachacamac" aggregator="sum" />
+        <Measure name="Visitas Zona Arqueologica y Museo de Sitio Puruchuco" column="z_arqueologica_m_sitio_Puruchuco" aggregator="sum" />
+        <Measure name="Visitas Zona Arqueologica y Museo de Sitio Huallamarca" column="z_arqueologica_m_sitio_Huallamarca" aggregator="sum" />
+        <Measure name="Visitas Zona Arqueologica y Museo de Sitio Otros" column="z_arqueologica_m_sitio_Otros" aggregator="sum" />
+        <Measure name="Visitas Museo de Sitio Cerro San Cristobal" column="m_sitio_cerro_San_Cristobal" aggregator="sum" />
+        <Measure name="Visitas Museo de Sitio y Centro Arqueologico Pucllana" column="m_sitio_centro_arqueologico_Pucllana" aggregator="sum" />
+        <Measure name="Visitas Casa Museo Jose Carlos Mariategui" column="casa_m_Jose_Carlos_Mariategui" aggregator="sum" />
+        <Measure name="Visitas Complejo Arqueologico Mateo Salado" column="complejo_arqueologico_Mateo_Salado" aggregator="sum" />
+        <Measure name="Visitas Casa de Gastronomia Peruana" column="casa_gastronomia_peruana" aggregator="sum" />
 
     </Cube>
     <Cube name="itp_indicators_q_n_nat">
@@ -1357,6 +1378,61 @@
 
     	<Measure name="Valor Agregado Bruto (S/ 2007)" column="valor_agregado_bruto_2007" aggregator="sum" />
     	<Measure name="Valor Agregado Bruto (S/ Corrientes)" column="valor_agregado_bruto_cte" aggregator="sum" />
+
+  	</Cube>
+    <Cube name="itp_indicators_y_d_ports">
+        <Annotation name="topic">Economia</Annotation>
+        <Annotation name="subtopic">Economia</Annotation>
+        <Annotation name="source_name">Indicadores ITP</Annotation>
+
+        <Table name="itp_indicators_y_d_ports" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo Departamento" name="Ubigeo" />
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <SharedDimension name="Puertos de desembarque" type="standard">
+            <Hierarchy name="Puertos de desembarque">
+                <Table name="dim_shared_ports" />
+
+                <Level name="Puerto" key_column="port_id" name_column="port_name" key_type="text" />
+            </Hierarchy>
+        </SharedDimension>
+
+
+        <Measure name="Desembarque de recursos marinos" column="desembarque_recursos_marinos" aggregator="sum" />
+
+    </Cube>
+    <Cube name="itp_indicators_y_n_manu_mill_soles_2007">
+
+    	<Annotation name="topic">Economia</Annotation>
+      	<Annotation name="subtopic">Economia</Annotation>
+      	<Annotation name="source_name">Indicadores ITP</Annotation>
+
+    	<Table name="itp_indicators_y_n_manu_mill_soles_2007" primary_key="ubigeo" />
+
+    	<DimensionUsage foreign_key="ubigeo" source="Ubigeo Nacion" name="Ubigeo" />
+
+    	<Dimension name="Year" foreign_key="year">
+      		<Hierarchy name="Year">
+	  	  		<Level name="Year" key_column="year" />
+      		</Hierarchy>
+    	</Dimension>
+
+    	<Dimension name="Actividad economica" foreign_key="sub_actividad_economica_id">
+      		<Hierarchy name="Actividad economica" primary_key="sub_actividad_economica_id">
+						<Table name="dim_shared_actividad_economica_54" />
+
+        		<Level name="Actividad economica" key_column="actividad_economica_id" name_column="actividad_economica" />
+        		<Level name="Subactividad economica" key_column="sub_actividad_economica_id" name_column="sub_actividad_economica" />
+      		</Hierarchy>
+    	</Dimension>
+
+    	<Measure name="Valor Agregado Bruto (Millones S/ 2007)" column="valor_agregado_bruto_cte_2007" aggregator="sum" />
 
   	</Cube>
     <Cube name="itp_indicators_y_n_nat">
@@ -1505,6 +1581,141 @@
         <Measure name="Analfabetismo en hombres en edad de 60 y mas" column="analfabetismo_h_60_y_mas" aggregator="sum" />
         <Measure name="Analfabetismo en mujeres en edad de 60 y mas" column="analfabetismo_f_60_y_mas" aggregator="sum" />
 
+        <Measure name="Analfabetismo en mujeres en edad de 60 y mas" column="analfabetismo_f_60_y_mas" aggregator="sum" />
+        <Measure name="Analfabetismo en mujeres en edad de 60 y mas" column="analfabetismo_f_60_y_mas" aggregator="sum" />
+
+
+        <Measure name = "Recaudacion trib. aduanero ingresos tesoro publico derechos Ad Valoren" column = "trib_adu_ingr_teso_pub_DAV_mill_soles" aggregator = "sum" />
+        <Measure name = "Recaudacion trib. aduanero ingresos tesoro publico derechos especificos" column = "trib_adu_ingr_teso_pub_D_especificos_mill_soles" aggregator = "sum" />
+        <Measure name = "Recaudacion trib. aduanero ingresos tesoro publico sobretasa 5 perc" column = "trib_adu_ingr_teso_pub_sobretasa_ad_5perc_mill_soles" aggregator = "sum" />
+        <Measure name = "Recaudacion trib. aduanero ingresos tesoro publico imp. gnrl ventas" column = "trib_adu_ingr_teso_pub_IGV_mill_soles" aggregator = "sum" />
+        <Measure name = "Recaudacion trib. aduanero ingresos tesoro publico imp. selec consumo" column = "trib_adu_ingr_teso_pub_ISC_mill_soles" aggregator = "sum" />
+        <Measure name = "Recaudacion trib. aduanero ingresos tesoro publico otros" column = "trib_adu_ingr_teso_pub_otros_mill_soles" aggregator = "sum" />
+        <Measure name = "Recaudacion trib. aduanero otros organismos locales" column = "trib_adu_otros_org_gobiernos_loc_mill_soles" aggregator = "sum" />
+        <Measure name = "Recaudacion trib. aduanero otros organismos INDECOPI" column = "trib_adu_otros_org_INDECOPI_mill_soles" aggregator = "sum" />
+        <Measure name = "Creditos sistema financiero banca multiple (millones de soles)" column = "banca_multiple_creditos" aggregator = "sum" />
+        <Measure name = "Creditos sistema financiero empresas financieras (millones de soles)" column = "empresas_financieras_creditos" aggregator = "sum" />
+        <Measure name = "Creditos sistema financiero cajas municipales (millones de soles)" column = "cajas_municipales_creditos" aggregator = "sum" />
+        <Measure name = "Creditos sistema financiero cajas rurales de ahorro (millones de soles)" column = "cajas_rur_ahorro_credito_creditos" aggregator = "sum" />
+        <Measure name = "Creditos sistema financiero desa pequeña microempresa EDPYME" column = "entidades_desa_peq_micr_empresa_EDPYME_creditos" aggregator = "sum" />
+        <Measure name = "Creditos sistema financiero empresas de arrendamiento financiero (millones de soles)" column = "empresas_arrenda_financiero_creditos" aggregator = "sum" />
+        <Measure name = "Creditos sistema financiero banco de la nacio (millones de soles)" column = "banco_nacion_creditos" aggregator = "sum" />
+        <Measure name = "Creditos sistema financiero agrobanco (millones de soles)" column = "agrobanco_creditos" aggregator = "sum" />
+        <Measure name = "Depositos sistema financiero banca multiple (millones de soles)" column = "banca_multiple_depositos" aggregator = "sum" />
+        <Measure name = "Depositos sistema financiero empresas financieras (millones de soles)" column = "empresas_financieras_depositos" aggregator = "sum" />
+        <Measure name = "Depositos sistema financiero cajas municipales (millones de soles)" column = "cajas_municipales_depositos" aggregator = "sum" />
+        <Measure name = "Depositos sistema financiero cajas rurales de ahorro (millones de soles)" column = "cajas_rur_ahorro_credito_depositos" aggregator = "sum" />
+        <Measure name = "Depositos sistema financiero desa pequeña microempresa EDPYME" column = "entidades_desa_peq_micr_empresa_EDPYME_depositos" aggregator = "sum" />
+        <Measure name = "Depositos sistema financiero empresas de arrendamiento financiero (millones de soles)" column = "empresas_arrenda_financiero_depositos" aggregator = "sum" />
+        <Measure name = "Depositos sistema financiero banco de la nacio (millones de soles)" column = "banco_nacion_depositos" aggregator = "sum" />
+        <Measure name = "Depositos sistema financiero agrobanco (millones de soles)" column = "agrobanco_depositos" aggregator = "sum" />
+
+        <Measure name = "Sector pesquero PIB (millones de soles 2007)" column = "sector_pesquero_PIB_mill_soles_const_2007" aggregator = "sum" />
+        <Measure name = "Sector pesquero VAB (millones de soles 2007)" column = "sector_pesquero_VAB_mill_soles_const_2007" aggregator = "sum" />
+        <Measure name = "Sector pesquero VAB/PIB" column = "sector_pesquero_porc_VAB_d_PIB" aggregator = "sum" />
+        <Measure name = "Sector pesquero desembarque pesca (millones toneladas metricas)" column = "sector_pesquero_desem_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero transformacion pesca (millones toneladas metricas)" column = "sector_pesquero_trans_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero prod. harina de pescado (millones toneladas metricas)" column = "sector_pesquero_prod_harina_pescado_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero venta interna (millones toneladas metricas)" column = "sector_pesquero_consumo_interno_total_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero venta interna (kilogramos per capita)" column = "sector_pesquero_consumo_interno_per_capita_kg" aggregator = "sum" />
+
+        <Measure name = "Sector pesquero maritima, consumo directo enlatado (millones toneladas metricas)" column = "sector_pesquero_mar_con_dir_enlatado_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero maritima, consumo directo congelado (millones toneladas metricas)" column = "sector_pesquero_mar_con_dir_congelado_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero maritima, consumo directo curado (millones toneladas metricas)" column = "sector_pesquero_mar_con_dir_curado_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero maritima, consumo directo fresco (millones toneladas metricas)" column = "sector_pesquero_mar_con_dir_fresco_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero maritima, consumo directo anchoveta (millones toneladas metricas)" column = "sector_pesquero_mar_con_ind_anchoveta_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero maritima, consumo directo otros (millones toneladas metricas)" column = "sector_pesquero_mar_con_ind_o_especies_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero continental, consumo directo curado (millones toneladas metricas)" column = "sector_pesquero_con_dir_curado_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero continental, consumo directo fresco (millones toneladas metricas)" column = "sector_pesquero_con_dir_fresco_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero continental, consumo directo congelado (millones toneladas metricas)" column = "sector_pesquero_con_dir_congelado_mil_ton_met" aggregator = "sum" />
+
+        <Measure name = "Pesca desembarque anchoveta (millones toneladas metricas)" column = "pesca_desem_anchoveta_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque atun (millones toneladas metricas)" column = "pesca_desem_atun_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque bonito (millones toneladas metricas)" column = "pesca_desem_bonito_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque caballa (millones toneladas metricas)" column = "pesca_desem_caballa_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque jurel (millones toneladas metricas)" column = "pesca_desem_jurel_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque perico (millones toneladas metricas)" column = "pesca_desem_perico_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque samasa (millones toneladas metricas)" column = "pesca_desem_samasa_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque sardina (millones toneladas metricas)" column = "pesca_desem_sardina_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque tiburon (millones toneladas metricas)" column = "pesca_desem_tiburon_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque ayanque (millones toneladas metricas)" column = "pesca_desem_ayanque_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque cabrilla (millones toneladas metricas)" column = "pesca_desem_cabrilla_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque coco (millones toneladas metricas)" column = "pesca_desem_coco_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque lenguado (millones toneladas metricas)" column = "pesca_desem_lenguado_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque merluza (millones toneladas metricas)" column = "pesca_desem_merluza_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque raya (millones toneladas metricas)" column = "pesca_desem_raya_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque tollo (millones toneladas metricas)" column = "pesca_desem_tollo_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque cabinza (millones toneladas metricas)" column = "pesca_desem_cabinza_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque cojinova (millones toneladas metricas)" column = "pesca_desem_cojinova_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque corvina (millones toneladas metricas)" column = "pesca_desem_corvina_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque chita (millones toneladas metricas)" column = "pesca_desem_chita_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque liza (millones toneladas metricas)" column = "pesca_desem_liza_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque lorna (millones toneladas metricas)" column = "pesca_desem_lorna_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque machete (millones toneladas metricas)" column = "pesca_desem_machete_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque pejerrey (millones toneladas metricas)" column = "pesca_desem_pejerrey_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque pintadilla (millones toneladas metricas)" column = "pesca_desem_pintadilla_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque cangrejo (millones toneladas metricas)" column = "pesca_desem_cangrejo_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque langosta (millones toneladas metricas)" column = "pesca_desem_langosta_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque langostino (millones toneladas metricas)" column = "pesca_desem_langostino_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque abalon (millones toneladas metricas)" column = "pesca_desem_abalon_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque caracol (millones toneladas metricas)" column = "pesca_desem_caracol_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque choro (millones toneladas metricas)" column = "pesca_desem_choro_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque concha_de_abanico (millones toneladas metricas)" column = "pesca_desem_concha_de_abanico_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque macha (millones toneladas metricas)" column = "pesca_desem_macha_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque almeja (millones toneladas metricas)" column = "pesca_desem_almeja_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque calamar (millones toneladas metricas)" column = "pesca_desem_calamar_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque pota (millones toneladas metricas)" column = "pesca_desem_pota_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque pulpo (millones toneladas metricas)" column = "pesca_desem_pulpo_mil_ton_metricas" aggregator = "sum" />
+
+        <Measure name = "Pesca transformacion maritima enlatado (millones toneladas metricas)" column = "pesca_trans_mar_enlatado_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca transformacion maritima congelado (millones toneladas metricas)" column = "pesca_trans_mar_congelado_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca transformacion maritima curado (millones toneladas metricas)" column = "pesca_trans_mar_curado_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca transformacion maritima harina pescado (millones toneladas metricas)" column = "pesca_trans_mar_harina_pescado_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca transformacion maritima aceite crudo pescado (millones toneladas metricas)" column = "pesca_trans_mar_aceite_crudo_pescado_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca transformacion continental congelado (millones toneladas metricas)" column = "pesca_trans_con_congelado_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca transformacion continental curado (millones toneladas metricas)" column = "pesca_trans_con_curado_mil_ton_metricas" aggregator = "sum" />
+
+        <Measure name = "Pesca venta interna consumo directo enlatado (millones toneladas metricas)" column ="pesca_venta_interna_con_direc_enlatado_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca venta interna consumo directo congelado (millones toneladas metricas)" column ="pesca_venta_interna_con_direc_congelado_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca venta interna consumo directo curado (millones toneladas metricas)" column ="pesca_venta_interna_con_direc_curado_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca venta interna consumo directo fresco (millones toneladas metricas)" column ="pesca_venta_interna_con_direc_fresco_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca venta interna consumo indirecto harina pescado (millones toneladas metricas)" column ="pesca_venta_interna_con_indirec_harina_pescado_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca venta interna consumo indirecto aceite crudo pescado (millones toneladas metricas)" column ="pesca_venta_interna_con_indirec_aceite_crudo_pescado_mil_ton_metricas" aggregator = "sum" />
+
+        <Measure name = "Pesca consumo interno enlatado (millones toneladas metricas)" column = "pesca_consumo_interno_direc_enlatado_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca consumo interno congelado (millones toneladas metricas)" column = "pesca_consumo_interno_direc_congelado_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca consumo interno curado (millones toneladas metricas)" column = "pesca_consumo_interno_direc_curado_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca consumo interno fresco (millones toneladas metricas)" column = "pesca_consumo_interno_direc_fresco_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca consumo interno enlatado (kg per capita aparente)" column = "pesca_consumo_interno_direc_enlatado_per_cap_kg_hab" aggregator = "sum" />
+        <Measure name = "Pesca consumo interno congelado (kg per capita aparente)" column = "pesca_consumo_interno_direc_congelado_per_cap_kg_hab" aggregator = "sum" />
+        <Measure name = "Pesca consumo interno curado (kg per capita aparente)" column = "pesca_consumo_interno_direc_curado_per_cap_kg_hab" aggregator = "sum" />
+        <Measure name = "Pesca consumo interno fresco (kg per capita aparente)" column = "pesca_consumo_interno_direc_fresco_per_cap_kg_hab" aggregator = "sum" />
+
+        <Measure name = "Sector pesquero plantas instaladas enlatado" column = "pesca_n_plantas_instaladas_enlatado" aggregator = "sum" />
+        <Measure name = "Sector pesquero cap instalada (cajas por turno)" column = "pesca_capaci_inst_enlatado_u_cajas_turno" aggregator = "sum" />
+        <Measure name = "Sector pesquero plantas instaladas congelado" column = "pesca_n_plantas_instaladas_congelado" aggregator = "sum" />
+        <Measure name = "Sector pesquero cap instalada (toneladas por dia)" column = "pesca_capaci_inst_congelado_u_ton_dia" aggregator = "sum" />
+        <Measure name = "Sector pesquero plantas instaladas curado" column = "pesca_n_plantas_instaladas_curado" aggregator = "sum" />
+        <Measure name = "Sector pesquero cap instalada (toneladas por mes)" column = "pesca_capaci_inst_curado_u_ton_mes" aggregator = "sum" />
+        <Measure name = "Sector pesquero plantas instaladas harina" column = "pesca_n_plantas_instaladas_harina" aggregator = "sum" />
+        <Measure name = "Sector pesquero cap instalada (toneladas por hora)" column = "pesca_capaci_inst_harina_u_ton_hora" aggregator = "sum" />
+
+        <Measure name = "Sector turismo entrada turistas" column = "turismo_entrada_turistas" aggregator = "sum" />
+        <Measure name = "Sector turismo salida turistas" column = "turismo_salida_turistas" aggregator = "sum" />
+        <Measure name = "Sector turismo ingreso divisas (millones de dolares)" column = "turismo_ingreso_divisas_millones_dolares" aggregator = "sum" />
+        <Measure name = "Sector turismo egreso divisas (millones de dolares)" column = "turismo_egreso_divisas_millones_dolares" aggregator = "sum" />
+        <Measure name = "Sector turismo ingreso divisas (dolares per capita)" column = "turismo_ingreso_divisas_per_capita_dolares" aggregator = "sum" />
+        <Measure name = "Sector turismo egreso divisas (dolares per capita)" column = "turismo_egreso_divisas_per_capita_dolares" aggregator = "sum" />
+        <Measure name = "Turismo ingresos internacionales aeropuerto Jorge Chavez" column = "ing_tur_intern_aeropuerto_Jorge_Chavez" aggregator = "sum" />
+        <Measure name = "Turismo ingresos internacionales puesto control Santa Rosa" column = "ing_tur_intern_puesto_control_Santa_Rosa" aggregator = "sum" />
+        <Measure name = "Turismo ingresos internacionales otros puntos" column = "ing_tur_intern_otros_puntos" aggregator = "sum" />
+        <Measure name = "Sector turismo arribo turistas nacional" column = "turismo_arribo_turistas_nacionales" aggregator = "sum" />
+        <Measure name = "Sector turismo arribo turistas extranjeros" column = "turismo_arribo_turistas_extranjeros" aggregator = "sum" />
+        <Measure name = "Sector turismo pernoctacion turistas nacional" column = "turismo_pernoctacion_turistas_nacionales" aggregator = "sum" />
+        <Measure name = "Sector turismo pernoctacion turistas extranjeros" column = "turismo_pernoctacion_turistas_extranjeros" aggregator = "sum" />
+        <Measure name = "Sector turismo permanencia promedio turistas nacional" column = "turismo_permanencia_prom_turistas_nacionales" aggregator = "sum" />
+        <Measure name = "Sector turismo permanencia promedio turistas extranjeros" column = "turismo_permanencia_prom_turistas_extranjeros" aggregator = "sum" />
+
     </Cube>
     <Cube name="itp_indicators_y_n_nat_54">
 
@@ -1535,6 +1746,171 @@
     	<Measure name="Producto Interno Bruto (S/ Corrientes)" column="pib_54_cte" aggregator="sum" />
 
   	</Cube>
+    <Cube name="itp_indicators_y_n_prod_ciiu_group">
+
+    	<Annotation name="topic">Economia</Annotation>
+      	<Annotation name="subtopic">Economia</Annotation>
+      	<Annotation name="source_name">Indicadores ITP</Annotation>
+
+    	<Table name="itp_indicators_y_n_prod_ciiu_group" primary_key="ubigeo" />
+
+    	<DimensionUsage foreign_key="ubigeo" source="Ubigeo Nacion" name="Ubigeo" />
+
+    	<Dimension name="Year" foreign_key="year">
+      		<Hierarchy name="Year">
+	  	  		<Level name="Year" key_column="year" />
+      		</Hierarchy>
+    	</Dimension>
+
+    	<Dimension name="Actividad economica" foreign_key="product_name">
+      		<Hierarchy name="Actividad economica" primary_key="product_name">
+						<Table name="dim_shared_ciiu_production" />
+
+        		<Level name="Division economica" key_column="division_id" name_column="actividad_economica" />
+        		<Level name="Grupo economico" key_column="group_id" name_column="sub_actividad_economica" />
+            <Level name="Producto" key_column="product_name" name_column="product_name" />
+      		</Hierarchy>
+    	</Dimension>
+
+        <Dimension name="Unidad de medida" foreign_key="text">
+            <Hierarchy name="Unidad de medida" primary_key="id">
+                <InlineTable alias="dim_measure_unit">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                        <Row>
+                            <Value column="id">kg</Value>
+                        </Row>
+                        <Row>
+                            <Value column="id">t</Value> 
+                        </Row>
+                        <Row>
+                            <Value column="id">lt</Value>
+                        </Row>
+                        <Row>
+                            <Value column="id">m</Value> 
+                        </Row>
+                        <Row>
+                            <Value column="id">unidad</Value>
+                        </Row>
+                        <Row>
+                            <Value column="id">par</Value> 
+                        </Row>
+                        <Row>
+                            <Value column="id">pie2</Value>
+                        </Row>
+                        <Row>
+                            <Value column="id">m3</Value>
+                        </Row>
+                        <Row>
+                            <Value column="id">mil</Value> 
+                        </Row>
+                        <Row>
+                            <Value column="id">ciento</Value>
+                        </Row>
+                        <Row>
+                            <Value column="id">pieza</Value> 
+                        </Row>
+                </InlineTable>
+                <Level name="Unidad de medida" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+    	<Measure name="Produccion Industrial Anual" column="produccion_industrial_anual" aggregator="sum" />
+
+    </Cube>
+    <Cube name="itp_indicators_y_n_tourism">
+        <Annotation name="topic">Turismo</Annotation>
+        <Annotation name="subtopic">Turismo</Annotation>
+        <Annotation name="source_name">Indicadores ITP</Annotation>
+
+        <Table name="itp_indicators_y_n_tourism" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo Nacion" name="Ubigeo" />
+        <DimensionUsage foreign_key="iso3" source="Pais" name="Pais Origen" />
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Ingreso de turistas internacionales, por origen" column="n_ingresos_turistas_internacionales" aggregator="sum" />
+        <Measure name="Salida de turistas peruanos, por destino" column="n_salidas_turistas_internacionales" aggregator="sum" />
+        <Measure name="Arribos extranjeros establecimientos hospedaje" column="arribos_turistas_extranjeros" aggregator="sum" />
+        <Measure name="Pernoctaciones extranjeros establecimientos hospedaje" column="prenoctacion_turistas_extranjeros" aggregator="sum" />
+        <Measure name="Permanencia extranjeros establecimientos hospedaje (n noches)" column="permanencia_prom_noche_turistas_extranjeros" aggregator="sum" />
+
+    </Cube>
+    <Cube name="itp_indicators_y_n_tourism_capacity">
+        <Annotation name="topic">Turismo</Annotation>
+        <Annotation name="subtopic">Turismo</Annotation>
+        <Annotation name="source_name">Indicadores ITP</Annotation>
+
+        <Table name="itp_indicators_y_n_tourism_capacity" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo Nacion" name="Ubigeo" />
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Categoria de hospedaje" foreign_key="categoria">
+            <Hierarchy name="Categoria de hospedaje" primary_key="id">
+                <InlineTable alias="dim_categoria">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">1 Estrella</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">2 Estrellas</Value>
+                    </Row>
+
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">3 Estrellas</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">4 Estrellas</Value>
+                    </Row>
+
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">5 Estrellas</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">6</Value>
+                        <Value column="name">Albergue</Value>
+                    </Row>
+
+                    <Row>
+                        <Value column="id">7</Value>
+                        <Value column="name">Ecolodge</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">8</Value>
+                        <Value column="name">No Categorizados</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Categoria de hospedaje" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Cantidad de arribos nacionales" column="n_arribos_nacionales" aggregator="sum" />
+        <Measure name="Cantidad de arribos extranjeros" column="n_arribos_extranjeros" aggregator="sum" />
+        <Measure name="Cantidad de pernoctaciones nacionales" column="n_pernoctaciones_nacionales" aggregator="sum" />
+        <Measure name="Cantidad de pernoctaciones extranjeros" column="n_pernoctaciones_extranjeros" aggregator="sum" />
+        <Measure name="Permanencia promedio nacionales" column="permanencia_prom_nacionales" aggregator="sum" />
+        <Measure name="Permanencia promedio extranjeros" column="permanencia_prom_extranjeros" aggregator="sum" />
+        <Measure name="Tasa de ocupacion habitaciones" column="tasa_ocupacion_hab" aggregator="sum" />
+        <Measure name="Tasa de ocupacion camas" column="tasa_ocupacion_camas" aggregator="sum" />
+
+    </Cube>
     <Cube name="met_education_y_level_dep">
 
     	<Annotation name="topic">Sociales</Annotation>
@@ -1604,22 +1980,11 @@
         <Table name="proinversion_fdi_y_origin_nat" primary_key="ubigeo" />
 
         <DimensionUsage foreign_key="ubigeo" source="Ubigeo Nacion" name="Ubigeo" />
+        <DimensionUsage foreign_key="iso3" source="Pais" name="Pais Origen" />
 
         <Dimension name="Year" foreign_key="year">
             <Hierarchy name="Year">
               <Level name="Year" key_column="year" />
-            </Hierarchy>
-        </Dimension>
-
-        <Dimension name="Pais" foreign_key="country_name_es">
-            <Hierarchy name="Pais">
-              <Level name="Pais" key_column="country_name_es" />
-            </Hierarchy>
-        </Dimension>
-
-        <Dimension name="ISO3" foreign_key="iso3">
-            <Hierarchy name="ISO3">
-              <Level name="ISO3" key_column="iso3" />
             </Hierarchy>
         </Dimension>
 

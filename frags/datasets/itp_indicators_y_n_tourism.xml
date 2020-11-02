@@ -7,20 +7,13 @@
         <Table name="itp_indicators_y_n_tourism" primary_key="ubigeo" />
 
         <DimensionUsage foreign_key="ubigeo" source="Ubigeo Nacion" name="Ubigeo" />
+        <DimensionUsage foreign_key="iso3" source="Pais" name="Pais Origen" />
 
         <Dimension name="Year" foreign_key="year">
             <Hierarchy name="Year">
                 <Level name="Year" key_column="year" key_type="nontext" />
             </Hierarchy>
         </Dimension>
-
-        <Dimension name="Pais" foreign_key="country_name_es">
-            <Hierarchy name="Pais">
-              <Level name="Pais" key_column="country_name_es" />
-            </Hierarchy>
-        </Dimension>
-
-        <DimensionUsage foreign_key="iso3" source="Pais" name="Pais Origen" />
 
         <Measure name="Ingreso de turistas internacionales, por origen" column="n_ingresos_turistas_internacionales" aggregator="sum" />
         <Measure name="Salida de turistas peruanos, por destino" column="n_salidas_turistas_internacionales" aggregator="sum" />

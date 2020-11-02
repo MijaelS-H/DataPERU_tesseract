@@ -8,14 +8,13 @@
         <Table name="proinversion_fdi_y_origin_nat" primary_key="ubigeo" />
 
         <DimensionUsage foreign_key="ubigeo" source="Ubigeo Nacion" name="Ubigeo" />
+        <DimensionUsage foreign_key="iso3" source="Pais" name="Pais Origen" />
 
         <Dimension name="Year" foreign_key="year">
             <Hierarchy name="Year">
               <Level name="Year" key_column="year" />
             </Hierarchy>
         </Dimension>
-
-        <DimensionUsage foreign_key="iso3" source="Pais" name="Pais Origen" />
 
         <Measure name="IED (Millones de dolares)" column="ied_millones_USD" aggregator="sum" />
 
