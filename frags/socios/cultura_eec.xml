@@ -11,6 +11,7 @@
         <DimensionUsage foreign_key="estimulo_economico_id" source="Estimulo Economico" name="Estimulo Economico" />
         <DimensionUsage foreign_key="nombre_proyecto_id" source="Nombre Proyecto" name="Nombre Proyecto" />
         <DimensionUsage foreign_key="postulante_id" source="Postulante" name="Postulante" />
+        <DimensionUsage foreign_key="pais_procedencia" source="Pais" name="Pais Procedencia" />
 
         <Dimension name="Fase Cadena Valor" foreign_key="fase_cadena_valor_id">
             <Hierarchy name="Fase Cadena Valor" primary_key="id">

@@ -135,10 +135,10 @@
     </SharedDimension>
 
     <SharedDimension name="Pais">
-        <Hierarchy name="Pais" primary_key="iso2">
+        <Hierarchy name="Pais" primary_key="iso3">
             <Table name="dim_shared_country"/>
             <Level name="Continente" key_column="continent_id" name_column="continent_es" key_type="text" />
-            <Level name="Pais" key_column="iso2" name_column="country_name_es" key_type="text" />
+            <Level name="Pais" key_column="iso3" name_column="country_name_es" key_type="text" />
         </Hierarchy>
     </SharedDimension>
 

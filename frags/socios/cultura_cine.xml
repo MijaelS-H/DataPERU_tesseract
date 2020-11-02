@@ -10,21 +10,29 @@
         <DimensionUsage foreign_key="district_id" source="Ubigeo" name="Ubigeo" />
         <DimensionUsage foreign_key="razon_social_id" source="Razon Social Cine" name="Razon Social Cine" />
         
-        <Dimension name="Tipo Constitución" foreign_key="tipo_constitucion_id">
-            <Hierarchy name="Tipo Constitución" primary_key="id">
+        <Dimension name="Tipo Constitucion" foreign_key="tipo_constitucion_id">
+            <Hierarchy name="Tipo Constitucion" primary_key="id">
                 <InlineTable alias="dim_inline_tipo_constitucion_id">
                     <ColumnDef name="id" key_type="nontext" />
                     <ColumnDef name="name" key_type="text" />
                     <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
                         <Value column="id">1</Value>
-                        <Value column="name">Empresa</Value>
+                        <Value column="name">Asociación</Value>
                     </Row>
                     <Row>
                         <Value column="id">2</Value>
-                        <Value column="name">Asociación</Value>
-                    </Row>         
+                        <Value column="name">Empresa</Value>
+                    </Row>     
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Empresa de derecho público (Institución formativa)</Value>
+                    </Row>    
                 </InlineTable>
-                <Level name="Tipo Constitución" key_column="id" name_column="name" />
+                <Level name="Tipo Constitucion" key_column="id" name_column="name" />
             </Hierarchy>
         </Dimension>
 
@@ -33,6 +41,10 @@
                 <InlineTable alias="dim_inline_actividad_1_id_cine">
                     <ColumnDef name="id" key_type="nontext" />
                     <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
                     <Row>
                         <Value column="id">1</Value>
                         <Value column="name">Productora</Value>
@@ -64,6 +76,10 @@
                     <ColumnDef name="id" key_type="nontext" />
                     <ColumnDef name="name" key_type="text" />
                     <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
                         <Value column="id">1</Value>
                         <Value column="name">Servicios conexos</Value>
                     </Row>
@@ -86,6 +102,10 @@
                     <ColumnDef name="id" key_type="nontext" />
                     <ColumnDef name="name" key_type="text" />
                     <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
                         <Value column="id">1</Value>
                         <Value column="name">Exhibidora</Value>
                     </Row>
@@ -99,6 +119,10 @@
                 <InlineTable alias="dim_inline_actividad_4_id_cine">
                     <ColumnDef name="id" key_type="nontext" />
                     <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
                     <Row>
                         <Value column="id">1</Value>
                         <Value column="name">Servicios conexos</Value>

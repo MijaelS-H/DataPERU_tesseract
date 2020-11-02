@@ -135,10 +135,10 @@
     </SharedDimension>
 
     <SharedDimension name="Pais">
-        <Hierarchy name="Pais" primary_key="iso2">
+        <Hierarchy name="Pais" primary_key="iso3">
             <Table name="dim_shared_country"/>
             <Level name="Continente" key_column="continent_id" name_column="continent_es" key_type="text" />
-            <Level name="Pais" key_column="iso2" name_column="country_name_es" key_type="text" />
+            <Level name="Pais" key_column="iso3" name_column="country_name_es" key_type="text" />
         </Hierarchy>
     </SharedDimension>
 
@@ -179,6 +179,22 @@
             <Level name="HS2" key_column="hs2_id" name_column="hs2_name" key_type="text" />
             <Level name="HS4" key_column="hs4_id" name_column="hs4_name" key_type="text" />
             <Level name="HS6" key_column="hs6_id" name_column="hs6_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Cultivo" type="standard">
+        <Hierarchy name="Cultivo">
+            <Table name="dim_shared_dinamica_agricola" />
+
+            <Level name="Cultivo" key_column="cultivo_id" name_column="cultivo_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Mercado" type="standard">
+        <Hierarchy name="Mercado">
+            <Table name="dim_market" />
+            
+            <Level name="Mercado" key_column="market_id" name_column="market_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
 
@@ -271,7 +287,7 @@
             <Table name="dim_shared_infocultura_responses_month" />
             <Level name="Respuestas Mensuales INFOCULTURA" key_column="response_id" name_column="response_name" key_type="nontext" />
         </Hierarchy>
-    </SharedDimension>   
+    </SharedDimension>
     <Cube name="inei_renamu_municipalities">
         <Annotation name="source_name">INEI</Annotation>
         <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
@@ -1345,49 +1361,53 @@
 
         <Dimension name="Actividad 1" foreign_key="actividad_1_id">
             <Hierarchy name="Actividad 1" primary_key="id">
-                <InlineTable alias="dim_inline_actividad_1_id">
-                <ColumnDef name="id" key_type="nontext" />
-                <ColumnDef name="name" key_type="text" />
-                <Row>
-                    <Value column="id">1</Value>
-                    <Value column="name">Editorial</Value>
-                </Row>
-                <Row>
-                    <Value column="id">2</Value>
-                    <Value column="name">Cartonera</Value>
-                </Row>
-                <Row>
-                    <Value column="id">3</Value>
-                    <Value column="name">Librería</Value>
-                </Row>
-                <Row>
-                    <Value column="id">4</Value>
-                    <Value column="name">Distribuidora</Value>
-                </Row>
-                <Row>
-                    <Value column="id">5</Value>
-                    <Value column="name">Revista</Value>
-                </Row>
-                <Row>
-                    <Value column="id">6</Value>
-                    <Value column="name">Imprenta</Value>
-                </Row>
-                <Row>
-                    <Value column="id">7</Value>
-                    <Value column="name">Fondos Universitarios</Value>
-                </Row>
-                <Row>
-                    <Value column="id">8</Value>
-                    <Value column="name">Prensa</Value>
-                </Row>
-                <Row>
-                    <Value column="id">9</Value>
-                    <Value column="name">Autor-editor</Value>
-                </Row>
-                <Row>
-                    <Value column="id">10</Value>
-                    <Value column="name">Fanzine</Value>
-                </Row>           
+                <InlineTable alias="dim_inline_actividad_1_id_agentes">
+                    <ColumnDef name="name" key_type="text" />
+                    <ColumnDef name="id" key_type="nontext" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Editorial</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Cartonera</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Librería</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Distribuidora</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">Revista</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">6</Value>
+                        <Value column="name">Imprenta</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">7</Value>
+                        <Value column="name">Fondos Universitarios</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">8</Value>
+                        <Value column="name">Prensa</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">9</Value>
+                        <Value column="name">Autor-editor</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">10</Value>
+                        <Value column="name">Fanzine</Value>
+                    </Row>           
                 </InlineTable>
                 <Level name="Actividad 1" key_column="id" name_column="name" />
             </Hierarchy>
@@ -1395,33 +1415,37 @@
 
         <Dimension name="Actividad 2" foreign_key="actividad_2_id">
             <Hierarchy name="Actividad 2" primary_key="id">
-                <InlineTable alias="dim_inline_actividad_2_id">
-                <ColumnDef name="id" key_type="nontext" />
-                <ColumnDef name="name" key_type="text" />
-                <Row>
-                    <Value column="id">1</Value>
-                    <Value column="name">Fanzine</Value>
-                </Row>
-                <Row>
-                    <Value column="id">2</Value>
-                    <Value column="name">Libro Electrónico</Value>
-                </Row>
-                <Row>
-                    <Value column="id">3</Value>
-                    <Value column="name">Imprenta</Value>
-                </Row>
-                <Row>
-                    <Value column="id">4</Value>
-                    <Value column="name">Editorial</Value>
-                </Row>
-                <Row>
-                    <Value column="id">5</Value>
-                    <Value column="name">Librería</Value>
-                </Row>
-                <Row>
-                    <Value column="id">6</Value>
-                    <Value column="name">Distribuidora</Value>
-                </Row>
+                <InlineTable alias="dim_inline_actividad_2_id_agentes">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Fanzine</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Libro Electrónico</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Imprenta</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Editorial</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">Librería</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">6</Value>
+                        <Value column="name">Distribuidora</Value>
+                    </Row>
                 </InlineTable>
                 <Level name="Actividad 2" key_column="id" name_column="name" />
             </Hierarchy>
@@ -1429,21 +1453,25 @@
 
         <Dimension name="Actividad 3" foreign_key="actividad_3_id">
             <Hierarchy name="Actividad 3" primary_key="id">
-                <InlineTable alias="dim_inline_actividad_3_id">
-                <ColumnDef name="id" key_type="nontext" />
-                <ColumnDef name="name" key_type="text" />
-                <Row>
-                    <Value column="id">1</Value>
-                    <Value column="name">Otros</Value>
-                </Row>
-                <Row>
-                    <Value column="id">2</Value>
-                    <Value column="name">Librería</Value>
-                </Row>
-                <Row>
-                    <Value column="id">3</Value>
-                    <Value column="name">Distribuidora</Value>
-                </Row>
+                <InlineTable alias="dim_inline_actividad_3_id_agentes">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Otros</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Librería</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Distribuidora</Value>
+                    </Row>
                 </InlineTable>
                 <Level name="Actividad 3" key_column="id" name_column="name" />
             </Hierarchy>
@@ -1451,19 +1479,23 @@
 
         <Dimension name="Actividad 4" foreign_key="actividad_4_id">
             <Hierarchy name="Actividad 4" primary_key="id">
-                <InlineTable alias="dim_inline_actividad_4_id">
-                <ColumnDef name="id" key_type="nontext" />
-                <ColumnDef name="name" key_type="text" />
-                <Row>
-                    <Value column="id">1</Value>
-                    <Value column="name">Librería</Value>
-                </Row>
+                <InlineTable alias="dim_inline_actividad_4_id_agentes">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Librería</Value>
+                    </Row>
                 </InlineTable>
                 <Level name="Actividad 4" key_column="id" name_column="name" />
             </Hierarchy>
         </Dimension>
 
-        <Measure name="Cantidad Agentes" column="cantidad_agentes" aggregator="count" />
+        <Measure name="Cantidad Agentes" column="cantidad_agentes" aggregator="sum" />
 
     </Cube>
     <Cube name="cultura_asociaciones">
@@ -1481,108 +1513,123 @@
         <DimensionUsage foreign_key="manifestacion_n_3_id" source="Manifestacion 3" name="Manifestacion 3" />
 
         <Dimension name="Actividad N1" foreign_key="actividad_n_1_id">
-        <Hierarchy name="Actividad N1" primary_key="id">
-            <InlineTable alias="dim_inline_actividad_n_1_id">
-            <ColumnDef name="id" key_type="nontext" />
-            <ColumnDef name="name" key_type="text" />
-            <Row>
-                <Value column="id">1</Value>
-                <Value column="name">Actividades constantes que desde el arte y la cultura atienden a poblaciones en condiciones de vulnerabilidad social</Value>
-            </Row>
-            <Row>
-                <Value column="id">2</Value>
-                <Value column="name">Actividades que aportan a la recuperación y/o el fortalecimiento del tejido social y la vida comunitaria desde procesos artísticos, culturales, de comunicación o educación</Value>
-            </Row>
-            <Row>
-                <Value column="id">3</Value>
-                <Value column="name">Actividades que aportan al rescate, protección, visibilización o revitalización de los saberes ancestrales, tradiciones, identidad cultural y memoria de pueblos originarios, campesinos, indígenas, rurales y poblaciones afroperuanas</Value>
-            </Row>
-            <Row>
-                <Value column="id">4</Value>
-                <Value column="name">Otras actividades relacionadas al arte para la transformación social, desarrolladas en el marco de la Ley N° 30487, Ley de promoción de los puntos de cultura</Value>
-            </Row>
-            <Row>
-                <Value column="id">5</Value>
-                <Value column="name">Propuestas de desarrollo económico sostenible a partir de los activos culturales de una comunidad, en respeto con la identidad cultural local y su entorno</Value>
-            </Row>
-            <Row>
-                <Value column="id">6</Value>
-                <Value column="name">Actividades que promueven el respeto a la diversidad de identidades y reconocimiento de derechos de poblaciones y/o colectivos que históricamente han sido vulnerados a partir de procesos de formación, activismo e incidencia que desde la cultura aporten al cambio social</Value>
-            </Row>
-            <Row>
-                <Value column="id">7</Value>
-                <Value column="name">Actividades constantes que fomentan la apropiación social del espacio público y patrimonio cultural desde acciones artísticas y culturales</Value>
-            </Row>
-            <Row>
-                <Value column="id">8</Value>
-                <Value column="name">Actividades que fortalecen las experiencias de trabajo en red y acción colaborativa que apuntan al empoderamiento de movimientos ciudadanos, incidencia y co-construcción de políticas públicas culturales que aporten al desarrollo social</Value>
-            </Row>        
-            </InlineTable>
-            <Level name="Actividad N1" key_column="id" name_column="name" />
-        </Hierarchy>
+            <Hierarchy name="Actividad N1" primary_key="id">
+                <InlineTable alias="dim_inline_actividad_n_1_id_asociaciones">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Actividades constantes que desde el arte y la cultura atienden a poblaciones en condiciones de vulnerabilidad social</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Actividades que aportan a la recuperación y/o el fortalecimiento del tejido social y la vida comunitaria desde procesos artísticos, culturales, de comunicación o educación</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Actividades que aportan al rescate, protección, visibilización o revitalización de los saberes ancestrales, tradiciones, identidad cultural y memoria de pueblos originarios, campesinos, indígenas, rurales y poblaciones afroperuanas</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Otras actividades relacionadas al arte para la transformación social, desarrolladas en el marco de la Ley N° 30487, Ley de promoción de los puntos de cultura</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">Propuestas de desarrollo económico sostenible a partir de los activos culturales de una comunidad, en respeto con la identidad cultural local y su entorno</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">6</Value>
+                        <Value column="name">Actividades que promueven el respeto a la diversidad de identidades y reconocimiento de derechos de poblaciones y/o colectivos que históricamente han sido vulnerados a partir de procesos de formación, activismo e incidencia que desde la cultura aporten al cambio social</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">7</Value>
+                        <Value column="name">Actividades constantes que fomentan la apropiación social del espacio público y patrimonio cultural desde acciones artísticas y culturales</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">8</Value>
+                        <Value column="name">Actividades que fortalecen las experiencias de trabajo en red y acción colaborativa que apuntan al empoderamiento de movimientos ciudadanos, incidencia y co-construcción de políticas públicas culturales que aporten al desarrollo social</Value>
+                    </Row>        
+                </InlineTable>
+                <Level name="Actividad N1" key_column="id" name_column="name" />
+            </Hierarchy>
         </Dimension>
 
         <Dimension name="Actividad N2" foreign_key="actividad_n_2_id">
-        <Hierarchy name="Actividad N2" primary_key="id">
-            <InlineTable alias="dim_inline_actividad_n_2_id">
-            <ColumnDef name="id" key_type="nontext" />
-            <ColumnDef name="name" key_type="text" />
-            <Row>
-                <Value column="id">1</Value>
-                <Value column="name">Actividades constantes que fomentan la apropiación social del espacio público y patrimonio cultural desde acciones artísticas y culturales</Value>
-            </Row>
-            <Row>
-                <Value column="id">2</Value>
-                <Value column="name">Propuestas de desarrollo económico sostenible a partir de los activos culturales de una comunidad, en respeto con la identidad cultural local y su entorno</Value>
-            </Row>
-            <Row>
-                <Value column="id">3</Value>
-                <Value column="name">Actividades constantes que desde el arte y la cultura atienden a poblaciones en condiciones de vulnerabilidad social</Value>
-            </Row>
-            <Row>
-                <Value column="id">4</Value>
-                <Value column="name">Actividades que fortalecen las experiencias de trabajo en red y acción colaborativa que apuntan al empoderamiento de movimientos ciudadanos, incidencia y co-construcción de políticas públicas culturales que aporten al desarrollo social</Value>
-            </Row>
-            <Row>
-                <Value column="id">5</Value>
-                <Value column="name">Otras actividades relacionadas al arte para la transformación social, desarrollados en el marco de la Ley N° 30487, Ley de promoción de los puntos de cultura</Value>
-            </Row>
-            <Row>
-                <Value column="id">6</Value>
-                <Value column="name">Actividades que aportan al rescate, protección, visibilización o revitalización de los saberes ancestrales, tradiciones, identidad cultural y memoria de pueblos originarios, campesinos, indígenas, rurales y poblaciones afroperuanas</Value>
-            </Row>
-            <Row>
-                <Value column="id">7</Value>
-                <Value column="name">Actividades que promueven el respeto a la diversidad de identidades y reconocimiento de derechos de poblaciones y/o colectivos que históricamente han sido vulnerados a partir de procesos de formación, activismo e incidencia que desde la cultura aporten al cambio social</Value>
-            </Row>
-            <Row>
-                <Value column="id">8</Value>
-                <Value column="name">Otras actividades relacionadas al arte para la transformación social, desarrolladas en el marco de la Ley N° 30487, Ley de promoción de los puntos de cultura</Value>
-            </Row>
-            </InlineTable>
-            <Level name="Actividad 2" key_column="id" name_column="name" />
-        </Hierarchy>
+            <Hierarchy name="Actividad N2" primary_key="id">
+                <InlineTable alias="dim_inline_actividad_n_2_id_asociaciones">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Actividades constantes que fomentan la apropiación social del espacio público y patrimonio cultural desde acciones artísticas y culturales</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Propuestas de desarrollo económico sostenible a partir de los activos culturales de una comunidad, en respeto con la identidad cultural local y su entorno</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Actividades constantes que desde el arte y la cultura atienden a poblaciones en condiciones de vulnerabilidad social</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Actividades que fortalecen las experiencias de trabajo en red y acción colaborativa que apuntan al empoderamiento de movimientos ciudadanos, incidencia y co-construcción de políticas públicas culturales que aporten al desarrollo social</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">Otras actividades relacionadas al arte para la transformación social, desarrollados en el marco de la Ley N° 30487, Ley de promoción de los puntos de cultura</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">6</Value>
+                        <Value column="name">Actividades que aportan al rescate, protección, visibilización o revitalización de los saberes ancestrales, tradiciones, identidad cultural y memoria de pueblos originarios, campesinos, indígenas, rurales y poblaciones afroperuanas</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">7</Value>
+                        <Value column="name">Actividades que promueven el respeto a la diversidad de identidades y reconocimiento de derechos de poblaciones y/o colectivos que históricamente han sido vulnerados a partir de procesos de formación, activismo e incidencia que desde la cultura aporten al cambio social</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">8</Value>
+                        <Value column="name">Otras actividades relacionadas al arte para la transformación social, desarrolladas en el marco de la Ley N° 30487, Ley de promoción de los puntos de cultura</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Actividad N2" key_column="id" name_column="name" />
+            </Hierarchy>
         </Dimension>
 
         <Dimension name="Inscrita SUNARP" foreign_key="inscrita_sunarp_id">
-        <Hierarchy name="Inscrita SUNARP" primary_key="id">
-            <InlineTable alias="dim_inline_inscrita_sunarp_id">
-            <ColumnDef name="id" key_type="nontext" />
-            <ColumnDef name="name" key_type="text" />
-            <Row>
-                <Value column="id">1</Value>
-                <Value column="name">Si</Value>
-            </Row>
-             <Row>
-                <Value column="id">2</Value>
-                <Value column="name">No</Value>
-            </Row>
-            </InlineTable>
-            <Level name="Inscrita SUNARP" key_column="id" name_column="name" />
-        </Hierarchy>
+            <Hierarchy name="Inscrita SUNARP" primary_key="id">
+                <InlineTable alias="dim_inline_inscrita_sunarp_id_asociaciones">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Si</Value>
+                    </Row>
+                     <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Inscrita SUNARP" key_column="id" name_column="name" />
+            </Hierarchy>
         </Dimension>
 
-        <Measure name="Cantidad Asociaciones" column="cantidad_asociacion" aggregator="count" />
+        <Dimension name="Fundacion Year" foreign_key="anio_fundacion">
+            <Hierarchy name="Fundacion Year">
+                <Level name="Fundacion Year" key_column="anio_fundacion" key_type="nontext" />
+            </Hierarchy>
+        </Dimension> 
+
+        <Measure name="Cantidad Asociaciones" column="cantidad_asociacion" aggregator="sum" />
+        <Measure name="Cantidad de Miembros" column="cantidad_miembros" aggregator="sum" />
 
     </Cube>
     <Cube name="cultura_cine">
@@ -1595,107 +1642,136 @@
 
         <DimensionUsage foreign_key="district_id" source="Ubigeo" name="Ubigeo" />
         <DimensionUsage foreign_key="razon_social_id" source="Razon Social Cine" name="Razon Social Cine" />
-        <DimensionUsage foreign_key="year" source="Date Day" name="Year" />
         
-        <Dimension name="Tipo Constitución" foreign_key="tipo_constitucion_id">
-        <Hierarchy name="Tipo Constitución" primary_key="id">
-            <InlineTable alias="dim_inline_tipo_constitucion_id">
-            <ColumnDef name="id" key_type="nontext" />
-            <ColumnDef name="name" key_type="text" />
-            <Row>
-                <Value column="id">1</Value>
-                <Value column="name">Empresa</Value>
-            </Row>
-            <Row>
-                <Value column="id">2</Value>
-                <Value column="name">Asociación</Value>
-            </Row>         
-            </InlineTable>
-            <Level name="Tipo Constitución" key_column="id" name_column="name" />
-        </Hierarchy>
+        <Dimension name="Tipo Constitucion" foreign_key="tipo_constitucion_id">
+            <Hierarchy name="Tipo Constitucion" primary_key="id">
+                <InlineTable alias="dim_inline_tipo_constitucion_id">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Asociación</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Empresa</Value>
+                    </Row>     
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Empresa de derecho público (Institución formativa)</Value>
+                    </Row>    
+                </InlineTable>
+                <Level name="Tipo Constitucion" key_column="id" name_column="name" />
+            </Hierarchy>
         </Dimension>
 
         <Dimension name="Actividad 1" foreign_key="actividad_1_id">
-        <Hierarchy name="Actividad 1" primary_key="id">
-            <InlineTable alias="dim_inline_actividad_1_id_cine">
-            <ColumnDef name="id" key_type="nontext" />
-            <ColumnDef name="name" key_type="text" />
-            <Row>
-                <Value column="id">1</Value>
-                <Value column="name">Productora</Value>
-            </Row>
-            <Row>
-                <Value column="id">2</Value>
-                <Value column="name">Servicios conexos</Value>
-            </Row>
-            <Row>
-                <Value column="id">3</Value>
-                <Value column="name">Exhibidora</Value>
-            </Row>
-            <Row>
-                <Value column="id">4</Value>
-                <Value column="name">Distribuidora</Value>
-            </Row>
-            <Row>
-                <Value column="id">5</Value>
-                <Value column="name">Formación</Value>
-            </Row>
-            </InlineTable>
-            <Level name="Actividad 1" key_column="id" name_column="name" />
-        </Hierarchy>
+            <Hierarchy name="Actividad 1" primary_key="id">
+                <InlineTable alias="dim_inline_actividad_1_id_cine">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Productora</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Servicios conexos</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Exhibidora</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Distribuidora</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">Formación</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Actividad 1" key_column="id" name_column="name" />
+            </Hierarchy>
         </Dimension>
 
         <Dimension name="Actividad 2" foreign_key="actividad_2_id">
-        <Hierarchy name="Actividad 2" primary_key="id">
-            <InlineTable alias="dim_inline_actividad_2_id_cine">
-            <ColumnDef name="id" key_type="nontext" />
-            <ColumnDef name="name" key_type="text" />
-            <Row>
-                <Value column="id">1</Value>
-                <Value column="name">Servicios conexos</Value>
-            </Row>
-            <Row>
-                <Value column="id">2</Value>
-                <Value column="name">Distribuidora</Value>
-            </Row>
-            <Row>
-                <Value column="id">3</Value>
-                <Value column="name">Exhibidora</Value>
-            </Row>
-            </InlineTable>
-            <Level name="Actividad 2" key_column="id" name_column="name" />
-        </Hierarchy>
+            <Hierarchy name="Actividad 2" primary_key="id">
+                <InlineTable alias="dim_inline_actividad_2_id_cine">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Servicios conexos</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Distribuidora</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Exhibidora</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Actividad 2" key_column="id" name_column="name" />
+            </Hierarchy>
         </Dimension>
 
         <Dimension name="Actividad 3" foreign_key="actividad_3_id">
-        <Hierarchy name="Actividad 3" primary_key="id">
-            <InlineTable alias="dim_inline_actividad_3_id_cine">
-            <ColumnDef name="id" key_type="nontext" />
-            <ColumnDef name="name" key_type="text" />
-            <Row>
-                <Value column="id">1</Value>
-                <Value column="name">Exhibidora</Value>
-            </Row>
-            </InlineTable>
-            <Level name="Actividad 3" key_column="id" name_column="name" />
-        </Hierarchy>
+            <Hierarchy name="Actividad 3" primary_key="id">
+                <InlineTable alias="dim_inline_actividad_3_id_cine">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Exhibidora</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Actividad 3" key_column="id" name_column="name" />
+            </Hierarchy>
         </Dimension>
 
         <Dimension name="Actividad 4" foreign_key="actividad_4_id">
-        <Hierarchy name="Actividad 4" primary_key="id">
-            <InlineTable alias="dim_inline_actividad_4_id_cine">
-            <ColumnDef name="id" key_type="nontext" />
-            <ColumnDef name="name" key_type="text" />
-            <Row>
-                <Value column="id">1</Value>
-                <Value column="name">Servicios conexos</Value>
-            </Row>
-            </InlineTable>
-            <Level name="Actividad 4" key_column="id" name_column="name" />
-        </Hierarchy>
+            <Hierarchy name="Actividad 4" primary_key="id">
+                <InlineTable alias="dim_inline_actividad_4_id_cine">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Servicios conexos</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Actividad 4" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
         </Dimension> 
 
-        <Measure name="Cantidad Organizaciones" column="cantidad_org" aggregator="count" />
+        <Measure name="Cantidad Organizaciones" column="cantidad_org" aggregator="sum" />
 
     </Cube>
     <Cube name="cultura_eec">
@@ -1710,83 +1786,84 @@
         <DimensionUsage foreign_key="estimulo_economico_id" source="Estimulo Economico" name="Estimulo Economico" />
         <DimensionUsage foreign_key="nombre_proyecto_id" source="Nombre Proyecto" name="Nombre Proyecto" />
         <DimensionUsage foreign_key="postulante_id" source="Postulante" name="Postulante" />
+        <DimensionUsage foreign_key="pais_procedencia" source="Pais" name="Pais Procedencia" />
 
         <Dimension name="Fase Cadena Valor" foreign_key="fase_cadena_valor_id">
-        <Hierarchy name="Fase Cadena Valor" primary_key="id">
-            <InlineTable alias="dim_inline_fase_cadena_valor_id">
-            <ColumnDef name="id" key_type="nontext" />
-            <ColumnDef name="name" key_type="text" />
-            <Row>
-                <Value column="id">1</Value>
-                <Value column="name">Producción</Value>
-            </Row>
-            <Row>
-                <Value column="id">2</Value>
-                <Value column="name">Acceso</Value>
-            </Row>
-            <Row>
-                <Value column="id">3</Value>
-                <Value column="name">Creación</Value>
-            </Row>
-            <Row>
-                <Value column="id">4</Value>
-                <Value column="name">Circulación</Value>
-            </Row>
-            <Row>
-                <Value column="id">5</Value>
-                <Value column="name">Formación</Value>
-            </Row>
-            </InlineTable>
-            <Level name="Fase Cadena Valor" key_column="id" name_column="name" />
-        </Hierarchy>
+            <Hierarchy name="Fase Cadena Valor" primary_key="id">
+                <InlineTable alias="dim_inline_fase_cadena_valor_id_eec">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Producción</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Acceso</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Creación</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Circulación</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">Formación</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Fase Cadena Valor" key_column="id" name_column="name" />
+            </Hierarchy>
         </Dimension>
 
         <Dimension name="Tipo Postulante" foreign_key="tipo_postulante_id">
-        <Hierarchy name="Tipo Postulante" primary_key="id">
-            <InlineTable alias="dim_inline_tipo_postulante_id">
-            <ColumnDef name="id" key_type="nontext" />
-            <ColumnDef name="name" key_type="text" />
-            <Row>
-                <Value column="id">1</Value>
-                <Value column="name">Persona Jurídica</Value>
-            </Row>
-            <Row>
-                <Value column="id">2</Value>
-                <Value column="name">Persona Natural</Value>
-            </Row>
-            <Row>
-                <Value column="id">3</Value>
-                <Value column="name">Otro</Value>
-            </Row>
-            </InlineTable>
-            <Level name="Tipo Postulante" key_column="id" name_column="name" />
-        </Hierarchy>
+            <Hierarchy name="Tipo Postulante" primary_key="id">
+                <InlineTable alias="dim_inline_tipo_postulante_id_eec">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Persona Jurídica</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Persona Natural</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Otro</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Tipo Postulante" key_column="id" name_column="name" />
+            </Hierarchy>
         </Dimension>
 
         <Dimension name="Estado Beneficio" foreign_key="estado_id">
-        <Hierarchy name="Estado Beneficio" primary_key="id">
-            <InlineTable alias="dim_inline_estado_id">
-            <ColumnDef name="id" key_type="nontext" />
-            <ColumnDef name="name" key_type="text" />
-            <Row>
-                <Value column="id">1</Value>
-                <Value column="name">No beneficiario</Value>
-            </Row>
-            <Row>
-                <Value column="id">2</Value>
-                <Value column="name">Beneficiario</Value>
-            </Row>
-            <Row>
-                <Value column="id">3</Value>
-                <Value column="name">No evaluado</Value>
-            </Row>
-            </InlineTable>
-            <Level name="Estado Beneficio" key_column="id" name_column="name" />
-        </Hierarchy>
+            <Hierarchy name="Estado Beneficio" primary_key="id">
+                <InlineTable alias="dim_inline_estado_id_eec">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">No beneficiario</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Beneficiario</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">No evaluado</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Estado Beneficio" key_column="id" name_column="name" />
+            </Hierarchy>
         </Dimension>
 
 
-        <Measure name="Cantidad Postulantes" column="cantidad_postulante" aggregator="count" />
+        <Measure name="Cantidad Postulantes" column="cantidad_postulante" aggregator="sum" />
 
     </Cube>
     <Cube name="cultura_infocultura_month">

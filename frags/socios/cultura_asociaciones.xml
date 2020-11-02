@@ -19,6 +19,10 @@
                     <ColumnDef name="id" key_type="nontext" />
                     <ColumnDef name="name" key_type="text" />
                     <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
                         <Value column="id">1</Value>
                         <Value column="name">Actividades constantes que desde el arte y la cultura atienden a poblaciones en condiciones de vulnerabilidad social</Value>
                     </Row>
@@ -60,6 +64,10 @@
                 <InlineTable alias="dim_inline_actividad_n_2_id_asociaciones">
                     <ColumnDef name="id" key_type="nontext" />
                     <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
                     <Row>
                         <Value column="id">1</Value>
                         <Value column="name">Actividades constantes que fomentan la apropiación social del espacio público y patrimonio cultural desde acciones artísticas y culturales</Value>
@@ -115,7 +123,14 @@
             </Hierarchy>
         </Dimension>
 
+        <Dimension name="Fundacion Year" foreign_key="anio_fundacion">
+            <Hierarchy name="Fundacion Year">
+                <Level name="Fundacion Year" key_column="anio_fundacion" key_type="nontext" />
+            </Hierarchy>
+        </Dimension> 
+
         <Measure name="Cantidad Asociaciones" column="cantidad_asociacion" aggregator="sum" />
+        <Measure name="Cantidad de Miembros" column="cantidad_miembros" aggregator="sum" />
 
     </Cube>
 </Schema>

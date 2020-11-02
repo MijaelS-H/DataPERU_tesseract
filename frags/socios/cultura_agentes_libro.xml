@@ -16,6 +16,10 @@
                     <ColumnDef name="name" key_type="text" />
                     <ColumnDef name="id" key_type="nontext" />
                     <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
                         <Value column="id">1</Value>
                         <Value column="name">Editorial</Value>
                     </Row>
@@ -66,6 +70,10 @@
                     <ColumnDef name="id" key_type="nontext" />
                     <ColumnDef name="name" key_type="text" />
                     <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
                         <Value column="id">1</Value>
                         <Value column="name">Fanzine</Value>
                     </Row>
@@ -100,6 +108,10 @@
                     <ColumnDef name="id" key_type="nontext" />
                     <ColumnDef name="name" key_type="text" />
                     <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
                         <Value column="id">1</Value>
                         <Value column="name">Otros</Value>
                     </Row>
@@ -121,6 +133,10 @@
                 <InlineTable alias="dim_inline_actividad_4_id_agentes">
                     <ColumnDef name="id" key_type="nontext" />
                     <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
                     <Row>
                         <Value column="id">1</Value>
                         <Value column="name">Librería</Value>
