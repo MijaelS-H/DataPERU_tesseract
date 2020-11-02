@@ -15,14 +15,10 @@
             </Hierarchy>
         </Dimension>
 
-        <Dimension name="Pais" foreign_key="country_name_es">
-            <Hierarchy name="Pais">
-              <Level name="Pais" key_column="country_name_es" />
-            </Hierarchy>
-        </Dimension>
-
         <Dimension name="ISO3" foreign_key="iso3">
             <Hierarchy name="ISO3">
+              <Table name="dim_shared_countries" />
+
               <Level name="ISO3" key_column="iso3" />
             </Hierarchy>
         </Dimension>
