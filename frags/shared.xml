@@ -268,13 +268,20 @@
         </Hierarchy>
     </SharedDimension>       
 
-    <SharedDimension name="Respuestas Anuales INFOCULTURA" type="standard">
-        <Hierarchy name="Respuestas Anuales INFOCULTURA">
-            <Table name="dim_shared_infocultura_responses_year" />
-            <Level name="Respuestas Anuales INFOCULTURA" key_column="response_id" name_column="response_name" key_type="nontext" />
+    <SharedDimension name="Categorias Anuales INFOCULTURA" type="standard">
+        <Hierarchy name="Categorias Anuales INFOCULTURA">
+            <Table name="dim_shared_infocultura_categories_year" />
+            <Level name="Categorias Anuales INFOCULTURA" key_column="category_id" name_column="category_name" key_type="nontext" />
         </Hierarchy>
     </SharedDimension>
 
+    <SharedDimension name="Subcategorias Anuales INFOCULTURA" type="standard">
+        <Hierarchy name="Subcategorias Anuales INFOCULTURA">
+            <Table name="dim_shared_infocultura_subcategories_year" />
+            <Level name="Subcategorias Anuales INFOCULTURA" key_column="subcategory_id" name_column="subcategory_name" key_type="nontext" />
+        </Hierarchy>
+    </SharedDimension>
+    
     <SharedDimension name="Indicadores Mensuales INFOCULTURA" type="standard">
         <Hierarchy name="Indicadores Mensuales INFOCULTURA">
             <Table name="dim_shared_infocultura_indicators_month" />
@@ -282,10 +289,18 @@
         </Hierarchy>
     </SharedDimension>       
 
-    <SharedDimension name="Respuestas Mensuales INFOCULTURA" type="standard">
-        <Hierarchy name="Respuestas Mensuales INFOCULTURA">
-            <Table name="dim_shared_infocultura_responses_month" />
-            <Level name="Respuestas Mensuales INFOCULTURA" key_column="response_id" name_column="response_name" key_type="nontext" />
+    <SharedDimension name="Categorias Mensuales INFOCULTURA" type="standard">
+        <Hierarchy name="Categorias Mensuales INFOCULTURA">
+            <Table name="dim_shared_infocultura_categories_month" />
+            <Level name="Categorias Mensuales INFOCULTURA" key_column="category_id" name_column="category_name" key_type="nontext" />
         </Hierarchy>
-    </SharedDimension>  
+    </SharedDimension>
+
+    <SharedDimension name="Subcategorias Mensuales INFOCULTURA" type="standard">
+        <Hierarchy name="Subcategorias Mensuales INFOCULTURA">
+            <Table name="dim_shared_infocultura_subcategories_month" />
+            <Level name="Subcategorias Mensuales INFOCULTURA" key_column="subcategory_id" name_column="subcategory_name" key_type="nontext" />
+        </Hierarchy>
+    </SharedDimension>    
+
 </Schema>
