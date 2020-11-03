@@ -197,6 +197,28 @@
             <Level name="Mercado" key_column="market_id" name_column="market_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
+
+    <SharedDimension name="Nivel Gobierno">
+        <Hierarchy name="Nivel Gobierno" primary_key="id">
+            <InlineTable alias="dim_inline_nivel_gobierno">
+            <ColumnDef name="id" key_type="nontext" />
+            <ColumnDef name="name" key_type="text" />
+            <Row>
+                <Value column="id">1</Value>
+                <Value column="name">Gobierno Nacional</Value>
+            </Row>
+            <Row>
+                <Value column="id">2</Value>
+                <Value column="name">Gobiernos Regionales</Value>
+            </Row>
+            <Row>
+                <Value column="id">3</Value>
+                <Value column="name">Gobiernos Locales</Value>
+            </Row>
+            </InlineTable>
+            <Level name="Nivel Gobierno" key_column="id" name_column="name" />
+        </Hierarchy>
+    </SharedDimension>
     <Cube name="inei_cenama">
         <Annotation name="source_name">INEI</Annotation>
         <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
@@ -1231,7 +1253,6 @@
         <Measure name="IPM base variacion mes anterior (2013)" column="ipm_base_2013_var_mes_anterior" aggregator="sum" />
         <Measure name="IPM base variacion acumulada (2013)" column="ipm_base_2013_var_acumulado" aggregator="sum" />
         <Measure name="Porcentaje morosidad de credito de la banca" column="perc_morosidad_credi_banca_mult" aggregator="sum" />
-
         <Measure name="Visitas Museo Nacional de arqueologia e historia del Peru" column="m_nacional_arquelogia_historia_Peru" aggregator="sum" />
         <Measure name="Visitas Museo de la Nacion" column="museo_de_la_Nacion" aggregator="sum" />
         <Measure name="Visitas Museo de Arte Italiano" column="museo_de_arte_italiano" aggregator="sum" />
@@ -1583,7 +1604,6 @@
 
         <Measure name="Analfabetismo en mujeres en edad de 60 y mas" column="analfabetismo_f_60_y_mas" aggregator="sum" />
         <Measure name="Analfabetismo en mujeres en edad de 60 y mas" column="analfabetismo_f_60_y_mas" aggregator="sum" />
-
 
         <Measure name = "Recaudacion trib. aduanero ingresos tesoro publico derechos Ad Valoren" column = "trib_adu_ingr_teso_pub_DAV_mill_soles" aggregator = "sum" />
         <Measure name = "Recaudacion trib. aduanero ingresos tesoro publico derechos especificos" column = "trib_adu_ingr_teso_pub_D_especificos_mill_soles" aggregator = "sum" />
@@ -2140,6 +2160,145 @@
         </Dimension>
 
         <Measure name="Producción" column="produccion" aggregator="sum" />  
+
+    </Cube>
+    <Cube name="mef_presupuesto_gastos">
+        <Annotation name="source_name">MEF</Annotation>
+        <Annotation name="source_description">Ministerio de Economía y Finanzas</Annotation>
+        <Annotation name="dataset_name">Gasto Presupuestal</Annotation>
+        <Annotation name="dataset_link">https://www.gob.pe/mef</Annotation>
+
+        <Table name="mef_presupuesto_gastos" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="tipo_gobierno" source="Nivel Gobierno" name="Nivel Gobierno" />
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+
+        <Dimension name="Departamento Meta" type="geo" foreign_key="departamento_meta">
+            <Hierarchy name="Departamento Meta" primary_key="department_id">
+                <Table name="dim_shared_ubigeo_department" />
+
+                <Level name="Departamento Meta" key_column="department_id" name_column="department_name" key_type="text" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Sector" foreign_key="sector">
+            <Hierarchy name="Sector" primary_key="sector">
+                <Table name="dim_mef_sector" />
+                
+                <Level name="Sector" key_column="sector" name_column="sector_name" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Pliego" foreign_key="pliego">
+            <Hierarchy name="Pliego" primary_key="pliego">
+                <Table name="dim_mef_pliego" />
+                
+                <Level name="Pliego" key_column="pliego" name_column="pliego_name" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Ejecutora" foreign_key="ejecutora">
+            <Hierarchy name="Ejecutora" primary_key="ejecutora">
+                <Table name="dim_mef_ejecutora" />
+                
+                <Level name="Ejecutora" key_column="ejecutora" name_column="ejecutora_name" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Programa Ppto" foreign_key="programa_ppto">
+            <Hierarchy name="Programa Ppto" primary_key="programa_ppto">
+                <Table name="dim_mef_programa_ppto" />
+                
+                <Level name="Programa Ppto" key_column="programa_ppto" name_column="programa_ppto_name" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Producto Proyecto" foreign_key="producto_proyecto">
+            <Hierarchy name="Producto Proyecto" primary_key="producto_proyecto">
+                <Table name="dim_mef_producto_proyecto" />
+                
+                <Level name="Producto Proyecto" key_column="producto_proyecto" name_column="producto_proyecto_name" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Funcion" foreign_key="funcion">
+            <Hierarchy name="Funcion" primary_key="funcion">
+                <Table name="dim_mef_funcion" />
+                
+                <Level name="Funcion" key_column="funcion" name_column="funcion_name" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Division Funcional" foreign_key="division_funcional">
+            <Hierarchy name="Division Funcional" primary_key="division_funcional">
+                <Table name="dim_mef_division_funcional" />
+                
+                <Level name="Division Funcional" key_column="division_funcional" name_column="division_funcional_name" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="PIA" column="pia" aggregator="sum" />
+        <Measure name="PIM" column="pim" aggregator="sum" /> 
+        <Measure name="Devengado" column="devengado" aggregator="sum" />
+    </Cube>
+    <Cube name="mef_presupuesto_ingresos">
+        <Annotation name="source_name">MEF</Annotation>
+        <Annotation name="source_description">Ministerio de Economía y Finanzas</Annotation>
+        <Annotation name="dataset_name">Recaudación Presupuestal</Annotation>
+        <Annotation name="dataset_link">https://www.gob.pe/mef</Annotation>
+
+        <Table name="mef_presupuesto_ingresos" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="nivel_gobierno" source="Nivel Gobierno" name="Nivel Gobierno" />
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+
+        <Dimension name="Sector" foreign_key="sector">
+            <Hierarchy name="Sector" primary_key="sector">
+                <Table name="dim_mef_ingresos_sector" />
+                
+                <Level name="Sector" key_column="sector" name_column="sector_nombre" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Pliego" foreign_key="pliego">
+            <Hierarchy name="Pliego" primary_key="pliego">
+                <Table name="dim_mef_ingresos_pliego" />
+                
+                <Level name="Pliego" key_column="pliego" name_column="pliego_nombre" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Rubro" foreign_key="rubro">
+            <Hierarchy name="Rubro" primary_key="rubro">
+                <Table name="dim_mef_ingresos_rubro" />
+                
+                <Level name="Rubro" key_column="rubro" name_column="rubro_nombre" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Fuente de Financiamiento" foreign_key="fuente_financiamiento">
+            <Hierarchy name="Fuente de Financiamiento" primary_key="fuente_financiamiento">
+                <Table name="dim_mef_ingresos_fuente_financiamiento" />
+                
+                <Level name="Fuente de Financiamiento" key_column="fuente_financiamiento" name_column="fuente_financiamiento_nombre" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="PIA" column="pia" aggregator="sum" />
+        <Measure name="PIM" column="pim" aggregator="sum" /> 
+        <Measure name="Monto Recaudado" column="monto_recaudado" aggregator="sum" />
 
     </Cube>
     <Cube name="sunat_subnational_trade">

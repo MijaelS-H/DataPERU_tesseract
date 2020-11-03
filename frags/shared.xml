@@ -197,4 +197,27 @@
             <Level name="Mercado" key_column="market_id" name_column="market_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
+
+    <SharedDimension name="Nivel Gobierno">
+        <Hierarchy name="Nivel Gobierno" primary_key="id">
+            <InlineTable alias="dim_inline_nivel_gobierno">
+            <ColumnDef name="id" key_type="nontext" />
+            <ColumnDef name="name" key_type="text" />
+            <Row>
+                <Value column="id">1</Value>
+                <Value column="name">Gobierno Nacional</Value>
+            </Row>
+            <Row>
+                <Value column="id">2</Value>
+                <Value column="name">Gobiernos Regionales</Value>
+            </Row>
+            <Row>
+                <Value column="id">3</Value>
+                <Value column="name">Gobiernos Locales</Value>
+            </Row>
+            </InlineTable>
+            <Level name="Nivel Gobierno" key_column="id" name_column="name" />
+        </Hierarchy>
+    </SharedDimension>
+
 </Schema>
