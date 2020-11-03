@@ -145,5 +145,140 @@
         <Measure name="Analfabetismo en hombres en edad de 60 y mas" column="analfabetismo_h_60_y_mas" aggregator="sum" />
         <Measure name="Analfabetismo en mujeres en edad de 60 y mas" column="analfabetismo_f_60_y_mas" aggregator="sum" />
 
+        <Measure name="Analfabetismo en mujeres en edad de 60 y mas" column="analfabetismo_f_60_y_mas" aggregator="sum" />
+        <Measure name="Analfabetismo en mujeres en edad de 60 y mas" column="analfabetismo_f_60_y_mas" aggregator="sum" />
+
+
+        <Measure name = "Recaudacion trib. aduanero ingresos tesoro publico derechos Ad Valoren" column = "trib_adu_ingr_teso_pub_DAV_mill_soles" aggregator = "sum" />
+        <Measure name = "Recaudacion trib. aduanero ingresos tesoro publico derechos especificos" column = "trib_adu_ingr_teso_pub_D_especificos_mill_soles" aggregator = "sum" />
+        <Measure name = "Recaudacion trib. aduanero ingresos tesoro publico sobretasa 5 perc" column = "trib_adu_ingr_teso_pub_sobretasa_ad_5perc_mill_soles" aggregator = "sum" />
+        <Measure name = "Recaudacion trib. aduanero ingresos tesoro publico imp. gnrl ventas" column = "trib_adu_ingr_teso_pub_IGV_mill_soles" aggregator = "sum" />
+        <Measure name = "Recaudacion trib. aduanero ingresos tesoro publico imp. selec consumo" column = "trib_adu_ingr_teso_pub_ISC_mill_soles" aggregator = "sum" />
+        <Measure name = "Recaudacion trib. aduanero ingresos tesoro publico otros" column = "trib_adu_ingr_teso_pub_otros_mill_soles" aggregator = "sum" />
+        <Measure name = "Recaudacion trib. aduanero otros organismos locales" column = "trib_adu_otros_org_gobiernos_loc_mill_soles" aggregator = "sum" />
+        <Measure name = "Recaudacion trib. aduanero otros organismos INDECOPI" column = "trib_adu_otros_org_INDECOPI_mill_soles" aggregator = "sum" />
+        <Measure name = "Creditos sistema financiero banca multiple (millones de soles)" column = "banca_multiple_creditos" aggregator = "sum" />
+        <Measure name = "Creditos sistema financiero empresas financieras (millones de soles)" column = "empresas_financieras_creditos" aggregator = "sum" />
+        <Measure name = "Creditos sistema financiero cajas municipales (millones de soles)" column = "cajas_municipales_creditos" aggregator = "sum" />
+        <Measure name = "Creditos sistema financiero cajas rurales de ahorro (millones de soles)" column = "cajas_rur_ahorro_credito_creditos" aggregator = "sum" />
+        <Measure name = "Creditos sistema financiero desa pequeña microempresa EDPYME" column = "entidades_desa_peq_micr_empresa_EDPYME_creditos" aggregator = "sum" />
+        <Measure name = "Creditos sistema financiero empresas de arrendamiento financiero (millones de soles)" column = "empresas_arrenda_financiero_creditos" aggregator = "sum" />
+        <Measure name = "Creditos sistema financiero banco de la nacio (millones de soles)" column = "banco_nacion_creditos" aggregator = "sum" />
+        <Measure name = "Creditos sistema financiero agrobanco (millones de soles)" column = "agrobanco_creditos" aggregator = "sum" />
+        <Measure name = "Depositos sistema financiero banca multiple (millones de soles)" column = "banca_multiple_depositos" aggregator = "sum" />
+        <Measure name = "Depositos sistema financiero empresas financieras (millones de soles)" column = "empresas_financieras_depositos" aggregator = "sum" />
+        <Measure name = "Depositos sistema financiero cajas municipales (millones de soles)" column = "cajas_municipales_depositos" aggregator = "sum" />
+        <Measure name = "Depositos sistema financiero cajas rurales de ahorro (millones de soles)" column = "cajas_rur_ahorro_credito_depositos" aggregator = "sum" />
+        <Measure name = "Depositos sistema financiero desa pequeña microempresa EDPYME" column = "entidades_desa_peq_micr_empresa_EDPYME_depositos" aggregator = "sum" />
+        <Measure name = "Depositos sistema financiero empresas de arrendamiento financiero (millones de soles)" column = "empresas_arrenda_financiero_depositos" aggregator = "sum" />
+        <Measure name = "Depositos sistema financiero banco de la nacio (millones de soles)" column = "banco_nacion_depositos" aggregator = "sum" />
+        <Measure name = "Depositos sistema financiero agrobanco (millones de soles)" column = "agrobanco_depositos" aggregator = "sum" />
+
+        <Measure name = "Sector pesquero PIB (millones de soles 2007)" column = "sector_pesquero_PIB_mill_soles_const_2007" aggregator = "sum" />
+        <Measure name = "Sector pesquero VAB (millones de soles 2007)" column = "sector_pesquero_VAB_mill_soles_const_2007" aggregator = "sum" />
+        <Measure name = "Sector pesquero VAB/PIB" column = "sector_pesquero_porc_VAB_d_PIB" aggregator = "sum" />
+        <Measure name = "Sector pesquero desembarque pesca (millones toneladas metricas)" column = "sector_pesquero_desem_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero transformacion pesca (millones toneladas metricas)" column = "sector_pesquero_trans_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero prod. harina de pescado (millones toneladas metricas)" column = "sector_pesquero_prod_harina_pescado_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero venta interna (millones toneladas metricas)" column = "sector_pesquero_consumo_interno_total_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero venta interna (kilogramos per capita)" column = "sector_pesquero_consumo_interno_per_capita_kg" aggregator = "sum" />
+
+        <Measure name = "Sector pesquero maritima, consumo directo enlatado (millones toneladas metricas)" column = "sector_pesquero_mar_con_dir_enlatado_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero maritima, consumo directo congelado (millones toneladas metricas)" column = "sector_pesquero_mar_con_dir_congelado_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero maritima, consumo directo curado (millones toneladas metricas)" column = "sector_pesquero_mar_con_dir_curado_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero maritima, consumo directo fresco (millones toneladas metricas)" column = "sector_pesquero_mar_con_dir_fresco_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero maritima, consumo directo anchoveta (millones toneladas metricas)" column = "sector_pesquero_mar_con_ind_anchoveta_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero maritima, consumo directo otros (millones toneladas metricas)" column = "sector_pesquero_mar_con_ind_o_especies_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero continental, consumo directo curado (millones toneladas metricas)" column = "sector_pesquero_con_dir_curado_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero continental, consumo directo fresco (millones toneladas metricas)" column = "sector_pesquero_con_dir_fresco_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero continental, consumo directo congelado (millones toneladas metricas)" column = "sector_pesquero_con_dir_congelado_mil_ton_met" aggregator = "sum" />
+
+        <Measure name = "Pesca desembarque anchoveta (millones toneladas metricas)" column = "pesca_desem_anchoveta_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque atun (millones toneladas metricas)" column = "pesca_desem_atun_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque bonito (millones toneladas metricas)" column = "pesca_desem_bonito_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque caballa (millones toneladas metricas)" column = "pesca_desem_caballa_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque jurel (millones toneladas metricas)" column = "pesca_desem_jurel_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque perico (millones toneladas metricas)" column = "pesca_desem_perico_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque samasa (millones toneladas metricas)" column = "pesca_desem_samasa_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque sardina (millones toneladas metricas)" column = "pesca_desem_sardina_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque tiburon (millones toneladas metricas)" column = "pesca_desem_tiburon_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque ayanque (millones toneladas metricas)" column = "pesca_desem_ayanque_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque cabrilla (millones toneladas metricas)" column = "pesca_desem_cabrilla_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque coco (millones toneladas metricas)" column = "pesca_desem_coco_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque lenguado (millones toneladas metricas)" column = "pesca_desem_lenguado_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque merluza (millones toneladas metricas)" column = "pesca_desem_merluza_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque raya (millones toneladas metricas)" column = "pesca_desem_raya_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque tollo (millones toneladas metricas)" column = "pesca_desem_tollo_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque cabinza (millones toneladas metricas)" column = "pesca_desem_cabinza_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque cojinova (millones toneladas metricas)" column = "pesca_desem_cojinova_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque corvina (millones toneladas metricas)" column = "pesca_desem_corvina_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque chita (millones toneladas metricas)" column = "pesca_desem_chita_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque liza (millones toneladas metricas)" column = "pesca_desem_liza_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque lorna (millones toneladas metricas)" column = "pesca_desem_lorna_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque machete (millones toneladas metricas)" column = "pesca_desem_machete_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque pejerrey (millones toneladas metricas)" column = "pesca_desem_pejerrey_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque pintadilla (millones toneladas metricas)" column = "pesca_desem_pintadilla_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque cangrejo (millones toneladas metricas)" column = "pesca_desem_cangrejo_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque langosta (millones toneladas metricas)" column = "pesca_desem_langosta_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque langostino (millones toneladas metricas)" column = "pesca_desem_langostino_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque abalon (millones toneladas metricas)" column = "pesca_desem_abalon_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque caracol (millones toneladas metricas)" column = "pesca_desem_caracol_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque choro (millones toneladas metricas)" column = "pesca_desem_choro_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque concha_de_abanico (millones toneladas metricas)" column = "pesca_desem_concha_de_abanico_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque macha (millones toneladas metricas)" column = "pesca_desem_macha_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque almeja (millones toneladas metricas)" column = "pesca_desem_almeja_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque calamar (millones toneladas metricas)" column = "pesca_desem_calamar_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque pota (millones toneladas metricas)" column = "pesca_desem_pota_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca desembarque pulpo (millones toneladas metricas)" column = "pesca_desem_pulpo_mil_ton_metricas" aggregator = "sum" />
+
+        <Measure name = "Pesca transformacion maritima enlatado (millones toneladas metricas)" column = "pesca_trans_mar_enlatado_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca transformacion maritima congelado (millones toneladas metricas)" column = "pesca_trans_mar_congelado_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca transformacion maritima curado (millones toneladas metricas)" column = "pesca_trans_mar_curado_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca transformacion maritima harina pescado (millones toneladas metricas)" column = "pesca_trans_mar_harina_pescado_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca transformacion maritima aceite crudo pescado (millones toneladas metricas)" column = "pesca_trans_mar_aceite_crudo_pescado_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca transformacion continental congelado (millones toneladas metricas)" column = "pesca_trans_con_congelado_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca transformacion continental curado (millones toneladas metricas)" column = "pesca_trans_con_curado_mil_ton_metricas" aggregator = "sum" />
+
+        <Measure name = "Pesca venta interna consumo directo enlatado (millones toneladas metricas)" column ="pesca_venta_interna_con_direc_enlatado_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca venta interna consumo directo congelado (millones toneladas metricas)" column ="pesca_venta_interna_con_direc_congelado_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca venta interna consumo directo curado (millones toneladas metricas)" column ="pesca_venta_interna_con_direc_curado_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca venta interna consumo directo fresco (millones toneladas metricas)" column ="pesca_venta_interna_con_direc_fresco_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca venta interna consumo indirecto harina pescado (millones toneladas metricas)" column ="pesca_venta_interna_con_indirec_harina_pescado_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca venta interna consumo indirecto aceite crudo pescado (millones toneladas metricas)" column ="pesca_venta_interna_con_indirec_aceite_crudo_pescado_mil_ton_metricas" aggregator = "sum" />
+
+        <Measure name = "Pesca consumo interno enlatado (millones toneladas metricas)" column = "pesca_consumo_interno_direc_enlatado_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca consumo interno congelado (millones toneladas metricas)" column = "pesca_consumo_interno_direc_congelado_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca consumo interno curado (millones toneladas metricas)" column = "pesca_consumo_interno_direc_curado_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca consumo interno fresco (millones toneladas metricas)" column = "pesca_consumo_interno_direc_fresco_mil_ton_metricas" aggregator = "sum" />
+        <Measure name = "Pesca consumo interno enlatado (kg per capita aparente)" column = "pesca_consumo_interno_direc_enlatado_per_cap_kg_hab" aggregator = "sum" />
+        <Measure name = "Pesca consumo interno congelado (kg per capita aparente)" column = "pesca_consumo_interno_direc_congelado_per_cap_kg_hab" aggregator = "sum" />
+        <Measure name = "Pesca consumo interno curado (kg per capita aparente)" column = "pesca_consumo_interno_direc_curado_per_cap_kg_hab" aggregator = "sum" />
+        <Measure name = "Pesca consumo interno fresco (kg per capita aparente)" column = "pesca_consumo_interno_direc_fresco_per_cap_kg_hab" aggregator = "sum" />
+
+        <Measure name = "Sector pesquero plantas instaladas enlatado" column = "pesca_n_plantas_instaladas_enlatado" aggregator = "sum" />
+        <Measure name = "Sector pesquero cap instalada (cajas por turno)" column = "pesca_capaci_inst_enlatado_u_cajas_turno" aggregator = "sum" />
+        <Measure name = "Sector pesquero plantas instaladas congelado" column = "pesca_n_plantas_instaladas_congelado" aggregator = "sum" />
+        <Measure name = "Sector pesquero cap instalada (toneladas por dia)" column = "pesca_capaci_inst_congelado_u_ton_dia" aggregator = "sum" />
+        <Measure name = "Sector pesquero plantas instaladas curado" column = "pesca_n_plantas_instaladas_curado" aggregator = "sum" />
+        <Measure name = "Sector pesquero cap instalada (toneladas por mes)" column = "pesca_capaci_inst_curado_u_ton_mes" aggregator = "sum" />
+        <Measure name = "Sector pesquero plantas instaladas harina" column = "pesca_n_plantas_instaladas_harina" aggregator = "sum" />
+        <Measure name = "Sector pesquero cap instalada (toneladas por hora)" column = "pesca_capaci_inst_harina_u_ton_hora" aggregator = "sum" />
+
+        <Measure name = "Sector turismo entrada turistas" column = "turismo_entrada_turistas" aggregator = "sum" />
+        <Measure name = "Sector turismo salida turistas" column = "turismo_salida_turistas" aggregator = "sum" />
+        <Measure name = "Sector turismo ingreso divisas (millones de dolares)" column = "turismo_ingreso_divisas_millones_dolares" aggregator = "sum" />
+        <Measure name = "Sector turismo egreso divisas (millones de dolares)" column = "turismo_egreso_divisas_millones_dolares" aggregator = "sum" />
+        <Measure name = "Sector turismo ingreso divisas (dolares per capita)" column = "turismo_ingreso_divisas_per_capita_dolares" aggregator = "sum" />
+        <Measure name = "Sector turismo egreso divisas (dolares per capita)" column = "turismo_egreso_divisas_per_capita_dolares" aggregator = "sum" />
+        <Measure name = "Turismo ingresos internacionales aeropuerto Jorge Chavez" column = "ing_tur_intern_aeropuerto_Jorge_Chavez" aggregator = "sum" />
+        <Measure name = "Turismo ingresos internacionales puesto control Santa Rosa" column = "ing_tur_intern_puesto_control_Santa_Rosa" aggregator = "sum" />
+        <Measure name = "Turismo ingresos internacionales otros puntos" column = "ing_tur_intern_otros_puntos" aggregator = "sum" />
+        <Measure name = "Sector turismo arribo turistas nacional" column = "turismo_arribo_turistas_nacionales" aggregator = "sum" />
+        <Measure name = "Sector turismo arribo turistas extranjeros" column = "turismo_arribo_turistas_extranjeros" aggregator = "sum" />
+        <Measure name = "Sector turismo pernoctacion turistas nacional" column = "turismo_pernoctacion_turistas_nacionales" aggregator = "sum" />
+        <Measure name = "Sector turismo pernoctacion turistas extranjeros" column = "turismo_pernoctacion_turistas_extranjeros" aggregator = "sum" />
+        <Measure name = "Sector turismo permanencia promedio turistas nacional" column = "turismo_permanencia_prom_turistas_nacionales" aggregator = "sum" />
+        <Measure name = "Sector turismo permanencia promedio turistas extranjeros" column = "turismo_permanencia_prom_turistas_extranjeros" aggregator = "sum" />
+
     </Cube>
 </Schema>
