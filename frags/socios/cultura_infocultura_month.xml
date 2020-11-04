@@ -1,0 +1,20 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="cultura_infocultura_month">
+        <Annotation name="source_name">INFOCULTURA</Annotation>
+        <Annotation name="source_description">Plataforma de Información Estadística del Sector Cultura</Annotation>
+        <Annotation name="dataset_name">Consulta indicadores INFOCULTURA</Annotation>
+        <Annotation name="dataset_link">http://infocultura.cultura.pe/infocultura/</Annotation>
+
+        <Table name="cultura_infocultura_month" primary_key="department_id" />
+
+        <DimensionUsage foreign_key="nation_id" source="Ubigeo Nacion" name="Ubigeo Nacion" />
+        <DimensionUsage foreign_key="department_id" source="Ubigeo Departamento Lite" name="Ubigeo Departamento" />
+        <DimensionUsage foreign_key="indicator_id" source="Indicadores Mensuales INFOCULTURA" name="Indicador" />
+        <DimensionUsage foreign_key="category_id" source="Categorias Mensuales INFOCULTURA" name="Categoria" />
+        <DimensionUsage foreign_key="subcategory_id" source="Subcategorias Mensuales INFOCULTURA" name="Subcategoria" />
+        <DimensionUsage foreign_key="month_id" source="Date Month" name="Mes" />
+ 
+        <Measure name="Valor indicador" column="response" aggregator="sum" />
+
+    </Cube>
+</Schema>

@@ -1,0 +1,113 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="inei_renamu_populated_centers">
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Registro Nacional de Municipalidades Centros Poblados</Annotation>
+        <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/</Annotation>
+
+        <Table name="inei_renamu_populated_centers" primary_key="district_id" />
+
+        <DimensionUsage foreign_key="nation_id" source="Ubigeo Nacion" name="Ubigeo Nacion" />
+        <DimensionUsage foreign_key="department_id" source="Ubigeo Departamento Lite" name="Ubigeo Departamento" />
+        <DimensionUsage foreign_key="province_id" source="Ubigeo Provincia Lite" name="Ubigeo Provincia" />
+        <DimensionUsage foreign_key="populated_center_id" source="Centros Poblados Lite" name="Centro Poblado" />
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Personal que labora en las municipalidades de centro poblado" column="CCPP_1" aggregator="sum" />
+        <Measure name="Personal mujer que labora en las municipalidades de centro poblado" column="CCPP_2" aggregator="sum" />
+        <Measure name="Porcentaje de mujeres que trabajan en la municipalidad de centro poblado" column="CCPP_3" aggregator="sum" />
+        <Measure name="Personal hombre que labora en las municipalidades de centro poblado" column="CCPP_4" aggregator="sum" />
+        <Measure name="Porcentaje de hombres que trabajan en la municipalidad de centro poblado" column="CCPP_5" aggregator="sum" />
+        <Measure name="Número de mujeres nombradas que trabajan en la municipalidad de centro poblado" column="CCPP_6" aggregator="sum" />
+        <Measure name="Porcentaje de mujeres nombradas que trabajan en la municipalidad de centro poblado" column="CCPP_7" aggregator="sum" />
+        <Measure name="Número de hombres nombrados que trabajan en la municipalidad de centro poblado" column="CCPP_8" aggregator="sum" />
+        <Measure name="Porcentaje  de hombres nombrados que trabajan en la municipalidad de centro poblado" column="CCPP_9" aggregator="sum" />
+        <Measure name="Número de mujeres contratadas que trabajan en la municipalidad de centro poblado" column="CCPP_10" aggregator="sum" />
+        <Measure name="Porcentaje  de mujeres contratadas que trabajan en la municipalidad de centro poblado" column="CCPP_11" aggregator="sum" />
+        <Measure name="Número de hombres contratados que trabajan en la municipalidad de centro poblado" column="CCPP_12" aggregator="sum" />
+        <Measure name="Porcentaje  de hombres contratados que trabajan en la municipalidad de centro poblado" column="CCPP_13" aggregator="sum" />
+        <Measure name="Municipalidad de centro poblado tiene servicio de internet" column="CCPP_14" aggregator="sum" />
+        <Measure name="Número de municipalidades de centro poblado que cuentan con servicio de internet" column="CCPP_15" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades de centro poblado que cuentan con servicio de internet" column="CCPP_16" aggregator="sum" />
+        <Measure name="Municipalidad de centro poblado realiza inscripciones de hechos vitales en la Oficina de Registro de Estado Civil (OREC)" column="CCPP_17" aggregator="sum" />
+        <Measure name="Número de municipalidades de centro poblado que realizan inscripciones de hechos vitales en la Oficina de Registro de Estado Civil (OREC)" column="CCPP_18" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades de centro poblado  que realizan inscripciones de hechos vitales en la Oficina de Registro de Estado Civil (OREC)" column="CCPP_19" aggregator="sum" />
+        <Measure name="Municipalidad de centro poblado realiza recojo de residuos sólidos (basura)" column="CCPP_20" aggregator="sum" />
+        <Measure name="Número de municipalidades de centro poblado que realizan recojo de residuos sólidos (basura)" column="CCPP_21" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades de centro poblado que realizan recojo de residuos sólidos (basura)" column="CCPP_22" aggregator="sum" />
+        <Measure name="Cantidad promedio diaria de recojo de residuos sólidos (basura)" column="CCPP_23" aggregator="sum" />
+        <Measure name="Municipalidad de centro poblado brinda el servicio público de anuncios y propaganda" column="CCPP_24" aggregator="sum" />
+        <Measure name="Número de municipalidades de centro poblado que brindan el servicio público de anuncios y propaganda" column="CCPP_25" aggregator="sum" />
+        <Measure name="Porcentaje  de municipalidades de centro poblado que brindan el servicio público de anuncios y propaganda" column="CCPP_26" aggregator="sum" />
+        <Measure name="Municipalidad de centro poblado brinda el servicio público de agua potable y desagüe" column="CCPP_27" aggregator="sum" />
+        <Measure name="Número de municipalidades de centro poblado que brindan el servicio público de agua potable y desagüe" column="CCPP_28" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades de centro poblado que brindan el servicio público de agua potable y desagüe" column="CCPP_29" aggregator="sum" />
+        <Measure name="Municipalidad de centro poblado brinda el servicio de limpieza pública" column="CCPP_30" aggregator="sum" />
+        <Measure name="Número de municipalidades de centro poblado que brindan el servicio de limpieza pública" column="CCPP_31" aggregator="sum" />
+        <Measure name="Porcentaje  de municipalidades de centro poblado que brindan el servicio de limpieza pública" column="CCPP_32" aggregator="sum" />
+        <Measure name="Municipalidad de centro poblado brinda el servicio público de uso de cementerios" column="CCPP_33" aggregator="sum" />
+        <Measure name="Número de municipalidades de centro poblado que brindan el servicio público de uso de cementerios" column="CCPP_34" aggregator="sum" />
+        <Measure name="Porcentaje  de municipalidades de centro poblado que brindan el servicio público de uso de cementerios" column="CCPP_35" aggregator="sum" />
+        <Measure name="Municipalidad de centro poblado realiza control del comercio ambulatorio" column="CCPP_36" aggregator="sum" />
+        <Measure name="Número de municipalidades de centro poblado que realizan control del comercio ambulatorio" column="CCPP_37" aggregator="sum" />
+        <Measure name="Porcentaje  de municipalidades de centro poblado que realizan control del comercio ambulatorio" column="CCPP_38" aggregator="sum" />
+        <Measure name="Municipalidad de centro poblado realiza control de pesas y medidas en los mercados" column="CCPP_39" aggregator="sum" />
+        <Measure name="Número de municipalidades de centro poblado que realizan control de pesas y medidas" column="CCPP_40" aggregator="sum" />
+        <Measure name="Porcentaje  de municipalidades de centro poblado que realizan control de pesas y medidas" column="CCPP_41" aggregator="sum" />
+        <Measure name="Municipalidad de centro poblado realiza construcción de cercos" column="CCPP_42" aggregator="sum" />
+        <Measure name="Número de municipalidades que realizan construcción de cercos" column="CCPP_43" aggregator="sum" />
+        <Measure name="Porcentaje  de municipalidades de centro poblado que realizan construcción de cercos" column="CCPP_44" aggregator="sum" />
+        <Measure name="Municipalidad de centro poblado realiza construcción de caminos rurales" column="CCPP_45" aggregator="sum" />
+        <Measure name="Número de municipalidades de centro poblado que realizan construcción de caminos rurales" column="CCPP_46" aggregator="sum" />
+        <Measure name="Porcentaje  de municipalidades de centro poblado que realizan construcción de caminos rurales" column="CCPP_47" aggregator="sum" />
+        <Measure name="Municipalidad de centro poblado brinda permiso de ocupación de vía pública" column="CCPP_48" aggregator="sum" />
+        <Measure name="Número de municipalidades de centro poblado que brindan permiso de ocupación de vía pública" column="CCPP_49" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades de centro poblado que brindan permiso de ocupación de vía pública" column="CCPP_50" aggregator="sum" />
+        <Measure name="Municipalidad de centro poblado brinda el servicio de registro civil" column="CCPP_51" aggregator="sum" />
+        <Measure name="Número de municipalidades de centro poblado que brindan el servicio de registro civil" column="CCPP_52" aggregator="sum" />
+        <Measure name="Porcentaje  de municipalidades de centro poblado que brindan el servicio de registro civil" column="CCPP_53" aggregator="sum" />
+        <Measure name="Municipalidad de centro poblado brinda servicio bibliotecario" column="CCPP_54" aggregator="sum" />
+        <Measure name="Número de municipalidades de centro poblado que brindan servicio bibliotecario" column="CCPP_55" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades de centro poblado que brindan servicio bibliotecario" column="CCPP_56" aggregator="sum" />
+        <Measure name="Municipalidad de centro poblado brinda servicio de conservación de áreas verdes" column="CCPP_57" aggregator="sum" />
+        <Measure name="Número de municipalidades de centro poblado que brindan servicio de conservación de áreas verdes" column="CCPP_58" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades de centro poblado que brindan servicio de conservación de áreas verdes" column="CCPP_59" aggregator="sum" />
+        <Measure name="Municipalidad de centro poblado cobra tasas y arbitrios " column="CCPP_60" aggregator="sum" />
+        <Measure name="Número de municipalidades de centro poblado que cobran tasas y arbitrios " column="CCPP_61" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades de centro poblado que cobran tasas y arbitrios " column="CCPP_62" aggregator="sum" />
+        <Measure name="Municipalidad de centro poblado brinda licencias" column="CCPP_63" aggregator="sum" />
+        <Measure name="Número de municipalidades de centro poblado que brindan licencias" column="CCPP_64" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades de centro poblado que brindan licencias" column="CCPP_65" aggregator="sum" />
+        <Measure name="Capacidad estatal" column="CCPP_66" aggregator="sum" />
+        <Measure name="Número de municipalidades de centro poblado con nivel de capacidad estatal nula" column="CCPP_67" aggregator="sum" />
+        <Measure name="Porcentaje  de municipalidades de centro poblado con nivel de capacidad estatal nula" column="CCPP_68" aggregator="sum" />
+        <Measure name="Número de municipalidades de centro poblado con nivel de capacidad estatal baja" column="CCPP_69" aggregator="sum" />
+        <Measure name="Porcentaje  de municipalidades de centro poblado con nivel de capacidad estatal baja" column="CCPP_70" aggregator="sum" />
+        <Measure name="Número de municipalidades de centro poblado con nivel de capacidad estatal media" column="CCPP_71" aggregator="sum" />
+        <Measure name="Porcentaje  de municipalidades de centro poblado con nivel de capacidad estatal media" column="CCPP_72" aggregator="sum" />
+        <Measure name="Número de municipalidades de centro poblado con nivel de capacidad estatal alta" column="CCPP_73" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades de centro poblado con nivel de capacidad estatal alta" column="CCPP_74" aggregator="sum" />
+        <Measure name="Municipalidad de centro poblado recibió transferencias de recursos monetarios de la municipalidad provincial y/o distrital" column="CCPP_75" aggregator="sum" />
+        <Measure name="Número de municipalidades de centro poblado que recibieron transferencias de recursos monetarios de la municipalidad provincial y/o distrital" column="CCPP_76" aggregator="sum" />
+        <Measure name="Porcentaje  de municipalidades de centro poblado que recibieron transferencias de recursos monetarios de la municipalidad provincial y/o distrital" column="CCPP_77" aggregator="sum" />
+        <Measure name="Transferencias totales recibida por las municipalidades de centro poblado de las municipalidades provinciales y/o distritales" column="CCPP_78" aggregator="sum" />
+        <Measure name="Transferencia promedio de municipalidades provinciales y/o distritales que es recibida por las municipalidades de centro poblado" column="CCPP_79" aggregator="sum" />
+        <Measure name="Gasto total de municipalidades de centro poblado" column="CCPP_80" aggregator="sum" />
+        <Measure name="Gasto total promedio de municipalidades de centro poblado" column="CCPP_81" aggregator="sum" />
+        <Measure name="Gasto total de municipalidades de centro poblado en personal y obligaciones sociales" column="CCPP_82" aggregator="sum" />
+        <Measure name="Gasto total promedio de municipalidades de centro poblado en personal y obligaciones sociales" column="CCPP_83" aggregator="sum" />
+        <Measure name="Participación del gasto en personal y obligaciones sociales" column="CCPP_84" aggregator="sum" />
+        <Measure name="Gasto total de municipalidades de centro poblado en bienes y servicios" column="CCPP_85" aggregator="sum" />
+        <Measure name="Gasto total promedio de municipalidades de centro poblado en bienes y servicios" column="CCPP_86" aggregator="sum" />
+        <Measure name="Participación del gasto en bienes y servicios" column="CCPP_87" aggregator="sum" />
+        <Measure name="Gasto total de municipalidades de centro poblado en inversión" column="CCPP_88" aggregator="sum" />
+        <Measure name="Gasto total promedio de municipalidades de centro poblado en inversión" column="CCPP_89" aggregator="sum" />
+        <Measure name="Participación del gasto en inversión" column="CCPP_90" aggregator="sum" />
+
+    </Cube>
+</Schema>

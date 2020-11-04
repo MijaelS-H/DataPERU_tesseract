@@ -1,0 +1,105 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="inei_investigacion_desarrollo">
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Censo Nacional de Investigación y Desarrollo</Annotation>
+        <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/</Annotation>
+
+        <Table name="inei_concytec" primary_key="district_id" />
+
+        <DimensionUsage foreign_key="nation_id" source="Ubigeo Nacion" name="Ubigeo Nacion" />
+        <DimensionUsage foreign_key="department_id" source="Ubigeo Departamento Lite" name="Ubigeo Departamento" />
+        <DimensionUsage foreign_key="province_id" source="Ubigeo Provincia Lite" name="Ubigeo Provincia" />
+        <DimensionUsage foreign_key="district_id" source="Ubigeo Lite" name="Ubigeo Distrito" />
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Número total de centros de investigación que son clasificados como Institutos Públicos de Investigación" column="CONCYTEC_1" aggregator="sum" />
+        <Measure name="Porcentaje de centros de investigación que son clasificados como Institutos Públicos de Investigación " column="CONCYTEC_2" aggregator="sum" />
+        <Measure name="Número total de centros de investigación que son clasificados como Institutos de Educación Superior" column="CONCYTEC_3" aggregator="sum" />
+        <Measure name="Porcentaje de centros de investigación que son clasificados como Institutos de Educación Superior" column="CONCYTEC_4" aggregator="sum" />
+        <Measure name="Número total de centros de investigación que son clasificados como Institutos de Salud" column="CONCYTEC_5" aggregator="sum" />
+        <Measure name="Porcentaje de centros de investigación que son clasificados como Institutos de Salud" column="CONCYTEC_6" aggregator="sum" />
+        <Measure name="Número total de centros de investigación que son clasificados comocentros de investigación Privada Sin Fines de Lucro" column="CONCYTEC_7" aggregator="sum" />
+        <Measure name="Porcentaje de centros de investigación que son clasificados comocentros de investigación Privada Sin Fines de Lucro" column="CONCYTEC_8" aggregator="sum" />
+        <Measure name="Número total de centros de investigación cuya organización jurídica es Sociedad de Responsabilidad Limitada" column="CONCYTEC_9" aggregator="sum" />
+        <Measure name="Porcentaje de centros de investigación cuya organización jurídica es Sociedad de Responsabilidad Limitada" column="CONCYTEC_10" aggregator="sum" />
+        <Measure name="Número total de centros de investigación cuya organización jurídica es Sociedad Colectiva" column="CONCYTEC_11" aggregator="sum" />
+        <Measure name="Porcentaje de centros de investigación cuya organización jurídica es Sociedad Colectiva" column="CONCYTEC_12" aggregator="sum" />
+        <Measure name="Número total de centros de investigación cuya organización jurídica es Sociedad Anónima Cerrada" column="CONCYTEC_13" aggregator="sum" />
+        <Measure name="Porcentaje de centros de investigación cuya organización jurídica es Sociedad Anónima Cerrada" column="CONCYTEC_14" aggregator="sum" />
+        <Measure name="Número total de centros de investigación cuya organización jurídica es Sociedad Anónima Abierta" column="CONCYTEC_15" aggregator="sum" />
+        <Measure name="Porcentaje de centros de investigación cuya organización jurídica es Sociedad Anónima Abierta" column="CONCYTEC_16" aggregator="sum" />
+        <Measure name="Número total de centros de investigación cuya organización jurídica es Pública" column="CONCYTEC_17" aggregator="sum" />
+        <Measure name="Porcentaje de centros de investigación cuya organización jurídica es Pública" column="CONCYTEC_18" aggregator="sum" />
+        <Measure name="Número total de centros de investigación cuya organización jurídica es Asociación" column="CONCYTEC_19" aggregator="sum" />
+        <Measure name="Porcentaje de centros de investigación cuya organización jurídica es Asociación" column="CONCYTEC_20" aggregator="sum" />
+        <Measure name="Número total de centros de investigación cuya organización jurídica es otra" column="CONCYTEC_21" aggregator="sum" />
+        <Measure name="Porcentaje de centros de investigación cuya organización jurídica es otra" column="CONCYTEC_22" aggregator="sum" />
+        <Measure name="Número de centros de investigación que cuentan con oficina de transferencia de tecnología u otro modelo de gestión de propiedad intelectual" column="CONCYTEC_23" aggregator="sum" />
+        <Measure name="Porcentaje de centros de investigación que cuentan con Oficina de Transferencia de Tecnología u otro modelo de gestión de propiedad intelectual" column="CONCYTEC_24" aggregator="sum" />
+        <Measure name="Gasto promedio en I +D realizado por los centros de investigación en el 2014" column="CONCYTEC_25" aggregator="sum" />
+        <Measure name="Gasto promedio en I +D realizado por los centros de investigación en el 2015" column="CONCYTEC_26" aggregator="sum" />
+        <Measure name="Gasto interno promedio en I +D realizado por los centros de investigación en el 2014" column="CONCYTEC_27" aggregator="sum" />
+        <Measure name="Gasto interno promedio en I +D realizado por los centros de investigación en el 2015" column="CONCYTEC_28" aggregator="sum" />
+        <Measure name="Gasto interno promedio en I +D realizado por Institutos Públicos de Investigación en el 2014" column="CONCYTEC_29" aggregator="sum" />
+        <Measure name="Gasto interno promedio en I +D realizado por Institutos Públicos de Investigación en el 2015" column="CONCYTEC_30" aggregator="sum" />
+        <Measure name="Gasto interno promedio en I +D realizado por Institutos de Educación Superior en el 2014" column="CONCYTEC_31" aggregator="sum" />
+        <Measure name="Gasto interno promedio en I +D realizado por Institutos de Educación Superior en el 2015" column="CONCYTEC_32" aggregator="sum" />
+        <Measure name="Gasto interno promedio en I +D realizado por Institutos de Salud en el 2014" column="CONCYTEC_33" aggregator="sum" />
+        <Measure name="Gasto interno promedio en I +D realizado por Institutos de Salud en el 2015" column="CONCYTEC_34" aggregator="sum" />
+        <Measure name="Gasto interno promedio en I +D realizado porcentros de investigación Privada Sin Fines de Lucro en el 2014" column="CONCYTEC_35" aggregator="sum" />
+        <Measure name="Gasto interno promedio en I +D realizado porcentros de investigación Privada Sin Fines de Lucro en el 2015" column="CONCYTEC_36" aggregator="sum" />
+        <Measure name="Gasto externo promedio en I +D realizado por los centros de investigación en el 2014" column="CONCYTEC_37" aggregator="sum" />
+        <Measure name="Gasto externo promedio en I +D realizado por los centros de investigación en el 2015" column="CONCYTEC_38" aggregator="sum" />
+        <Measure name="Gasto externo promedio en I +D realizado por Institutos Públicos de Investigación en el 2014" column="CONCYTEC_39" aggregator="sum" />
+        <Measure name="Gasto externo promedio en I +D realizado por Institutos Públicos de Investigación en el 2015" column="CONCYTEC_40" aggregator="sum" />
+        <Measure name="Gasto externo promedio en I +D realizado por Institutos de Educación Superior en el 2014" column="CONCYTEC_41" aggregator="sum" />
+        <Measure name="Gasto externo promedio en I +D realizado por Institutos de Educación Superior en el 2015" column="CONCYTEC_42" aggregator="sum" />
+        <Measure name="Gasto externo promedio en I +D realizado por Institutos de Salud en el 2014" column="CONCYTEC_43" aggregator="sum" />
+        <Measure name="Gasto externo promedio en I +D realizado por Institutos de Salud en el 2015" column="CONCYTEC_44" aggregator="sum" />
+        <Measure name="Gasto externo promedio en I +D realizado porcentros de investigación Privada Sin Fines de Lucro en el 2014" column="CONCYTEC_45" aggregator="sum" />
+        <Measure name="Gasto externo promedio en I +D realizado porcentros de investigación Privada Sin Fines de Lucro en el 2015" column="CONCYTEC_46" aggregator="sum" />
+        <Measure name="Total gasto corriente y de inversión en I+D destinado a financiar investigación básica en el 2014" column="CONCYTEC_47" aggregator="sum" />
+        <Measure name="Participación del gasto corriente y de inversión en I+D destinado a financiar investigación básica en el 2014 " column="CONCYTEC_48" aggregator="sum" />
+        <Measure name="Total gasto corriente y de inversión en I+D destinado a financiar investigación básica en el 2015" column="CONCYTEC_49" aggregator="sum" />
+        <Measure name="Participación del gasto corriente y de inversión en I+D destinado a financiar investigación básica en el 2015 " column="CONCYTEC_50" aggregator="sum" />
+        <Measure name="Total gasto corriente y de inversión en I+D destinado a financiar investigación aplicada en el 2014" column="CONCYTEC_51" aggregator="sum" />
+        <Measure name="Participación del gasto corriente y de inversión en I+D destinado a financiar investigación aplicada en el 2014 " column="CONCYTEC_52" aggregator="sum" />
+        <Measure name="Total gasto corriente y de inversión en I+D destinado a financiar investigación aplicada en el 2015" column="CONCYTEC_53" aggregator="sum" />
+        <Measure name="Participación del gasto corriente y de inversión en I+D destinado a financiar investigación aplicada en el 2015 " column="CONCYTEC_54" aggregator="sum" />
+        <Measure name="Total gasto corriente y de inversión en I+D destinado a financiar investigación tecnológico en el 2014" column="CONCYTEC_55" aggregator="sum" />
+        <Measure name="Participación del gasto corriente y de inversión en I+D destinado a financiar investigación tecnológico en el 2014 " column="CONCYTEC_56" aggregator="sum" />
+        <Measure name="Total gasto corriente y de inversión en I+D destinado a financiar investigación tecnológico en el 2015" column="CONCYTEC_57" aggregator="sum" />
+        <Measure name="Participación del gasto corriente y de inversión en I+D destinado a financiar investigación tecnológico en el 2015 " column="CONCYTEC_58" aggregator="sum" />
+        <Measure name="Número de proyectos de investigación iniciados en 2014 que tienen como área de conocimiento las Ciencias Naturales" column="CONCYTEC_59" aggregator="sum" />
+        <Measure name="Porcentaje de proyectos de investigación iniciados en 2014 que tienen como área de conocimiento las Ciencias Naturales" column="CONCYTEC_60" aggregator="sum" />
+        <Measure name="Número de proyectos de investigación iniciados en 2015 que tienen como área de conocimiento las Ciencias Naturales" column="CONCYTEC_61" aggregator="sum" />
+        <Measure name="Porcentaje de proyectos de investigación iniciados en 2015 que tienen como área de conocimiento las Ciencias Naturales" column="CONCYTEC_62" aggregator="sum" />
+        <Measure name="Número de proyectos de investigación iniciados en 2014 que tienen como área de conocimiento las Ingeniería y Tecnología" column="CONCYTEC_63" aggregator="sum" />
+        <Measure name="Porcentaje de proyectos de investigación iniciados en 2014 que tienen como área de conocimiento las Ingeniería y Tecnología" column="CONCYTEC_64" aggregator="sum" />
+        <Measure name="Número de proyectos de investigación iniciados en 2015 que tienen como área de conocimiento las Ingeniería y Tecnología" column="CONCYTEC_65" aggregator="sum" />
+        <Measure name="Porcentaje de proyectos de investigación iniciados en 2015 que tienen como área de conocimiento las Ingeniería y Tecnología" column="CONCYTEC_66" aggregator="sum" />
+        <Measure name="Número de proyectos de investigación iniciados en 2014 que tienen como área de conocimiento las Ciencias Médicas y la Salud" column="CONCYTEC_67" aggregator="sum" />
+        <Measure name="Porcentaje de proyectos de investigación iniciados en 2014 que tienen como área de conocimiento las Ciencias Médicas y la Salud" column="CONCYTEC_68" aggregator="sum" />
+        <Measure name="Número de proyectos de investigación iniciados en 2015 que tienen como área de conocimiento las Ciencias Médicas y la Salud" column="CONCYTEC_69" aggregator="sum" />
+        <Measure name="Porcentaje de proyectos de investigación iniciados en 2015 que tienen como área de conocimiento las Ciencias Médicas y la Salud" column="CONCYTEC_70" aggregator="sum" />
+        <Measure name="Número de proyectos de investigación iniciados en 2014 que tienen como área de conocimiento las Ciencias Agrícolas" column="CONCYTEC_71" aggregator="sum" />
+        <Measure name="Porcentaje de proyectos de investigación iniciados en 2014 que tienen como área de conocimiento las Ciencias Agrícolas" column="CONCYTEC_72" aggregator="sum" />
+        <Measure name="Número de proyectos de investigación iniciados en 2015 que tienen como área de conocimiento las Ciencias Agrícolas" column="CONCYTEC_73" aggregator="sum" />
+        <Measure name="Porcentaje de proyectos de investigación iniciados en 2015 que tienen como área de conocimiento las Ciencias Agrícolas" column="CONCYTEC_74" aggregator="sum" />
+        <Measure name="Número de proyectos de investigación iniciados en 2014 que tienen como área de conocimiento las Ciencias Sociales" column="CONCYTEC_75" aggregator="sum" />
+        <Measure name="Porcentaje de proyectos de investigación iniciados en 2014 que tienen como área de conocimiento las Ciencias Sociales" column="CONCYTEC_76" aggregator="sum" />
+        <Measure name="Número de proyectos de investigación iniciados en 2015 que tienen como área de conocimiento las Ciencias Sociales" column="CONCYTEC_77" aggregator="sum" />
+        <Measure name="Porcentaje de proyectos de investigación iniciados en 2015 que tienen como área de conocimiento las Ciencias Sociales" column="CONCYTEC_78" aggregator="sum" />
+        <Measure name="Número de proyectos de investigación iniciados en 2014 que tienen como área de conocimiento las Humanidades" column="CONCYTEC_79" aggregator="sum" />
+        <Measure name="Porcentaje de proyectos de investigación iniciados en 2014 que tienen como área de conocimiento las Humanidades" column="CONCYTEC_80" aggregator="sum" />
+        <Measure name="Número de proyectos de investigación iniciados en 2015 que tienen como área de conocimiento las Humanidades" column="CONCYTEC_81" aggregator="sum" />
+        <Measure name="Porcentaje de proyectos de investigación iniciados en 2015 que tienen como área de conocimiento las Humanidades" column="CONCYTEC_82" aggregator="sum" />
+
+    </Cube>
+</Schema>

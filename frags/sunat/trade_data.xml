@@ -1,0 +1,37 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="sunat_subnational_trade">
+        <Annotation name="source_name">SUNAT</Annotation>
+        <Annotation name="source_description">Superintendencia Nacional de Aduanas y de Administración Tributaria</Annotation>
+        <Annotation name="dataset_name">Registro de Exportaciones Definitivas</Annotation>
+        <Annotation name="dataset_link">https://www.sunat.gob.pe/</Annotation>
+
+        <Table name="sunat_exports" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="trade_flow_id" source="Trade Flow" name="Trade Flow" />
+        <DimensionUsage foreign_key="country_id" source="Pais" name="Pais Destino" />
+        <DimensionUsage foreign_key="shipment_date_id" source="Date Day" name="Fecha Envio" />
+        <DimensionUsage foreign_key="hs6_id" source="Producto" name="Producto" />
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+        
+
+        <Dimension name="Aduana" foreign_key="aduana_id">
+            <Hierarchy name="Aduana">
+                <Table name="dim_shared_aduanas" />
+
+                <Level name="Aduana" key_column="aduana_id" name_column="aduana" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Unidad" foreign_key="unit">
+            <Hierarchy name="Unidad">
+                <Table name="dim_shared_customs_unities" />
+
+                <Level name="Unidad" key_column="measure_unit_id" name_column="measure_unit_name" key_type="text" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Trade Value" column="trade_value" aggregator="sum" />
+        <Measure name="Peso Neto" column="net_weight_value" aggregator="sum" />
+        <Measure name="Cantidad" column="quantity" aggregator="sum" />
+    </Cube>
+</Schema>
