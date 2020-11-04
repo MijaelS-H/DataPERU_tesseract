@@ -9,9 +9,9 @@
 
         <DimensionUsage foreign_key="nation_id" source="Ubigeo Nacion" name="Ubigeo Nacion" />
         <DimensionUsage foreign_key="department_id" source="Ubigeo Departamento Lite" name="Ubigeo Departamento" />
-        <DimensionUsage foreign_key="indicator_id" source="Indicadores Anuales INFOCULTURA" name="Indicadores Anuales INFOCULTURA" />
-        <DimensionUsage foreign_key="category_id" source="Categorias Anuales INFOCULTURA" name="Categorias Anuales INFOCULTURA" />
-        <DimensionUsage foreign_key="subcategory_id" source="Subcategorias Anuales INFOCULTURA" name="Subcategorias Anuales INFOCULTURA" />
+        <DimensionUsage foreign_key="indicator_id" source="Indicadores Anuales INFOCULTURA" name="Indicador" />
+        <DimensionUsage foreign_key="category_id" source="Categorias Anuales INFOCULTURA" name="Categoria" />
+        <DimensionUsage foreign_key="subcategory_id" source="Subcategorias Anuales INFOCULTURA" name="Subcategoria" />
         
         <Dimension name="Year" foreign_key="year">
             <Hierarchy name="Year">
