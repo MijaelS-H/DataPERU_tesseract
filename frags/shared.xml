@@ -182,6 +182,60 @@
         </Hierarchy>
     </SharedDimension>
 
+    <SharedDimension name="Contribuyente" type="standard">
+        <Hierarchy name="Contribuyente">
+            <Table name="dim_shared_cite_contribuyente" />
+            <Level name="Contribuyente" key_column="contribuyente_id" name_column="contribuyente" key_type="nontext" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Cadena productiva" type="standard">
+        <Hierarchy name="Cadena productiva">
+            <Table name="dim_shared_cite_cad_prod" />
+            <Level name="Cadena productiva" key_column="cad_prod_id" name_column="cadena_productiva" key_type="nontext" />
+        </Hierarchy>
+    </SharedDimension>
+        
+    <SharedDimension name="Estado CITE" type="standard">
+        <Hierarchy name="Estado CITE">
+            <Table name="dim_shared_cite_estado" />
+            <Level name="Estado CITE" key_column="estado_id" name_column="estado" key_type="nontext" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="CITE" type="geo">
+        <Hierarchy name="CITE">
+          <Table name="dim_shared_cite" />
+          <Level name="CITE" key_column="cite_id" name_column="cite" key_type="nontext">
+            <Property name="Tipo" column="tipo"/>
+            <Property name="Director" column="director"/>
+            <Property name="Coordinador UT" column="coordinador_ut"/>
+            <Property name="Directiva" column="lista_miembros"/>
+            <Property name="Ambito" column="ambito"/>
+            <Property name="Ubigeo" column="district_id"/>
+            <Property name="Direccion" column="direccion"/>
+            <Property name="Latitud" column="latitud"/>
+            <Property name="Longitud" column="longitud"/>
+            <Property name="Descripcion" column="descriptivo"/>
+            <Property name="CITE Slug" column="cite_slug"/>
+            <Property name="Cadena atencion" column="cadena_atencion"/>
+            <Property name="Cadena pip" column="cadena_pip"/>
+            <Property name="Cadena resolucion" column="cadena_resolucion"/>
+          </Level>
+        </Hierarchy>
+    </SharedDimension>    
+
+    <SharedDimension name="Producto HS10" type="standard">
+        <Hierarchy name="Producto HS10">
+            <Table name="dim_shared_hs10" />
+            <Level name="Capítulo" key_column="chapter_id" name_column="chapter_name" key_type="text" />
+            <Level name="HS2" key_column="hs2_id" name_column="hs2_name" key_type="text" />
+            <Level name="HS4" key_column="hs4_id" name_column="hs4_name" key_type="text" />
+            <Level name="HS6" key_column="hs6_id" name_column="hs6_name" key_type="text" />
+            <Level name="HS10" key_column="hs10_id" name_column="hs10_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
     <SharedDimension name="Cultivo" type="standard">
         <Hierarchy name="Cultivo">
             <Table name="dim_shared_dinamica_agricola" />

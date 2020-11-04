@@ -1,0 +1,67 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="itp_cite_inversion">
+        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
+
+        <Table name="itp_cite_inversion" primary_key="cite_id"/>
+        
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+
+        <Dimension name="Componente" foreign_key="componente_id">
+            <Hierarchy name="Componente" primary_key="id">
+                <InlineTable alias="dim_inline_componente_id_cite">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Capacitación y Asistencia Técnica</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Equipamiento</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Estudio de Impacto Ambiental</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Estudio de Línea de Base</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">Expediente Técnico</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">6</Value>
+                        <Value column="name">Fortalecimiento de capacidades</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">7</Value>
+                        <Value column="name">Gestión del Proyecto</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">8</Value>
+                        <Value column="name">Infraestructura</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">9</Value>
+                        <Value column="name">Supervisión</Value>
+                    </Row>         
+                    <Row>
+                        <Value column="id">10</Value>
+                        <Value column="name">Transferencia Tecnológica</Value>
+                    </Row>
+
+                </InlineTable>
+                <Level name="Componente" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Inversion" column="inversion" aggregator="sum" />
+        <Measure name="Ejecucion" column="ejecucion" aggregator="sum" />
+
+    </Cube>
+</Schema>       

@@ -1,0 +1,59 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="itp_cite_empresas_tipo">
+        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
+
+        <Table name="itp_cite_empresas_tipo" primary_key="cite_id"/>
+        
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+
+        <Dimension name="Tipo empresa" foreign_key="empresa_id">
+            <Hierarchy name="Tipo empresa" primary_key="id">
+                <InlineTable alias="dim_inline_empresa_id_cite">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Gran empresa</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Mediana empresa</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Microempresa</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Otros</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">Pequeña empresa</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">6</Value>
+                        <Value column="name">Persona natural</Value>
+                    </Row>
+
+
+                </InlineTable>
+                <Level name="Tipo empresa" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+
+        <Dimension name="Time" foreign_key="time">
+            <Hierarchy name="Time">
+                <Level name="Time" key_column="time" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+
+        <Measure name="Empresas" column="empresas" aggregator="sum" />
+
+    </Cube>
+</Schema>       

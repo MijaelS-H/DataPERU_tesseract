@@ -1,0 +1,25 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="itp_cite_empresas_contribuyente">
+        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
+
+        <Table name="itp_cite_empresas_contribuyente" primary_key="cite_id"/>
+
+    
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+        <DimensionUsage foreign_key="contribuyente_id" source="Contribuyente" name="Contribuyente" />
+
+
+        <Dimension name="Year" foreign_key="anio">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="anio" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+
+        <Measure name="Empresas" column="empresas" aggregator="sum" />
+
+    </Cube>
+</Schema>       
