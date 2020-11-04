@@ -1,0 +1,25 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="cultura_infocultura_year">
+        <Annotation name="source_name">INFOCULTURA</Annotation>
+        <Annotation name="source_description">Plataforma de Información Estadística del Sector Cultura</Annotation>
+        <Annotation name="dataset_name">Consulta indicadores INFOCULTURA</Annotation>
+        <Annotation name="dataset_link">http://infocultura.cultura.pe/infocultura/</Annotation>
+
+        <Table name="cultura_infocultura_year" primary_key="department_id" />
+
+        <DimensionUsage foreign_key="nation_id" source="Ubigeo Nacion" name="Ubigeo Nacion" />
+        <DimensionUsage foreign_key="department_id" source="Ubigeo Departamento Lite" name="Ubigeo Departamento" />
+        <DimensionUsage foreign_key="indicator_id" source="Indicadores Anuales INFOCULTURA" name="Indicador" />
+        <DimensionUsage foreign_key="category_id" source="Categorias Anuales INFOCULTURA" name="Categoria" />
+        <DimensionUsage foreign_key="subcategory_id" source="Subcategorias Anuales INFOCULTURA" name="Subcategoria" />
+        
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Valor indicador" column="response" aggregator="sum" />
+
+    </Cube>
+</Schema>
