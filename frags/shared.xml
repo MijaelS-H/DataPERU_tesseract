@@ -228,10 +228,7 @@
     <SharedDimension name="Producto HS10" type="standard">
         <Hierarchy name="Producto HS10">
             <Table name="dim_shared_hs10" />
-            <Level name="Capítulo" key_column="chapter_id" name_column="chapter_name" key_type="text" />
-            <Level name="HS2" key_column="hs2_id" name_column="hs2_name" key_type="text" />
-            <Level name="HS4" key_column="hs4_id" name_column="hs4_name" key_type="text" />
-            <Level name="HS6" key_column="hs6_id" name_column="hs6_name" key_type="text" />
+
             <Level name="HS10" key_column="hs10_id" name_column="hs10_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
