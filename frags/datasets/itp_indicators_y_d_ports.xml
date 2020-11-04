@@ -1,0 +1,30 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="itp_indicators_y_d_ports">
+        <Annotation name="topic">Economia</Annotation>
+        <Annotation name="subtopic">Economia</Annotation>
+        <Annotation name="source_name">Indicadores ITP</Annotation>
+
+        <Table name="itp_indicators_y_d_ports" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo Departamento" name="Ubigeo" />
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <SharedDimension name="Puertos de desembarque" type="standard">
+            <Hierarchy name="Puertos de desembarque">
+                <Table name="dim_shared_ports" />
+
+                <Level name="Puerto" key_column="port_id" name_column="port_name" key_type="text" />
+            </Hierarchy>
+        </SharedDimension>
+
+
+        <Measure name="Desembarque de recursos marinos" column="desembarque_recursos_marinos" aggregator="sum" />
+
+    </Cube>
+</Schema>
+

@@ -1,0 +1,38 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="minagri_dinamica_pecuaria">
+        <Annotation name="source_name">MINAGRI</Annotation>
+        <Annotation name="source_description">Ministerio de Agricultura y Riego</Annotation>
+        <Annotation name="dataset_name">Registro de Dinámicas Pecuarias</Annotation>
+        <Annotation name="dataset_link">https://www.gob.pe/minagri</Annotation>
+
+        <Table name="minagri_dinamica_pecuaria" primary_key="district_id" />
+
+        <DimensionUsage foreign_key="department_id" source="Ubigeo Departamento" name="Ubigeo" />
+        <DimensionUsage foreign_key="month_id" source="Date Month" name="Date" />
+
+        <Dimension name="Producto" foreign_key="producto_id">
+            <Hierarchy name="Producto" primary_key="producto_id">
+                <Table name="dim_shared_dinamica_pecuaria" />
+                
+                <Level name="Producto" key_column="producto_id" name_column="producto_name" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Unidad Produccion" foreign_key="produccion_unidad">
+            <Hierarchy name="Unidad Produccion" primary_key="id">
+                <InlineTable alias="dim_unidad_produccion">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Tonelada (t)</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Unidad Produccion" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Producción" column="produccion" aggregator="sum" />  
+
+    </Cube>
+</Schema>

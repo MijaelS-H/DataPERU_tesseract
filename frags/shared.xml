@@ -155,6 +155,19 @@
         </Hierarchy>
     </SharedDimension>
 
+    <SharedDimension name="Date Month" type="time">
+        <Hierarchy name="Date" primary_key="month_id">
+            <Table name="dim_shared_date_month" />
+            <Level name="Year" key_column="year" />
+            <Level name="Quarter" key_column="quarter_id" name_column="quarter">
+                <Property name="Quarter ES" column="quarter" caption_set="es" />
+            </Level>
+            <Level name="Month" key_column="month_id" name_column="month">
+                <Property name="Month ES" column="month" caption_set="es" />
+            </Level>
+        </Hierarchy>
+    </SharedDimension>
+
     <SharedDimension name="Date Day" type="time">
         <Hierarchy name="Date" primary_key="date_id">
             <Table name="dim_shared_date_month_day" />
@@ -302,5 +315,27 @@
             <Level name="Subcategoria" key_column="subcategory_id" name_column="subcategory_name" key_type="nontext" />
         </Hierarchy>
     </SharedDimension>    
+
+    <SharedDimension name="Nivel Gobierno">
+        <Hierarchy name="Nivel Gobierno" primary_key="id">
+            <InlineTable alias="dim_inline_nivel_gobierno">
+            <ColumnDef name="id" key_type="nontext" />
+            <ColumnDef name="name" key_type="text" />
+            <Row>
+                <Value column="id">1</Value>
+                <Value column="name">Gobierno Nacional</Value>
+            </Row>
+            <Row>
+                <Value column="id">2</Value>
+                <Value column="name">Gobiernos Regionales</Value>
+            </Row>
+            <Row>
+                <Value column="id">3</Value>
+                <Value column="name">Gobiernos Locales</Value>
+            </Row>
+            </InlineTable>
+            <Level name="Nivel Gobierno" key_column="id" name_column="name" />
+        </Hierarchy>
+    </SharedDimension>
 
 </Schema>

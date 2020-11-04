@@ -1,0 +1,72 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="itp_indicators_y_n_tourism_capacity">
+        <Annotation name="topic">Turismo</Annotation>
+        <Annotation name="subtopic">Turismo</Annotation>
+        <Annotation name="source_name">Indicadores ITP</Annotation>
+
+        <Table name="itp_indicators_y_n_tourism_capacity" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo Nacion" name="Ubigeo" />
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Categoria de hospedaje" foreign_key="categoria">
+            <Hierarchy name="Categoria de hospedaje" primary_key="id">
+                <InlineTable alias="dim_categoria">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">1 Estrella</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">2 Estrellas</Value>
+                    </Row>
+
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">3 Estrellas</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">4 Estrellas</Value>
+                    </Row>
+
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">5 Estrellas</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">6</Value>
+                        <Value column="name">Albergue</Value>
+                    </Row>
+
+                    <Row>
+                        <Value column="id">7</Value>
+                        <Value column="name">Ecolodge</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">8</Value>
+                        <Value column="name">No Categorizados</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Categoria de hospedaje" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Cantidad de arribos nacionales" column="n_arribos_nacionales" aggregator="sum" />
+        <Measure name="Cantidad de arribos extranjeros" column="n_arribos_extranjeros" aggregator="sum" />
+        <Measure name="Cantidad de pernoctaciones nacionales" column="n_pernoctaciones_nacionales" aggregator="sum" />
+        <Measure name="Cantidad de pernoctaciones extranjeros" column="n_pernoctaciones_extranjeros" aggregator="sum" />
+        <Measure name="Permanencia promedio nacionales" column="permanencia_prom_nacionales" aggregator="sum" />
+        <Measure name="Permanencia promedio extranjeros" column="permanencia_prom_extranjeros" aggregator="sum" />
+        <Measure name="Tasa de ocupacion habitaciones" column="tasa_ocupacion_hab" aggregator="sum" />
+        <Measure name="Tasa de ocupacion camas" column="tasa_ocupacion_camas" aggregator="sum" />
+
+    </Cube>
+</Schema>
