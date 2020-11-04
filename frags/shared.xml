@@ -211,13 +211,6 @@
             <Level name="Cadena productiva" key_column="cad_prod_id" name_column="cadena_productiva" key_type="nontext" />
         </Hierarchy>
     </SharedDimension>
-
-    <SharedDimension name="Cadena productiva atendida" type="standard">
-        <Hierarchy name="Cadena productiva atendida">
-            <Table name="dim_shared_cadenas_productivas_atendidas" />
-            <Level name="Cadena productiva atendida" key_column="cadena_productiva_id" name_column="cadena_productiva" key_type="nontext" />
-        </Hierarchy>
-    </SharedDimension>
         
     <SharedDimension name="Estado CITE" type="standard">
         <Hierarchy name="Estado CITE">

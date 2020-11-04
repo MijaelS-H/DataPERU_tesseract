@@ -1,15 +1,4 @@
 <Schema name="dataperu">
-    <SharedDimension name="CIIU Rev 3" type="standard">
-        <Hierarchy name="CIIU Rev 3">
-            <Table name="dim_shared_ciiu_rev_3" />
-
-            <Level name="Seccion" key_column="section_id" name_column="section_name" key_type="text" />
-            <Level name="Division" key_column="division_id" name_column="division_name" key_type="text" />
-            <Level name="Grupo" key_column="group_id" name_column="group_name" key_type="text" />
-            <Level name="Clase" key_column="class_id" name_column="class_name" key_type="text" />
-        </Hierarchy>
-    </SharedDimension>
-
     <SharedDimension name="CIIU" type="standard">
         <Hierarchy name="CIIU">
             <Table name="dim_shared_ciiu" />
@@ -76,6 +65,7 @@
     <SharedDimension name="Ubigeo Departamento Lite" type="geo">
         <Hierarchy name="Ubigeo Departamento Lite">
             <Table name="dim_shared_ubigeo_department" />
+
             <Level name="Departamento" key_column="department_id" name_column="department_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
@@ -90,6 +80,14 @@
         </Hierarchy>
     </SharedDimension>
 
+    <SharedDimension name="Ubigeo Provincia Lite" type="geo">
+        <Hierarchy name="Ubigeo Provincia Lite">
+            <Table name="dim_shared_ubigeo_province" />
+
+            <Level name="Provincia" key_column="province_id" name_column="province_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
     <SharedDimension name="Ubigeo" type="geo">
         <Hierarchy name="Ubigeo">
             <Table name="dim_shared_ubigeo_district" />
@@ -98,6 +96,105 @@
             <Level name="Departamento" key_column="department_id" name_column="department_name" key_type="text" />
             <Level name="Provincia" key_column="province_id" name_column="province_name" key_type="text" />
             <Level name="Distrito" key_column="district_id" name_column="district_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Ubigeo Lite" type="geo">
+        <Hierarchy name="Ubigeo Lite">
+            <Table name="dim_shared_ubigeo_district" />
+            
+            <Level name="Distrito" key_column="district_id" name_column="district_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Centros Poblados" type="geo">
+        <Hierarchy name="Centros Poblados">
+            <Table name="dim_shared_populated_centers" />
+
+            <Level name="Nacion" key_column="nation_id" name_column="nation_name" key_type="text" />
+            <Level name="Departamento" key_column="department_id" name_column="department_name" key_type="text" />
+            <Level name="Provincia" key_column="province_id" name_column="province_name" key_type="text" />
+            <Level name="Centro Poblado" key_column="populated_center_id" name_column="populated_center_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Centros Poblados Lite" type="geo">
+        <Hierarchy name="Centros Poblados Lite">
+            <Table name="dim_shared_populated_centers" />
+
+            <Level name="Centro Poblado" key_column="populated_center_id" name_column="populated_center_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Trade Flow" type="standard">
+        <Hierarchy name="Trade Flow">
+            <Table name="dim_shared_trade_flow" />
+
+            <Level name="Trade Flow" key_column="trade_flow_id" name_column="trade_flow" key_type="nontext" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Pais">
+        <Hierarchy name="Pais" primary_key="iso2">
+            <Table name="dim_shared_country"/>
+            <Level name="Continente" key_column="continent_id" name_column="continent_es" key_type="text" />
+            <Level name="Pais" key_column="iso2" name_column="country_name_es" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Date Month" type="time">
+        <Hierarchy name="Date" primary_key="month_id">
+            <Table name="dim_shared_date_month" />
+            <Level name="Year" key_column="year" />
+            <Level name="Quarter" key_column="quarter_id" name_column="quarter">
+                <Property name="Quarter ES" column="quarter" caption_set="es" />
+            </Level>
+            <Level name="Month" key_column="month_id" name_column="month">
+                <Property name="Month ES" column="month" caption_set="es" />
+            </Level>
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Date Day" type="time">
+        <Hierarchy name="Date" primary_key="date_id">
+            <Table name="dim_shared_date_month_day" />
+            <Level name="Year" key_column="year" />
+            <Level name="Quarter" key_column="quarter_id" name_column="quarter">
+                <Property name="Quarter ES" column="quarter" caption_set="es" />
+            </Level>
+            <Level name="Month" key_column="month_id" name_column="month">
+                <Property name="Month ES" column="month" caption_set="es" />
+            </Level>
+            <Level name="Date" key_column="date_id" name_column="date">
+                <Property name="Date ES" column="date" caption_set="es" />
+            </Level>
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Producto" type="standard">
+        <Hierarchy name="Producto">
+            <Table name="dim_shared_hs" />
+
+            <Level name="Capítulo" key_column="chapter_id" name_column="chapter_name" key_type="text" />
+            <Level name="HS2" key_column="hs2_id" name_column="hs2_name" key_type="text" />
+            <Level name="HS4" key_column="hs4_id" name_column="hs4_name" key_type="text" />
+            <Level name="HS6" key_column="hs6_id" name_column="hs6_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Cultivo" type="standard">
+        <Hierarchy name="Cultivo">
+            <Table name="dim_shared_dinamica_agricola" />
+
+            <Level name="Cultivo" key_column="cultivo_id" name_column="cultivo_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Mercado" type="standard">
+        <Hierarchy name="Mercado">
+            <Table name="dim_market" />
+            
+            <Level name="Mercado" key_column="market_id" name_column="market_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
 
@@ -114,16 +211,6 @@
             <Level name="Cadena productiva" key_column="cad_prod_id" name_column="cadena_productiva" key_type="nontext" />
         </Hierarchy>
     </SharedDimension>
-
-    <SharedDimension name="Producto" type="standard">
-        <Hierarchy name="Producto">
-            <Table name="dim_shared_hs" />
-            <Level name="Capítulo" key_column="chapter_id" name_column="chapter_name" key_type="text" />
-            <Level name="HS2" key_column="hs2_id" name_column="hs2_name" key_type="text" />
-            <Level name="HS4" key_column="hs4_id" name_column="hs4_name" key_type="text" />
-            <Level name="HS6" key_column="hs6_id" name_column="hs6_name" key_type="text" />
-        </Hierarchy>
-    </SharedDimension>
         
     <SharedDimension name="Estado CITE" type="standard">
         <Hierarchy name="Estado CITE">
@@ -131,7 +218,6 @@
             <Level name="Estado CITE" key_column="estado_id" name_column="estado" key_type="nontext" />
         </Hierarchy>
     </SharedDimension>
-
 
     <SharedDimension name="CITE" type="geo">
         <Hierarchy name="CITE">
@@ -153,7 +239,18 @@
             <Property name="Cadena resolucion" column="cadena_resolucion"/>
           </Level>
         </Hierarchy>
-    </SharedDimension>  
+    </SharedDimension>    
+
+    <SharedDimension name="Producto HS10" type="standard">
+        <Hierarchy name="Producto HS10">
+            <Table name="dim_shared_hs10" />
+            <Level name="Capítulo" key_column="chapter_id" name_column="chapter_name" key_type="text" />
+            <Level name="HS2" key_column="hs2_id" name_column="hs2_name" key_type="text" />
+            <Level name="HS4" key_column="hs4_id" name_column="hs4_name" key_type="text" />
+            <Level name="HS6" key_column="hs6_id" name_column="hs6_name" key_type="text" />
+            <Level name="HS10" key_column="hs10_id" name_column="hs10_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
     <Cube name="itp_indicators_y_act_dept">
 
     	<Annotation name="topic">Economia</Annotation>
@@ -649,6 +746,40 @@
 
         <Measure name="Cantidad CITE" column="cantidad_cite" aggregator="count" />
 
+    </Cube>
+    <Cube name="itp_cite_partidas_atendidas">
+        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
+
+        <Table name="itp_cite_partidas_atendidas" primary_key="cite_id"/>
+
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />   
+        <DimensionUsage foreign_key="hs10_id" source="Producto HS10" name="Producto HS10" />       
+
+        <Dimension name="Cadena atencion" foreign_key="cadena_atencion_id">
+            <Hierarchy name="Cadena atencion" primary_key="cadena_productiva_id">
+                <Table name="dim_shared_cadenas_productivas_atendidas" />
+                <Level name="Cadena atencion" key_column="cadena_productiva_id" name_column="cadena_productiva" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Cadena pip" foreign_key="cadena_pip_id">
+            <Hierarchy name="Cadena pip" primary_key="cadena_productiva_id" >
+                <Table name="dim_shared_cadenas_productivas_atendidas" />
+                <Level name="Cadena pip" key_column="cadena_productiva_id" name_column="cadena_productiva" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Cadena resolucion" foreign_key="cadena_resolucion_id">
+            <Hierarchy name="Cadena resolucion" primary_key="cadena_productiva_id">
+                <Table name="dim_shared_cadenas_productivas_atendidas" />
+                <Level name="Cadena resolucion" key_column="cadena_productiva_id" name_column="cadena_productiva" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+ 
+        <Measure name="Cadena CITE" column="cantidad_cite" aggregator="sum" />
     </Cube>
     <Cube name="itp_cite_pim">
         <Annotation name="source_name">ITP</Annotation>
