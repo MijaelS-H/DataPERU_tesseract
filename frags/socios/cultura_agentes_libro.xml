@@ -1,0 +1,152 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="cultura_agentes_libro">
+        <Annotation name="source_name">Ministerio de Cultura</Annotation>
+        <Annotation name="source_description">Ministerio de Cultura</Annotation>
+        <Annotation name="dataset_name">Directorio de agentes del ecosistema del libro 2020</Annotation>
+        <Annotation name="dataset_link">https://www.gob.pe/cultura</Annotation>
+
+        <Table name="cultura_agentes_libro" primary_key="district_id" />
+
+        <DimensionUsage foreign_key="district_id" source="Ubigeo" name="Ubigeo" />
+        <DimensionUsage foreign_key="razon_social_id" source="Razon Social Agentes" name="Razon Social Agentes" />
+
+        <Dimension name="Actividad 1" foreign_key="actividad_1_id">
+            <Hierarchy name="Actividad 1" primary_key="id">
+                <InlineTable alias="dim_inline_actividad_1_id_agentes">
+                    <ColumnDef name="name" key_type="text" />
+                    <ColumnDef name="id" key_type="nontext" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Editorial</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Cartonera</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Librería</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Distribuidora</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">Revista</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">6</Value>
+                        <Value column="name">Imprenta</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">7</Value>
+                        <Value column="name">Fondos Universitarios</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">8</Value>
+                        <Value column="name">Prensa</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">9</Value>
+                        <Value column="name">Autor-editor</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">10</Value>
+                        <Value column="name">Fanzine</Value>
+                    </Row>           
+                </InlineTable>
+                <Level name="Actividad 1" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Actividad 2" foreign_key="actividad_2_id">
+            <Hierarchy name="Actividad 2" primary_key="id">
+                <InlineTable alias="dim_inline_actividad_2_id_agentes">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Fanzine</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Libro Electrónico</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Imprenta</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Editorial</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">Librería</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">6</Value>
+                        <Value column="name">Distribuidora</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Actividad 2" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Actividad 3" foreign_key="actividad_3_id">
+            <Hierarchy name="Actividad 3" primary_key="id">
+                <InlineTable alias="dim_inline_actividad_3_id_agentes">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Otros</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Librería</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Distribuidora</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Actividad 3" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Actividad 4" foreign_key="actividad_4_id">
+            <Hierarchy name="Actividad 4" primary_key="id">
+                <InlineTable alias="dim_inline_actividad_4_id_agentes">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Librería</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Actividad 4" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Cantidad Agentes" column="cantidad_agentes" aggregator="sum" />
+
+    </Cube>
+</Schema>

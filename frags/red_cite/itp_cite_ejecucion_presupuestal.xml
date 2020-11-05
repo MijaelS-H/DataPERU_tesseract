@@ -1,0 +1,22 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="itp_cite_ejecucion_presupuestal">
+        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
+
+        <Table name="itp_cite_ejecucion_presupuestal" primary_key="cite_id"/>
+
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+ 
+
+        <Dimension name="Time" foreign_key="time">
+            <Hierarchy name="Time">
+                <Level name="Time" key_column="time" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Ejecución presupuestal" column="ejecucion_presupuestal" aggregator="sum" />
+
+    </Cube>
+</Schema>       

@@ -1,0 +1,144 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="cultura_cine">
+        <Annotation name="source_name">Ministerio de Cultura</Annotation>
+        <Annotation name="source_description">Ministerio de Cultura</Annotation>
+        <Annotation name="dataset_name">Registro Nacional Cinematográfico</Annotation>
+        <Annotation name="dataset_link">https://www.gob.pe/cultura</Annotation>
+
+        <Table name="cultura_cine" primary_key="district_id" />
+
+        <DimensionUsage foreign_key="district_id" source="Ubigeo" name="Ubigeo" />
+        <DimensionUsage foreign_key="razon_social_id" source="Razon Social Cine" name="Razon Social Cine" />
+        
+        <Dimension name="Tipo Constitucion" foreign_key="tipo_constitucion_id">
+            <Hierarchy name="Tipo Constitucion" primary_key="id">
+                <InlineTable alias="dim_inline_tipo_constitucion_id">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Asociación</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Empresa</Value>
+                    </Row>     
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Empresa de derecho público (Institución formativa)</Value>
+                    </Row>    
+                </InlineTable>
+                <Level name="Tipo Constitucion" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Actividad 1" foreign_key="actividad_1_id">
+            <Hierarchy name="Actividad 1" primary_key="id">
+                <InlineTable alias="dim_inline_actividad_1_id_cine">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Productora</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Servicios conexos</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Exhibidora</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Distribuidora</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">Formación</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Actividad 1" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Actividad 2" foreign_key="actividad_2_id">
+            <Hierarchy name="Actividad 2" primary_key="id">
+                <InlineTable alias="dim_inline_actividad_2_id_cine">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Servicios conexos</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Distribuidora</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Exhibidora</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Actividad 2" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Actividad 3" foreign_key="actividad_3_id">
+            <Hierarchy name="Actividad 3" primary_key="id">
+                <InlineTable alias="dim_inline_actividad_3_id_cine">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Exhibidora</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Actividad 3" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Actividad 4" foreign_key="actividad_4_id">
+            <Hierarchy name="Actividad 4" primary_key="id">
+                <InlineTable alias="dim_inline_actividad_4_id_cine">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Servicios conexos</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Actividad 4" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension> 
+
+        <Measure name="Cantidad Organizaciones" column="cantidad_org" aggregator="sum" />
+
+    </Cube>
+</Schema>

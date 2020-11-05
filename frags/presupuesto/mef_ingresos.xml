@@ -1,0 +1,56 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="mef_presupuesto_ingresos">
+        <Annotation name="source_name">MEF</Annotation>
+        <Annotation name="source_description">Ministerio de Economía y Finanzas</Annotation>
+        <Annotation name="dataset_name">Recaudación Presupuestal</Annotation>
+        <Annotation name="dataset_link">https://www.gob.pe/mef</Annotation>
+
+        <Table name="mef_presupuesto_ingresos" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="nivel_gobierno" source="Nivel Gobierno" name="Nivel Gobierno" />
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+
+        <Dimension name="Sector" foreign_key="sector">
+            <Hierarchy name="Sector" primary_key="sector">
+                <Table name="dim_mef_ingresos_sector" />
+                
+                <Level name="Sector" key_column="sector" name_column="sector_nombre" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Pliego" foreign_key="pliego">
+            <Hierarchy name="Pliego" primary_key="pliego">
+                <Table name="dim_mef_ingresos_pliego" />
+                
+                <Level name="Pliego" key_column="pliego" name_column="pliego_nombre" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Rubro" foreign_key="rubro">
+            <Hierarchy name="Rubro" primary_key="rubro">
+                <Table name="dim_mef_ingresos_rubro" />
+                
+                <Level name="Rubro" key_column="rubro" name_column="rubro_nombre" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Fuente de Financiamiento" foreign_key="fuente_financiamiento">
+            <Hierarchy name="Fuente de Financiamiento" primary_key="fuente_financiamiento">
+                <Table name="dim_mef_ingresos_fuente_financiamiento" />
+                
+                <Level name="Fuente de Financiamiento" key_column="fuente_financiamiento" name_column="fuente_financiamiento_nombre" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="PIA" column="pia" aggregator="sum" />
+        <Measure name="PIM" column="pim" aggregator="sum" /> 
+        <Measure name="Monto Recaudado" column="monto_recaudado" aggregator="sum" />
+
+    </Cube>
+</Schema>

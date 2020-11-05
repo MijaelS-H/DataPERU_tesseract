@@ -135,10 +135,10 @@
     </SharedDimension>
 
     <SharedDimension name="Pais">
-        <Hierarchy name="Pais" primary_key="iso2">
+        <Hierarchy name="Pais" primary_key="iso3">
             <Table name="dim_shared_country"/>
             <Level name="Continente" key_column="continent_id" name_column="continent_es" key_type="text" />
-            <Level name="Pais" key_column="iso2" name_column="country_name_es" key_type="text" />
+            <Level name="Pais" key_column="iso3" name_column="country_name_es" key_type="text" />
         </Hierarchy>
     </SharedDimension>
 
@@ -182,6 +182,57 @@
         </Hierarchy>
     </SharedDimension>
 
+    <SharedDimension name="Contribuyente" type="standard">
+        <Hierarchy name="Contribuyente">
+            <Table name="dim_shared_cite_contribuyente" />
+            <Level name="Contribuyente" key_column="contribuyente_id" name_column="contribuyente" key_type="nontext" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Cadena productiva" type="standard">
+        <Hierarchy name="Cadena productiva">
+            <Table name="dim_shared_cite_cad_prod" />
+            <Level name="Cadena productiva" key_column="cad_prod_id" name_column="cadena_productiva" key_type="nontext" />
+        </Hierarchy>
+    </SharedDimension>
+        
+    <SharedDimension name="Estado CITE" type="standard">
+        <Hierarchy name="Estado CITE">
+            <Table name="dim_shared_cite_estado" />
+            <Level name="Estado CITE" key_column="estado_id" name_column="estado" key_type="nontext" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="CITE" type="geo">
+        <Hierarchy name="CITE">
+          <Table name="dim_shared_cite" />
+          <Level name="CITE" key_column="cite_id" name_column="cite" key_type="nontext">
+            <Property name="Tipo" column="tipo"/>
+            <Property name="Director" column="director"/>
+            <Property name="Coordinador UT" column="coordinador_ut"/>
+            <Property name="Directiva" column="lista_miembros"/>
+            <Property name="Ambito" column="ambito"/>
+            <Property name="Ubigeo" column="district_id"/>
+            <Property name="Direccion" column="direccion"/>
+            <Property name="Latitud" column="latitud"/>
+            <Property name="Longitud" column="longitud"/>
+            <Property name="Descripcion" column="descriptivo"/>
+            <Property name="CITE Slug" column="cite_slug"/>
+            <Property name="Cadena atencion" column="cadena_atencion"/>
+            <Property name="Cadena pip" column="cadena_pip"/>
+            <Property name="Cadena resolucion" column="cadena_resolucion"/>
+          </Level>
+        </Hierarchy>
+    </SharedDimension>    
+
+    <SharedDimension name="Producto HS10" type="standard">
+        <Hierarchy name="Producto HS10">
+            <Table name="dim_shared_hs10" />
+
+            <Level name="HS10" key_column="hs10_id" name_column="hs10_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
     <SharedDimension name="Cultivo" type="standard">
         <Hierarchy name="Cultivo">
             <Table name="dim_shared_dinamica_agricola" />
@@ -195,6 +246,133 @@
             <Table name="dim_market" />
             
             <Level name="Mercado" key_column="market_id" name_column="market_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Razon Social Agentes" type="standard">
+        <Hierarchy name="Razon Social Agentes">
+            <Table name="dim_razon_social_agentes" />
+            <Level name="Razon Social Agentes" key_column="razon_social_id" name_column="razon_social_name" key_type="nontext" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Asociaciones Culturales" type="standard">
+        <Hierarchy name="Asociaciones Culturales">
+            <Table name="dim_asociaciones_culturales" />
+            <Level name="Asociaciones Culturales" key_column="codigo_asociacion" name_column="asociacion_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Manifestacion 1" type="standard">
+        <Hierarchy name="Manifestacion 1">
+            <Table name="dim_asociaciones_culturales_manifestacion_n_1" />
+            <Level name="Manifestacion 1" key_column="manifestacion_n_1_id" name_column="manifestacion_n_1_name" key_type="nontext" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Manifestacion 2" type="standard">
+        <Hierarchy name="Manifestacion 2">
+            <Table name="dim_asociaciones_culturales_manifestacion_n_2" />
+            <Level name="Manifestacion 2" key_column="manifestacion_n_2_id" name_column="manifestacion_n_2_name" key_type="nontext" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Manifestacion 3" type="standard">
+        <Hierarchy name="Manifestacion 3">
+            <Table name="dim_asociaciones_culturales_manifestacion_n_3" />
+            <Level name="Manifestacion 3" key_column="manifestacion_n_3_id" name_column="manifestacion_n_3_name" key_type="nontext" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Razon Social Cine" type="standard">
+        <Hierarchy name="Razon Social Cine">
+            <Table name="dim_cine_razon_social" />
+            <Level name="Razon Social Cine" key_column="razon_social_id" name_column="razon_social_name" key_type="nontext" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Estimulo Economico" type="standard">
+        <Hierarchy name="Estimulo Economico">
+            <Table name="dim_eec_estimulo_economico" />
+            <Level name="Estimulo Economico" key_column="estimulo_economico_id" name_column="estimulo_economico_name" key_type="nontext" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Nombre Proyecto" type="standard">
+        <Hierarchy name="Nombre Proyecto">
+            <Table name="dim_eec_nombre_proyecto" />
+            <Level name="Nombre Proyecto" key_column="nombre_proyecto_id" name_column="nombre_proyecto_name" key_type="nontext" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Postulante" type="standard">
+        <Hierarchy name="Postulante">
+            <Table name="dim_eec_postulante" />
+            <Level name="Postulante" key_column="postulante_id" name_column="postulante_name" key_type="nontext" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Indicadores Anuales INFOCULTURA" type="standard">
+        <Hierarchy name="Indicadores Anuales INFOCULTURA">
+            <Table name="dim_shared_infocultura_indicators_year" />
+            <Level name="Indicador" key_column="indicator_id" name_column="indicator_name" key_type="nontext" />
+        </Hierarchy>
+    </SharedDimension>       
+
+    <SharedDimension name="Categorias Anuales INFOCULTURA" type="standard">
+        <Hierarchy name="Categorias Anuales INFOCULTURA">
+            <Table name="dim_shared_infocultura_categories_year" />
+            <Level name="Categoria" key_column="category_id" name_column="category_name" key_type="nontext" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Subcategorias Anuales INFOCULTURA" type="standard">
+        <Hierarchy name="Subcategorias Anuales INFOCULTURA">
+            <Table name="dim_shared_infocultura_subcategories_year" />
+            <Level name="Subcategoria" key_column="subcategory_id" name_column="subcategory_name" key_type="nontext" />
+        </Hierarchy>
+    </SharedDimension>
+    
+    <SharedDimension name="Indicadores Mensuales INFOCULTURA" type="standard">
+        <Hierarchy name="Indicadores Mensuales INFOCULTURA">
+            <Table name="dim_shared_infocultura_indicators_month" />
+            <Level name="Indicador" key_column="indicator_id" name_column="indicator_name" key_type="nontext" />
+        </Hierarchy>
+    </SharedDimension>       
+
+    <SharedDimension name="Categorias Mensuales INFOCULTURA" type="standard">
+        <Hierarchy name="Categorias Mensuales INFOCULTURA">
+            <Table name="dim_shared_infocultura_categories_month" />
+            <Level name="Categoria" key_column="category_id" name_column="category_name" key_type="nontext" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Subcategorias Mensuales INFOCULTURA" type="standard">
+        <Hierarchy name="Subcategorias Mensuales INFOCULTURA">
+            <Table name="dim_shared_infocultura_subcategories_month" />
+            <Level name="Subcategoria" key_column="subcategory_id" name_column="subcategory_name" key_type="nontext" />
+        </Hierarchy>
+    </SharedDimension>    
+
+    <SharedDimension name="Nivel Gobierno">
+        <Hierarchy name="Nivel Gobierno" primary_key="id">
+            <InlineTable alias="dim_inline_nivel_gobierno">
+            <ColumnDef name="id" key_type="nontext" />
+            <ColumnDef name="name" key_type="text" />
+            <Row>
+                <Value column="id">1</Value>
+                <Value column="name">Gobierno Nacional</Value>
+            </Row>
+            <Row>
+                <Value column="id">2</Value>
+                <Value column="name">Gobiernos Regionales</Value>
+            </Row>
+            <Row>
+                <Value column="id">3</Value>
+                <Value column="name">Gobiernos Locales</Value>
+            </Row>
+            </InlineTable>
+            <Level name="Nivel Gobierno" key_column="id" name_column="name" />
         </Hierarchy>
     </SharedDimension>
     <Cube name="inei_cenama">
@@ -1834,6 +2012,7 @@
             </Hierarchy>
         </Dimension>
 
+
         <Measure name="Ingreso de turistas internacionales, por origen" column="n_ingresos_turistas_internacionales" aggregator="sum" />
         <Measure name="Salida de turistas peruanos, por destino" column="n_salidas_turistas_internacionales" aggregator="sum" />
         <Measure name="Arribos extranjeros establecimientos hospedaje" column="arribos_turistas_extranjeros" aggregator="sum" />
@@ -2140,6 +2319,1389 @@
         </Dimension>
 
         <Measure name="Producción" column="produccion" aggregator="sum" />  
+
+    </Cube>
+    <Cube name="mef_presupuesto_gastos">
+        <Annotation name="source_name">MEF</Annotation>
+        <Annotation name="source_description">Ministerio de Economía y Finanzas</Annotation>
+        <Annotation name="dataset_name">Gasto Presupuestal</Annotation>
+        <Annotation name="dataset_link">https://www.gob.pe/mef</Annotation>
+
+        <Table name="mef_presupuesto_gastos" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="tipo_gobierno" source="Nivel Gobierno" name="Nivel Gobierno" />
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+
+        <Dimension name="Departamento Meta" type="geo" foreign_key="departamento_meta">
+            <Hierarchy name="Departamento Meta" primary_key="department_id">
+                <Table name="dim_shared_ubigeo_department" />
+
+                <Level name="Departamento Meta" key_column="department_id" name_column="department_name" key_type="text" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Sector" foreign_key="sector">
+            <Hierarchy name="Sector" primary_key="sector">
+                <Table name="dim_mef_sector" />
+                
+                <Level name="Sector" key_column="sector" name_column="sector_name" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Pliego" foreign_key="pliego">
+            <Hierarchy name="Pliego" primary_key="pliego">
+                <Table name="dim_mef_pliego" />
+                
+                <Level name="Pliego" key_column="pliego" name_column="pliego_name" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Ejecutora" foreign_key="ejecutora">
+            <Hierarchy name="Ejecutora" primary_key="ejecutora">
+                <Table name="dim_mef_ejecutora" />
+                
+                <Level name="Ejecutora" key_column="ejecutora" name_column="ejecutora_name" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Programa Ppto" foreign_key="programa_ppto">
+            <Hierarchy name="Programa Ppto" primary_key="programa_ppto">
+                <Table name="dim_mef_programa_ppto" />
+                
+                <Level name="Programa Ppto" key_column="programa_ppto" name_column="programa_ppto_name" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Producto Proyecto" foreign_key="producto_proyecto">
+            <Hierarchy name="Producto Proyecto" primary_key="producto_proyecto">
+                <Table name="dim_mef_producto_proyecto" />
+                
+                <Level name="Producto Proyecto" key_column="producto_proyecto" name_column="producto_proyecto_name" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Funcion" foreign_key="funcion">
+            <Hierarchy name="Funcion" primary_key="funcion">
+                <Table name="dim_mef_funcion" />
+                
+                <Level name="Funcion" key_column="funcion" name_column="funcion_name" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Division Funcional" foreign_key="division_funcional">
+            <Hierarchy name="Division Funcional" primary_key="division_funcional">
+                <Table name="dim_mef_division_funcional" />
+                
+                <Level name="Division Funcional" key_column="division_funcional" name_column="division_funcional_name" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="PIA" column="pia" aggregator="sum" />
+        <Measure name="PIM" column="pim" aggregator="sum" /> 
+        <Measure name="Devengado" column="devengado" aggregator="sum" />
+    </Cube>
+    <Cube name="mef_presupuesto_ingresos">
+        <Annotation name="source_name">MEF</Annotation>
+        <Annotation name="source_description">Ministerio de Economía y Finanzas</Annotation>
+        <Annotation name="dataset_name">Recaudación Presupuestal</Annotation>
+        <Annotation name="dataset_link">https://www.gob.pe/mef</Annotation>
+
+        <Table name="mef_presupuesto_ingresos" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="nivel_gobierno" source="Nivel Gobierno" name="Nivel Gobierno" />
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+
+        <Dimension name="Sector" foreign_key="sector">
+            <Hierarchy name="Sector" primary_key="sector">
+                <Table name="dim_mef_ingresos_sector" />
+                
+                <Level name="Sector" key_column="sector" name_column="sector_nombre" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Pliego" foreign_key="pliego">
+            <Hierarchy name="Pliego" primary_key="pliego">
+                <Table name="dim_mef_ingresos_pliego" />
+                
+                <Level name="Pliego" key_column="pliego" name_column="pliego_nombre" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Rubro" foreign_key="rubro">
+            <Hierarchy name="Rubro" primary_key="rubro">
+                <Table name="dim_mef_ingresos_rubro" />
+                
+                <Level name="Rubro" key_column="rubro" name_column="rubro_nombre" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Fuente de Financiamiento" foreign_key="fuente_financiamiento">
+            <Hierarchy name="Fuente de Financiamiento" primary_key="fuente_financiamiento">
+                <Table name="dim_mef_ingresos_fuente_financiamiento" />
+                
+                <Level name="Fuente de Financiamiento" key_column="fuente_financiamiento" name_column="fuente_financiamiento_nombre" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="PIA" column="pia" aggregator="sum" />
+        <Measure name="PIM" column="pim" aggregator="sum" /> 
+        <Measure name="Monto Recaudado" column="monto_recaudado" aggregator="sum" />
+
+    </Cube>
+    <Cube name="itp_cite_clientes_aspecto">
+        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
+
+        <Table name="itp_cite_clientes_aspecto" primary_key="cite_id"/>
+
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+        <DimensionUsage foreign_key="estado_id" source="Estado CITE" name="Estado CITE" />
+
+        <Dimension name="Aspecto" foreign_key="aspecto_id">
+            <Hierarchy name="Aspecto" primary_key="id">
+                <InlineTable alias="dim_inline_aspecto_id_cite">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Aguas residuales</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Capacitación y asistencia técnica</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Equipamiento</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Fecha prevista de inauguración</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">Infraestructura</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">6</Value>
+                        <Value column="name">Proyecto</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">7</Value>
+                        <Value column="name">Saneamiento físico</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">8</Value>
+                        <Value column="name">Suministro de agua</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">9</Value>
+                        <Value column="name">Suministro eléctrico</Value>
+                    </Row>
+
+
+                </InlineTable>
+                <Level name="Aspecto" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Cantidad CITE" column="cantidad_cite" aggregator="count" />
+
+    </Cube>
+    <Cube name="itp_cite_ejecucion_presupuestal">
+        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
+
+        <Table name="itp_cite_ejecucion_presupuestal" primary_key="cite_id"/>
+
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+ 
+
+        <Dimension name="Time" foreign_key="time">
+            <Hierarchy name="Time">
+                <Level name="Time" key_column="time" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Ejecución presupuestal" column="ejecucion_presupuestal" aggregator="sum" />
+
+    </Cube>
+    <Cube name="itp_cite_empresas_ciiu">
+        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
+
+        <Table name="itp_cite_empresas_ciiu" primary_key="cite_id"/>
+
+        <DimensionUsage foreign_key="class_id" source="CIIU Rev 3" name="CIIU" />
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+
+
+        <Dimension name="Year" foreign_key="anio">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="anio" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+
+        <Measure name="Empresas" column="empresas" aggregator="sum" />
+
+    </Cube>
+    <Cube name="itp_cite_empresas_ciiu_agg">
+        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
+
+        <Table name="itp_cite_empresas_ciiu_agg" primary_key="class_id"/>
+
+        <DimensionUsage foreign_key="class_id" source="CIIU Rev 3" name="CIIU" />
+        
+        <Dimension name="Year" foreign_key="anio">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="anio" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+
+        <Measure name="Empresas" column="empresas" aggregator="sum" />
+
+    </Cube>
+    <Cube name="itp_cite_empresas_contribuyente">
+        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
+
+        <Table name="itp_cite_empresas_contribuyente" primary_key="cite_id"/>
+
+    
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+        <DimensionUsage foreign_key="contribuyente_id" source="Contribuyente" name="Contribuyente" />
+
+
+        <Dimension name="Year" foreign_key="anio">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="anio" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+
+        <Measure name="Empresas" column="empresas" aggregator="sum" />
+
+    </Cube>
+    <Cube name="itp_cite_empresas_contribuyente_agg">
+        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
+
+        <Table name="itp_cite_empresas_contribuyente_agg" primary_key="contribuyente_id"/>
+
+    
+        <DimensionUsage foreign_key="contribuyente_id" source="Contribuyente" name="Contribuyente" />
+
+
+        <Dimension name="Year" foreign_key="anio">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="anio" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+
+        <Measure name="Empresas" column="empresas" aggregator="sum" />
+
+    </Cube>
+    <Cube name="itp_cite_empresas_tipo">
+        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
+
+        <Table name="itp_cite_empresas_tipo" primary_key="cite_id"/>
+        
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+
+        <Dimension name="Tipo empresa" foreign_key="empresa_id">
+            <Hierarchy name="Tipo empresa" primary_key="id">
+                <InlineTable alias="dim_inline_empresa_id_cite">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Gran empresa</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Mediana empresa</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Microempresa</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Otros</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">Pequeña empresa</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">6</Value>
+                        <Value column="name">Persona natural</Value>
+                    </Row>
+
+
+                </InlineTable>
+                <Level name="Tipo empresa" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+
+        <Dimension name="Time" foreign_key="time">
+            <Hierarchy name="Time">
+                <Level name="Time" key_column="time" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+
+        <Measure name="Empresas" column="empresas" aggregator="sum" />
+
+    </Cube>
+    <Cube name="itp_cite_empresas_tipo_agg">
+        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
+
+        <Table name="itp_cite_empresas_tipo_agg" primary_key="empresa_id"/>
+
+        <Dimension name="Tipo empresa" foreign_key="empresa_id">
+            <Hierarchy name="Tipo empresa" primary_key="id">
+                <InlineTable alias="dim_inline_empresa_id_cite">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Gran empresa</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Mediana empresa</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Microempresa</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Otros</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">Pequeña empresa</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">6</Value>
+                        <Value column="name">Persona natural</Value>
+                    </Row>
+
+
+                </InlineTable>
+                <Level name="Tipo empresa" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+
+        <Dimension name="Time" foreign_key="time">
+            <Hierarchy name="Time">
+                <Level name="Time" key_column="time" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+
+        <Measure name="Empresas" column="empresas" aggregator="sum" />
+
+    </Cube>
+    <Cube name="itp_cite_inversion">
+        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
+
+        <Table name="itp_cite_inversion" primary_key="cite_id"/>
+        
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+
+        <Dimension name="Componente" foreign_key="componente_id">
+            <Hierarchy name="Componente" primary_key="id">
+                <InlineTable alias="dim_inline_componente_id_cite">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Capacitación y Asistencia Técnica</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Equipamiento</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Estudio de Impacto Ambiental</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Estudio de Línea de Base</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">Expediente Técnico</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">6</Value>
+                        <Value column="name">Fortalecimiento de capacidades</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">7</Value>
+                        <Value column="name">Gestión del Proyecto</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">8</Value>
+                        <Value column="name">Infraestructura</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">9</Value>
+                        <Value column="name">Supervisión</Value>
+                    </Row>         
+                    <Row>
+                        <Value column="id">10</Value>
+                        <Value column="name">Transferencia Tecnológica</Value>
+                    </Row>
+
+                </InlineTable>
+                <Level name="Componente" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Inversion" column="inversion" aggregator="sum" />
+        <Measure name="Ejecucion" column="ejecucion" aggregator="sum" />
+
+    </Cube>
+    <Cube name="itp_cite_partidas">
+        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
+
+        <Table name="itp_cite_partidas" primary_key="cite_id"/>
+
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+        <DimensionUsage foreign_key="cad_prod_id" source="Cadena productiva" name="Cadena productiva" />       
+        <DimensionUsage foreign_key="hs6_id" source="Producto" name="Producto" />       
+     
+        <Dimension name="Sector" foreign_key="sector_id">
+            <Hierarchy name="Sector" primary_key="id">
+                <InlineTable alias="dim_inline_sector_id_cite">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Agropecuario</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Maderas y papeles</Value>
+                    </Row>
+                      <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Metalmecanico</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Mineria no metalica</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">Pesquero</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">6</Value>
+                        <Value column="name">Quimico</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">7</Value>
+                        <Value column="name">Resto no tradicionales</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">8</Value>
+                        <Value column="name">Textil</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Sector" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Tipo exportacion" foreign_key="tipo_exp_id">
+            <Hierarchy name="Tipo exportacion" primary_key="id">
+                <InlineTable alias="dim_inline_tipo_exp_id_cite">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">No tradicional</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Tradicional</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Tipo exportacion" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+
+        <Measure name="Cantidad CITE" column="cantidad_cite" aggregator="count" />
+
+    </Cube>
+    <Cube name="itp_cite_partidas_atendidas">
+        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
+
+        <Table name="itp_cite_partidas_atendidas" primary_key="cite_id"/>
+
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />   
+        <DimensionUsage foreign_key="hs10_id" source="Producto HS10" name="Producto HS10" />       
+
+        <Dimension name="Cadena atencion" foreign_key="cadena_atencion_id">
+            <Hierarchy name="Cadena atencion" primary_key="cadena_productiva_id">
+                <Table name="dim_shared_cadenas_productivas_atendidas" />
+                <Level name="Cadena atencion" key_column="cadena_productiva_id" name_column="cadena_productiva" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Cadena pip" foreign_key="cadena_pip_id">
+            <Hierarchy name="Cadena pip" primary_key="cadena_productiva_id">
+                <Table name="dim_shared_cadenas_productivas_atendidas" />
+                <Level name="Cadena pip" key_column="cadena_productiva_id" name_column="cadena_productiva" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Cadena resolucion" foreign_key="cadena_resolucion_id">
+            <Hierarchy name="Cadena resolucion" primary_key="cadena_productiva_id">
+                <Table name="dim_shared_cadenas_productivas_atendidas" />
+                <Level name="Cadena resolucion" key_column="cadena_productiva_id" name_column="cadena_productiva" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+ 
+        <Measure name="Cadena CITE" column="cantidad_cite" aggregator="sum" />
+    </Cube>
+    <Cube name="itp_cite_pim">
+        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
+
+        <Table name="itp_cite_pim" primary_key="cite_id"/>
+
+    
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+
+
+        <Dimension name="Year" foreign_key="anio">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="anio" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="PIM" column="pim" aggregator="sum" />
+
+    </Cube>
+    <Cube name="itp_cite_servicios_subcategorias">
+        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
+
+        <Table name="itp_cite_servicios_subcategorias" primary_key="cite_id"/>
+
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+
+
+        <Dimension name="Subcategoria" foreign_key="subcategoria_id">
+            <Hierarchy name="Subcategoria" primary_key="id">
+                <InlineTable alias="dim_inline_subcategoria_id_cite">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Asistencia técnica</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Capacitación</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Certificación de competencias laborales</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Diseño y desarrollo de productos</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">Ensayos de laboratorio</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">6</Value>
+                        <Value column="name">Información tecnológica especializada</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">7</Value>
+                        <Value column="name">Promoción de investigación, desarrollo y gestión de la innovación (I+D+i)</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">8</Value>
+                        <Value column="name">Soporte productivo</Value>
+                    </Row>
+             
+
+                </InlineTable>
+                <Level name="Subcategoria" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+
+        <Dimension name="Time" foreign_key="time">
+            <Hierarchy name="Time">
+                <Level name="Time" key_column="time" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+
+        <Measure name="Servicios" column="servicios" aggregator="sum" />
+
+    </Cube>
+    <Cube name="itp_cite_servicios_subcategorias_agg">
+        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
+
+        <Table name="itp_cite_servicios_subcategorias_agg" primary_key="subcategoria_id"/>
+
+        <Dimension name="Subcategoria" foreign_key="subcategoria_id">
+            <Hierarchy name="Subcategoria" primary_key="id">
+                <InlineTable alias="dim_inline_subcategoria_id_cite">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Asistencia técnica</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Capacitación</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Certificación de competencias laborales</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Diseño y desarrollo de productos</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">Ensayos de laboratorio</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">6</Value>
+                        <Value column="name">Información tecnológica especializada</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">7</Value>
+                        <Value column="name">Promoción de investigación, desarrollo y gestión de la innovación (I+D+i)</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">8</Value>
+                        <Value column="name">Soporte productivo</Value>
+                    </Row>
+             
+
+                </InlineTable>
+                <Level name="Subcategoria" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+
+        <Dimension name="Time" foreign_key="time">
+            <Hierarchy name="Time">
+                <Level name="Time" key_column="time" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+
+        <Measure name="Servicios" column="servicios" aggregator="sum" />
+
+    </Cube>
+    <Cube name="itp_cite_trabajadores">
+        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
+
+        <Table name="itp_cite_trabajadores" primary_key="cite_id"/>
+
+    
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+
+
+        <Dimension name="Year" foreign_key="anio">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="anio" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Modalidad" foreign_key="modalidad_id">
+            <Hierarchy name="Modalidad" primary_key="id">
+                <InlineTable alias="dim_inline_modalidad_id_cite">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Contrato Administrativo de Servicios</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Contrato a Plazo Indeterminado</Value>
+                    </Row>
+                      <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Practicantes</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Servicios de Terceros</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Modalidad" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Tipo trabajador" foreign_key="tipo_trabajador_id">
+            <Hierarchy name="Tipo trabajador" primary_key="id">
+                <InlineTable alias="dim_inline_tipo_trabajador_id_cite">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Administrativo</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Directivo</Value>
+                    </Row>
+                      <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Operativo</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Practicante</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">Tecnico</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Tipo trabajador" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+
+
+        <Measure name="Cantidad" column="cantidad" aggregator="sum" />
+
+    </Cube>
+    <Cube name="cultura_agentes_libro">
+        <Annotation name="source_name">Ministerio de Cultura</Annotation>
+        <Annotation name="source_description">Ministerio de Cultura</Annotation>
+        <Annotation name="dataset_name">Directorio de agentes del ecosistema del libro 2020</Annotation>
+        <Annotation name="dataset_link">https://www.gob.pe/cultura</Annotation>
+
+        <Table name="cultura_agentes_libro" primary_key="district_id" />
+
+        <DimensionUsage foreign_key="district_id" source="Ubigeo" name="Ubigeo" />
+        <DimensionUsage foreign_key="razon_social_id" source="Razon Social Agentes" name="Razon Social Agentes" />
+
+        <Dimension name="Actividad 1" foreign_key="actividad_1_id">
+            <Hierarchy name="Actividad 1" primary_key="id">
+                <InlineTable alias="dim_inline_actividad_1_id_agentes">
+                    <ColumnDef name="name" key_type="text" />
+                    <ColumnDef name="id" key_type="nontext" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Editorial</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Cartonera</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Librería</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Distribuidora</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">Revista</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">6</Value>
+                        <Value column="name">Imprenta</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">7</Value>
+                        <Value column="name">Fondos Universitarios</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">8</Value>
+                        <Value column="name">Prensa</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">9</Value>
+                        <Value column="name">Autor-editor</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">10</Value>
+                        <Value column="name">Fanzine</Value>
+                    </Row>           
+                </InlineTable>
+                <Level name="Actividad 1" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Actividad 2" foreign_key="actividad_2_id">
+            <Hierarchy name="Actividad 2" primary_key="id">
+                <InlineTable alias="dim_inline_actividad_2_id_agentes">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Fanzine</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Libro Electrónico</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Imprenta</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Editorial</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">Librería</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">6</Value>
+                        <Value column="name">Distribuidora</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Actividad 2" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Actividad 3" foreign_key="actividad_3_id">
+            <Hierarchy name="Actividad 3" primary_key="id">
+                <InlineTable alias="dim_inline_actividad_3_id_agentes">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Otros</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Librería</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Distribuidora</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Actividad 3" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Actividad 4" foreign_key="actividad_4_id">
+            <Hierarchy name="Actividad 4" primary_key="id">
+                <InlineTable alias="dim_inline_actividad_4_id_agentes">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Librería</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Actividad 4" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Cantidad Agentes" column="cantidad_agentes" aggregator="sum" />
+
+    </Cube>
+    <Cube name="cultura_asociaciones">
+        <Annotation name="source_name">Ministerio de Cultura</Annotation>
+        <Annotation name="source_description">Ministerio de Cultura</Annotation>
+        <Annotation name="dataset_name">Puntos de Cultura </Annotation>
+        <Annotation name="dataset_link">https://www.gob.pe/cultura</Annotation>
+
+        <Table name="cultura_asociaciones" primary_key="district_id" />
+
+        <DimensionUsage foreign_key="district_id" source="Ubigeo" name="Ubigeo" />
+        <DimensionUsage foreign_key="codigo_asociacion" source="Asociaciones Culturales" name="Asociaciones Culturales" />
+        <DimensionUsage foreign_key="manifestacion_n_1_id" source="Manifestacion 1" name="Manifestacion 1" />
+        <DimensionUsage foreign_key="manifestacion_n_2_id" source="Manifestacion 2" name="Manifestacion 2" />
+        <DimensionUsage foreign_key="manifestacion_n_3_id" source="Manifestacion 3" name="Manifestacion 3" />
+
+        <Dimension name="Actividad N1" foreign_key="actividad_n_1_id">
+            <Hierarchy name="Actividad N1" primary_key="id">
+                <InlineTable alias="dim_inline_actividad_n_1_id_asociaciones">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Actividades constantes que desde el arte y la cultura atienden a poblaciones en condiciones de vulnerabilidad social</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Actividades que aportan a la recuperación y/o el fortalecimiento del tejido social y la vida comunitaria desde procesos artísticos, culturales, de comunicación o educación</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Actividades que aportan al rescate, protección, visibilización o revitalización de los saberes ancestrales, tradiciones, identidad cultural y memoria de pueblos originarios, campesinos, indígenas, rurales y poblaciones afroperuanas</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Otras actividades relacionadas al arte para la transformación social, desarrolladas en el marco de la Ley N° 30487, Ley de promoción de los puntos de cultura</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">Propuestas de desarrollo económico sostenible a partir de los activos culturales de una comunidad, en respeto con la identidad cultural local y su entorno</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">6</Value>
+                        <Value column="name">Actividades que promueven el respeto a la diversidad de identidades y reconocimiento de derechos de poblaciones y/o colectivos que históricamente han sido vulnerados a partir de procesos de formación, activismo e incidencia que desde la cultura aporten al cambio social</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">7</Value>
+                        <Value column="name">Actividades constantes que fomentan la apropiación social del espacio público y patrimonio cultural desde acciones artísticas y culturales</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">8</Value>
+                        <Value column="name">Actividades que fortalecen las experiencias de trabajo en red y acción colaborativa que apuntan al empoderamiento de movimientos ciudadanos, incidencia y co-construcción de políticas públicas culturales que aporten al desarrollo social</Value>
+                    </Row>        
+                </InlineTable>
+                <Level name="Actividad N1" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Actividad N2" foreign_key="actividad_n_2_id">
+            <Hierarchy name="Actividad N2" primary_key="id">
+                <InlineTable alias="dim_inline_actividad_n_2_id_asociaciones">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Actividades constantes que fomentan la apropiación social del espacio público y patrimonio cultural desde acciones artísticas y culturales</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Propuestas de desarrollo económico sostenible a partir de los activos culturales de una comunidad, en respeto con la identidad cultural local y su entorno</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Actividades constantes que desde el arte y la cultura atienden a poblaciones en condiciones de vulnerabilidad social</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Actividades que fortalecen las experiencias de trabajo en red y acción colaborativa que apuntan al empoderamiento de movimientos ciudadanos, incidencia y co-construcción de políticas públicas culturales que aporten al desarrollo social</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">Otras actividades relacionadas al arte para la transformación social, desarrollados en el marco de la Ley N° 30487, Ley de promoción de los puntos de cultura</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">6</Value>
+                        <Value column="name">Actividades que aportan al rescate, protección, visibilización o revitalización de los saberes ancestrales, tradiciones, identidad cultural y memoria de pueblos originarios, campesinos, indígenas, rurales y poblaciones afroperuanas</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">7</Value>
+                        <Value column="name">Actividades que promueven el respeto a la diversidad de identidades y reconocimiento de derechos de poblaciones y/o colectivos que históricamente han sido vulnerados a partir de procesos de formación, activismo e incidencia que desde la cultura aporten al cambio social</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">8</Value>
+                        <Value column="name">Otras actividades relacionadas al arte para la transformación social, desarrolladas en el marco de la Ley N° 30487, Ley de promoción de los puntos de cultura</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Actividad N2" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Inscrita SUNARP" foreign_key="inscrita_sunarp_id">
+            <Hierarchy name="Inscrita SUNARP" primary_key="id">
+                <InlineTable alias="dim_inline_inscrita_sunarp_id_asociaciones">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Si</Value>
+                    </Row>
+                     <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">No</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Inscrita SUNARP" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Fundacion Year" foreign_key="anio_fundacion">
+            <Hierarchy name="Fundacion Year">
+                <Level name="Fundacion Year" key_column="anio_fundacion" key_type="nontext" />
+            </Hierarchy>
+        </Dimension> 
+
+        <Measure name="Cantidad Asociaciones" column="cantidad_asociacion" aggregator="sum" />
+        <Measure name="Cantidad de Miembros" column="cantidad_miembros" aggregator="sum" />
+
+    </Cube>
+    <Cube name="cultura_cine">
+        <Annotation name="source_name">Ministerio de Cultura</Annotation>
+        <Annotation name="source_description">Ministerio de Cultura</Annotation>
+        <Annotation name="dataset_name">Registro Nacional Cinematográfico</Annotation>
+        <Annotation name="dataset_link">https://www.gob.pe/cultura</Annotation>
+
+        <Table name="cultura_cine" primary_key="district_id" />
+
+        <DimensionUsage foreign_key="district_id" source="Ubigeo" name="Ubigeo" />
+        <DimensionUsage foreign_key="razon_social_id" source="Razon Social Cine" name="Razon Social Cine" />
+        
+        <Dimension name="Tipo Constitucion" foreign_key="tipo_constitucion_id">
+            <Hierarchy name="Tipo Constitucion" primary_key="id">
+                <InlineTable alias="dim_inline_tipo_constitucion_id">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Asociación</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Empresa</Value>
+                    </Row>     
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Empresa de derecho público (Institución formativa)</Value>
+                    </Row>    
+                </InlineTable>
+                <Level name="Tipo Constitucion" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Actividad 1" foreign_key="actividad_1_id">
+            <Hierarchy name="Actividad 1" primary_key="id">
+                <InlineTable alias="dim_inline_actividad_1_id_cine">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Productora</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Servicios conexos</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Exhibidora</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Distribuidora</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">Formación</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Actividad 1" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Actividad 2" foreign_key="actividad_2_id">
+            <Hierarchy name="Actividad 2" primary_key="id">
+                <InlineTable alias="dim_inline_actividad_2_id_cine">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Servicios conexos</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Distribuidora</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Exhibidora</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Actividad 2" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Actividad 3" foreign_key="actividad_3_id">
+            <Hierarchy name="Actividad 3" primary_key="id">
+                <InlineTable alias="dim_inline_actividad_3_id_cine">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Exhibidora</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Actividad 3" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Actividad 4" foreign_key="actividad_4_id">
+            <Hierarchy name="Actividad 4" primary_key="id">
+                <InlineTable alias="dim_inline_actividad_4_id_cine">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">0</Value>
+                        <Value column="name">No reportado</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Servicios conexos</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Actividad 4" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension> 
+
+        <Measure name="Cantidad Organizaciones" column="cantidad_org" aggregator="sum" />
+
+    </Cube>
+    <Cube name="cultura_eec">
+        <Annotation name="source_name">Ministerio de Cultura</Annotation>
+        <Annotation name="source_description">Ministerio de Cultura</Annotation>
+        <Annotation name="dataset_name">Estímulos económicos 2019</Annotation>
+        <Annotation name="dataset_link">https://www.gob.pe/cultura</Annotation>
+
+        <Table name="cultura_eec" primary_key="district_id" />
+
+        <DimensionUsage foreign_key="district_id" source="Ubigeo" name="Ubigeo" />
+        <DimensionUsage foreign_key="estimulo_economico_id" source="Estimulo Economico" name="Estimulo Economico" />
+        <DimensionUsage foreign_key="nombre_proyecto_id" source="Nombre Proyecto" name="Nombre Proyecto" />
+        <DimensionUsage foreign_key="postulante_id" source="Postulante" name="Postulante" />
+        <DimensionUsage foreign_key="pais_procedencia" source="Pais" name="Pais Procedencia" />
+
+        <Dimension name="Fase Cadena Valor" foreign_key="fase_cadena_valor_id">
+            <Hierarchy name="Fase Cadena Valor" primary_key="id">
+                <InlineTable alias="dim_inline_fase_cadena_valor_id_eec">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Producción</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Acceso</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Creación</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">4</Value>
+                        <Value column="name">Circulación</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">5</Value>
+                        <Value column="name">Formación</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Fase Cadena Valor" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Tipo Postulante" foreign_key="tipo_postulante_id">
+            <Hierarchy name="Tipo Postulante" primary_key="id">
+                <InlineTable alias="dim_inline_tipo_postulante_id_eec">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Persona Jurídica</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Persona Natural</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Otro</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Tipo Postulante" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Estado Beneficio" foreign_key="estado_id">
+            <Hierarchy name="Estado Beneficio" primary_key="id">
+                <InlineTable alias="dim_inline_estado_id_eec">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">No beneficiario</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Beneficiario</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">No evaluado</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Estado Beneficio" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+
+        <Measure name="Cantidad Postulantes" column="cantidad_postulante" aggregator="sum" />
+
+    </Cube>
+    <Cube name="cultura_infocultura_month">
+        <Annotation name="source_name">INFOCULTURA</Annotation>
+        <Annotation name="source_description">Plataforma de Información Estadística del Sector Cultura</Annotation>
+        <Annotation name="dataset_name">Consulta indicadores INFOCULTURA</Annotation>
+        <Annotation name="dataset_link">http://infocultura.cultura.pe/infocultura/</Annotation>
+
+        <Table name="cultura_infocultura_month" primary_key="department_id" />
+
+        <DimensionUsage foreign_key="nation_id" source="Ubigeo Nacion" name="Ubigeo Nacion" />
+        <DimensionUsage foreign_key="department_id" source="Ubigeo Departamento Lite" name="Ubigeo Departamento" />
+        <DimensionUsage foreign_key="indicator_id" source="Indicadores Mensuales INFOCULTURA" name="Indicador" />
+        <DimensionUsage foreign_key="category_id" source="Categorias Mensuales INFOCULTURA" name="Categoria" />
+        <DimensionUsage foreign_key="subcategory_id" source="Subcategorias Mensuales INFOCULTURA" name="Subcategoria" />
+        <DimensionUsage foreign_key="month_id" source="Date Month" name="Mes" />
+ 
+        <Measure name="Valor indicador" column="response" aggregator="sum" />
+
+    </Cube>
+    <Cube name="cultura_infocultura_year">
+        <Annotation name="source_name">INFOCULTURA</Annotation>
+        <Annotation name="source_description">Plataforma de Información Estadística del Sector Cultura</Annotation>
+        <Annotation name="dataset_name">Consulta indicadores INFOCULTURA</Annotation>
+        <Annotation name="dataset_link">http://infocultura.cultura.pe/infocultura/</Annotation>
+
+        <Table name="cultura_infocultura_year" primary_key="department_id" />
+
+        <DimensionUsage foreign_key="nation_id" source="Ubigeo Nacion" name="Ubigeo Nacion" />
+        <DimensionUsage foreign_key="department_id" source="Ubigeo Departamento Lite" name="Ubigeo Departamento" />
+        <DimensionUsage foreign_key="indicator_id" source="Indicadores Anuales INFOCULTURA" name="Indicador" />
+        <DimensionUsage foreign_key="category_id" source="Categorias Anuales INFOCULTURA" name="Categoria" />
+        <DimensionUsage foreign_key="subcategory_id" source="Subcategorias Anuales INFOCULTURA" name="Subcategoria" />
+        
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Valor indicador" column="response" aggregator="sum" />
 
     </Cube>
     <Cube name="sunat_subnational_trade">
