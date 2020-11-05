@@ -15,27 +15,27 @@
         </Dimension>
 
         <Measure name="IPC base observado (2011)" column="ipc_base_2011_observado" aggregator="sum" />
-        <Measure name="IPC base variacion mes anterior (2011)" column="ipc_base_2011_var_mes_anterior" aggregator="sum" />
-        <Measure name="IPC base variacion acumulada (2011)" column="ipc_base_2011_var_acumulado" aggregator="sum" />
-        <Measure name="IPC base variacion año anterior (2011)" column="ipc_base_2011_var_anio_anterior" aggregator="sum" />
+        <Measure name="IPC base variación mes anterior (2011)" column="ipc_base_2011_var_mes_anterior" aggregator="sum" />
+        <Measure name="IPC base variación acumulada (2011)" column="ipc_base_2011_var_acumulado" aggregator="sum" />
+        <Measure name="IPC base variación año anterior (2011)" column="ipc_base_2011_var_anio_anterior" aggregator="sum" />
         <Measure name="IPM base observado (2013)" column="ipm_base_2013_observado" aggregator="sum" />
-        <Measure name="IPM base variacion mes anterior (2013)" column="ipm_base_2013_var_mes_anterior" aggregator="sum" />
-        <Measure name="IPM base variacion acumulada (2013)" column="ipm_base_2013_var_acumulado" aggregator="sum" />
-        <Measure name="Porcentaje morosidad de credito de la banca" column="perc_morosidad_credi_banca_mult" aggregator="sum" />
+        <Measure name="IPM base variación mes anterior (2013)" column="ipm_base_2013_var_mes_anterior" aggregator="sum" />
+        <Measure name="IPM base variación acumulada (2013)" column="ipm_base_2013_var_acumulado" aggregator="sum" />
+        <Measure name="Porcentaje morosidad de crédito de la banca" column="perc_morosidad_credi_banca_mult" aggregator="sum" />
 
-        <Measure name="Visitas Museo Nacional de arqueologia e historia del Peru" column="m_nacional_arquelogia_historia_Peru" aggregator="sum" />
-        <Measure name="Visitas Museo de la Nacion" column="museo_de_la_Nacion" aggregator="sum" />
+        <Measure name="Visitas Museo Nacional de arqueología e historia del Peru" column="m_nacional_arquelogia_historia_Peru" aggregator="sum" />
+        <Measure name="Visitas Museo de la Nación" column="museo_de_la_Nacion" aggregator="sum" />
         <Measure name="Visitas Museo de Arte Italiano" column="museo_de_arte_italiano" aggregator="sum" />
         <Measure name="Visitas Museo de la Cultura Peruana" column="m_de_la_cultura_peruana" aggregator="sum" />
-        <Measure name="Visitas Zona Arqueologica y Museo de Sitio Pachacamac" column="z_arqueologica_m_sitio_Pachacamac" aggregator="sum" />
-        <Measure name="Visitas Zona Arqueologica y Museo de Sitio Puruchuco" column="z_arqueologica_m_sitio_Puruchuco" aggregator="sum" />
-        <Measure name="Visitas Zona Arqueologica y Museo de Sitio Huallamarca" column="z_arqueologica_m_sitio_Huallamarca" aggregator="sum" />
-        <Measure name="Visitas Zona Arqueologica y Museo de Sitio Otros" column="z_arqueologica_m_sitio_Otros" aggregator="sum" />
+        <Measure name="Visitas Zona Arqueológica y Museo de Sitio Pachacamac" column="z_arqueologica_m_sitio_Pachacamac" aggregator="sum" />
+        <Measure name="Visitas Zona Arqueológica y Museo de Sitio Puruchuco" column="z_arqueologica_m_sitio_Puruchuco" aggregator="sum" />
+        <Measure name="Visitas Zona Arqueológica y Museo de Sitio Huallamarca" column="z_arqueologica_m_sitio_Huallamarca" aggregator="sum" />
+        <Measure name="Visitas Zona Arqueológica y Museo de Sitio Otros" column="z_arqueologica_m_sitio_Otros" aggregator="sum" />
         <Measure name="Visitas Museo de Sitio Cerro San Cristobal" column="m_sitio_cerro_San_Cristobal" aggregator="sum" />
-        <Measure name="Visitas Museo de Sitio y Centro Arqueologico Pucllana" column="m_sitio_centro_arqueologico_Pucllana" aggregator="sum" />
+        <Measure name="Visitas Museo de Sitio y Centro Arqueológico Pucllana" column="m_sitio_centro_arqueologico_Pucllana" aggregator="sum" />
         <Measure name="Visitas Casa Museo Jose Carlos Mariategui" column="casa_m_Jose_Carlos_Mariategui" aggregator="sum" />
-        <Measure name="Visitas Complejo Arqueologico Mateo Salado" column="complejo_arqueologico_Mateo_Salado" aggregator="sum" />
-        <Measure name="Visitas Casa de Gastronomia Peruana" column="casa_gastronomia_peruana" aggregator="sum" />
+        <Measure name="Visitas Complejo Arqueológico Mateo Salado" column="complejo_arqueologico_Mateo_Salado" aggregator="sum" />
+        <Measure name="Visitas Casa de Gastronomía Peruana" column="casa_gastronomia_peruana" aggregator="sum" />
 
     </Cube>
 </Schema>

@@ -24,8 +24,8 @@
       		</Hierarchy>
     	</Dimension>
 
-    	<Measure name="Producto Interno Bruto (S/ 2007)" column="pib_54_2007" aggregator="sum" />
-    	<Measure name="Producto Interno Bruto (S/ Corrientes)" column="pib_54_cte" aggregator="sum" />
+    	<Measure name="Producto Interno Bruto (Millones S/ 2007)" column="pib_54_2007" aggregator="sum" />
+    	<Measure name="Producto Interno Bruto (Millones S/ Corrientes)" column="pib_54_cte" aggregator="sum" />
 
   	</Cube>
 </Schema>

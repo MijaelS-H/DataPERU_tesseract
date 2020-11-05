@@ -17,45 +17,45 @@
         <Measure name="Producto interno bruto (S/ 2007)" column="producto_bruto_interno_2007" aggregator="sum" />
         <Measure name="Gasto consumo final privado (S/ 2007)" column="gasto_consumo_final_privado_2007" aggregator="sum" />
         <Measure name="Gasto consumo gobierno (S/ 2007)" column="gasto_consumo_gobierno_2007" aggregator="sum" />
-        <Measure name="Formacion bruta capital (S/ 2007)" column="formacion_bruta_capital_2007" aggregator="sum" />
-        <Measure name="Formacion bruta capital fijo (S/ 2007)" column="formacion_bruta_capital_fijo_2007" aggregator="sum" />
+        <Measure name="Formación bruta capital (S/ 2007)" column="formacion_bruta_capital_2007" aggregator="sum" />
+        <Measure name="Formación bruta capital fijo (S/ 2007)" column="formacion_bruta_capital_fijo_2007" aggregator="sum" />
         <Measure name="Exportaciones (S/ 2007)" column="exportaciones_2007" aggregator="sum" />
         <Measure name="Importaciones (S/ 2007)" column="importaciones_2007" aggregator="sum" />
         <Measure name="Producto interno bruto (S/ Corrientes)" column="producto_bruto_interno_nominal" aggregator="sum" />
         <Measure name="Gasto consumo final privado (S/ Corrientes)" column="gasto_consumo_final_privado_nominal" aggregator="sum" />
         <Measure name="Gasto consumo gobierno (S/ Corrientes)" column="gasto_consumo_gobierno_nominal" aggregator="sum" />
-        <Measure name="Formacion bruta capital (S/ Corrientes)" column="formacion_bruta_capital_nominal" aggregator="sum" />
-        <Measure name="Formacion bruta capital fijo (S/ Corrientes)" column="formacion_bruta_capital_fijo_nominal" aggregator="sum" />
+        <Measure name="Formación bruta capital (S/ Corrientes)" column="formacion_bruta_capital_nominal" aggregator="sum" />
+        <Measure name="Formación bruta capital fijo (S/ Corrientes)" column="formacion_bruta_capital_fijo_nominal" aggregator="sum" />
         <Measure name="Exportaciones (S/ Corrientes)" column="exportaciones_nominal" aggregator="sum" />
         <Measure name="Importaciones (S/ Corrientes)" column="importaciones_nominal" aggregator="sum" />
         <Measure name="Producto interno bruto" column="producto_interno_bruto" aggregator="sum" />
-        <Measure name="Derechos importacion y otros impuestos" column="derechos_importacion_otros_impuestos" aggregator="sum" />
+        <Measure name="Derechos de importación y otros impuestos" column="derechos_importacion_otros_impuestos" aggregator="sum" />
         <Measure name="Valor agregado bruto total" column="valor_agregado_bruto_total" aggregator="sum" />
-        <Measure name="Agricultura, ganaderia, caza y silvicultura" column="agricultura_ganaderia_caza_silvicultura" aggregator="sum" />
-        <Measure name="Pesca y acuicultura" column="pesca_acuicultura" aggregator="sum" />
-        <Measure name="Extraccion de petroleo, gas, minerales y servicios conexos" column="extraccion_petroleo_gas_minerales_servicios_conexos" aggregator="sum" />
-        <Measure name="Manufactura" column="manufactura" aggregator="sum" />
-        <Measure name="Construccion" column="construccion" aggregator="sum" />
-        <Measure name="Electricidad, gas y agua" column="electricidad_gas_agua" aggregator="sum" />
-        <Measure name="Comercio, mantenimiento y reparacion de vehiculos" column="comercio_mantenimiento_reparacion_vehiculos" aggregator="sum" />
-        <Measure name="Transporte, almacenamiento, correos y mensajeria" column="transporte_almacenamiento_correo_mensajeria" aggregator="sum" />
-        <Measure name="Alojamiento y restaurantes" column="alojamiento_restaurantes" aggregator="sum" />
-        <Measure name="Telecomunicaciones y otros servicios informacion" column="telecomunicaciones_otros_servicios_informacion" aggregator="sum" />
-        <Measure name="Servicios financieros, seguros y pensiones" column="servicios_financieros_seguros_pensiones" aggregator="sum" />
-        <Measure name="Servicios prestados empresas" column="servicios_prestados_empresas" aggregator="sum" />
-        <Measure name="Administracion publica defensa" column="administracion_publica_defensa" aggregator="sum" />
-        <Measure name="Otros servicios" column="otros_servicios" aggregator="sum" />
-        <Measure name="Formacion bruta capital fijo publico (S/ 2007)" column="formacion_bruta_cap_fijo_publico_2007" aggregator="sum" />
-        <Measure name="Formacion bruta capital fijo privado (S/ 2007)" column="formacion_bruta_cap_fijo_privado_2007" aggregator="sum" />
-        <Measure name="Formacion bruta capital fijo construccion (S/ 2007)" column="formacion_bruta_cap_fijo_construccion_2007" aggregator="sum" />
-        <Measure name="Formacion bruta capital fijo maq_nac (S/ 2007)" column="formacion_bruta_cap_fijo_maq_nac_2007" aggregator="sum" />
-        <Measure name="Formacion bruta capital fijo maq_imp (S/ 2007)" column="formacion_bruta_cap_fijo_maq_imp_2007" aggregator="sum" />
-        <Measure name="Formacion bruta capital fijo publico (S/ Corrientes)" column="formacion_bruta_cap_fijo_publico_nom" aggregator="sum" />
-        <Measure name="Formacion bruta capital fijo privado (S/ Corrientes)" column="formacion_bruta_cap_fijo_privado_nom" aggregator="sum" />
-        <Measure name="Formacion bruta capital fijo construccion (S/ Corrientes)" column="formacion_bruta_cap_fijo_construccion_nom" aggregator="sum" />
-        <Measure name="Formacion bruta capital fijo maq_nac (S/ Corrientes)" column="formacion_bruta_cap_fijo_maq_nac_nom" aggregator="sum" />
-        <Measure name="Formacion bruta capital fijo maq_imp (S/ Corrientes)" column="formacion_bruta_cap_fijo_maq_imp_nom" aggregator="sum" />
-        <Measure name="Poblacion anual" column="poblacion_anual" aggregator="sum" />
+        <Measure name="PIB trimestral Agricultura, ganaderia, caza y silvicultura" column="agricultura_ganaderia_caza_silvicultura" aggregator="sum" />
+        <Measure name="PIB trimestral Pesca y acuicultura" column="pesca_acuicultura" aggregator="sum" />
+        <Measure name="PIB trimestral Extraccion de petroleo, gas, minerales y servicios conexos" column="extraccion_petroleo_gas_minerales_servicios_conexos" aggregator="sum" />
+        <Measure name="PIB trimestral Manufactura" column="manufactura" aggregator="sum" />
+        <Measure name="PIB trimestral Construcción" column="construccion" aggregator="sum" />
+        <Measure name="PIB trimestral Electricidad, gas y agua" column="electricidad_gas_agua" aggregator="sum" />
+        <Measure name="PIB trimestral Comercio, mantenimiento y reparación de vehiculos" column="comercio_mantenimiento_reparacion_vehiculos" aggregator="sum" />
+        <Measure name="PIB trimestral Transporte, almacenamiento, correos y mensajeria" column="transporte_almacenamiento_correo_mensajeria" aggregator="sum" />
+        <Measure name="PIB trimestral Alojamiento y restaurantes" column="alojamiento_restaurantes" aggregator="sum" />
+        <Measure name="PIB trimestral Telecomunicaciones y otros servicios información" column="telecomunicaciones_otros_servicios_informacion" aggregator="sum" />
+        <Measure name="PIB trimestral Servicios financieros, seguros y pensiones" column="servicios_financieros_seguros_pensiones" aggregator="sum" />
+        <Measure name="PIB trimestral Servicios prestados empresas" column="servicios_prestados_empresas" aggregator="sum" />
+        <Measure name="PIB trimestral Administracion publica defensa" column="administracion_publica_defensa" aggregator="sum" />
+        <Measure name="PIB trimestral Otros servicios" column="otros_servicios" aggregator="sum" />
+        <Measure name="Formación bruta capital fijo público (S/ 2007)" column="formacion_bruta_cap_fijo_publico_2007" aggregator="sum" />
+        <Measure name="Formación bruta capital fijo privado (S/ 2007)" column="formacion_bruta_cap_fijo_privado_2007" aggregator="sum" />
+        <Measure name="Formación bruta capital fijo construcción (S/ 2007)" column="formacion_bruta_cap_fijo_construccion_2007" aggregator="sum" />
+        <Measure name="Formación bruta capital fijo maq_nac (S/ 2007)" column="formacion_bruta_cap_fijo_maq_nac_2007" aggregator="sum" />
+        <Measure name="Formación bruta capital fijo maq_imp (S/ 2007)" column="formacion_bruta_cap_fijo_maq_imp_2007" aggregator="sum" />
+        <Measure name="Formación bruta capital fijo público (S/ Corrientes)" column="formacion_bruta_cap_fijo_publico_nom" aggregator="sum" />
+        <Measure name="Formación bruta capital fijo privado (S/ Corrientes)" column="formacion_bruta_cap_fijo_privado_nom" aggregator="sum" />
+        <Measure name="Formación bruta capital fijo construcción (S/ Corrientes)" column="formacion_bruta_cap_fijo_construccion_nom" aggregator="sum" />
+        <Measure name="Formación bruta capital fijo maq_nac (S/ Corrientes)" column="formacion_bruta_cap_fijo_maq_nac_nom" aggregator="sum" />
+        <Measure name="Formación bruta capital fijo maq_imp (S/ Corrientes)" column="formacion_bruta_cap_fijo_maq_imp_nom" aggregator="sum" />
+        <Measure name="Población anual" column="poblacion_anual" aggregator="sum" />
 
     </Cube>
 </Schema>

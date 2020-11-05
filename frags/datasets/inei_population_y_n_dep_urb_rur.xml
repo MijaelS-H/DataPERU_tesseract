@@ -21,11 +21,11 @@
                     <ColumnDef name="name" key_type="text" />
                     <Row>
                         <Value column="id">evo_pob_censada_urb</Value>
-                        <Value column="name">Evolucion poblacion censada urbana</Value>
+                        <Value column="name">Evolución poblacion censada urbana</Value>
                     </Row>
                     <Row>
                         <Value column="id">evo_pob_censada_rur</Value>
-                        <Value column="name">Evolucion poblacion censada rural</Value>
+                        <Value column="name">Evolución poblacion censada rural</Value>
                     </Row>
                     <Row>
                         <Value column="id">matriculados_sist_educa_urb</Value>
@@ -40,6 +40,6 @@
             </Hierarchy>
         </Dimension>
 
-        <Measure name="Poblacion" column="poblacion" aggregator="sum" />
+        <Measure name="Población" column="poblacion" aggregator="sum" />
     </Cube>
 </Schema>

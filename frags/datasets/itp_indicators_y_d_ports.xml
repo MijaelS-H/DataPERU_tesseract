@@ -22,8 +22,7 @@
             </Hierarchy>
         </SharedDimension>
 
-
-        <Measure name="Desembarque de recursos marinos" column="desembarque_recursos_marinos" aggregator="sum" />
+        <Measure name="Desembarque de recursos marinos (Ton. metricas)" column="desembarque_recursos_marinos" aggregator="sum" />
 
     </Cube>
 </Schema>

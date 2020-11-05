@@ -27,7 +27,6 @@
                         <Value column="id">2</Value>
                         <Value column="name">2 Estrellas</Value>
                     </Row>
-
                     <Row>
                         <Value column="id">3</Value>
                         <Value column="name">3 Estrellas</Value>
@@ -36,7 +35,6 @@
                         <Value column="id">4</Value>
                         <Value column="name">4 Estrellas</Value>
                     </Row>
-
                     <Row>
                         <Value column="id">5</Value>
                         <Value column="name">5 Estrellas</Value>
@@ -63,10 +61,10 @@
         <Measure name="Cantidad de arribos extranjeros" column="n_arribos_extranjeros" aggregator="sum" />
         <Measure name="Cantidad de pernoctaciones nacionales" column="n_pernoctaciones_nacionales" aggregator="sum" />
         <Measure name="Cantidad de pernoctaciones extranjeros" column="n_pernoctaciones_extranjeros" aggregator="sum" />
-        <Measure name="Permanencia promedio nacionales" column="permanencia_prom_nacionales" aggregator="sum" />
-        <Measure name="Permanencia promedio extranjeros" column="permanencia_prom_extranjeros" aggregator="sum" />
-        <Measure name="Tasa de ocupacion habitaciones" column="tasa_ocupacion_hab" aggregator="sum" />
-        <Measure name="Tasa de ocupacion camas" column="tasa_ocupacion_camas" aggregator="sum" />
+        <Measure name="Permanencia promedio nacionales" column="permanencia_prom_nacionales" aggregator="avg" />
+        <Measure name="Permanencia promedio extranjeros" column="permanencia_prom_extranjeros" aggregator="avg" />
+        <Measure name="Tasa de ocupación habitaciones" column="tasa_ocupacion_hab" aggregator="sum" />
+        <Measure name="Tasa de ocupación camas" column="tasa_ocupacion_camas" aggregator="sum" />
 
     </Cube>
 </Schema>

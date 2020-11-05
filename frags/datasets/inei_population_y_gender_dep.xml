@@ -14,12 +14,12 @@
             </Hierarchy>
         </Dimension>
 
-        <Measure name="Poblacion masculina" column="poblacion_masculina" aggregator="sum" />
-        <Measure name="Poblacion femenina" column="poblacion_femenina" aggregator="sum" />
-        <Measure name="Poblacion economicamente activa total masculina" column="pea_total_masculina" aggregator="sum" />
-        <Measure name="Poblacion economicamente activa total femenina" column="pea_total_femenina" aggregator="sum" />
-        <Measure name="Poblacion economicamente activa ocupada masculina" column="pea_ocupada_masculina" aggregator="sum" />
-        <Measure name="Poblacion economicamente activa ocupada femenina" column="pea_ocupada_femenina" aggregator="sum" />
+        <Measure name="Población masculina" column="poblacion_masculina" aggregator="sum" />
+        <Measure name="Población femenina" column="poblacion_femenina" aggregator="sum" />
+        <Measure name="Población económicamente activa total masculina" column="pea_total_masculina" aggregator="sum" />
+        <Measure name="Población económicamente activa total femenina" column="pea_total_femenina" aggregator="sum" />
+        <Measure name="Población económicamente activa ocupada masculina" column="pea_ocupada_masculina" aggregator="sum" />
+        <Measure name="Población económicamente activa ocupada femenina" column="pea_ocupada_femenina" aggregator="sum" />
         <Measure name="Ingreso promedio mensual total nominal" column="ingreso_promedio_mensual_soles_nom" aggregator="sum" />
         <Measure name="Ingreso promedio mensual masculina nominal" column="ingreso_promedio_m_mensual_soles_nom" aggregator="sum" />
         <Measure name="Ingreso promedio mensual femenina nominal" column="ingreso_promedio_f_mensual_soles_nom" aggregator="sum" />
