@@ -1121,11 +1121,11 @@
                     <ColumnDef name="name" key_type="text" />
                     <Row>
                         <Value column="id">1</Value>
-                        <Value column="name">Emigracion</Value>
+                        <Value column="name">Emigración</Value>
                     </Row>
                     <Row>
                         <Value column="id">2</Value>
-                        <Value column="name">Inmigracion</Value>
+                        <Value column="name">Inmigración</Value>
                     </Row>
                 </InlineTable>
                 <Level name="Tipo de migracion" key_column="id" name_column="name" />
@@ -1166,7 +1166,7 @@
             </Hierarchy>
         </Dimension>
 
-        <Measure name="Poblacion" column="poblacion" aggregator="sum" />
+        <Measure name="Población" column="poblacion" aggregator="sum" />
     </Cube>
     <Cube name="inei_population_y_gender_dep">
         <Annotation name="topic">Empleo</Annotation>
@@ -1183,12 +1183,12 @@
             </Hierarchy>
         </Dimension>
 
-        <Measure name="Poblacion masculina" column="poblacion_masculina" aggregator="sum" />
-        <Measure name="Poblacion femenina" column="poblacion_femenina" aggregator="sum" />
-        <Measure name="Poblacion economicamente activa total masculina" column="pea_total_masculina" aggregator="sum" />
-        <Measure name="Poblacion economicamente activa total femenina" column="pea_total_femenina" aggregator="sum" />
-        <Measure name="Poblacion economicamente activa ocupada masculina" column="pea_ocupada_masculina" aggregator="sum" />
-        <Measure name="Poblacion economicamente activa ocupada femenina" column="pea_ocupada_femenina" aggregator="sum" />
+        <Measure name="Población masculina" column="poblacion_masculina" aggregator="sum" />
+        <Measure name="Población femenina" column="poblacion_femenina" aggregator="sum" />
+        <Measure name="Población económicamente activa total masculina" column="pea_total_masculina" aggregator="sum" />
+        <Measure name="Población económicamente activa total femenina" column="pea_total_femenina" aggregator="sum" />
+        <Measure name="Población económicamente activa ocupada masculina" column="pea_ocupada_masculina" aggregator="sum" />
+        <Measure name="Población económicamente activa ocupada femenina" column="pea_ocupada_femenina" aggregator="sum" />
         <Measure name="Ingreso promedio mensual total nominal" column="ingreso_promedio_mensual_soles_nom" aggregator="sum" />
         <Measure name="Ingreso promedio mensual masculina nominal" column="ingreso_promedio_m_mensual_soles_nom" aggregator="sum" />
         <Measure name="Ingreso promedio mensual femenina nominal" column="ingreso_promedio_f_mensual_soles_nom" aggregator="sum" />
@@ -1235,11 +1235,11 @@
                     <ColumnDef name="name" key_type="text" />
                     <Row>
                         <Value column="id">1</Value>
-                        <Value column="name">Emigracion</Value>
+                        <Value column="name">Emigración</Value>
                     </Row>
                     <Row>
                         <Value column="id">2</Value>
-                        <Value column="name">Inmigracion</Value>
+                        <Value column="name">Inmigración</Value>
                     </Row>
                 </InlineTable>
                 <Level name="Tipo de migracion" key_column="id" name_column="name" />
@@ -1280,7 +1280,7 @@
             </Hierarchy>
         </Dimension>
 
-        <Measure name="Poblacion" column="poblacion" aggregator="sum" />
+        <Measure name="Población" column="poblacion" aggregator="sum" />
     </Cube>
     <Cube name="inei_population_y_n_dep">
         <Annotation name="topic">Poblacion, Sociales, Tecnologia y Seguridad</Annotation>
@@ -1365,11 +1365,11 @@
                     <ColumnDef name="name" key_type="text" />
                     <Row>
                         <Value column="id">evo_pob_censada_urb</Value>
-                        <Value column="name">Evolucion poblacion censada urbana</Value>
+                        <Value column="name">Evolución poblacion censada urbana</Value>
                     </Row>
                     <Row>
                         <Value column="id">evo_pob_censada_rur</Value>
-                        <Value column="name">Evolucion poblacion censada rural</Value>
+                        <Value column="name">Evolución poblacion censada rural</Value>
                     </Row>
                     <Row>
                         <Value column="id">matriculados_sist_educa_urb</Value>
@@ -1384,7 +1384,7 @@
             </Hierarchy>
         </Dimension>
 
-        <Measure name="Poblacion" column="poblacion" aggregator="sum" />
+        <Measure name="Población" column="poblacion" aggregator="sum" />
     </Cube>
     <Cube name="itp_indicators_m_n_nat">
         <Annotation name="topic">Economia</Annotation>
@@ -1402,27 +1402,27 @@
         </Dimension>
 
         <Measure name="IPC base observado (2011)" column="ipc_base_2011_observado" aggregator="sum" />
-        <Measure name="IPC base variacion mes anterior (2011)" column="ipc_base_2011_var_mes_anterior" aggregator="sum" />
-        <Measure name="IPC base variacion acumulada (2011)" column="ipc_base_2011_var_acumulado" aggregator="sum" />
-        <Measure name="IPC base variacion año anterior (2011)" column="ipc_base_2011_var_anio_anterior" aggregator="sum" />
+        <Measure name="IPC base variación mes anterior (2011)" column="ipc_base_2011_var_mes_anterior" aggregator="sum" />
+        <Measure name="IPC base variación acumulada (2011)" column="ipc_base_2011_var_acumulado" aggregator="sum" />
+        <Measure name="IPC base variación año anterior (2011)" column="ipc_base_2011_var_anio_anterior" aggregator="sum" />
         <Measure name="IPM base observado (2013)" column="ipm_base_2013_observado" aggregator="sum" />
-        <Measure name="IPM base variacion mes anterior (2013)" column="ipm_base_2013_var_mes_anterior" aggregator="sum" />
-        <Measure name="IPM base variacion acumulada (2013)" column="ipm_base_2013_var_acumulado" aggregator="sum" />
-        <Measure name="Porcentaje morosidad de credito de la banca" column="perc_morosidad_credi_banca_mult" aggregator="sum" />
+        <Measure name="IPM base variación mes anterior (2013)" column="ipm_base_2013_var_mes_anterior" aggregator="sum" />
+        <Measure name="IPM base variación acumulada (2013)" column="ipm_base_2013_var_acumulado" aggregator="sum" />
+        <Measure name="Porcentaje morosidad de crédito de la banca" column="perc_morosidad_credi_banca_mult" aggregator="sum" />
 
-        <Measure name="Visitas Museo Nacional de arqueologia e historia del Peru" column="m_nacional_arquelogia_historia_Peru" aggregator="sum" />
-        <Measure name="Visitas Museo de la Nacion" column="museo_de_la_Nacion" aggregator="sum" />
+        <Measure name="Visitas Museo Nacional de arqueología e historia del Peru" column="m_nacional_arquelogia_historia_Peru" aggregator="sum" />
+        <Measure name="Visitas Museo de la Nación" column="museo_de_la_Nacion" aggregator="sum" />
         <Measure name="Visitas Museo de Arte Italiano" column="museo_de_arte_italiano" aggregator="sum" />
         <Measure name="Visitas Museo de la Cultura Peruana" column="m_de_la_cultura_peruana" aggregator="sum" />
-        <Measure name="Visitas Zona Arqueologica y Museo de Sitio Pachacamac" column="z_arqueologica_m_sitio_Pachacamac" aggregator="sum" />
-        <Measure name="Visitas Zona Arqueologica y Museo de Sitio Puruchuco" column="z_arqueologica_m_sitio_Puruchuco" aggregator="sum" />
-        <Measure name="Visitas Zona Arqueologica y Museo de Sitio Huallamarca" column="z_arqueologica_m_sitio_Huallamarca" aggregator="sum" />
-        <Measure name="Visitas Zona Arqueologica y Museo de Sitio Otros" column="z_arqueologica_m_sitio_Otros" aggregator="sum" />
+        <Measure name="Visitas Zona Arqueológica y Museo de Sitio Pachacamac" column="z_arqueologica_m_sitio_Pachacamac" aggregator="sum" />
+        <Measure name="Visitas Zona Arqueológica y Museo de Sitio Puruchuco" column="z_arqueologica_m_sitio_Puruchuco" aggregator="sum" />
+        <Measure name="Visitas Zona Arqueológica y Museo de Sitio Huallamarca" column="z_arqueologica_m_sitio_Huallamarca" aggregator="sum" />
+        <Measure name="Visitas Zona Arqueológica y Museo de Sitio Otros" column="z_arqueologica_m_sitio_Otros" aggregator="sum" />
         <Measure name="Visitas Museo de Sitio Cerro San Cristobal" column="m_sitio_cerro_San_Cristobal" aggregator="sum" />
-        <Measure name="Visitas Museo de Sitio y Centro Arqueologico Pucllana" column="m_sitio_centro_arqueologico_Pucllana" aggregator="sum" />
+        <Measure name="Visitas Museo de Sitio y Centro Arqueológico Pucllana" column="m_sitio_centro_arqueologico_Pucllana" aggregator="sum" />
         <Measure name="Visitas Casa Museo Jose Carlos Mariategui" column="casa_m_Jose_Carlos_Mariategui" aggregator="sum" />
-        <Measure name="Visitas Complejo Arqueologico Mateo Salado" column="complejo_arqueologico_Mateo_Salado" aggregator="sum" />
-        <Measure name="Visitas Casa de Gastronomia Peruana" column="casa_gastronomia_peruana" aggregator="sum" />
+        <Measure name="Visitas Complejo Arqueológico Mateo Salado" column="complejo_arqueologico_Mateo_Salado" aggregator="sum" />
+        <Measure name="Visitas Casa de Gastronomía Peruana" column="casa_gastronomia_peruana" aggregator="sum" />
 
     </Cube>
     <Cube name="itp_indicators_q_n_nat">
@@ -1443,45 +1443,45 @@
         <Measure name="Producto interno bruto (S/ 2007)" column="producto_bruto_interno_2007" aggregator="sum" />
         <Measure name="Gasto consumo final privado (S/ 2007)" column="gasto_consumo_final_privado_2007" aggregator="sum" />
         <Measure name="Gasto consumo gobierno (S/ 2007)" column="gasto_consumo_gobierno_2007" aggregator="sum" />
-        <Measure name="Formacion bruta capital (S/ 2007)" column="formacion_bruta_capital_2007" aggregator="sum" />
-        <Measure name="Formacion bruta capital fijo (S/ 2007)" column="formacion_bruta_capital_fijo_2007" aggregator="sum" />
+        <Measure name="Formación bruta capital (S/ 2007)" column="formacion_bruta_capital_2007" aggregator="sum" />
+        <Measure name="Formación bruta capital fijo (S/ 2007)" column="formacion_bruta_capital_fijo_2007" aggregator="sum" />
         <Measure name="Exportaciones (S/ 2007)" column="exportaciones_2007" aggregator="sum" />
         <Measure name="Importaciones (S/ 2007)" column="importaciones_2007" aggregator="sum" />
         <Measure name="Producto interno bruto (S/ Corrientes)" column="producto_bruto_interno_nominal" aggregator="sum" />
         <Measure name="Gasto consumo final privado (S/ Corrientes)" column="gasto_consumo_final_privado_nominal" aggregator="sum" />
         <Measure name="Gasto consumo gobierno (S/ Corrientes)" column="gasto_consumo_gobierno_nominal" aggregator="sum" />
-        <Measure name="Formacion bruta capital (S/ Corrientes)" column="formacion_bruta_capital_nominal" aggregator="sum" />
-        <Measure name="Formacion bruta capital fijo (S/ Corrientes)" column="formacion_bruta_capital_fijo_nominal" aggregator="sum" />
+        <Measure name="Formación bruta capital (S/ Corrientes)" column="formacion_bruta_capital_nominal" aggregator="sum" />
+        <Measure name="Formación bruta capital fijo (S/ Corrientes)" column="formacion_bruta_capital_fijo_nominal" aggregator="sum" />
         <Measure name="Exportaciones (S/ Corrientes)" column="exportaciones_nominal" aggregator="sum" />
         <Measure name="Importaciones (S/ Corrientes)" column="importaciones_nominal" aggregator="sum" />
         <Measure name="Producto interno bruto" column="producto_interno_bruto" aggregator="sum" />
-        <Measure name="Derechos importacion y otros impuestos" column="derechos_importacion_otros_impuestos" aggregator="sum" />
+        <Measure name="Derechos de importación y otros impuestos" column="derechos_importacion_otros_impuestos" aggregator="sum" />
         <Measure name="Valor agregado bruto total" column="valor_agregado_bruto_total" aggregator="sum" />
-        <Measure name="Agricultura, ganaderia, caza y silvicultura" column="agricultura_ganaderia_caza_silvicultura" aggregator="sum" />
-        <Measure name="Pesca y acuicultura" column="pesca_acuicultura" aggregator="sum" />
-        <Measure name="Extraccion de petroleo, gas, minerales y servicios conexos" column="extraccion_petroleo_gas_minerales_servicios_conexos" aggregator="sum" />
-        <Measure name="Manufactura" column="manufactura" aggregator="sum" />
-        <Measure name="Construccion" column="construccion" aggregator="sum" />
-        <Measure name="Electricidad, gas y agua" column="electricidad_gas_agua" aggregator="sum" />
-        <Measure name="Comercio, mantenimiento y reparacion de vehiculos" column="comercio_mantenimiento_reparacion_vehiculos" aggregator="sum" />
-        <Measure name="Transporte, almacenamiento, correos y mensajeria" column="transporte_almacenamiento_correo_mensajeria" aggregator="sum" />
-        <Measure name="Alojamiento y restaurantes" column="alojamiento_restaurantes" aggregator="sum" />
-        <Measure name="Telecomunicaciones y otros servicios informacion" column="telecomunicaciones_otros_servicios_informacion" aggregator="sum" />
-        <Measure name="Servicios financieros, seguros y pensiones" column="servicios_financieros_seguros_pensiones" aggregator="sum" />
-        <Measure name="Servicios prestados empresas" column="servicios_prestados_empresas" aggregator="sum" />
-        <Measure name="Administracion publica defensa" column="administracion_publica_defensa" aggregator="sum" />
-        <Measure name="Otros servicios" column="otros_servicios" aggregator="sum" />
-        <Measure name="Formacion bruta capital fijo publico (S/ 2007)" column="formacion_bruta_cap_fijo_publico_2007" aggregator="sum" />
-        <Measure name="Formacion bruta capital fijo privado (S/ 2007)" column="formacion_bruta_cap_fijo_privado_2007" aggregator="sum" />
-        <Measure name="Formacion bruta capital fijo construccion (S/ 2007)" column="formacion_bruta_cap_fijo_construccion_2007" aggregator="sum" />
-        <Measure name="Formacion bruta capital fijo maq_nac (S/ 2007)" column="formacion_bruta_cap_fijo_maq_nac_2007" aggregator="sum" />
-        <Measure name="Formacion bruta capital fijo maq_imp (S/ 2007)" column="formacion_bruta_cap_fijo_maq_imp_2007" aggregator="sum" />
-        <Measure name="Formacion bruta capital fijo publico (S/ Corrientes)" column="formacion_bruta_cap_fijo_publico_nom" aggregator="sum" />
-        <Measure name="Formacion bruta capital fijo privado (S/ Corrientes)" column="formacion_bruta_cap_fijo_privado_nom" aggregator="sum" />
-        <Measure name="Formacion bruta capital fijo construccion (S/ Corrientes)" column="formacion_bruta_cap_fijo_construccion_nom" aggregator="sum" />
-        <Measure name="Formacion bruta capital fijo maq_nac (S/ Corrientes)" column="formacion_bruta_cap_fijo_maq_nac_nom" aggregator="sum" />
-        <Measure name="Formacion bruta capital fijo maq_imp (S/ Corrientes)" column="formacion_bruta_cap_fijo_maq_imp_nom" aggregator="sum" />
-        <Measure name="Poblacion anual" column="poblacion_anual" aggregator="sum" />
+        <Measure name="PIB trimestral Agricultura, ganaderia, caza y silvicultura" column="agricultura_ganaderia_caza_silvicultura" aggregator="sum" />
+        <Measure name="PIB trimestral Pesca y acuicultura" column="pesca_acuicultura" aggregator="sum" />
+        <Measure name="PIB trimestral Extraccion de petroleo, gas, minerales y servicios conexos" column="extraccion_petroleo_gas_minerales_servicios_conexos" aggregator="sum" />
+        <Measure name="PIB trimestral Manufactura" column="manufactura" aggregator="sum" />
+        <Measure name="PIB trimestral Construcción" column="construccion" aggregator="sum" />
+        <Measure name="PIB trimestral Electricidad, gas y agua" column="electricidad_gas_agua" aggregator="sum" />
+        <Measure name="PIB trimestral Comercio, mantenimiento y reparación de vehiculos" column="comercio_mantenimiento_reparacion_vehiculos" aggregator="sum" />
+        <Measure name="PIB trimestral Transporte, almacenamiento, correos y mensajeria" column="transporte_almacenamiento_correo_mensajeria" aggregator="sum" />
+        <Measure name="PIB trimestral Alojamiento y restaurantes" column="alojamiento_restaurantes" aggregator="sum" />
+        <Measure name="PIB trimestral Telecomunicaciones y otros servicios información" column="telecomunicaciones_otros_servicios_informacion" aggregator="sum" />
+        <Measure name="PIB trimestral Servicios financieros, seguros y pensiones" column="servicios_financieros_seguros_pensiones" aggregator="sum" />
+        <Measure name="PIB trimestral Servicios prestados empresas" column="servicios_prestados_empresas" aggregator="sum" />
+        <Measure name="PIB trimestral Administracion publica defensa" column="administracion_publica_defensa" aggregator="sum" />
+        <Measure name="PIB trimestral Otros servicios" column="otros_servicios" aggregator="sum" />
+        <Measure name="Formación bruta capital fijo público (S/ 2007)" column="formacion_bruta_cap_fijo_publico_2007" aggregator="sum" />
+        <Measure name="Formación bruta capital fijo privado (S/ 2007)" column="formacion_bruta_cap_fijo_privado_2007" aggregator="sum" />
+        <Measure name="Formación bruta capital fijo construcción (S/ 2007)" column="formacion_bruta_cap_fijo_construccion_2007" aggregator="sum" />
+        <Measure name="Formación bruta capital fijo maq_nac (S/ 2007)" column="formacion_bruta_cap_fijo_maq_nac_2007" aggregator="sum" />
+        <Measure name="Formación bruta capital fijo maq_imp (S/ 2007)" column="formacion_bruta_cap_fijo_maq_imp_2007" aggregator="sum" />
+        <Measure name="Formación bruta capital fijo público (S/ Corrientes)" column="formacion_bruta_cap_fijo_publico_nom" aggregator="sum" />
+        <Measure name="Formación bruta capital fijo privado (S/ Corrientes)" column="formacion_bruta_cap_fijo_privado_nom" aggregator="sum" />
+        <Measure name="Formación bruta capital fijo construcción (S/ Corrientes)" column="formacion_bruta_cap_fijo_construccion_nom" aggregator="sum" />
+        <Measure name="Formación bruta capital fijo maq_nac (S/ Corrientes)" column="formacion_bruta_cap_fijo_maq_nac_nom" aggregator="sum" />
+        <Measure name="Formación bruta capital fijo maq_imp (S/ Corrientes)" column="formacion_bruta_cap_fijo_maq_imp_nom" aggregator="sum" />
+        <Measure name="Población anual" column="poblacion_anual" aggregator="sum" />
 
     </Cube>
     <Cube name="itp_indicators_y_act_dept">
@@ -1581,8 +1581,7 @@
             </Hierarchy>
         </SharedDimension>
 
-
-        <Measure name="Desembarque de recursos marinos" column="desembarque_recursos_marinos" aggregator="sum" />
+        <Measure name="Desembarque de recursos marinos (Ton. metricas)" column="desembarque_recursos_marinos" aggregator="sum" />
 
     </Cube>
     <Cube name="itp_indicators_y_n_manu_mill_soles_2007">
@@ -1920,8 +1919,8 @@
       		</Hierarchy>
     	</Dimension>
 
-    	<Measure name="Producto Interno Bruto (S/ 2007)" column="pib_54_2007" aggregator="sum" />
-    	<Measure name="Producto Interno Bruto (S/ Corrientes)" column="pib_54_cte" aggregator="sum" />
+    	<Measure name="Producto Interno Bruto (Millones S/ 2007)" column="pib_54_2007" aggregator="sum" />
+    	<Measure name="Producto Interno Bruto (Millones S/ Corrientes)" column="pib_54_cte" aggregator="sum" />
 
   	</Cube>
     <Cube name="itp_indicators_y_n_prod_ciiu_group">
@@ -1940,12 +1939,12 @@
       		</Hierarchy>
     	</Dimension>
 
-    	<Dimension name="Actividad economica" foreign_key="product_name">
-      		<Hierarchy name="Actividad economica" primary_key="product_name">
+    	<Dimension name="Actividad económica" foreign_key="product_name">
+      		<Hierarchy name="Actividad económica" primary_key="product_name">
 						<Table name="dim_shared_ciiu_production" />
 
-        		<Level name="Division economica" key_column="division_id" name_column="actividad_economica" />
-        		<Level name="Grupo economico" key_column="group_id" name_column="sub_actividad_economica" />
+        		<Level name="División económica" key_column="division_id" name_column="actividad_economica" />
+        		<Level name="Grupo económico" key_column="group_id" name_column="sub_actividad_economica" />
             <Level name="Producto" key_column="product_name" name_column="product_name" />
       		</Hierarchy>
     	</Dimension>
@@ -1993,7 +1992,7 @@
             </Hierarchy>
         </Dimension>
 
-    	<Measure name="Produccion Industrial Anual" column="produccion_industrial_anual" aggregator="sum" />
+    	<Measure name="Producción Industrial Anual" column="produccion_industrial_anual" aggregator="sum" />
 
     </Cube>
     <Cube name="itp_indicators_y_n_tourism">
@@ -2011,7 +2010,6 @@
                 <Level name="Year" key_column="year" key_type="nontext" />
             </Hierarchy>
         </Dimension>
-
 
         <Measure name="Ingreso de turistas internacionales, por origen" column="n_ingresos_turistas_internacionales" aggregator="sum" />
         <Measure name="Salida de turistas peruanos, por destino" column="n_salidas_turistas_internacionales" aggregator="sum" />
@@ -2048,7 +2046,6 @@
                         <Value column="id">2</Value>
                         <Value column="name">2 Estrellas</Value>
                     </Row>
-
                     <Row>
                         <Value column="id">3</Value>
                         <Value column="name">3 Estrellas</Value>
@@ -2057,7 +2054,6 @@
                         <Value column="id">4</Value>
                         <Value column="name">4 Estrellas</Value>
                     </Row>
-
                     <Row>
                         <Value column="id">5</Value>
                         <Value column="name">5 Estrellas</Value>
@@ -2084,10 +2080,10 @@
         <Measure name="Cantidad de arribos extranjeros" column="n_arribos_extranjeros" aggregator="sum" />
         <Measure name="Cantidad de pernoctaciones nacionales" column="n_pernoctaciones_nacionales" aggregator="sum" />
         <Measure name="Cantidad de pernoctaciones extranjeros" column="n_pernoctaciones_extranjeros" aggregator="sum" />
-        <Measure name="Permanencia promedio nacionales" column="permanencia_prom_nacionales" aggregator="sum" />
-        <Measure name="Permanencia promedio extranjeros" column="permanencia_prom_extranjeros" aggregator="sum" />
-        <Measure name="Tasa de ocupacion habitaciones" column="tasa_ocupacion_hab" aggregator="sum" />
-        <Measure name="Tasa de ocupacion camas" column="tasa_ocupacion_camas" aggregator="sum" />
+        <Measure name="Permanencia promedio nacionales" column="permanencia_prom_nacionales" aggregator="avg" />
+        <Measure name="Permanencia promedio extranjeros" column="permanencia_prom_extranjeros" aggregator="avg" />
+        <Measure name="Tasa de ocupación habitaciones" column="tasa_ocupacion_hab" aggregator="sum" />
+        <Measure name="Tasa de ocupación camas" column="tasa_ocupacion_camas" aggregator="sum" />
 
     </Cube>
     <Cube name="met_education_y_level_dep">
