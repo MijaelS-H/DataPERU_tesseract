@@ -77,9 +77,9 @@
         <Measure name="Municipalidad de centro poblado brinda servicio de conservación de áreas verdes" column="CCPP_57" aggregator="sum" />
         <Measure name="Número de municipalidades de centro poblado que brindan servicio de conservación de áreas verdes" column="CCPP_58" aggregator="sum" />
         <Measure name="Porcentaje de municipalidades de centro poblado que brindan servicio de conservación de áreas verdes" column="CCPP_59" aggregator="sum" />
-        <Measure name="Municipalidad de centro poblado cobra tasas y arbitrios " column="CCPP_60" aggregator="sum" />
-        <Measure name="Número de municipalidades de centro poblado que cobran tasas y arbitrios " column="CCPP_61" aggregator="sum" />
-        <Measure name="Porcentaje de municipalidades de centro poblado que cobran tasas y arbitrios " column="CCPP_62" aggregator="sum" />
+        <Measure name="Municipalidad de centro poblado cobra tasas y arbitrios" column="CCPP_60" aggregator="sum" />
+        <Measure name="Número de municipalidades de centro poblado que cobran tasas y arbitrios" column="CCPP_61" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades de centro poblado que cobran tasas y arbitrios" column="CCPP_62" aggregator="sum" />
         <Measure name="Municipalidad de centro poblado brinda licencias" column="CCPP_63" aggregator="sum" />
         <Measure name="Número de municipalidades de centro poblado que brindan licencias" column="CCPP_64" aggregator="sum" />
         <Measure name="Porcentaje de municipalidades de centro poblado que brindan licencias" column="CCPP_65" aggregator="sum" />
