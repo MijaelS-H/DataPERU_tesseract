@@ -28,8 +28,6 @@
         <Measure name = "Créditos Directos Industria manufacturera (miles de soles)" column = "industria_manufacturera_miles_soles" aggregator = "sum" />
         <Measure name = "Créditos Directos Electricidad, gas y agua (miles de soles)" column = "electricidad_gas_agua_miles_soles" aggregator = "sum" />
         <Measure name = "Créditos Directos Construccion (miles de soles)" column = "construccion_miles_soles" aggregator = "sum" />
-        <Measure name = "Créditos Directos Extraccion de petroleo, gas, minerales y servicios conexos (miles de soles)" column = "extraccion_petroleo_gas_minerales_servicios_conexos_miles_soles" aggregator = "sum" />
-        <Measure name = "Créditos Directos Manufactura (miles de soles)" column = "manufactura" aggregator = "sum" />
         <Measure name = "Créditos Directos Comercio (miles de soles)" column = "comercio_miles_soles" aggregator = "sum" />
         <Measure name = "Créditos Directos Hoteles y restaurantes (miles de soles)" column = "hoteles_restaurantes_miles_soles" aggregator = "sum" />
         <Measure name = "Créditos Directos Transporte, almacenamiento y comunicaciones (miles de soles)" column = "transporte_almacenamiento_comunicaciones_miles_soles" aggregator = "sum" />
