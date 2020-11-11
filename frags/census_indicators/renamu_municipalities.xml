@@ -21,8 +21,8 @@
         <Measure name="Número de computadoras operativas" column="RENAMU_1" aggregator="sum" />
         <Measure name="Disponibilidad de sistemas informáticos implementados en la municipalidad para apoyar la gestión de los trámites documentarios" column="RENAMU_2" aggregator="sum" />
         <Measure name="Porcentaje de municipalidades con sistemas informáticos implementados en la municipalidad para apoyar la gestión de los trámites documentarios" column="RENAMU_3" aggregator="sum" />
-        <Measure name="Disponibilidad de sistemas informáticos implementados en la municipalidad para apoyar la gestión de las licencias de edificación y habilitación urbana" column="RENAMU_4" aggregator="sum" />
-        <Measure name="Porcentaje de municipalidades con sistemas informáticos implementados en la municipalidad para apoyar la gestión de las licencisa de edificación y habilitación urbana" column="RENAMU_5" aggregator="sum" />
+        <Measure name="Disponibilidad de sistemas informáticos implementados en la municipalidad para apoyar la gestión de las licencia de edificación y habilitación urbana" column="RENAMU_4" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades con sistemas informáticos implementados en la municipalidad para apoyar la gestión de las licencias de edificación y habilitación urbana" column="RENAMU_5" aggregator="sum" />
         <Measure name="Disponibilidad de sistemas informáticos implementados en la municipalidad para apoyar la gestión de las bibliotecas" column="RENAMU_6" aggregator="sum" />
         <Measure name="Porcentaje de municipalidades con sistemas informáticos implementados en la municipalidad para apoyar la gestión de las bibliotecas" column="RENAMU_7" aggregator="sum" />
         <Measure name="Disponibilidad de sistemas informáticos implementados en la municipalidad para apoyar la gestión del registro civil" column="RENAMU_8" aggregator="sum" />
@@ -48,20 +48,20 @@
         <Measure name="Número de empleados municipales contratados como funcionarios y/o directivos" column="RENAMU_28" aggregator="sum" />
         <Measure name="Porcentaje de empleados municipales contratados como funcionarios y/o directivos" column="RENAMU_29" aggregator="sum" />
         <Measure name="Número de empleados municipales contratados como profesionales" column="RENAMU_30" aggregator="sum" />
-        <Measure name="Porcentaje de empleados municipales contratados como profesionales " column="RENAMU_31" aggregator="sum" />
+        <Measure name="Porcentaje de empleados municipales contratados como profesionales" column="RENAMU_31" aggregator="sum" />
         <Measure name="Número de empleados municipales contratados como técnicos" column="RENAMU_32" aggregator="sum" />
-        <Measure name="Porcentaje de empleados municipales contratados como técnicos  " column="RENAMU_33" aggregator="sum" />
+        <Measure name="Porcentaje de empleados municipales contratados como técnicos" column="RENAMU_33" aggregator="sum" />
         <Measure name="Número de empleados municipales contratados como auxiliares" column="RENAMU_34" aggregator="sum" />
-        <Measure name="Porcentaje de empleados municipales contratados como auxiliares  " column="RENAMU_35" aggregator="sum" />
+        <Measure name="Porcentaje de empleados municipales contratados como auxiliares" column="RENAMU_35" aggregator="sum" />
         <Measure name="Número de empleados municipales contratados como obreros" column="RENAMU_36" aggregator="sum" />
-        <Measure name="Porcentaje de empleados municipales contratados como obreros  " column="RENAMU_37" aggregator="sum" />
-        <Measure name="Número total de empleados municipales " column="RENAMU_38" aggregator="sum" />
-        <Measure name="Número de personal municipal exclusivo para el Área de Administración Tributaria" column="RENAMU_39" aggregator="sum" />
-        <Measure name="Porcentaje de personal municipal exclusivo para el Área de Administración Tributaria" column="RENAMU_40" aggregator="sum" />
+        <Measure name="Porcentaje de empleados municipales contratados como obreros" column="RENAMU_37" aggregator="sum" />
+        <Measure name="Número total de empleados municipales" column="RENAMU_38" aggregator="sum" />
+        <Measure name="Número de personal municipal exclusivo para el área de Administración Tributaria" column="RENAMU_39" aggregator="sum" />
+        <Measure name="Porcentaje de personal municipal exclusivo para el área de Administración Tributaria" column="RENAMU_40" aggregator="sum" />
         <Measure name="Número total de licencias de funcionamiento otorgadas por la municipalidad" column="RENAMU_41" aggregator="sum" />
         <Measure name="Número total de licencias de funcionamiento otorgadas por la municipalidad para el desarrollo de actividades económicas ligadas a los servicios" column="RENAMU_42" aggregator="sum" />
         <Measure name="Porcentaje de licencias de funcionamiento otorgadas por la municipalidad para el desarrollo de actividades económicas ligadas a los servicios" column="RENAMU_43" aggregator="sum" />
-        <Measure name="Número total de licencias de funcionamiento otorgadas por la municipalidad para el desarrollo de actividades económicas agropecuarias " column="RENAMU_44" aggregator="sum" />
+        <Measure name="Número total de licencias de funcionamiento otorgadas por la municipalidad para el desarrollo de actividades económicas agropecuarias" column="RENAMU_44" aggregator="sum" />
         <Measure name="Porcentaje de licencias de funcionamiento otorgadas por la municipalidad para el desarrollo de actividades económicas agropecuarias" column="RENAMU_45" aggregator="sum" />
         <Measure name="Número de licencias de funcionamiento otorgadas por la municipalidad para el desarrollo de actividades económicas de artesanías y manufactura" column="RENAMU_46" aggregator="sum" />
         <Measure name="Porcentaje de licencias de funcionamiento otorgadas por la municipalidad para el desarrollo de actividades económicas artesanía y manufactura" column="RENAMU_47" aggregator="sum" />
@@ -73,7 +73,7 @@
         <Measure name="Número de unidades móviles de serenazgo operativos disponibles en la municipalidad" column="RENAMU_53" aggregator="sum" />
         <Measure name="Número de equipos de comunicación y videovigilancia operativos disponibles en la municipalidad" column="RENAMU_54" aggregator="sum" />
         <Measure name="Disponibilidad de local propio para la municipalidad" column="RENAMU_55" aggregator="sum" />
-        <Measure name="Porcentaje de municipalidades que cuentan con local propio " column="RENAMU_56" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades que cuentan con local propio" column="RENAMU_56" aggregator="sum" />
         <Measure name="Indicador del género de la autoridad local" column="RENAMU_57" aggregator="sum" />
         <Measure name="Porcentaje de autoridades locales que son mujeres" column="RENAMU_58" aggregator="sum" />
         <Measure name="Disponibilidad de ambulancia en la municipalidad" column="RENAMU_59" aggregator="sum" />
@@ -107,11 +107,11 @@
         <Measure name="Disponibilidad de pago por página web de trámites de ventanilla de la municipalidad" column="RENAMU_87" aggregator="sum" />
         <Measure name="Porcentaje de municipalidades con disponibilidad de pago por página web de trámites de ventanilla de la municipalidad" column="RENAMU_88" aggregator="sum" />
         <Measure name="Disponibilidad de pago a través de instituciones finacieras como bancos y agentes, cajas municipales, entre otros en la municipalidad" column="RENAMU_89" aggregator="sum" />
-        <Measure name="Porcentaje de municipalidades con disponibilidad de pago a través de instituciones finacieras como bancos y agentes, cajas municipales, entre otros " column="RENAMU_90" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades con disponibilidad de pago a través de instituciones finacieras como bancos y agentes, cajas municipales, entre otros" column="RENAMU_90" aggregator="sum" />
         <Measure name="Disponibilidad de Área de Ejecución Coactiva en la municipalidad" column="RENAMU_91" aggregator="sum" />
-        <Measure name="Porcentaje de municipalidades que cuentan con Área de Ejecución Coactiva dentro del Área de Administración Tributaria" column="RENAMU_92" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades que cuentan con Área de Ejecución Coactiva dentro del área de administración tributaria" column="RENAMU_92" aggregator="sum" />
         <Measure name="Indicador de realización de levantamiento catastral" column="RENAMU_93" aggregator="sum" />
-        <Measure name="Porcentaje de municipalidades que realizaron levantamiento catastral " column="RENAMU_94" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades que realizaron levantamiento catastral" column="RENAMU_94" aggregator="sum" />
         <Measure name="Indicador de actualización catastral" column="RENAMU_95" aggregator="sum" />
         <Measure name="Porcentaje de municipalidades que actualizaron el catastro" column="RENAMU_96" aggregator="sum" />
         <Measure name="Indicador de realización de reparación de pistas" column="RENAMU_97" aggregator="sum" />
@@ -154,7 +154,7 @@
         <Measure name="Indicador de conservación de áreas verdes (plazas, parques, zoológicos, jardines, alamedas o bermas)" column="RENAMU_134" aggregator="sum" />
         <Measure name="Porcentaje de municipalidades que realizan procedimientos de conservación en áreas verdes (plazas, parques, zoológicos, jardines, alamedas o bermas)" column="RENAMU_135" aggregator="sum" />
         <Measure name="Disponibilidad de las bibliotecas municipal" column="RENAMU_136" aggregator="sum" />
-        <Measure name="Porcentaje de municipalidades que disponen de bibliotecas " column="RENAMU_137" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades que disponen de bibliotecas" column="RENAMU_137" aggregator="sum" />
         <Measure name="Disponibilidad de servicio bibliotecarios" column="RENAMU_138" aggregator="sum" />
         <Measure name="Porcentaje de municipalidades que disponen de servicio bibliotecario" column="RENAMU_139" aggregator="sum" />
         <Measure name="Disponibilidad de computadoras operativas en la biblioteca" column="RENAMU_140" aggregator="sum" />
@@ -169,41 +169,46 @@
         <Measure name="Número total de beneficiorios afiliados hasta fin de año a Comedores Populares" column="RENAMU_149" aggregator="sum" />
         <Measure name="Indicador de implementación del Programa Club de Madres en el municipio" column="RENAMU_150" aggregator="sum" />
         <Measure name="Porcentaje de municipalidades que cuentan con el Porgrama Club de Madres" column="RENAMU_151" aggregator="sum" />
-        <Measure name="Número total de beneficiorios afiliados hasta fin de año al Programa Club de Madres " column="RENAMU_153" aggregator="sum" />
-        <Measure name="Indicador de implementación del Centro Integral de Atención al Adulto Mayor (CIAM) según la ley Nº 30490" column="RENAMU_154" aggregator="sum" />
-        <Measure name="Porcentaje de municipalidades que han implementado el Centro Integral de Atención al Adulto Mayor (CIAM)" column="RENAMU_155" aggregator="sum" />
-        <Measure name="Número total de beneficiarios afiliados hasta fin de año al Centro Integral de Atención al Adulto Mayor (CIAM)" column="RENAMU_156" aggregator="sum" />
-        <Measure name="Indicador de implementación de la Oficina Municipal de Atención a las Personas con Discapacidad (OMAPED) según la ley Nº 30490" column="RENAMU_157" aggregator="sum" />
-        <Measure name="Porcentaje de municipalidades que han implementado la Oficina Municipal de Atención a las Personas con Discapacidad (OMAPED)" column="RENAMU_158" aggregator="sum" />
-        <Measure name="Número total de beneficiarios afiliados hasta fin de año en la Oficina Municipal de Atención a las Personas con Discapacidad (OMAPED)" column="RENAMU_159" aggregator="sum" />
-        <Measure name="Disponibilidad de servicio de la Defensoría Municipal del Niño y el Adolescente (DEMUNA)" column="RENAMU_160" aggregator="sum" />
-        <Measure name="Porcentaje de municipalidades que disponen de servicios de la Defensoría Municipal del Niño y el Adolescente (DEMUNA)" column="RENAMU_161" aggregator="sum" />
-        <Measure name="Indicador de administración de establecimientos de salud por parte de la municipalidad" column="RENAMU_162" aggregator="sum" />
-        <Measure name="Porcentaje de municipalidades que administran establecimientos de salud" column="RENAMU_163" aggregator="sum" />
-        <Measure name="Indicador de servicios de serenazgo en la municipalidad" column="RENAMU_164" aggregator="sum" />
-        <Measure name="Porcentaje de municipalidades que cuentan con servicio de serenazgo" column="RENAMU_165" aggregator="sum" />
-        <Measure name="Número total de efectivos de serenazgo a fin de año" column="RENAMU_166" aggregator="sum" />
+        <Measure name="Número total de beneficiorios afiliados hasta fin de año al Programa Club de Madres" column="RENAMU_152" aggregator="sum" />
+        <Measure name="Indicador de implementación del Centro Integral de Atención al Adulto Mayor (CIAM) según la ley Nº 30490" column="RENAMU_153" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades que han implementado el Centro Integral de Atención al Adulto Mayor (CIAM)" column="RENAMU_154" aggregator="sum" />
+        <Measure name="Número total de beneficiarios afiliados hasta fin de año al Centro Integral de Atención al Adulto Mayor (CIAM)" column="RENAMU_155" aggregator="sum" />
+        <Measure name="Indicador de implementación de la Oficina Municipal de Atención a las Personas con Discapacidad (OMAPED) según la ley Nº 30490" column="RENAMU_156" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades que han implementado la Oficina Municipal de Atención a las Personas con Discapacidad (OMAPED)" column="RENAMU_157" aggregator="sum" />
+        <Measure name="Número total de beneficiarios afiliados hasta fin de año en la Oficina Municipal de Atención a las Personas con Discapacidad (OMAPED)" column="RENAMU_158" aggregator="sum" />
+        <Measure name="Disponibilidad de servicio de la Defensoría Municipal del Niño y el Adolescente (DEMUNA)" column="RENAMU_159" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades que disponen de servicios de la Defensoría Municipal del Niño y el Adolescente (DEMUNA)" column="RENAMU_160" aggregator="sum" />
+        <Measure name="Indicador de administración de establecimientos de salud por parte de la municipalidad" column="RENAMU_161" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades que administran establecimientos de salud" column="RENAMU_162" aggregator="sum" />
+        <Measure name="Indicador de servicios de serenazgo en la municipalidad" column="RENAMU_163" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades que cuentan con servicio de serenazgo" column="RENAMU_164" aggregator="sum" />
+        <Measure name="Número total de efectivos de serenazgo a fin de año" column="RENAMU_165" aggregator="sum" />
+        <Measure name="Indicador de existencia de comité distrital de seguridad ciudadana" column="RENAMU_166" aggregator="sum" />
         <Measure name="Porcentaje de municipalidades que cuentan con comités distritales de seguridad ciudadana" column="RENAMU_167" aggregator="sum" />
-        <Measure name="Porcentaje de municipalidades que cuentan con mapa de delito como parte del Plan de Seguridad Ciudadana" column="RENAMU_168" aggregator="sum" />
-        <Measure name="Porcentaje de municipalidades que cuentan con mapa de riesgo dentro del Plan de Seguridad Ciudadana" column="RENAMU_169" aggregator="sum" />
-        <Measure name="Indicador de existencia de Plan de Patrullaje Integrado del Serenazgo con la Policía Nacional del Perú dentro de Plan de Seguridad Ciudadana" column="RENAMU_170" aggregator="sum" />
-        <Measure name="Porcentaje de municipalidades que cuentan con Plan de Patrullaje Integrado del Serenazgo con la Policía Nacional del Perú dentro de Plan de Seguridad Ciudadana" column="RENAMU_171" aggregator="sum" />
-        <Measure name="Porcentaje de municipalidades que cuentan con Oficina o Unidad Ambiental" column="RENAMU_172" aggregator="sum" />
-        <Measure name="Porcentaje de municipalidades que cuentan con recepción y atención de denuncias ambientales por contaminación del agua" column="RENAMU_173" aggregator="sum" />
-        <Measure name="Número de denuncias recepcionadas por contaminación de agua" column="RENAMU_174" aggregator="sum" />
-        <Measure name="Número de denuncias atendidas por contaminación de agua" column="RENAMU_175" aggregator="sum" />
-        <Measure name="Porcentaje de municipalidades que cuentan con recepción y atención de denuncias ambientales por contaminación del suelo" column="RENAMU_176" aggregator="sum" />
-        <Measure name="Número de denuncias recepcionadas por contaminación de suelo" column="RENAMU_177" aggregator="sum" />
-        <Measure name="Número de denuncias atendidas por contaminación de suelo" column="RENAMU_178" aggregator="sum" />
-        <Measure name="Porcentaje de municipalidades que cuentan con recepción y atención de denuncias ambientales por contaminación del aire" column="RENAMU_179" aggregator="sum" />
-        <Measure name="Número de denuncias recepcionadas por contaminación de aire" column="RENAMU_180" aggregator="sum" />
-        <Measure name="Número de denuncias atendidas por contaminación de aire" column="RENAMU_181" aggregator="sum" />
-        <Measure name="Porcentaje de municipalidades que cuentan con recepción y atención de denuncias ambientales por deforestación o quema de bosques" column="RENAMU_182" aggregator="sum" />
-        <Measure name="Número de denuncias recepcionadas por deforestación o quema de bosques" column="RENAMU_183" aggregator="sum" />
-        <Measure name="Número de denuncias atendidas por deforestación o quema de bosques" column="RENAMU_184" aggregator="sum" />
-        <Measure name="Porcentaje de municipalidades que cuentan con recepción y atención de denuncias ambientales por contaminación sonora" column="RENAMU_185" aggregator="sum" />
-        <Measure name="Número de denuncias recepcionadas por contaminación sonora" column="RENAMU_186" aggregator="sum" />
-        <Measure name="Número de denuncias atendidas por contaminación sonora" column="RENAMU_187" aggregator="sum" />
+        <Measure name="Indicador de existencia de mapa de delito dentro del Plan de Seguridad Ciudadada" column="RENAMU_168" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades que cuentan con mapa de delito como parte del Plan de Seguridad Ciudadana" column="RENAMU_169" aggregator="sum" />
+        <Measure name="Indicador de existencia de mapa de riesgo dentro del Plan de Seguridad Ciudadada" column="RENAMU_170" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades que cuentan con mapa de riesgo dentro del Plan de Seguridad Ciudadana" column="RENAMU_171" aggregator="sum" />
+        <Measure name="Indicador de existencia de Plan de Patrullaje Integrado del Serenazgo con la Policía Nacional del Perú dentro de Plan de Seguridad Ciudadana" column="RENAMU_172" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades que cuentan con Plan de Patrullaje Integrado del Serenazgo con la Policía Nacional del Perú dentro de Plan de Seguridad Ciudadana" column="RENAMU_173" aggregator="sum" />
+        <Measure name="Indicador de existencia de Oficina o Unidad Ambiental" column="RENAMU_174" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades que cuentan con Oficina o Unidad Ambiental" column="RENAMU_175" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades que cuentan con recepción y atención de denuncias ambientales por contaminación del agua" column="RENAMU_176" aggregator="sum" />
+        <Measure name="Número de denuncias recepcionadas por contaminación de agua" column="RENAMU_177" aggregator="sum" />
+        <Measure name="Número de denuncias atendidas por contaminación de agua" column="RENAMU_178" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades que cuentan con recepción y atención de denuncias ambientales por contaminación del suelo" column="RENAMU_179" aggregator="sum" />
+        <Measure name="Número de denuncias recepcionadas por contaminación de suelo" column="RENAMU_180" aggregator="sum" />
+        <Measure name="Número de denuncias atendidas por contaminación de suelo" column="RENAMU_181" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades que cuentan con recepción y atención de denuncias ambientales por contaminación del aire" column="RENAMU_182" aggregator="sum" />
+        <Measure name="Número de denuncias recepcionadas por contaminación de aire" column="RENAMU_183" aggregator="sum" />
+        <Measure name="Número de denuncias atendidas por contaminación de aire" column="RENAMU_184" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades que cuentan con recepción y atención de denuncias ambientales por deforestación o quema de bosques" column="RENAMU_185" aggregator="sum" />
+        <Measure name="Número de denuncias recepcionadas por deforestación o quema de bosques" column="RENAMU_186" aggregator="sum" />
+        <Measure name="Número de denuncias atendidas por deforestación o quema de bosques" column="RENAMU_187" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades que cuentan con recepción y atención de denuncias ambientales por contaminación sonora" column="RENAMU_188" aggregator="sum" />
+        <Measure name="Número de denuncias recepcionadas por contaminación sonora" column="RENAMU_189" aggregator="sum" />
+        <Measure name="Número de denuncias atendidas por contaminación sonora" column="RENAMU_190" aggregator="sum" />
+
 ​
     </Cube>
 </Schema>
