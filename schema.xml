@@ -2087,66 +2087,6 @@
         <Measure name="Tasa de ocupación camas" column="tasa_ocupacion_camas" aggregator="sum" />
 
     </Cube>
-    <Cube name="met_education_y_level_dep">
-
-    	<Annotation name="topic">Sociales</Annotation>
-      	<Annotation name="subtopic">Sociales</Annotation>
-      	<Annotation name="source_name">Indicadores ITP</Annotation>
-
-        <Table name="met_education_y_level_dep" primary_key="ubigeo" />
-
-        <DimensionUsage foreign_key="ubigeo" source="Ubigeo Departamento" name="Ubigeo" />
-        <Dimension name="Year" foreign_key="year">
-            <Hierarchy name="Year">
-              <Level name="Year" key_column="year" />
-            </Hierarchy>
-        </Dimension>
-
-        <Dimension name="Grupo de edad" foreign_key="age_group">
-            <Hierarchy name="Grupo de edad" primary_key="id">
-                <InlineTable alias="dim_age_group">
-                    <ColumnDef name="id" key_type="nontext" />
-                    <ColumnDef name="name" key_type="text" />
-                    <Row>
-                        <Value column="id">1</Value>
-                        <Value column="name">Inicial</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">2</Value>
-                        <Value column="name">Primaria</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">3</Value>
-                        <Value column="name">Secundaria</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">4</Value>
-                        <Value column="name">Básica Alternativa</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">5</Value>
-                        <Value column="name">Básica Especial</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">6</Value>
-                        <Value column="name">Técnico Productiva</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">7</Value>
-                        <Value column="name">Superior No Universitaria</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">8</Value>
-                        <Value column="name">Superior Universitaria</Value>
-                    </Row>
-                </InlineTable>
-                <Level name="Grupo de edad" key_column="id" name_column="name" />
-            </Hierarchy>
-        </Dimension>
-
-        <Measure name="Numero de estudiantes" column="estudiantes" aggregator="sum" />
-
-  	</Cube>
     <Cube name="proinversion_fdi_y_origin_nat">
 
     	<Annotation name="topic">Economia</Annotation>
