@@ -1929,11 +1929,11 @@
       		</Hierarchy>
     	</Dimension>
 
-    	<Dimension name="Actividad económica" foreign_key="product_name">
-      		<Hierarchy name="Actividad económica" primary_key="product_name">
+    	<Dimension name="Actividad economica" foreign_key="product_name">
+      		<Hierarchy name="Actividad economica" primary_key="product_name">
 						<Table name="dim_shared_ciiu_production" />
 
-        		<Level name="División económica" key_column="division_id" name_column="actividad_economica" />
+        		<Level name="División economica" key_column="division_id" name_column="actividad_economica" />
         		<Level name="Grupo económico" key_column="group_id" name_column="sub_actividad_economica" />
             <Level name="Producto" key_column="product_name" name_column="product_name" />
       		</Hierarchy>
