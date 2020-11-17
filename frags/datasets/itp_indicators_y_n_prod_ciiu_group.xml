@@ -1,29 +1,29 @@
 <Schema name="dataperu" default_locale="es">
     <Cube name="itp_indicators_y_n_prod_ciiu_group">
 
-    	<Annotation name="topic">Economia</Annotation>
-      	<Annotation name="subtopic">Economia</Annotation>
-      	<Annotation name="source_name">Indicadores ITP</Annotation>
+        <Annotation name="topic">Economia</Annotation>
+        <Annotation name="subtopic">Economia</Annotation>
+        <Annotation name="source_name">Indicadores ITP</Annotation>
 
-    	<Table name="itp_indicators_y_n_prod_ciiu_group" primary_key="ubigeo" />
+        <Table name="itp_indicators_y_n_prod_ciiu_group" primary_key="ubigeo" />
 
-    	<DimensionUsage foreign_key="ubigeo" source="Ubigeo Nacion" name="Ubigeo" />
+        <DimensionUsage foreign_key="nation_id" source="Ubigeo Nacion" name="Ubigeo Nacion" />
 
-    	<Dimension name="Year" foreign_key="year">
-      		<Hierarchy name="Year">
-	  	  		<Level name="Year" key_column="year" />
-      		</Hierarchy>
-    	</Dimension>
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" />
+            </Hierarchy>
+        </Dimension>
 
-    	<Dimension name="Actividad economica" foreign_key="product_name">
-      		<Hierarchy name="Actividad economica" primary_key="product_name">
-						<Table name="dim_shared_ciiu_production" />
+        <Dimension name="Actividad economica" foreign_key="product_name">
+            <Hierarchy name="Actividad economica" primary_key="product_name">
+                        <Table name="dim_shared_ciiu_production" />
 
-        		<Level name="División economica" key_column="division_id" name_column="actividad_economica" />
-        		<Level name="Grupo económico" key_column="group_id" name_column="sub_actividad_economica" />
+                <Level name="División economica" key_column="division_id" name_column="actividad_economica" />
+                <Level name="Grupo económico" key_column="group_id" name_column="sub_actividad_economica" />
             <Level name="Producto" key_column="product_name" name_column="product_name" />
-      		</Hierarchy>
-    	</Dimension>
+            </Hierarchy>
+        </Dimension>
 
         <Dimension name="Unidad de medida" foreign_key="text">
             <Hierarchy name="Unidad de medida" primary_key="id">
@@ -68,7 +68,7 @@
             </Hierarchy>
         </Dimension>
 
-    	<Measure name="Producción Industrial Anual" column="produccion_industrial_anual" aggregator="sum" />
+        <Measure name="Producción Industrial Anual" column="produccion_industrial_anual" aggregator="sum" />
 
     </Cube>
 </Schema>

@@ -6,7 +6,7 @@
 
         <Table name="inei_population_y_n_dep" primary_key="ubigeo" />
 
-        <DimensionUsage foreign_key="ubigeo" source="Ubigeo Departamento" name="Ubigeo" />
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo Departamento Lite" name="Ubigeo Departamento" />
 
         <Dimension name="Year" foreign_key="year">
             <Hierarchy name="Year">

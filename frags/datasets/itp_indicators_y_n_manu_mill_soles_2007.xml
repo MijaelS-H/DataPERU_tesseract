@@ -7,7 +7,7 @@
 
     	<Table name="itp_indicators_y_n_manu_mill_soles_2007" primary_key="ubigeo" />
 
-    	<DimensionUsage foreign_key="ubigeo" source="Ubigeo Nacion" name="Ubigeo" />
+    	<DimensionUsage foreign_key="nation_id" source="Ubigeo Nacion" name="Ubigeo Nacion" />
 
     	<Dimension name="Year" foreign_key="year">
       		<Hierarchy name="Year">

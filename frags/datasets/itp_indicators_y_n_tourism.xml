@@ -6,7 +6,7 @@
 
         <Table name="itp_indicators_y_n_tourism" primary_key="ubigeo" />
 
-        <DimensionUsage foreign_key="ubigeo" source="Ubigeo Nacion" name="Ubigeo" />
+        <DimensionUsage foreign_key="nation_id" source="Ubigeo Nacion" name="Ubigeo Nacion" />
         <DimensionUsage foreign_key="iso3" source="Pais" name="Pais Origen" />
 
         <Dimension name="Year" foreign_key="year">

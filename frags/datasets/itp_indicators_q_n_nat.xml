@@ -6,7 +6,7 @@
 
         <Table name="itp_indicators_q_n_nat" primary_key="ubigeo" />
 
-        <DimensionUsage foreign_key="ubigeo" source="Ubigeo Nacion" name="Ubigeo" />
+        <DimensionUsage foreign_key="nation_id" source="Ubigeo Nacion" name="Ubigeo Nacion" />
 
         <Dimension name="Quarter" foreign_key="quarter_id">
             <Hierarchy name="Quarter">
