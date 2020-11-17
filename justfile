@@ -1,2 +1,2 @@
 cat:
-	moncat -d frags -o schema.xml
+	./moncat -d frags -o schema.xml

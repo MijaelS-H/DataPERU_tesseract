@@ -7,12 +7,7 @@
         <Table name="itp_indicators_m_n_nat" primary_key="ubigeo" />
 
         <DimensionUsage foreign_key="nation_id" source="Ubigeo Nacion" name="Ubigeo Nacion" />
-
-        <Dimension name="Month" foreign_key="month_id">
-            <Hierarchy name="Month">
-                <Level name="Month" key_column="month_id" key_type="nontext" />
-            </Hierarchy>
-        </Dimension>
+        <DimensionUsage foreign_key="month_id" source="Date Month Lite" name="Month" />
 
         <Measure name="IPC base observado (2011)" column="ipc_base_2011_observado" aggregator="sum" />
         <Measure name="IPC base variación mes anterior (2011)" column="ipc_base_2011_var_mes_anterior" aggregator="sum" />

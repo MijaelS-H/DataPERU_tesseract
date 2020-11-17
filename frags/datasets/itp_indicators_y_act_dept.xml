@@ -15,7 +15,7 @@
 					</Hierarchy>
 			</Dimension>
 
-			<Dimension name="Actividad económica" foreign_key="act_economica">
+			<Dimension name="Actividad economica" foreign_key="act_economica">
 					<Hierarchy name="Actividad economica" primary_key="id">
 						<InlineTable alias="dim_inline_act_economica">
 								<ColumnDef name="id" key_type="nontext" />

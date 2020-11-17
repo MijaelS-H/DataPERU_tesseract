@@ -6,7 +6,7 @@
 
         <Table name="inei_population_y_n_dep_urb_rur" primary_key="ubigeo" />
 
-        <DimensionUsage foreign_key="ubigeo" source="Ubigeo Departamento" name="Ubigeo" />
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo Departamento" name="Departamento" />
 
         <Dimension name="Year" foreign_key="year">
             <Hierarchy name="Year">
@@ -14,29 +14,29 @@
             </Hierarchy>
         </Dimension>
 
-        <Dimension name="Tipo de indicador" foreign_key="measure">
+        <Dimension name="Tipo de indicador" foreign_key="medida">
             <Hierarchy name="Tipo de indicador" primary_key="id">
                 <InlineTable alias="dim_measure">
                     <ColumnDef name="id" key_type="nontext" />
                     <ColumnDef name="name" key_type="text" />
                     <Row>
-                        <Value column="id">evo_pob_censada_urb</Value>
+                        <Value column="id">1</Value>
                         <Value column="name">Evolución poblacion censada urbana</Value>
                     </Row>
                     <Row>
-                        <Value column="id">evo_pob_censada_rur</Value>
+                        <Value column="id">2</Value>
                         <Value column="name">Evolución poblacion censada rural</Value>
                     </Row>
                     <Row>
-                        <Value column="id">matriculados_sist_educa_urb</Value>
+                        <Value column="id">3</Value>
                         <Value column="name">Matriculados sistema educativo urbano</Value>
                     </Row>
                     <Row>
-                        <Value column="id">matriculados_sist_educa_rur</Value>
+                        <Value column="id">4</Value>
                         <Value column="name">Matriculados sistema educativo rural</Value>
                     </Row>
                 </InlineTable>
-                <Level name="Tipo de migracion" key_column="id" name_column="name" />
+                <Level name="Tipo de indicador" key_column="id" name_column="name" />
             </Hierarchy>
         </Dimension>
 

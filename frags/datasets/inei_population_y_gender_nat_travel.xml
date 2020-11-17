@@ -51,37 +51,45 @@
             </Hierarchy>
         </Dimension>
 
-        <Dimension name="Continente de origen/destino" foreign_key="continente">
-            <Hierarchy name="Continente de origen/destino" primary_key="id">
+        <Dimension name="Continente de origen o destino" foreign_key="continente">
+            <Hierarchy name="Continente de origen o destino" primary_key="id">
                 <InlineTable alias="dim_continente">
-                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="id" key_type="text" />
                     <ColumnDef name="name" key_type="text" />
                     <Row>
-                        <Value column="id">América del Norte</Value>
+                        <Value column="id">na</Value>
+                        <Value column="name">América del Norte</Value>
                     </Row>
                     <Row>
-                        <Value column="id">América del Centro</Value>
+                        <Value column="id">ca</Value>
+                        <Value column="name">América del Centro</Value>
                     </Row>
                     <Row>
-                        <Value column="id">América del Sur</Value>
+                        <Value column="id">sa</Value>
+                        <Value column="name">América del Sur</Value>
                     </Row>
                     <Row>
-                        <Value column="id">Europa</Value>
+                        <Value column="id">eu</Value>
+                        <Value column="name">Europa</Value>
                     </Row>
                     <Row>
-                        <Value column="id">Asia</Value>
+                        <Value column="id">as</Value>
+                        <Value column="name">Asia</Value>
                     </Row>
                     <Row>
-                        <Value column="id">África</Value>
+                        <Value column="id">af</Value>
+                        <Value column="name">África</Value>
                     </Row>
                     <Row>
-                        <Value column="id">Oceanía</Value>
+                        <Value column="id">oc</Value>
+                        <Value column="name">Oceanía</Value>
                     </Row>
                     <Row>
+                        <Value column="id">xx</Value>
                         <Value column="id">Otros</Value>
                     </Row>
                 </InlineTable>
-                <Level name="Continente de origen/destino" key_column="id" name_column="name" />
+                <Level name="Continente de origen o destino" key_column="id" name_column="name" />
             </Hierarchy>
         </Dimension>
 

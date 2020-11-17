@@ -1,119 +1,151 @@
 <Schema name="dataperu">
+
     <SharedDimension name="CIIU Rev 3" type="standard">
         <Hierarchy name="CIIU Rev 3">
             <Table name="dim_shared_ciiu_rev_3" />
+
             <Level name="Seccion" key_column="section_id" name_column="section_name" key_type="text" />
             <Level name="Division" key_column="division_id" name_column="division_name" key_type="text" />
             <Level name="Grupo" key_column="group_id" name_column="group_name" key_type="text" />
             <Level name="Clase" key_column="class_id" name_column="class_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="CIIU" type="standard">
         <Hierarchy name="CIIU">
             <Table name="dim_shared_ciiu" />
+
             <Level name="Seccion" key_column="section_id" name_column="section_name" key_type="text" />
             <Level name="Division" key_column="division_id" name_column="division_name" key_type="text" />
             <Level name="Grupo" key_column="group_id" name_column="group_name" key_type="text" />
             <Level name="Clase" key_column="class_id" name_column="class_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="CIIU Seccion" type="standard">
         <Hierarchy name="CIIU Seccion">
             <Table name="dim_shared_ciiu_section" />
+
             <Level name="Seccion" key_column="section_id" name_column="section_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="CIIU Division" type="standard">
         <Hierarchy name="CIIU Division">
             <Table name="dim_shared_ciiu_division" />
+
             <Level name="Seccion" key_column="section_id" name_column="section_name" key_type="text" />
             <Level name="Division" key_column="division_id" name_column="division_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="CIIU Division Lite" type="standard">
         <Hierarchy name="CIIU Division Lite">
             <Table name="dim_shared_ciiu_division" />
+
             <Level name="Division" key_column="division_id" name_column="division_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="CIIU Grupo" type="standard">
         <Hierarchy name="CIIU Grupo">
             <Table name="dim_shared_ciiu_group" />
+
             <Level name="Seccion" key_column="section_id" name_column="section_name" key_type="text" />
             <Level name="Division" key_column="division_id" name_column="division_name" key_type="text" />
             <Level name="Grupo" key_column="group_id" name_column="group_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="Ubigeo Nacion" type="geo">
         <Hierarchy name="Ubigeo Nacion">
             <Table name="dim_shared_ubigeo_nation" />
+
             <Level name="Nacion" key_column="nation_id" name_column="nation_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="Ubigeo Departamento" type="geo">
         <Hierarchy name="Ubigeo Departamento">
             <Table name="dim_shared_ubigeo_department" />
+
             <Level name="Nacion" key_column="nation_id" name_column="nation_name" key_type="text" />
             <Level name="Departamento" key_column="department_id" name_column="department_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="Ubigeo Departamento Lite" type="geo">
         <Hierarchy name="Ubigeo Departamento Lite">
             <Table name="dim_shared_ubigeo_department" />
+
             <Level name="Departamento" key_column="department_id" name_column="department_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="Ubigeo Provincia" type="geo">
         <Hierarchy name="Ubigeo Provincia">
             <Table name="dim_shared_ubigeo_province" />
+
             <Level name="Nacion" key_column="nation_id" name_column="nation_name" key_type="text" />
             <Level name="Departamento" key_column="department_id" name_column="department_name" key_type="text" />
             <Level name="Provincia" key_column="province_id" name_column="province_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="Ubigeo Provincia Lite" type="geo">
         <Hierarchy name="Ubigeo Provincia Lite">
             <Table name="dim_shared_ubigeo_province" />
+
             <Level name="Provincia" key_column="province_id" name_column="province_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="Ubigeo" type="geo">
         <Hierarchy name="Ubigeo">
             <Table name="dim_shared_ubigeo_district" />
+
             <Level name="Nacion" key_column="nation_id" name_column="nation_name" key_type="text" />
             <Level name="Departamento" key_column="department_id" name_column="department_name" key_type="text" />
             <Level name="Provincia" key_column="province_id" name_column="province_name" key_type="text" />
             <Level name="Distrito" key_column="district_id" name_column="district_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="Ubigeo Lite" type="geo">
         <Hierarchy name="Ubigeo Lite">
             <Table name="dim_shared_ubigeo_district" />
-
+            
             <Level name="Distrito" key_column="district_id" name_column="district_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="Centros Poblados" type="geo">
         <Hierarchy name="Centros Poblados">
             <Table name="dim_shared_populated_centers" />
+
             <Level name="Nacion" key_column="nation_id" name_column="nation_name" key_type="text" />
             <Level name="Departamento" key_column="department_id" name_column="department_name" key_type="text" />
             <Level name="Provincia" key_column="province_id" name_column="province_name" key_type="text" />
             <Level name="Centro Poblado" key_column="populated_center_id" name_column="populated_center_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="Centros Poblados Lite" type="geo">
         <Hierarchy name="Centros Poblados Lite">
             <Table name="dim_shared_populated_centers" />
+
             <Level name="Centro Poblado" key_column="populated_center_id" name_column="populated_center_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="Trade Flow" type="standard">
         <Hierarchy name="Trade Flow">
             <Table name="dim_shared_trade_flow" />
+
             <Level name="Trade Flow" key_column="trade_flow_id" name_column="trade_flow" key_type="nontext" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="Pais">
         <Hierarchy name="Pais" primary_key="iso3">
             <Table name="dim_shared_country"/>
@@ -121,6 +153,16 @@
             <Level name="Pais" key_column="iso3" name_column="country_name_es" key_type="text" />
         </Hierarchy>
     </SharedDimension>
+
+    <SharedDimension name="Date Month Lite" type="time">
+        <Hierarchy name="Date" primary_key="month_id">
+            <Table name="dim_shared_date_month" />
+            <Level name="Month" key_column="month_id" name_column="month">
+                <Property name="Month ES" column="month" caption_set="es" />
+            </Level>
+        </Hierarchy>
+    </SharedDimension>
+
     <SharedDimension name="Date Month" type="time">
         <Hierarchy name="Date" primary_key="month_id">
             <Table name="dim_shared_date_month" />
@@ -133,6 +175,7 @@
             </Level>
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="Date Day" type="time">
         <Hierarchy name="Date" primary_key="date_id">
             <Table name="dim_shared_date_month_day" />
@@ -148,38 +191,43 @@
             </Level>
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="Producto" type="standard">
         <Hierarchy name="Producto">
             <Table name="dim_shared_hs" />
+
             <Level name="Capítulo" key_column="chapter_id" name_column="chapter_name" key_type="text" />
             <Level name="HS2" key_column="hs2_id" name_column="hs2_name" key_type="text" />
             <Level name="HS4" key_column="hs4_id" name_column="hs4_name" key_type="text" />
             <Level name="HS6" key_column="hs6_id" name_column="hs6_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="Contribuyente" type="standard">
         <Hierarchy name="Contribuyente">
             <Table name="dim_shared_cite_contribuyente" />
             <Level name="Contribuyente" key_column="contribuyente_id" name_column="contribuyente" key_type="nontext" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="Cadena productiva" type="standard">
         <Hierarchy name="Cadena productiva">
             <Table name="dim_shared_cite_cad_prod" />
             <Level name="Cadena productiva" key_column="cad_prod_id" name_column="cadena_productiva" key_type="nontext" />
         </Hierarchy>
     </SharedDimension>
-
+        
     <SharedDimension name="Estado CITE" type="standard">
         <Hierarchy name="Estado CITE">
             <Table name="dim_shared_cite_estado" />
             <Level name="Estado CITE" key_column="estado_id" name_column="estado" key_type="nontext" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="CITE" type="geo">
         <Hierarchy name="CITE">
-        <Table name="dim_shared_cite" />
-        <Level name="CITE" key_column="cite_id" name_column="cite" key_type="nontext">
+          <Table name="dim_shared_cite" />
+          <Level name="CITE" key_column="cite_id" name_column="cite" key_type="nontext">
             <Property name="Tipo" column="tipo"/>
             <Property name="Director" column="director"/>
             <Property name="Coordinador UT" column="coordinador_ut"/>
@@ -194,119 +242,139 @@
             <Property name="Cadena atencion" column="cadena_atencion"/>
             <Property name="Cadena pip" column="cadena_pip"/>
             <Property name="Cadena resolucion" column="cadena_resolucion"/>
-        </Level>
+          </Level>
         </Hierarchy>
     </SharedDimension>    
+
     <SharedDimension name="Producto HS10" type="standard">
         <Hierarchy name="Producto HS10">
             <Table name="dim_shared_hs10" />
+
             <Level name="HS10" key_column="hs10_id" name_column="hs10_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="Cultivo" type="standard">
         <Hierarchy name="Cultivo">
             <Table name="dim_shared_dinamica_agricola" />
+
             <Level name="Cultivo" key_column="cultivo_id" name_column="cultivo_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="Mercado" type="standard">
         <Hierarchy name="Mercado">
             <Table name="dim_market" />
-
+            
             <Level name="Mercado" key_column="market_id" name_column="market_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="Razon Social Agentes" type="standard">
         <Hierarchy name="Razon Social Agentes">
             <Table name="dim_razon_social_agentes" />
             <Level name="Razon Social Agentes" key_column="razon_social_id" name_column="razon_social_name" key_type="nontext" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="Asociaciones Culturales" type="standard">
         <Hierarchy name="Asociaciones Culturales">
             <Table name="dim_asociaciones_culturales" />
             <Level name="Asociaciones Culturales" key_column="codigo_asociacion" name_column="asociacion_name" key_type="text" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="Manifestacion 1" type="standard">
         <Hierarchy name="Manifestacion 1">
             <Table name="dim_asociaciones_culturales_manifestacion_n_1" />
             <Level name="Manifestacion 1" key_column="manifestacion_n_1_id" name_column="manifestacion_n_1_name" key_type="nontext" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="Manifestacion 2" type="standard">
         <Hierarchy name="Manifestacion 2">
             <Table name="dim_asociaciones_culturales_manifestacion_n_2" />
             <Level name="Manifestacion 2" key_column="manifestacion_n_2_id" name_column="manifestacion_n_2_name" key_type="nontext" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="Manifestacion 3" type="standard">
         <Hierarchy name="Manifestacion 3">
             <Table name="dim_asociaciones_culturales_manifestacion_n_3" />
             <Level name="Manifestacion 3" key_column="manifestacion_n_3_id" name_column="manifestacion_n_3_name" key_type="nontext" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="Razon Social Cine" type="standard">
         <Hierarchy name="Razon Social Cine">
             <Table name="dim_cine_razon_social" />
             <Level name="Razon Social Cine" key_column="razon_social_id" name_column="razon_social_name" key_type="nontext" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="Estimulo Economico" type="standard">
         <Hierarchy name="Estimulo Economico">
             <Table name="dim_eec_estimulo_economico" />
             <Level name="Estimulo Economico" key_column="estimulo_economico_id" name_column="estimulo_economico_name" key_type="nontext" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="Nombre Proyecto" type="standard">
         <Hierarchy name="Nombre Proyecto">
             <Table name="dim_eec_nombre_proyecto" />
             <Level name="Nombre Proyecto" key_column="nombre_proyecto_id" name_column="nombre_proyecto_name" key_type="nontext" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="Postulante" type="standard">
         <Hierarchy name="Postulante">
             <Table name="dim_eec_postulante" />
             <Level name="Postulante" key_column="postulante_id" name_column="postulante_name" key_type="nontext" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="Indicadores Anuales INFOCULTURA" type="standard">
         <Hierarchy name="Indicadores Anuales INFOCULTURA">
             <Table name="dim_shared_infocultura_indicators_year" />
             <Level name="Indicador" key_column="indicator_id" name_column="indicator_name" key_type="nontext" />
         </Hierarchy>
     </SharedDimension>       
+
     <SharedDimension name="Categorias Anuales INFOCULTURA" type="standard">
         <Hierarchy name="Categorias Anuales INFOCULTURA">
             <Table name="dim_shared_infocultura_categories_year" />
             <Level name="Categoria" key_column="category_id" name_column="category_name" key_type="nontext" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="Subcategorias Anuales INFOCULTURA" type="standard">
         <Hierarchy name="Subcategorias Anuales INFOCULTURA">
             <Table name="dim_shared_infocultura_subcategories_year" />
             <Level name="Subcategoria" key_column="subcategory_id" name_column="subcategory_name" key_type="nontext" />
         </Hierarchy>
     </SharedDimension>
-
+    
     <SharedDimension name="Indicadores Mensuales INFOCULTURA" type="standard">
         <Hierarchy name="Indicadores Mensuales INFOCULTURA">
             <Table name="dim_shared_infocultura_indicators_month" />
             <Level name="Indicador" key_column="indicator_id" name_column="indicator_name" key_type="nontext" />
         </Hierarchy>
     </SharedDimension>       
+
     <SharedDimension name="Categorias Mensuales INFOCULTURA" type="standard">
         <Hierarchy name="Categorias Mensuales INFOCULTURA">
             <Table name="dim_shared_infocultura_categories_month" />
             <Level name="Categoria" key_column="category_id" name_column="category_name" key_type="nontext" />
         </Hierarchy>
     </SharedDimension>
+
     <SharedDimension name="Subcategorias Mensuales INFOCULTURA" type="standard">
         <Hierarchy name="Subcategorias Mensuales INFOCULTURA">
             <Table name="dim_shared_infocultura_subcategories_month" />
             <Level name="Subcategoria" key_column="subcategory_id" name_column="subcategory_name" key_type="nontext" />
         </Hierarchy>
     </SharedDimension>    
+
     <SharedDimension name="Nivel Gobierno">
         <Hierarchy name="Nivel Gobierno" primary_key="id">
             <InlineTable alias="dim_inline_nivel_gobierno">
@@ -328,8 +396,6 @@
             <Level name="Nivel Gobierno" key_column="id" name_column="name" />
         </Hierarchy>
     </SharedDimension>
-
-
 
     <Cube name="inei_cenama">
         <Annotation name="source_name">INEI</Annotation>
@@ -1030,48 +1096,8 @@
         </Dimension>
 
         <Dimension name="Grupo de edad" foreign_key="age_group">
-            <Hierarchy name="Grupo de edad" primary_key="id">
-                <InlineTable alias="dim_age_group">
-                    <ColumnDef name="id" key_type="nontext" />
-                    <ColumnDef name="name" key_type="text" />
-                    <Row>
-                        <Value column="id">1</Value>
-                        <Value column="name">0 - 9</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">2</Value>
-                        <Value column="name">10 - 19</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">3</Value>
-                        <Value column="name">20 - 29</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">4</Value>
-                        <Value column="name">30 - 39</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">5</Value>
-                        <Value column="name">40 - 49</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">6</Value>
-                        <Value column="name">50 - 59</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">7</Value>
-                        <Value column="name">60 - 69</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">8</Value>
-                        <Value column="name">70 - 79</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">9</Value>
-                        <Value column="name">80 y más</Value>
-                    </Row>
-                </InlineTable>
-                <Level name="Grupo de edad" key_column="id" name_column="name" />
+            <Hierarchy name="Grupo de edad">
+                <Level name="Grupo de edad" key_column="age_group" key_type="text" />
             </Hierarchy>
         </Dimension>
 
@@ -1093,37 +1119,45 @@
             </Hierarchy>
         </Dimension>
 
-        <Dimension name="Continente de origen/destino" foreign_key="continente">
-            <Hierarchy name="Continente de origen/destino" primary_key="id">
+        <Dimension name="Continente de origen o destino" foreign_key="continente">
+            <Hierarchy name="Continente de origen o destino" primary_key="id">
                 <InlineTable alias="dim_continente">
-                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="id" key_type="text" />
                     <ColumnDef name="name" key_type="text" />
                     <Row>
-                        <Value column="id">América del Norte</Value>
+                        <Value column="id">na</Value>
+                        <Value column="name">América del Norte</Value>
                     </Row>
                     <Row>
-                        <Value column="id">América del Centro</Value>
+                        <Value column="id">ca</Value>
+                        <Value column="name">América del Centro</Value>
                     </Row>
                     <Row>
-                        <Value column="id">América del Sur</Value>
+                        <Value column="id">sa</Value>
+                        <Value column="name">América del Sur</Value>
                     </Row>
                     <Row>
-                        <Value column="id">Europa</Value>
+                        <Value column="id">eu</Value>
+                        <Value column="name">Europa</Value>
                     </Row>
                     <Row>
-                        <Value column="id">Asia</Value>
+                        <Value column="id">as</Value>
+                        <Value column="name">Asia</Value>
                     </Row>
                     <Row>
-                        <Value column="id">África</Value>
+                        <Value column="id">af</Value>
+                        <Value column="name">África</Value>
                     </Row>
                     <Row>
-                        <Value column="id">Oceanía</Value>
+                        <Value column="id">oc</Value>
+                        <Value column="name">Oceanía</Value>
                     </Row>
                     <Row>
+                        <Value column="id">xx</Value>
                         <Value column="id">Otros</Value>
                     </Row>
                 </InlineTable>
-                <Level name="Continente de origen/destino" key_column="id" name_column="name" />
+                <Level name="Continente de origen o destino" key_column="id" name_column="name" />
             </Hierarchy>
         </Dimension>
 
@@ -1207,37 +1241,45 @@
             </Hierarchy>
         </Dimension>
 
-        <Dimension name="Continente de origen/destino" foreign_key="continente">
-            <Hierarchy name="Continente de origen/destino" primary_key="id">
+        <Dimension name="Continente de origen o destino" foreign_key="continente">
+            <Hierarchy name="Continente de origen o destino" primary_key="id">
                 <InlineTable alias="dim_continente">
-                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="id" key_type="text" />
                     <ColumnDef name="name" key_type="text" />
                     <Row>
-                        <Value column="id">América del Norte</Value>
+                        <Value column="id">na</Value>
+                        <Value column="name">América del Norte</Value>
                     </Row>
                     <Row>
-                        <Value column="id">América del Centro</Value>
+                        <Value column="id">ca</Value>
+                        <Value column="name">América del Centro</Value>
                     </Row>
                     <Row>
-                        <Value column="id">América del Sur</Value>
+                        <Value column="id">sa</Value>
+                        <Value column="name">América del Sur</Value>
                     </Row>
                     <Row>
-                        <Value column="id">Europa</Value>
+                        <Value column="id">eu</Value>
+                        <Value column="name">Europa</Value>
                     </Row>
                     <Row>
-                        <Value column="id">Asia</Value>
+                        <Value column="id">as</Value>
+                        <Value column="name">Asia</Value>
                     </Row>
                     <Row>
-                        <Value column="id">África</Value>
+                        <Value column="id">af</Value>
+                        <Value column="name">África</Value>
                     </Row>
                     <Row>
-                        <Value column="id">Oceanía</Value>
+                        <Value column="id">oc</Value>
+                        <Value column="name">Oceanía</Value>
                     </Row>
                     <Row>
+                        <Value column="id">xx</Value>
                         <Value column="id">Otros</Value>
                     </Row>
                 </InlineTable>
-                <Level name="Continente de origen/destino" key_column="id" name_column="name" />
+                <Level name="Continente de origen o destino" key_column="id" name_column="name" />
             </Hierarchy>
         </Dimension>
 
@@ -1310,7 +1352,7 @@
 
         <Table name="inei_population_y_n_dep_urb_rur" primary_key="ubigeo" />
 
-        <DimensionUsage foreign_key="ubigeo" source="Ubigeo Departamento" name="Ubigeo" />
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo Departamento" name="Departamento" />
 
         <Dimension name="Year" foreign_key="year">
             <Hierarchy name="Year">
@@ -1318,29 +1360,29 @@
             </Hierarchy>
         </Dimension>
 
-        <Dimension name="Tipo de indicador" foreign_key="measure">
+        <Dimension name="Tipo de indicador" foreign_key="medida">
             <Hierarchy name="Tipo de indicador" primary_key="id">
                 <InlineTable alias="dim_measure">
                     <ColumnDef name="id" key_type="nontext" />
                     <ColumnDef name="name" key_type="text" />
                     <Row>
-                        <Value column="id">evo_pob_censada_urb</Value>
+                        <Value column="id">1</Value>
                         <Value column="name">Evolución poblacion censada urbana</Value>
                     </Row>
                     <Row>
-                        <Value column="id">evo_pob_censada_rur</Value>
+                        <Value column="id">2</Value>
                         <Value column="name">Evolución poblacion censada rural</Value>
                     </Row>
                     <Row>
-                        <Value column="id">matriculados_sist_educa_urb</Value>
+                        <Value column="id">3</Value>
                         <Value column="name">Matriculados sistema educativo urbano</Value>
                     </Row>
                     <Row>
-                        <Value column="id">matriculados_sist_educa_rur</Value>
+                        <Value column="id">4</Value>
                         <Value column="name">Matriculados sistema educativo rural</Value>
                     </Row>
                 </InlineTable>
-                <Level name="Tipo de migracion" key_column="id" name_column="name" />
+                <Level name="Tipo de indicador" key_column="id" name_column="name" />
             </Hierarchy>
         </Dimension>
 
@@ -1354,12 +1396,7 @@
         <Table name="itp_indicators_m_n_nat" primary_key="ubigeo" />
 
         <DimensionUsage foreign_key="nation_id" source="Ubigeo Nacion" name="Ubigeo Nacion" />
-
-        <Dimension name="Month" foreign_key="month_id">
-            <Hierarchy name="Month">
-                <Level name="Month" key_column="month_id" key_type="nontext" />
-            </Hierarchy>
-        </Dimension>
+        <DimensionUsage foreign_key="month_id" source="Date Month Lite" name="Month" />
 
         <Measure name="IPC base observado (2011)" column="ipc_base_2011_observado" aggregator="sum" />
         <Measure name="IPC base variación mes anterior (2011)" column="ipc_base_2011_var_mes_anterior" aggregator="sum" />
@@ -1460,7 +1497,7 @@
 					</Hierarchy>
 			</Dimension>
 
-			<Dimension name="Actividad económica" foreign_key="act_economica">
+			<Dimension name="Actividad economica" foreign_key="act_economica">
 					<Hierarchy name="Actividad economica" primary_key="id">
 						<InlineTable alias="dim_inline_act_economica">
 								<ColumnDef name="id" key_type="nontext" />
@@ -1890,48 +1927,59 @@
                         <Table name="dim_shared_ciiu_production" />
 
         		<Level name="División economica" key_column="division_id" name_column="division" />
-        		<Level name="Grupo económico" key_column="group_id" name_column="group" />
-            <Level name="Producto" key_column="product_name" name_column="product_name" />
+        		<Level name="Grupo economico" key_column="group_id" name_column="group" />
+                <Level name="Producto" key_column="product_name" />
             </Hierarchy>
         </Dimension>
 
-        <Dimension name="Unidad de medida" foreign_key="text">
+        <Dimension name="Unidad de medida" foreign_key="unit">
             <Hierarchy name="Unidad de medida" primary_key="id">
                 <InlineTable alias="dim_measure_unit">
-                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="id" key_type="text" />
                     <ColumnDef name="name" key_type="text" />
                         <Row>
                             <Value column="id">kg</Value>
+                            <Value column="name">Kilogramo</Value>
                         </Row>
                         <Row>
-                            <Value column="id">t</Value> 
+                            <Value column="id">t</Value>
+                            <Value column="name">Tonelada</Value> 
                         </Row>
                         <Row>
                             <Value column="id">lt</Value>
+                            <Value column="name">Litro</Value>
                         </Row>
                         <Row>
-                            <Value column="id">m</Value> 
+                            <Value column="id">m</Value>
+                            <Value column="name">Metro</Value> 
                         </Row>
                         <Row>
                             <Value column="id">unidad</Value>
+                            <Value column="name">Unidad</Value>
                         </Row>
                         <Row>
-                            <Value column="id">par</Value> 
+                            <Value column="id">par</Value>
+                            <Value column="name">Par</Value> 
                         </Row>
                         <Row>
                             <Value column="id">pie2</Value>
+                            <Value column="name">Pie cuadrado</Value>
                         </Row>
                         <Row>
                             <Value column="id">m3</Value>
+                            <Value column="name">Metro cúbico</Value>
                         </Row>
                         <Row>
-                            <Value column="id">mil</Value> 
+                            <Value column="id">mil</Value>
+                            <Value column="name">Mil</Value> 
                         </Row>
                         <Row>
                             <Value column="id">ciento</Value>
+                            <Value column="name">Ciento</Value>
                         </Row>
                         <Row>
-                            <Value column="id">pieza</Value> 
+                            <Value column="id">pieza</Value>
+                            <Value column="name">Pieza</Value> 
                         </Row>
                 </InlineTable>
                 <Level name="Unidad de medida" key_column="id" name_column="name" />

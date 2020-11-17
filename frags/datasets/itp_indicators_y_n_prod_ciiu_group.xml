@@ -20,48 +20,59 @@
                         <Table name="dim_shared_ciiu_production" />
 
         		<Level name="División economica" key_column="division_id" name_column="division" />
-        		<Level name="Grupo económico" key_column="group_id" name_column="group" />
-            <Level name="Producto" key_column="product_name" name_column="product_name" />
+        		<Level name="Grupo economico" key_column="group_id" name_column="group" />
+                <Level name="Producto" key_column="product_name" />
             </Hierarchy>
         </Dimension>
 
-        <Dimension name="Unidad de medida" foreign_key="text">
+        <Dimension name="Unidad de medida" foreign_key="unit">
             <Hierarchy name="Unidad de medida" primary_key="id">
                 <InlineTable alias="dim_measure_unit">
-                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="id" key_type="text" />
                     <ColumnDef name="name" key_type="text" />
                         <Row>
                             <Value column="id">kg</Value>
+                            <Value column="name">Kilogramo</Value>
                         </Row>
                         <Row>
-                            <Value column="id">t</Value> 
+                            <Value column="id">t</Value>
+                            <Value column="name">Tonelada</Value> 
                         </Row>
                         <Row>
                             <Value column="id">lt</Value>
+                            <Value column="name">Litro</Value>
                         </Row>
                         <Row>
-                            <Value column="id">m</Value> 
+                            <Value column="id">m</Value>
+                            <Value column="name">Metro</Value> 
                         </Row>
                         <Row>
                             <Value column="id">unidad</Value>
+                            <Value column="name">Unidad</Value>
                         </Row>
                         <Row>
-                            <Value column="id">par</Value> 
+                            <Value column="id">par</Value>
+                            <Value column="name">Par</Value> 
                         </Row>
                         <Row>
                             <Value column="id">pie2</Value>
+                            <Value column="name">Pie cuadrado</Value>
                         </Row>
                         <Row>
                             <Value column="id">m3</Value>
+                            <Value column="name">Metro cúbico</Value>
                         </Row>
                         <Row>
-                            <Value column="id">mil</Value> 
+                            <Value column="id">mil</Value>
+                            <Value column="name">Mil</Value> 
                         </Row>
                         <Row>
                             <Value column="id">ciento</Value>
+                            <Value column="name">Ciento</Value>
                         </Row>
                         <Row>
-                            <Value column="id">pieza</Value> 
+                            <Value column="id">pieza</Value>
+                            <Value column="name">Pieza</Value> 
                         </Row>
                 </InlineTable>
                 <Level name="Unidad de medida" key_column="id" name_column="name" />
