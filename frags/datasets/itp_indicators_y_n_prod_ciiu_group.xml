@@ -15,13 +15,13 @@
             </Hierarchy>
         </Dimension>
 
-        <Dimension name="Actividad economica" foreign_key="product_name">
+        <Dimension name="Actividad economica" foreign_key="product_id">
             <Hierarchy name="Actividad economica" primary_key="product_name">
                         <Table name="dim_shared_ciiu_production" />
 
-        		<Level name="División economica" key_column="division_id" name_column="division" />
+        		<Level name="Division economica" key_column="division_id" name_column="division" />
         		<Level name="Grupo economico" key_column="group_id" name_column="group" />
-                <Level name="Producto" key_column="product_name" />
+                <Level name="Producto" key_column="product_id" />
             </Hierarchy>
         </Dimension>
 
