@@ -1,0 +1,14 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="dimemsion_ubigeo_district">
+
+        <Table name="dimemsion_ubigeo_district" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="nation_id" source="Ubigeo Nacion" name="Ubigeo Nacion" />
+        <DimensionUsage foreign_key="department_id" source="Ubigeo Departamento" name="Ubigeo Departamento" />
+        <DimensionUsage foreign_key="province_id" source="Ubigeo Provincia" name="Ubigeo Provincia" />
+        <DimensionUsage foreign_key="district_id" source="Ubigeo Distrito" name="Ubigeo Distrito" />
+
+        <Measure name="Variable conteo" column="district_id" aggregator="count" />
+
+    </Cube>
+</Schema>
