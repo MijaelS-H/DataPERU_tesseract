@@ -2401,9 +2401,9 @@
         <Measure name="Monto Recaudado" column="monto_recaudado" aggregator="sum" />
 
     </Cube>
-    <Cube name="dimemsion_ubigeo_district">
+    <Cube name="dimension_ubigeo_district">
 
-        <Table name="dimemsion_ubigeo_district" primary_key="ubigeo" />
+        <Table name="dimension_ubigeo_district" primary_key="ubigeo" />
 
         <DimensionUsage foreign_key="district_id" source="Dimension geografica" name="Dimension geografica" />
 
