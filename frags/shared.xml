@@ -57,6 +57,17 @@
         </Hierarchy>
     </SharedDimension>
 
+    <SharedDimension name="Dimension CIIU" type="standard">
+        <Hierarchy name="Dimension CIIU">
+            <Table name="dimension_ciiu" />
+
+            <Level name="Seccion" key_column="section_id" name_column="section_name" key_type="text" />
+            <Level name="Division" key_column="division_id" name_column="division_name" key_type="text" />
+            <Level name="Grupo" key_column="group_id" name_column="group_name" key_type="text" />
+            <Level name="Clase" key_column="class_id" name_column="class_name" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
     <SharedDimension name="Ubigeo Nacion" type="geo">
         <Hierarchy name="Ubigeo Nacion">
             <Table name="dim_shared_ubigeo_nation" />
