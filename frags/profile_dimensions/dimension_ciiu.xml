@@ -1,0 +1,11 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="dimension_ciiu">
+
+        <Table name="dimension_ciiu" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="class_id" source="Dimension CIIU" name="Dimension CIIU" />
+
+        <Measure name="Variable conteo" column="class_id" aggregator="count" />
+
+    </Cube>
+</Schema>
