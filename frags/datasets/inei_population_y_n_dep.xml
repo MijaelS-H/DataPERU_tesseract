@@ -23,9 +23,9 @@
         <Measure name = "Porcentaje hogares con miembros NBI" column = "mbpa_1_o_mas_members_perc_hog" aggregator = "avg" />
         <Measure name = "Porcentaje hogares pobres con miembros NBI" column = "mbpa_1_o_mas_members_perc_hog_pob" aggregator = "avg" />
         <Measure name = "Número de médicos colegiados" column = "n_medicos_colegiados" aggregator = "sum" />
-        <Measure name = "Número de habitantes por médico" column = "n_habitantes_por_medico" aggregator = "sum" />
+        <Measure name = "Número de habitantes por médico" column = "n_habitantes_por_medico" aggregator = "avg" />
         <Measure name = "Número de enfermeras(os) colegiados" column = "n_enfermeras_os_colegiados" aggregator = "sum" />
-        <Measure name = "Número de habitantes por enfermera(o)" column = "n_habitantes_por_enfermera_os" aggregator = "sum" />
+        <Measure name = "Número de habitantes por enfermera(o)" column = "n_habitantes_por_enfermera_os" aggregator = "avg" />
         <Measure name = "Desnutrición infantil en mejores de 5" column = "desnutricion_5yrs_perc" aggregator = "avg" />
         <Measure name = "Enfermedades respiratorias en menores de 5" column = "enfermedades_ra_5yrs_perc" aggregator = "avg" />
         <Measure name = "Enfermedades diarreicas en menores de 5" column = "enfer_diarreicas_5yrs" aggregator = "avg" />

@@ -19,7 +19,7 @@
         <Measure name="Salida de turistas peruanos, por destino" column="n_salidas_turistas_internacionales" aggregator="sum" />
         <Measure name="Arribos extranjeros establecimientos hospedaje" column="arribos_turistas_extranjeros" aggregator="sum" />
         <Measure name="Pernoctaciones extranjeros establecimientos hospedaje" column="prenoctacion_turistas_extranjeros" aggregator="sum" />
-        <Measure name="Permanencia extranjeros establecimientos hospedaje (n noches)" column="permanencia_prom_noche_turistas_extranjeros" aggregator="sum" />
+        <Measure name="Permanencia extranjeros establecimientos hospedaje (n noches)" column="permanencia_prom_noche_turistas_extranjeros" aggregator="avg" />
 
     </Cube>
 </Schema>
