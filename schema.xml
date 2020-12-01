@@ -2237,9 +2237,9 @@
     </Cube>
     <Cube name="proinversion_fdi_y_origin_nat">
 
-    	<Annotation name="topic">Economia</Annotation>
-      	<Annotation name="subtopic">Economia</Annotation>
-      	<Annotation name="source_name">Indicadores ITP</Annotation>
+      <Annotation name="topic">Economia</Annotation>
+        <Annotation name="subtopic">Economia</Annotation>
+        <Annotation name="source_name">Indicadores ITP</Annotation>
 
         <Table name="proinversion_fdi_y_origin_nat" primary_key="ubigeo" />
 
@@ -2254,7 +2254,98 @@
 
         <Measure name="IED (Millones de dolares)" column="ied_millones_USD" aggregator="sum" />
 
-  	</Cube>
+    </Cube>
+    <Cube name="proinversion_fdi_y_origin_sector">
+
+      <Annotation name="topic">Economia</Annotation>
+        <Annotation name="subtopic">Economia</Annotation>
+        <Annotation name="source_name">Indicadores ITP</Annotation>
+
+        <Table name="proinversion_fdi_y_origin_sector" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="nation_id" source="Ubigeo Nacion" name="Ubigeo Nacion" />
+        <DimensionUsage foreign_key="iso3" source="Pais" name="Pais Origen" />
+
+        <Dimension name="Sector" foreign_key="sector">
+            <Hierarchy name="Sector" primary_key="id">
+              <InlineTable alias="dim_inline_sector_fdi">
+                  <ColumnDef name="id" key_type="nontext" />
+                  <ColumnDef name="name" key_type="text" />
+                  <Row>
+                    <Value column="id">1</Value>
+                    <Value column="name">Minería</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">2</Value>
+                    <Value column="name">Comunicaciones</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">3</Value>
+                    <Value column="name">Finanzas</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">4</Value>
+                    <Value column="name">Energía</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">5</Value>
+                    <Value column="name">Industria</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">6</Value>
+                    <Value column="name">Comercio</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">7</Value>
+                    <Value column="name">Petróleo</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">8</Value>
+                    <Value column="name">Servicios</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">9</Value>
+                    <Value column="name">Transporte</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">10</Value>
+                    <Value column="name">Construcción</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">11</Value>
+                    <Value column="name">Pesca</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">12</Value>
+                    <Value column="name">Turismo</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">13</Value>
+                    <Value column="name">Agricultura</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">14</Value>
+                    <Value column="name">Vivienda</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">15</Value>
+                    <Value column="name">Silvicultura</Value>
+                  </Row>
+              </InlineTable>
+              <Level name="Sector" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+              <Level name="Year" key_column="year" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="IED (Millones de dolares)" column="ied_millones_USD" aggregator="sum" />
+
+    </Cube>
     <Cube name="minagri_dinamica_agricola">
         <Annotation name="source_name">MINAGRI</Annotation>
         <Annotation name="source_description">Ministerio de Agricultura y Riego</Annotation>
