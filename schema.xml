@@ -1,4 +1,4 @@
-<Schema name="dataperu" default_locale="es">
+<Schema name="dataperu">
 
     <SharedDimension name="CIIU Rev 3" type="standard">
         <Hierarchy name="CIIU Rev 3">
@@ -1409,6 +1409,139 @@
         </Dimension>
 
         <Measure name="Población" column="poblacion" aggregator="sum" />
+    </Cube>
+    <Cube name="inei_population_y_n_gender_age_urb_rur">
+        <Annotation name="topic">Demografia</Annotation>
+        <Annotation name="subtopic">Demografia</Annotation>
+        <Annotation name="source_name">Indicadores ITP</Annotation>
+
+        <Table name="inei_population_y_n_gender_age_urb_rur" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="nation_id" source="Ubigeo Nacion" name="Ubigeo Nacion" />
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+              <Level name="Year" key_column="year" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Sexo" foreign_key="sexo">
+            <Hierarchy name="Sexo" primary_key="id">
+                <InlineTable alias="dim_sexo">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Hombre</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Mujer</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Sexo" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Tipo poblacion" foreign_key="tipo_poblacion">
+            <Hierarchy name="Tipo poblacion" primary_key="id">
+                <InlineTable alias="dim_tipo_poblacion">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Urbano</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Rural</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Tipo poblacion" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Grupo de edad" foreign_key="edad">
+            <Hierarchy name="Grupo de edad" primary_key="id">
+              <InlineTable alias="dim_inline_edad">
+                  <ColumnDef name="id" key_type="nontext" />
+                  <ColumnDef name="name" key_type="text" />
+                  <Row>
+                    <Value column="id">1</Value>
+                    <Value column="name">De 0 a 4 años</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">2</Value>
+                    <Value column="name">De 5 a 9 años</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">3</Value>
+                    <Value column="name">De 10 a 15 años</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">4</Value>
+                    <Value column="name">De 15 a 19 años</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">5</Value>
+                    <Value column="name">De 20 a 24 años</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">6</Value>
+                    <Value column="name">De 25 a 29 años</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">7</Value>
+                    <Value column="name">De 30 a 34 años</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">8</Value>
+                    <Value column="name">De 35 a 39 años</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">9</Value>
+                    <Value column="name">De 40 a 44 años</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">10</Value>
+                    <Value column="name">De 45 a 49 años</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">11</Value>
+                    <Value column="name">De 50 a 54 años</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">12</Value>
+                    <Value column="name">De 55 a 59 años</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">13</Value>
+                    <Value column="name">De 60 a 64 años</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">14</Value>
+                    <Value column="name">De 65 a 69 años</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">15</Value>
+                    <Value column="name">De 70 a 74 años</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">16</Value>
+                    <Value column="name">De 75 a 79 años</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">17</Value>
+                    <Value column="name">80 años y mas</Value>
+                  </Row>
+
+              </InlineTable>
+              <Level name="Grupo de edad" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Poblacion" column="poblacion" aggregator="sum" />
+
     </Cube>
     <Cube name="itp_indicators_m_n_nat">
         <Annotation name="topic">Economia</Annotation>
