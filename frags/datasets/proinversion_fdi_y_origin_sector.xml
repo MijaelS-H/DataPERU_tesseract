@@ -8,7 +8,6 @@
         <Table name="proinversion_fdi_y_origin_sector" primary_key="ubigeo" />
 
         <DimensionUsage foreign_key="nation_id" source="Ubigeo Nacion" name="Ubigeo Nacion" />
-        <DimensionUsage foreign_key="iso3" source="Pais" name="Pais Origen" />
 
         <Dimension name="Sector" foreign_key="sector">
             <Hierarchy name="Sector" primary_key="id">
