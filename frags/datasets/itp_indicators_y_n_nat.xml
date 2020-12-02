@@ -22,17 +22,17 @@
         <Measure name = "PIB según tipo Ingreso explotacion (millones de soles)" column = "ingreso_explotacion_mill_n_soles" aggregator = "sum" />
         <Measure name = "PIB según tipo Excedente explotacion bruto (millones de soles)" column = "excedente_explotacion_bruto_mill_n_soles" aggregator = "sum" />
         <Measure name = "PIB según tipo Ingreso mixto (millones de soles)" column = "ingreso_mixto_mill_n_soles" aggregator = "sum" />
-        <Measure name = "Créditos Directos Agricultura, ganaderia, caza y silvicultura (miles de soles)" column = "agricultura_ganaderia_caza_silvicultura_miles_soles" aggregator = "sum" />
+        <Measure name = "Créditos Directos Agricultura; ganaderia; caza y silvicultura (miles de soles)" column = "agricultura_ganaderia_caza_silvicultura_miles_soles" aggregator = "sum" />
         <Measure name = "Créditos Directos Pesca (miles de soles)" column = "pesca_miles_soles" aggregator = "sum" />
         <Measure name = "Créditos Directos Mineria (miles de soles)" column = "mineria_miles_soles" aggregator = "sum" />
         <Measure name = "Créditos Directos Industria manufacturera (miles de soles)" column = "industria_manufacturera_miles_soles" aggregator = "sum" />
-        <Measure name = "Créditos Directos Electricidad, gas y agua (miles de soles)" column = "electricidad_gas_agua_miles_soles" aggregator = "sum" />
+        <Measure name = "Créditos Directos Electricidad; gas y agua (miles de soles)" column = "electricidad_gas_agua_miles_soles" aggregator = "sum" />
         <Measure name = "Créditos Directos Construccion (miles de soles)" column = "construccion_miles_soles" aggregator = "sum" />
         <Measure name = "Créditos Directos Comercio (miles de soles)" column = "comercio_miles_soles" aggregator = "sum" />
         <Measure name = "Créditos Directos Hoteles y restaurantes (miles de soles)" column = "hoteles_restaurantes_miles_soles" aggregator = "sum" />
-        <Measure name = "Créditos Directos Transporte, almacenamiento y comunicaciones (miles de soles)" column = "transporte_almacenamiento_comunicaciones_miles_soles" aggregator = "sum" />
+        <Measure name = "Créditos Directos Transporte; almacenamiento y comunicaciones (miles de soles)" column = "transporte_almacenamiento_comunicaciones_miles_soles" aggregator = "sum" />
         <Measure name = "Créditos Directos Intermediacion financiera (miles de soles)" column = "intermediacion_financiera_miles_soles" aggregator = "sum" />
-        <Measure name = "Créditos Directos Actividades inmobiliarias, empresariales y de alquiler (miles de soles)" column = "actividad_inmobiliarias_empresariales_alquiler_miles_soles" aggregator = "sum" />
+        <Measure name = "Créditos Directos Actividades inmobiliarias; empresariales y de alquiler (miles de soles)" column = "actividad_inmobiliarias_empresariales_alquiler_miles_soles" aggregator = "sum" />
         <Measure name = "Créditos Directos Administracion publica defensa (miles de soles)" column = "administracion_publica_defensa_miles_soles" aggregator = "sum" />
         <Measure name = "Créditos Directos Enseñanza (miles de soles)" column = "ensenianza_miles_soles" aggregator = "sum" />
         <Measure name = "Créditos Directos Servicios sociales y de salud (miles de soles)" column = "servicios_sociales_salud_miles_soles" aggregator = "sum" />
@@ -169,15 +169,15 @@
         <Measure name = "Sector pesquero venta interna (millones toneladas metricas)" column = "sector_pesquero_consumo_interno_total_mil_ton_met" aggregator = "sum" />
         <Measure name = "Sector pesquero venta interna (kilogramos per capita)" column = "sector_pesquero_consumo_interno_per_capita_kg" aggregator = "sum" />
 
-        <Measure name = "Sector pesquero marítimo, consumo directo enlatado (millones toneladas metricas)" column = "sector_pesquero_mar_con_dir_enlatado_mil_ton_met" aggregator = "sum" />
-        <Measure name = "Sector pesquero marítimo, consumo directo congelado (millones toneladas metricas)" column = "sector_pesquero_mar_con_dir_congelado_mil_ton_met" aggregator = "sum" />
-        <Measure name = "Sector pesquero marítimo, consumo directo curado (millones toneladas metricas)" column = "sector_pesquero_mar_con_dir_curado_mil_ton_met" aggregator = "sum" />
-        <Measure name = "Sector pesquero marítimo, consumo directo fresco (millones toneladas metricas)" column = "sector_pesquero_mar_con_dir_fresco_mil_ton_met" aggregator = "sum" />
-        <Measure name = "Sector pesquero marítimo, consumo directo anchoveta (millones toneladas metricas)" column = "sector_pesquero_mar_con_ind_anchoveta_mil_ton_met" aggregator = "sum" />
-        <Measure name = "Sector pesquero marítimo, consumo directo otros (millones toneladas metricas)" column = "sector_pesquero_mar_con_ind_o_especies_mil_ton_met" aggregator = "sum" />
-        <Measure name = "Sector pesquero continental, consumo directo curado (millones toneladas metricas)" column = "sector_pesquero_con_dir_curado_mil_ton_met" aggregator = "sum" />
-        <Measure name = "Sector pesquero continental, consumo directo fresco (millones toneladas metricas)" column = "sector_pesquero_con_dir_fresco_mil_ton_met" aggregator = "sum" />
-        <Measure name = "Sector pesquero continental, consumo directo congelado (millones toneladas metricas)" column = "sector_pesquero_con_dir_congelado_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero marítimo; consumo directo enlatado (millones toneladas metricas)" column = "sector_pesquero_mar_con_dir_enlatado_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero marítimo; consumo directo congelado (millones toneladas metricas)" column = "sector_pesquero_mar_con_dir_congelado_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero marítimo; consumo directo curado (millones toneladas metricas)" column = "sector_pesquero_mar_con_dir_curado_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero marítimo; consumo directo fresco (millones toneladas metricas)" column = "sector_pesquero_mar_con_dir_fresco_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero marítimo; consumo directo anchoveta (millones toneladas metricas)" column = "sector_pesquero_mar_con_ind_anchoveta_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero marítimo; consumo directo otros (millones toneladas metricas)" column = "sector_pesquero_mar_con_ind_o_especies_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero continental; consumo directo curado (millones toneladas metricas)" column = "sector_pesquero_con_dir_curado_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero continental; consumo directo fresco (millones toneladas metricas)" column = "sector_pesquero_con_dir_fresco_mil_ton_met" aggregator = "sum" />
+        <Measure name = "Sector pesquero continental; consumo directo congelado (millones toneladas metricas)" column = "sector_pesquero_con_dir_congelado_mil_ton_met" aggregator = "sum" />
 
         <Measure name = "Pesca desembarque anchoveta (millones toneladas metricas)" column = "pesca_desem_anchoveta_mil_ton_metricas" aggregator = "sum" />
         <Measure name = "Pesca desembarque atun (millones toneladas metricas)" column = "pesca_desem_atun_mil_ton_metricas" aggregator = "sum" />

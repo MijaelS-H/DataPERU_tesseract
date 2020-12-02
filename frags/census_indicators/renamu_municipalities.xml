@@ -106,8 +106,8 @@
         <Measure name="Porcentaje de municipalidades con disponibilidad de pago con tarjeta de débito o crédito en ventanilla de la municipalidad" column="RENAMU_86" aggregator="sum" />
         <Measure name="Disponibilidad de pago por página web de trámites de ventanilla de la municipalidad" column="RENAMU_87" aggregator="sum" />
         <Measure name="Porcentaje de municipalidades con disponibilidad de pago por página web de trámites de ventanilla de la municipalidad" column="RENAMU_88" aggregator="sum" />
-        <Measure name="Disponibilidad de pago a través de instituciones finacieras como bancos y agentes, cajas municipales, entre otros en la municipalidad" column="RENAMU_89" aggregator="sum" />
-        <Measure name="Porcentaje de municipalidades con disponibilidad de pago a través de instituciones finacieras como bancos y agentes, cajas municipales, entre otros" column="RENAMU_90" aggregator="sum" />
+        <Measure name="Disponibilidad de pago a través de instituciones finacieras como bancos y agentes; cajas municipales; entre otros en la municipalidad" column="RENAMU_89" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades con disponibilidad de pago a través de instituciones finacieras como bancos y agentes; cajas municipales; entre otros" column="RENAMU_90" aggregator="sum" />
         <Measure name="Disponibilidad de Área de Ejecución Coactiva en la municipalidad" column="RENAMU_91" aggregator="sum" />
         <Measure name="Porcentaje de municipalidades que cuentan con Área de Ejecución Coactiva dentro del área de administración tributaria" column="RENAMU_92" aggregator="sum" />
         <Measure name="Indicador de realización de levantamiento catastral" column="RENAMU_93" aggregator="sum" />
@@ -135,8 +135,8 @@
         <Measure name="Disponibilidad de plan integral de gestión ambiental de residuos sólidos" column="RENAMU_115" aggregator="sum" />
         <Measure name="Porcentaje de municipalidades que disponen de un plan integral de gestión ambiental de residuos sólidos" column="RENAMU_116" aggregator="sum" />
         <Measure name="Número total de vendedores ambulantes registrados y activos en la municipalidad" column="RENAMU_117" aggregator="sum" />
-        <Measure name="Indicador de realización de operativos de control de aseo, higiene y salubridad" column="RENAMU_118" aggregator="sum" />
-        <Measure name="Porcentaje de municipalidades que realizan operativos de control de aseo, higiene y salubridad" column="RENAMU_119" aggregator="sum" />
+        <Measure name="Indicador de realización de operativos de control de aseo; higiene y salubridad" column="RENAMU_118" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades que realizan operativos de control de aseo; higiene y salubridad" column="RENAMU_119" aggregator="sum" />
         <Measure name="Indicador de realización de operativos de control de pesas y medidas de mercado" column="RENAMU_120" aggregator="sum" />
         <Measure name="Porcentaje de municipalidades que realizan operativos de control de pesos y medidas de mercado" column="RENAMU_121" aggregator="sum" />
         <Measure name="Indicador de realización de operativos de control de comercio ambulatorio" column="RENAMU_122" aggregator="sum" />
@@ -151,8 +151,8 @@
         <Measure name="Porcentaje de municipalidades que realizan operativos de control de anuncios publicitario" column="RENAMU_131" aggregator="sum" />
         <Measure name="Indicador de realización de operativos de control de transporte urbano" column="RENAMU_132" aggregator="sum" />
         <Measure name="Porcentaje de municipalidades que realizan operativos de control de transporte urbano" column="RENAMU_133" aggregator="sum" />
-        <Measure name="Indicador de conservación de áreas verdes (plazas, parques, zoológicos, jardines, alamedas o bermas)" column="RENAMU_134" aggregator="sum" />
-        <Measure name="Porcentaje de municipalidades que realizan procedimientos de conservación en áreas verdes (plazas, parques, zoológicos, jardines, alamedas o bermas)" column="RENAMU_135" aggregator="sum" />
+        <Measure name="Indicador de conservación de áreas verdes (plazas; parques; zoológicos; jardines; alamedas o bermas)" column="RENAMU_134" aggregator="sum" />
+        <Measure name="Porcentaje de municipalidades que realizan procedimientos de conservación en áreas verdes (plazas; parques; zoológicos; jardines; alamedas o bermas)" column="RENAMU_135" aggregator="sum" />
         <Measure name="Disponibilidad de las bibliotecas municipal" column="RENAMU_136" aggregator="sum" />
         <Measure name="Porcentaje de municipalidades que disponen de bibliotecas" column="RENAMU_137" aggregator="sum" />
         <Measure name="Disponibilidad de servicio bibliotecarios" column="RENAMU_138" aggregator="sum" />
