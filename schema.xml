@@ -1,5 +1,4 @@
 <Schema name="dataperu">
-
     <SharedDimension name="CIIU Rev 3" type="standard">
         <Hierarchy name="CIIU Rev 3">
             <Table name="dim_shared_ciiu_rev_3" />
@@ -1136,9 +1135,49 @@
             </Hierarchy>
         </Dimension>
 
-        <Dimension name="Grupo de edad" foreign_key="age_group">
-            <Hierarchy name="Grupo de edad">
-                <Level name="Grupo de edad" key_column="age_group" key_type="text" />
+        <Dimension name="Grupo de edad" foreign_key="edad">
+            <Hierarchy name="Grupo de edad" primary_key="id">
+              <InlineTable alias="dim_inline_edad">
+                  <ColumnDef name="id" key_type="nontext" />
+                  <ColumnDef name="name" key_type="text" />
+                  <Row>
+                    <Value column="id">1</Value>
+                    <Value column="name">De 0 a 9 años</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">2</Value>
+                    <Value column="name">De 10 a 19 años</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">3</Value>
+                    <Value column="name">De 20 a 29 años</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">4</Value>
+                    <Value column="name">De 30 a 39 años</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">5</Value>
+                    <Value column="name">De 40 a 49 años</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">6</Value>
+                    <Value column="name">De 50 a 59 años</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">7</Value>
+                    <Value column="name">De 60 a 69 años</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">8</Value>
+                    <Value column="name">De 70 a 79 años</Value>
+                  </Row>
+                  <Row>
+                    <Value column="id">9</Value>
+                    <Value column="name">80 años y mas</Value>
+                  </Row>
+              </InlineTable>
+              <Level name="Grupo de edad" key_column="id" name_column="name" />
             </Hierarchy>
         </Dimension>
 
@@ -2348,7 +2387,6 @@
               <Level name="Sector" key_column="id" name_column="name" />
             </Hierarchy>
         </Dimension>
-
 
         <Dimension name="Year" foreign_key="year">
             <Hierarchy name="Year">
