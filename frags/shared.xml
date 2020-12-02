@@ -176,6 +176,25 @@
         </Hierarchy>
     </SharedDimension>
 
+    <SharedDimension name="Date Quarter Lite" type="time">
+        <Hierarchy name="Date" primary_key="quarter_id">
+            <Table name="dim_shared_date_quarter" />
+            <Level name="Quarter" key_column="quarter_id" name_column="quarter">
+                <Property name="Quarter ES" column="quarter" caption_set="es" />
+            </Level>
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Date Quarter" type="time">
+        <Hierarchy name="Date" primary_key="quarter_id">
+            <Table name="dim_shared_date_quarter" />
+            <Level name="Year" key_column="year" />
+            <Level name="Quarter" key_column="quarter_id" name_column="quarter">
+                <Property name="Quarter ES" column="quarter" caption_set="es" />
+            </Level>
+        </Hierarchy>
+    </SharedDimension>
+
     <SharedDimension name="Date Month Lite" type="time">
         <Hierarchy name="Date" primary_key="month_id">
             <Table name="dim_shared_date_month" />

@@ -7,12 +7,7 @@
         <Table name="itp_indicators_q_n_nat" primary_key="ubigeo" />
 
         <DimensionUsage foreign_key="nation_id" source="Ubigeo Nacion" name="Ubigeo Nacion" />
-
-        <Dimension name="Quarter" foreign_key="quarter_id">
-            <Hierarchy name="Quarter">
-                <Level name="Quarter" key_column="quarter_id" key_type="nontext" />
-            </Hierarchy>
-        </Dimension>
+        <DimensionUsage foreign_key="quarter_id" source="Date Quarter" name="Quarter" />
 
         <Measure name="Producto interno bruto (Millones S/ 2007)" column="producto_bruto_interno_2007" aggregator="sum" />
         <Measure name="Gasto consumo final privado (Millones S/ 2007)" column="gasto_consumo_final_privado_2007" aggregator="sum" />

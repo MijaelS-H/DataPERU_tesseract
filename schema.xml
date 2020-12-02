@@ -176,6 +176,25 @@
         </Hierarchy>
     </SharedDimension>
 
+    <SharedDimension name="Date Quarter Lite" type="time">
+        <Hierarchy name="Date" primary_key="quarter_id">
+            <Table name="dim_shared_date_quarter" />
+            <Level name="Quarter" key_column="quarter_id" name_column="quarter">
+                <Property name="Quarter ES" column="quarter" caption_set="es" />
+            </Level>
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Date Quarter" type="time">
+        <Hierarchy name="Date" primary_key="quarter_id">
+            <Table name="dim_shared_date_quarter" />
+            <Level name="Year" key_column="year" />
+            <Level name="Quarter" key_column="quarter_id" name_column="quarter">
+                <Property name="Quarter ES" column="quarter" caption_set="es" />
+            </Level>
+        </Hierarchy>
+    </SharedDimension>
+
     <SharedDimension name="Date Month Lite" type="time">
         <Hierarchy name="Date" primary_key="month_id">
             <Table name="dim_shared_date_month" />
@@ -1585,12 +1604,7 @@
         <Table name="itp_indicators_q_n_nat" primary_key="ubigeo" />
 
         <DimensionUsage foreign_key="nation_id" source="Ubigeo Nacion" name="Ubigeo Nacion" />
-
-        <Dimension name="Quarter" foreign_key="quarter_id">
-            <Hierarchy name="Quarter">
-                <Level name="Quarter" key_column="quarter_id" key_type="nontext" />
-            </Hierarchy>
-        </Dimension>
+        <DimensionUsage foreign_key="quarter_id" source="Date Quarter" name="Quarter" />
 
         <Measure name="Producto interno bruto (Millones S/ 2007)" column="producto_bruto_interno_2007" aggregator="sum" />
         <Measure name="Gasto consumo final privado (Millones S/ 2007)" column="gasto_consumo_final_privado_2007" aggregator="sum" />
