@@ -14,13 +14,13 @@
             </Hierarchy>
         </Dimension>
 
-        <SharedDimension name="Puertos de desembarque" type="standard">
+        <Dimension name="Puertos de desembarque" foreign_key="puerto">
             <Hierarchy name="Puertos de desembarque">
                 <Table name="dim_shared_ports" />
 
                 <Level name="Puerto" key_column="port_id" name_column="port_name" key_type="text" />
             </Hierarchy>
-        </SharedDimension>
+        </Dimension>
 
         <Measure name="Desembarque de recursos marinos (Ton. metricas)" column="desembarque_recursos_marinos" aggregator="sum" />
 

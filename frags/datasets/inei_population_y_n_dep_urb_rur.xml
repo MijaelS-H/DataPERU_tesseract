@@ -40,6 +40,6 @@
             </Hierarchy>
         </Dimension>
 
-        <Measure name="Población" column="poblacion" aggregator="sum" />
+        <Measure name="Poblacion" column="poblacion" aggregator="sum" />
     </Cube>
 </Schema>

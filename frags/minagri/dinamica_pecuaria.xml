@@ -32,7 +32,7 @@
             </Hierarchy>
         </Dimension>
 
-        <Measure name="Producción" column="produccion" aggregator="sum" />  
+        <Measure name="Produccion" column="produccion" aggregator="sum" />  
 
     </Cube>
 </Schema>

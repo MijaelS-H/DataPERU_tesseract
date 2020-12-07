@@ -31,112 +31,112 @@
             </Hierarchy>
         </Dimension>
 
-        <Measure name="Número de puestos de mercado fijos" column="CENAMA_1" aggregator="sum" />
-        <Measure name="Número de puestos de mercado en funcionamiento" column="CENAMA_2" aggregator="sum" />
-        <Measure name="Número de puestos de mercado fijos que están en funcionamiento" column="CENAMA_3" aggregator="sum" />
-        <Measure name="Porcentaje de puestos de mercado fijos que están en funcionamiento" column="CENAMA_4" aggregator="sum" />
-        <Measure name="Número de socios / titulares o dueños del mercado de abastos" column="CENAMA_5" aggregator="sum" />
+        <Measure name="Numero de puestos de mercado fijos" column="CENAMA_1" aggregator="sum" />
+        <Measure name="Numero de puestos de mercado en funcionamiento" column="CENAMA_2" aggregator="sum" />
+        <Measure name="Numero de puestos de mercado fijos que estan en funcionamiento" column="CENAMA_3" aggregator="sum" />
+        <Measure name="Porcentaje de puestos de mercado fijos que estan en funcionamiento" column="CENAMA_4" aggregator="sum" />
+        <Measure name="Numero de socios / titulares o duenos del mercado de abastos" column="CENAMA_5" aggregator="sum" />
         <Measure name="Precio promedio (soles) de alquiler mensual de los puestos de mercado fijos que son propiedad del mercado" column="CENAMA_6" aggregator="sum" />
-        <Measure name="Tamaño promedio (m2) de los puestos de mercado fijos que son propiedad del mercado " column="CENAMA_7" aggregator="sum" />
-        <Measure name="Mercado de abastos cuenta con instalaciones de alumbrado eléctrico por red pública" column="CENAMA_8" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que cuenta con instalaciones de alumbrado eléctrico por red pública" column="CENAMA_9" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que cuenta con instalaciones de alumbrado eléctrico por red pública" column="CENAMA_10" aggregator="sum" />
-        <Measure name="Mercado de abastos cuenta con instalaciones de abastecimiento de agua por red pública" column="CENAMA_11" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que cuenta con instalaciones de abastecimiento de agua por red pública" column="CENAMA_12" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que cuenta con instalaciones de abastecimiento de agua por red pública" column="CENAMA_13" aggregator="sum" />
-        <Measure name="Mercado de abastos cuenta con instalaciones de alcantarillado por red pública" column="CENAMA_14" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que cuenta con instalaciones de alcantarillado por red pública" column="CENAMA_15" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que cuenta con instalaciones de alcantarillado por red pública" column="CENAMA_16" aggregator="sum" />
+        <Measure name="Tamano promedio (m2) de los puestos de mercado fijos que son propiedad del mercado " column="CENAMA_7" aggregator="sum" />
+        <Measure name="Mercado de abastos cuenta con instalaciones de alumbrado electrico por red publica" column="CENAMA_8" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que cuenta con instalaciones de alumbrado electrico por red publica" column="CENAMA_9" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que cuenta con instalaciones de alumbrado electrico por red publica" column="CENAMA_10" aggregator="sum" />
+        <Measure name="Mercado de abastos cuenta con instalaciones de abastecimiento de agua por red publica" column="CENAMA_11" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que cuenta con instalaciones de abastecimiento de agua por red publica" column="CENAMA_12" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que cuenta con instalaciones de abastecimiento de agua por red publica" column="CENAMA_13" aggregator="sum" />
+        <Measure name="Mercado de abastos cuenta con instalaciones de alcantarillado por red publica" column="CENAMA_14" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que cuenta con instalaciones de alcantarillado por red publica" column="CENAMA_15" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que cuenta con instalaciones de alcantarillado por red publica" column="CENAMA_16" aggregator="sum" />
         <Measure name="Mercado de abastos cuenta con servicio de seguridad" column="CENAMA_17" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que cuenta con servicio de seguridad" column="CENAMA_18" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que cuenta con servicio de seguridad" column="CENAMA_18" aggregator="sum" />
         <Measure name="Porcentaje de mercados de abastos que cuenta con servicio de seguridad" column="CENAMA_19" aggregator="sum" />
         <Measure name="Mercado de abastos cuenta con servicio de limpieza" column="CENAMA_20" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que cuenta con servicio de limpieza" column="CENAMA_21" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que cuenta con servicio de limpieza" column="CENAMA_21" aggregator="sum" />
         <Measure name="Porcentaje de mercados de abastos que cuenta con servicio de limpieza" column="CENAMA_22" aggregator="sum" />
         <Measure name="Mercado de abastos cuenta con servicio de carga y descarga" column="CENAMA_23" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que cuenta con servicio de carga y descarga" column="CENAMA_24" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que cuenta con servicio de carga y descarga" column="CENAMA_24" aggregator="sum" />
         <Measure name="Porcentaje de mercados de abastos que cuenta con servicio de carga y descarga" column="CENAMA_25" aggregator="sum" />
-        <Measure name="Mercado de abastos cuenta con servicio de servicios higiénicos" column="CENAMA_26" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que cuenta con servicio de servicios higiénicos" column="CENAMA_27" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que cuenta con servicio de servicios higiénicos" column="CENAMA_28" aggregator="sum" />
-        <Measure name="Mercado de abastos cuenta con cámaras de seguridad" column="CENAMA_29" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que cuentan con cámaras de seguridad" column="CENAMA_30" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que cuentan con cámaras de seguridad" column="CENAMA_31" aggregator="sum" />
+        <Measure name="Mercado de abastos cuenta con servicio de servicios higienicos" column="CENAMA_26" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que cuenta con servicio de servicios higienicos" column="CENAMA_27" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que cuenta con servicio de servicios higienicos" column="CENAMA_28" aggregator="sum" />
+        <Measure name="Mercado de abastos cuenta con camaras de seguridad" column="CENAMA_29" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que cuentan con camaras de seguridad" column="CENAMA_30" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que cuentan con camaras de seguridad" column="CENAMA_31" aggregator="sum" />
         <Measure name="Mercado de abastos cuentan con tanque o cisterna de agua" column="CENAMA_32" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que cuentan con tanque o cisterna de agua" column="CENAMA_33" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que cuentan con tanque o cisterna de agua" column="CENAMA_33" aggregator="sum" />
         <Measure name="Porcentaje de mercados de abastos que cuentan con tanque o cisterna de agua" column="CENAMA_34" aggregator="sum" />
         <Measure name="Mercado de abastos cuentan con servicio de radio (perifoneo)" column="CENAMA_35" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que cuentan con servicio de radio (perifoneo)" column="CENAMA_36" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que cuentan con servicio de radio (perifoneo)" column="CENAMA_36" aggregator="sum" />
         <Measure name="Porcentaje de mercados de abastos que cuentan con servicio de radio (perifoneo)" column="CENAMA_37" aggregator="sum" />
         <Measure name="Mercado de abastos cuentan con computadoras escritorio (PC)" column="CENAMA_38" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que cuentan con computadoras escritorio (PC)" column="CENAMA_39" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que cuentan con computadoras escritorio (PC)" column="CENAMA_39" aggregator="sum" />
         <Measure name="Porcentaje de mercados de abastos que cuentan con computadoras escritorio (PC)" column="CENAMA_40" aggregator="sum" />
-        <Measure name="Número de computadoras de escritorio (PC) que tiene el mercado de abastos" column="CENAMA_41" aggregator="sum" />
+        <Measure name="Numero de computadoras de escritorio (PC) que tiene el mercado de abastos" column="CENAMA_41" aggregator="sum" />
         <Measure name="Mercado de abastos tiene computadora de escritorio (PC) conectada a internet" column="CENAMA_42" aggregator="sum" />
-        <Measure name="Mercado de abastos tiene computadoras portátil (laptop)" column="CENAMA_43" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que cuentan con computadoras portátil (laptop)" column="CENAMA_44" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que cuentan con computadoras portátil (laptop)" column="CENAMA_45" aggregator="sum" />
-        <Measure name="Mercado de abastos tiene computadora portátil (laptop) conectada a internet" column="CENAMA_46" aggregator="sum" />
-        <Measure name="Número total de trabajadores que labora en el mercado de abastos" column="CENAMA_47" aggregator="sum" />
-        <Measure name="Número de administradores que labora en el mercado de abastos" column="CENAMA_48" aggregator="sum" />
+        <Measure name="Mercado de abastos tiene computadoras portatil (laptop)" column="CENAMA_43" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que cuentan con computadoras portatil (laptop)" column="CENAMA_44" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que cuentan con computadoras portatil (laptop)" column="CENAMA_45" aggregator="sum" />
+        <Measure name="Mercado de abastos tiene computadora portatil (laptop) conectada a internet" column="CENAMA_46" aggregator="sum" />
+        <Measure name="Numero total de trabajadores que labora en el mercado de abastos" column="CENAMA_47" aggregator="sum" />
+        <Measure name="Numero de administradores que labora en el mercado de abastos" column="CENAMA_48" aggregator="sum" />
         <Measure name="Porcentaje de trabajadores que labora en el mercado de abastos como administradores" column="CENAMA_49" aggregator="sum" />
-        <Measure name="Número de asesores que labora en el mercado de abastos" column="CENAMA_50" aggregator="sum" />
+        <Measure name="Numero de asesores que labora en el mercado de abastos" column="CENAMA_50" aggregator="sum" />
         <Measure name="Porcentaje de trabajadores que labora en el mercado de abastos como asesores" column="CENAMA_51" aggregator="sum" />
-        <Measure name="Número de contadores que labora en el mercado de abastos" column="CENAMA_52" aggregator="sum" />
+        <Measure name="Numero de contadores que labora en el mercado de abastos" column="CENAMA_52" aggregator="sum" />
         <Measure name="Porcentaje de trabajadores que labora en el mercado de abastos como contadores" column="CENAMA_53" aggregator="sum" />
-        <Measure name="Número de secretarios que labora en el mercado de abastos" column="CENAMA_54" aggregator="sum" />
+        <Measure name="Numero de secretarios que labora en el mercado de abastos" column="CENAMA_54" aggregator="sum" />
         <Measure name="Porcentaje de trabajadores que labora en el mercado de abastos como secretarios" column="CENAMA_55" aggregator="sum" />
-        <Measure name="Número de personal de seguridad que labora en el mercado de abastos" column="CENAMA_56" aggregator="sum" />
+        <Measure name="Numero de personal de seguridad que labora en el mercado de abastos" column="CENAMA_56" aggregator="sum" />
         <Measure name="Porcentaje de trabajadores que labora en el mercado de abastos como personal de seguridad" column="CENAMA_57" aggregator="sum" />
-        <Measure name="Número de personal de limpieza que labora en el mercado de abastos" column="CENAMA_58" aggregator="sum" />
+        <Measure name="Numero de personal de limpieza que labora en el mercado de abastos" column="CENAMA_58" aggregator="sum" />
         <Measure name="Porcentaje de trabajadores que labora en el mercado de abastos como personal de limpieza" column="CENAMA_59" aggregator="sum" />
-        <Measure name="Número de personal mujer que labora en el mercado de abastos" column="CENAMA_60" aggregator="sum" />
+        <Measure name="Numero de personal mujer que labora en el mercado de abastos" column="CENAMA_60" aggregator="sum" />
         <Measure name="Porcentaje de trabajadores mujeres que labora en el mercado de abastos" column="CENAMA_61" aggregator="sum" />
-        <Measure name="Número de personal hombre que labora en el mercado de abastos" column="CENAMA_62" aggregator="sum" />
+        <Measure name="Numero de personal hombre que labora en el mercado de abastos" column="CENAMA_62" aggregator="sum" />
         <Measure name="Porcentaje de trabajadores hombres que labora en el mercado de abastos" column="CENAMA_63" aggregator="sum" />
-        <Measure name="Número de personal permanente que labora en el mercado de abastos" column="CENAMA_64" aggregator="sum" />
+        <Measure name="Numero de personal permanente que labora en el mercado de abastos" column="CENAMA_64" aggregator="sum" />
         <Measure name="Porcentaje de trabajadores que labora en el mercado de abastos como personal permanente" column="CENAMA_65" aggregator="sum" />
-        <Measure name="Número de personal eventual o temporal que labora en el mercado de abastos" column="CENAMA_66" aggregator="sum" />
+        <Measure name="Numero de personal eventual o temporal que labora en el mercado de abastos" column="CENAMA_66" aggregator="sum" />
         <Measure name="Porcentaje de tarbajadores que labora en el mercado de abastos como personal eventual o temporal" column="CENAMA_67" aggregator="sum" />
-        <Measure name="Mercado de abastos ha realizado inversión en remodelación de paredes" column="CENAMA_68" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que han realizado alguna inversión en la remodelación de paredes" column="CENAMA_69" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que han realizado alguna inversión en la remodelación de paredes" column="CENAMA_70" aggregator="sum" />
-        <Measure name="Monto invertido (soles) en la remodelación de paredes del mercado de abastos" column="CENAMA_71" aggregator="sum" />
-        <Measure name="Monto promedio (soles) invertido en la remodelación de paredes del mercado de abastos" column="CENAMA_72" aggregator="sum" />
-        <Measure name="Mercado de abastos ha realizado inversión en remodelación de pisos" column="CENAMA_73" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que han realizado alguna inversión en la remodelación de pisos" column="CENAMA_74" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que han realizado alguna inversión en la remodelación de pisos" column="CENAMA_75" aggregator="sum" />
-        <Measure name="Monto invertido (soles) en la remodelación de pisos en el mercado de abastos" column="CENAMA_76" aggregator="sum" />
-        <Measure name="Monto promedio (soles) invertido en la remodelación de pisos del mercado de abastos" column="CENAMA_77" aggregator="sum" />
-        <Measure name="Mercado de abastos ha realizado inversión en remodelación de techos" column="CENAMA_78" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que han realizado alguna inversión en la remodelación de techos" column="CENAMA_79" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que han realizado alguna inversión en la remodelación de techos" column="CENAMA_80" aggregator="sum" />
-        <Measure name="Monto invertido (soles) en la remodelación de techos en el mercado de abastos" column="CENAMA_81" aggregator="sum" />
-        <Measure name="Monto promedio (soles) invertido en la remodelación de techos del mercado de abastos" column="CENAMA_82" aggregator="sum" />
+        <Measure name="Mercado de abastos ha realizado inversion en remodelacion de paredes" column="CENAMA_68" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que han realizado alguna inversion en la remodelacion de paredes" column="CENAMA_69" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que han realizado alguna inversion en la remodelacion de paredes" column="CENAMA_70" aggregator="sum" />
+        <Measure name="Monto invertido (soles) en la remodelacion de paredes del mercado de abastos" column="CENAMA_71" aggregator="sum" />
+        <Measure name="Monto promedio (soles) invertido en la remodelacion de paredes del mercado de abastos" column="CENAMA_72" aggregator="sum" />
+        <Measure name="Mercado de abastos ha realizado inversion en remodelacion de pisos" column="CENAMA_73" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que han realizado alguna inversion en la remodelacion de pisos" column="CENAMA_74" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que han realizado alguna inversion en la remodelacion de pisos" column="CENAMA_75" aggregator="sum" />
+        <Measure name="Monto invertido (soles) en la remodelacion de pisos en el mercado de abastos" column="CENAMA_76" aggregator="sum" />
+        <Measure name="Monto promedio (soles) invertido en la remodelacion de pisos del mercado de abastos" column="CENAMA_77" aggregator="sum" />
+        <Measure name="Mercado de abastos ha realizado inversion en remodelacion de techos" column="CENAMA_78" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que han realizado alguna inversion en la remodelacion de techos" column="CENAMA_79" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que han realizado alguna inversion en la remodelacion de techos" column="CENAMA_80" aggregator="sum" />
+        <Measure name="Monto invertido (soles) en la remodelacion de techos en el mercado de abastos" column="CENAMA_81" aggregator="sum" />
+        <Measure name="Monto promedio (soles) invertido en la remodelacion de techos del mercado de abastos" column="CENAMA_82" aggregator="sum" />
         <Measure name="Mercados de abastos ha solicitado financiamiento de alguna entidad financiera" column="CENAMA_83" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que han solicitado financiamiento de alguna entidad financiera" column="CENAMA_84" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que han solicitado financiamiento de alguna entidad financiera" column="CENAMA_84" aggregator="sum" />
         <Measure name="Porcentaje  (%) de mercados de abastos que han solicitado financiamiento de alguna entidad financiera" column="CENAMA_85" aggregator="sum" />
-        <Measure name="Mercado de abastos no solicitó ningún tipo de financiamiento debido a trámites engorrosos " column="CENAMA_86" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que no solicitaron ningún tipo de financiamiento debido a trámites engorrosos " column="CENAMA_87" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que no solicitaron ningún tipo de financiamiento debido a trámites engorrosos " column="CENAMA_88" aggregator="sum" />
-        <Measure name="Mercado de abastos no solicitó ningún tipo de financiamiento debido a intereses elevados" column="CENAMA_89" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que no solicitaron ningún tipo de financiamiento debido a intereses elevados" column="CENAMA_90" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que no solicitaron ningún tipo de financiamiento debido a intereses elevados" column="CENAMA_91" aggregator="sum" />
-        <Measure name="Mercado de abastos no solicitó ningún tipo de financiamiento debido a falta de garantía" column="CENAMA_92" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que no solicitaron ningún tipo de financiamiento debido a falta de garantía" column="CENAMA_93" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que no solicitaron ningún tipo de financiamiento debido a falta de garantía" column="CENAMA_94" aggregator="sum" />
-        <Measure name="Mercado de abastos no solicitó ningún tipo de financiamiento debido a deudas pendientes" column="CENAMA_95" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que no solicitaron ningún tipo de financiamiento debido a deudas pendientes" column="CENAMA_96" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que no solicitaron ningún tipo de financiamiento debido a deudas pendientes" column="CENAMA_97" aggregator="sum" />
-        <Measure name="Mercado de abastos no solicitó ningún tipo de financiamiento debido a que accedió a otras fuentes de financiamiento" column="CENAMA_98" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que no solicitaron ningún tipo de financiamiento debido a que accedió a otras fuentes de financiamiento" column="CENAMA_99" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que no solicitaron ningún tipo de financiamiento debido a que accedió a otras fuentes de financiamiento" column="CENAMA_100" aggregator="sum" />
-        <Measure name="Mercado de abastos no solicitó ningún tipo de financiamiento debido a que había accedió a crédito anteriormente" column="CENAMA_101" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que no solicitaron ningún tipo de financiamiento debido a que había accedió a crédito anteriormente" column="CENAMA_102" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que no solicitaron ningún tipo de financiamiento debido a que había accedió a crédito anteriormente" column="CENAMA_103" aggregator="sum" />
-        <Measure name="Mercado de abastos no necesita ningún tipo de financiamiento" column="CENAMA_104" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que no necesitan ningún tipo de financiamiento" column="CENAMA_105" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que no necesitan ningún tipo de financiamiento" column="CENAMA_106" aggregator="sum" />
+        <Measure name="Mercado de abastos no solicito ningun tipo de financiamiento debido a tramites engorrosos " column="CENAMA_86" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que no solicitaron ningun tipo de financiamiento debido a tramites engorrosos " column="CENAMA_87" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que no solicitaron ningun tipo de financiamiento debido a tramites engorrosos " column="CENAMA_88" aggregator="sum" />
+        <Measure name="Mercado de abastos no solicito ningun tipo de financiamiento debido a intereses elevados" column="CENAMA_89" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que no solicitaron ningun tipo de financiamiento debido a intereses elevados" column="CENAMA_90" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que no solicitaron ningun tipo de financiamiento debido a intereses elevados" column="CENAMA_91" aggregator="sum" />
+        <Measure name="Mercado de abastos no solicito ningun tipo de financiamiento debido a falta de garantia" column="CENAMA_92" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que no solicitaron ningun tipo de financiamiento debido a falta de garantia" column="CENAMA_93" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que no solicitaron ningun tipo de financiamiento debido a falta de garantia" column="CENAMA_94" aggregator="sum" />
+        <Measure name="Mercado de abastos no solicito ningun tipo de financiamiento debido a deudas pendientes" column="CENAMA_95" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que no solicitaron ningun tipo de financiamiento debido a deudas pendientes" column="CENAMA_96" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que no solicitaron ningun tipo de financiamiento debido a deudas pendientes" column="CENAMA_97" aggregator="sum" />
+        <Measure name="Mercado de abastos no solicito ningun tipo de financiamiento debido a que accedio a otras fuentes de financiamiento" column="CENAMA_98" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que no solicitaron ningun tipo de financiamiento debido a que accedio a otras fuentes de financiamiento" column="CENAMA_99" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que no solicitaron ningun tipo de financiamiento debido a que accedio a otras fuentes de financiamiento" column="CENAMA_100" aggregator="sum" />
+        <Measure name="Mercado de abastos no solicito ningun tipo de financiamiento debido a que habia accedio a credito anteriormente" column="CENAMA_101" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que no solicitaron ningun tipo de financiamiento debido a que habia accedio a credito anteriormente" column="CENAMA_102" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que no solicitaron ningun tipo de financiamiento debido a que habia accedio a credito anteriormente" column="CENAMA_103" aggregator="sum" />
+        <Measure name="Mercado de abastos no necesita ningun tipo de financiamiento" column="CENAMA_104" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que no necesitan ningun tipo de financiamiento" column="CENAMA_105" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que no necesitan ningun tipo de financiamiento" column="CENAMA_106" aggregator="sum" />
         <Measure name="Ingresos totales (soles) del mercado de abastos" column="CENAMA_107" aggregator="sum" />
         <Measure name="Ingresos totales promedio (soles) del mercado de abastos" column="CENAMA_108" aggregator="sum" />
         <Measure name="Ingresos totales (soles) correspondiente a cuotas ordinarias del mercado de abastos" column="CENAMA_109" aggregator="sum" />
@@ -148,9 +148,9 @@
         <Measure name="Ingresos totales (soles) correspondiente a alquileres por puestos de mercado fijos del mercado de abastos" column="CENAMA_115" aggregator="sum" />
         <Measure name="Porcentaje de ingresos correspondiente a alquileres por puestos de mercado fijos del mercado de abastos" column="CENAMA_116" aggregator="sum" />
         <Measure name="Ingresos totales promedio (soles) correspondiente a alquileres por puestos de mercado fijos del mercado de abastos" column="CENAMA_117" aggregator="sum" />
-        <Measure name="Ingresos totales (soles) correspondiente a alquileres y/o concesiones de servicios higiénicos del mercado de abastos" column="CENAMA_118" aggregator="sum" />
-        <Measure name="Porcentaje de ingresos correspondiente a alquileres y/o concesiones de servicios higiénicos del mercado de abastos" column="CENAMA_119" aggregator="sum" />
-        <Measure name="Ingresos totales promedio (soles) correspondiente a alquileres y/o concesiones de servicios higiénicos del mercado de abastos" column="CENAMA_120" aggregator="sum" />
+        <Measure name="Ingresos totales (soles) correspondiente a alquileres y/o concesiones de servicios higienicos del mercado de abastos" column="CENAMA_118" aggregator="sum" />
+        <Measure name="Porcentaje de ingresos correspondiente a alquileres y/o concesiones de servicios higienicos del mercado de abastos" column="CENAMA_119" aggregator="sum" />
+        <Measure name="Ingresos totales promedio (soles) correspondiente a alquileres y/o concesiones de servicios higienicos del mercado de abastos" column="CENAMA_120" aggregator="sum" />
         <Measure name="Ingresos totales (soles) correspondiente a ingresos financieros del mercado de abastos" column="CENAMA_121" aggregator="sum" />
         <Measure name="Porcentaje de ingresos correspondiente a ingresos financieros del mercado de abastos" column="CENAMA_122" aggregator="sum" />
         <Measure name="Ingresos totales promedio (soles) correspondiente a ingresos financieros del mercado de abastos" column="CENAMA_123" aggregator="sum" />
@@ -165,95 +165,95 @@
         <Measure name="Egresos totales (soles) correspondiente a gastos financieros del mercado de abastos" column="CENAMA_132" aggregator="sum" />
         <Measure name="Porcentaje de egresos correspondiente a gastos financieros del mercado de abastos" column="CENAMA_133" aggregator="sum" />
         <Measure name="Egresos totales promedio (soles) correspondiente a gastos financieros del mercado de abastos" column="CENAMA_134" aggregator="sum" />
-        <Measure name="Número de puestos ambulantes dentro del mercado de abastos" column="CENAMA_135" aggregator="sum" />
-        <Measure name="Número de puestos ambulantes alrededor del mercado de abastos" column="CENAMA_136" aggregator="sum" />
-        <Measure name="Número de locales comerciales alrededor del mercado de abastos" column="CENAMA_137" aggregator="sum" />
+        <Measure name="Numero de puestos ambulantes dentro del mercado de abastos" column="CENAMA_135" aggregator="sum" />
+        <Measure name="Numero de puestos ambulantes alrededor del mercado de abastos" column="CENAMA_136" aggregator="sum" />
+        <Measure name="Numero de locales comerciales alrededor del mercado de abastos" column="CENAMA_137" aggregator="sum" />
         <Measure name="Mercado de abastos tiene licencia en funcionamiento" column="CENAMA_138" aggregator="sum" />
-        <Measure name="Número de mercados de abasto que tienen Licencia en funcionamiento" column="CENAMA_139" aggregator="sum" />
+        <Measure name="Numero de mercados de abasto que tienen Licencia en funcionamiento" column="CENAMA_139" aggregator="sum" />
         <Measure name="Porcentaje de mercados de abasto que tienen licencia en funcionamiento" column="CENAMA_140" aggregator="sum" />
-        <Measure name="Mercado de abastos tiene certificación de Defensa Civil" column="CENAMA_141" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que tienen certificación de Defensa Civil" column="CENAMA_142" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que tienen certificación de Defensa Civil" column="CENAMA_143" aggregator="sum" />
+        <Measure name="Mercado de abastos tiene certificacion de Defensa Civil" column="CENAMA_141" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que tienen certificacion de Defensa Civil" column="CENAMA_142" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que tienen certificacion de Defensa Civil" column="CENAMA_143" aggregator="sum" />
         <Measure name="Mercado de abastos tiene reglamento interno" column="CENAMA_144" aggregator="sum" />
-        <Measure name="Número de mercados de abastos  que tienen reglamento interno" column="CENAMA_145" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos  que tienen reglamento interno" column="CENAMA_145" aggregator="sum" />
         <Measure name="Porcentaje de mercados de abastos  que tienen reglamento interno" column="CENAMA_146" aggregator="sum" />
-        <Measure name="Mercado de abastos tiene título de propiedad" column="CENAMA_147" aggregator="sum" />
-        <Measure name="Número de mercados de abastos  que tienen título de propiedad" column="CENAMA_148" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos  que tienen título de propiedad" column="CENAMA_149" aggregator="sum" />
+        <Measure name="Mercado de abastos tiene titulo de propiedad" column="CENAMA_147" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos  que tienen titulo de propiedad" column="CENAMA_148" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos  que tienen titulo de propiedad" column="CENAMA_149" aggregator="sum" />
         <Measure name="Mercado de abastos  tiene registro de propiedad en SUNARP" column="CENAMA_150" aggregator="sum" />
-        <Measure name="Número de mercados de abastos  que tienen registro de propiedad en SUNARP" column="CENAMA_151" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos  que tienen registro de propiedad en SUNARP" column="CENAMA_151" aggregator="sum" />
         <Measure name="Porcentaje de mercados de abastos  que tienen registro de propiedad en SUNARP" column="CENAMA_152" aggregator="sum" />
-        <Measure name="Mercado de abastos está registrado en registros públicos" column="CENAMA_153" aggregator="sum" />
-        <Measure name="Número de mercados de abastos  que está registrado en registros públicos" column="CENAMA_154" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos  que está registrado en registros públicos" column="CENAMA_155" aggregator="sum" />
+        <Measure name="Mercado de abastos esta registrado en registros publicos" column="CENAMA_153" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos  que esta registrado en registros publicos" column="CENAMA_154" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos  que esta registrado en registros publicos" column="CENAMA_155" aggregator="sum" />
         <Measure name="Indicador de formalidad del mercado de abasto" column="CENAMA_156" aggregator="sum" />
-        <Measure name="Número de mercados de abastos con nivel de formalidad nulo" column="CENAMA_157" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos con nivel de formalidad nulo" column="CENAMA_157" aggregator="sum" />
         <Measure name="Porcentaje de mercados de abastos con nivel de formalidad nulo" column="CENAMA_158" aggregator="sum" />
-        <Measure name="Número de mercados de abastos con nivel de formalidad bajo" column="CENAMA_159" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos con nivel de formalidad bajo" column="CENAMA_159" aggregator="sum" />
         <Measure name="Porcentaje de mercados de abastos con nivel de formalidad bajo" column="CENAMA_160" aggregator="sum" />
-        <Measure name="Número de mercados de abastos con nivel de formalidad medio" column="CENAMA_161" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos con nivel de formalidad medio" column="CENAMA_161" aggregator="sum" />
         <Measure name="Porcentaje de mercados de abastos con nivel de formalidad medio" column="CENAMA_162" aggregator="sum" />
-        <Measure name="Número de mercados de abastos con nivel de formalidad alto" column="CENAMA_163" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos con nivel de formalidad alto" column="CENAMA_163" aggregator="sum" />
         <Measure name="Porcentaje de mercados de abastos con nivel de formalidad alto" column="CENAMA_164" aggregator="sum" />
-        <Measure name="Mercado de abastos tiene Comité de Autocontrol Sanitario" column="CENAMA_165" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que tienen Comité de Autocontrol Sanitario" column="CENAMA_166" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que tienen Comité de Autocontrol sanitario" column="CENAMA_167" aggregator="sum" />
-        <Measure name="Mercado de abastos tiene contenedores de residuos sólidos" column="CENAMA_168" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que tienen contenedores residuos sólidos" column="CENAMA_169" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que tienen contenedores residuos sólidos" column="CENAMA_170" aggregator="sum" />
-        <Measure name="Cantidad diaria de residuos sólidos que genera el mercado de abastos por residuos sólidos" column="CENAMA_171" aggregator="sum" />
+        <Measure name="Mercado de abastos tiene Comite de Autocontrol Sanitario" column="CENAMA_165" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que tienen Comite de Autocontrol Sanitario" column="CENAMA_166" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que tienen Comite de Autocontrol sanitario" column="CENAMA_167" aggregator="sum" />
+        <Measure name="Mercado de abastos tiene contenedores de residuos solidos" column="CENAMA_168" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que tienen contenedores residuos solidos" column="CENAMA_169" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que tienen contenedores residuos solidos" column="CENAMA_170" aggregator="sum" />
+        <Measure name="Cantidad diaria de residuos solidos que genera el mercado de abastos por residuos solidos" column="CENAMA_171" aggregator="sum" />
         <Measure name="Intensidad de recojo de basura realizado por el mercado de abastos " column="CENAMA_172" aggregator="sum" />
         <Measure name="Mercado de abastos fue fiscalizado o supervisado en temas de inocuidad y sanidad por MINSA/DIGESA" column="CENAMA_173" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que fueron fiscalizados o supervisados en temas de inocuidad y sanidad por MINSA/DIGESA" column="CENAMA_174" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que fueron fiscalizados o supervisados en temas de inocuidad y sanidad por MINSA/DIGESA" column="CENAMA_174" aggregator="sum" />
         <Measure name="Porcentaje de mercados de abastos que fueron fiscalizados o supervisados en temas de inocuidad y sanidad por MINSA/DIGESA" column="CENAMA_175" aggregator="sum" />
         <Measure name="Mercado de abastos fue fiscalizado o supervisado en temas de inocuidad y sanidad por la Municipalidad" column="CENAMA_176" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que fueron fiscalizados o supervisados en temas de inocuidad y sanidad por la Municipalidad" column="CENAMA_177" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que fueron fiscalizados o supervisados en temas de inocuidad y sanidad por la Municipalidad" column="CENAMA_177" aggregator="sum" />
         <Measure name="Porcentaje de mercados de abastos que fueron fiscalizados o supervisados en temas de inocuidad y sanidad por la Municipalidad" column="CENAMA_178" aggregator="sum" />
         <Measure name="Mercado de abastos fue fiscalizado o supervisado en temas de inocuidad y sanidad por SENASA" column="CENAMA_179" aggregator="sum" />
-        <Measure name="Número de mercados de abastos fiscalizados o supervisados en temas de inocuidad y sanidad por SENASA" column="CENAMA_180" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos fiscalizados o supervisados en temas de inocuidad y sanidad por SENASA" column="CENAMA_180" aggregator="sum" />
         <Measure name="Porcentaje de mercados de abastos fiscalizados o supervisados en temas de inocuidad y sanidad por SENASA" column="CENAMA_181" aggregator="sum" />
-        <Measure name="Mercado de abastos recibió capacitación sobre gestión empresarial" column="CENAMA_182" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que recibieron capacitación sobre gestión empresarial" column="CENAMA_183" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que recibieron capacitación sobre gestión empresarial" column="CENAMA_184" aggregator="sum" />
-        <Measure name="Mercado de abastos recibió capacitación sobre seguridad y salud ocupacional" column="CENAMA_185" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que recibieron capacitación sobre seguridad y salud ocupacional" column="CENAMA_186" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que recibieron capacitación sobre seguridad y salud ocupacional" column="CENAMA_187" aggregator="sum" />
-        <Measure name="Mercado de abastos recibió capacitación sobre gestión de residuos sólidos" column="CENAMA_188" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que recibieron capacitación sobre gestión de residuos sólidos" column="CENAMA_189" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que recibieron capacitación sobre gestión de residuos sólidos" column="CENAMA_190" aggregator="sum" />
-        <Measure name="Mercado de abastos recibió capacitación sobre habilidades socioemocionales" column="CENAMA_191" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que recibieron capacitación sobre habilidades socioemocionales" column="CENAMA_192" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que recibieron capacitación sobre habilidades socioemocionales" column="CENAMA_193" aggregator="sum" />
-        <Measure name="Mercado de abastos recibió capacitación sobre marketing" column="CENAMA_194" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que recibieron capacitación sobre marketing" column="CENAMA_195" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que recibieron capacitación sobre marketing" column="CENAMA_196" aggregator="sum" />
-        <Measure name="Mercado de abastos recibió capacitación sobre tecnologías de información y comunicación" column="CENAMA_197" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que recibieron capacitación sobre tecnologías de información y comunicación" column="CENAMA_198" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que recibieron capacitación sobre tecnologías de información y comunicación" column="CENAMA_199" aggregator="sum" />
-        <Measure name="Mercado de abastos recibió capacitación sobre manipulación de alimentos" column="CENAMA_200" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que recibieron capacitación sobre manipulación de alimentos" column="CENAMA_201" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que recibieron capacitación sobre manipulación de alimentos" column="CENAMA_202" aggregator="sum" />
-        <Measure name="Mercado de abastos recibió capacitación sobre defensa civil" column="CENAMA_203" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que recibieron capacitación sobre defensa civil" column="CENAMA_204" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que recibieron capacitación sobre defensa civil" column="CENAMA_205" aggregator="sum" />
-        <Measure name="Mercado de abastos no recibió capacitación por falta de recursos" column="CENAMA_206" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que no recibieron capacitación por falta de recursos" column="CENAMA_207" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que no recibieron capacitación por falta de recursos" column="CENAMA_208" aggregator="sum" />
-        <Measure name="Mercado de abastos no recibió capacitación por falta de tiempo" column="CENAMA_209" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que no recibieron capacitación por falta de tiempo" column="CENAMA_210" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que no recibieron capacitación por falta de tiempo" column="CENAMA_211" aggregator="sum" />
-        <Measure name="Mercado de abastos no recibió capacitación por falta de interés" column="CENAMA_212" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que no recibieron capacitación por falta de interés" column="CENAMA_213" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que no recibieron capacitación por falta de interés" column="CENAMA_214" aggregator="sum" />
-        <Measure name="Mercado de abastos no recibió capacitación por falta de información" column="CENAMA_215" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que no recibieron capacitación por falta de información" column="CENAMA_216" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que no recibieron capacitación por falta de información" column="CENAMA_217" aggregator="sum" />
-        <Measure name="Mercado de abastos no recibió capacitación por poca concurrencia" column="CENAMA_218" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que no recibieron capacitación por poca concurrencia" column="CENAMA_219" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que no recibieron capacitación por poca concurrencia" column="CENAMA_220" aggregator="sum" />
-        <Measure name="Mercado de abastos no recibió capacitación porque no cuenta con ambientes para charlas" column="CENAMA_221" aggregator="sum" />
-        <Measure name="Número de mercados de abastos que no recibieron capacitación porque no cuentan con ambientes para charlas" column="CENAMA_222" aggregator="sum" />
-        <Measure name="Porcentaje de mercados de abastos que no recibieron capacitación porque no cuentan con ambientes para charlas" column="CENAMA_223" aggregator="sum" />
+        <Measure name="Mercado de abastos recibio capacitacion sobre gestion empresarial" column="CENAMA_182" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que recibieron capacitacion sobre gestion empresarial" column="CENAMA_183" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que recibieron capacitacion sobre gestion empresarial" column="CENAMA_184" aggregator="sum" />
+        <Measure name="Mercado de abastos recibio capacitacion sobre seguridad y salud ocupacional" column="CENAMA_185" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que recibieron capacitacion sobre seguridad y salud ocupacional" column="CENAMA_186" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que recibieron capacitacion sobre seguridad y salud ocupacional" column="CENAMA_187" aggregator="sum" />
+        <Measure name="Mercado de abastos recibio capacitacion sobre gestion de residuos solidos" column="CENAMA_188" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que recibieron capacitacion sobre gestion de residuos solidos" column="CENAMA_189" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que recibieron capacitacion sobre gestion de residuos solidos" column="CENAMA_190" aggregator="sum" />
+        <Measure name="Mercado de abastos recibio capacitacion sobre habilidades socioemocionales" column="CENAMA_191" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que recibieron capacitacion sobre habilidades socioemocionales" column="CENAMA_192" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que recibieron capacitacion sobre habilidades socioemocionales" column="CENAMA_193" aggregator="sum" />
+        <Measure name="Mercado de abastos recibio capacitacion sobre marketing" column="CENAMA_194" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que recibieron capacitacion sobre marketing" column="CENAMA_195" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que recibieron capacitacion sobre marketing" column="CENAMA_196" aggregator="sum" />
+        <Measure name="Mercado de abastos recibio capacitacion sobre tecnologias de informacion y comunicacion" column="CENAMA_197" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que recibieron capacitacion sobre tecnologias de informacion y comunicacion" column="CENAMA_198" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que recibieron capacitacion sobre tecnologias de informacion y comunicacion" column="CENAMA_199" aggregator="sum" />
+        <Measure name="Mercado de abastos recibio capacitacion sobre manipulacion de alimentos" column="CENAMA_200" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que recibieron capacitacion sobre manipulacion de alimentos" column="CENAMA_201" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que recibieron capacitacion sobre manipulacion de alimentos" column="CENAMA_202" aggregator="sum" />
+        <Measure name="Mercado de abastos recibio capacitacion sobre defensa civil" column="CENAMA_203" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que recibieron capacitacion sobre defensa civil" column="CENAMA_204" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que recibieron capacitacion sobre defensa civil" column="CENAMA_205" aggregator="sum" />
+        <Measure name="Mercado de abastos no recibio capacitacion por falta de recursos" column="CENAMA_206" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que no recibieron capacitacion por falta de recursos" column="CENAMA_207" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que no recibieron capacitacion por falta de recursos" column="CENAMA_208" aggregator="sum" />
+        <Measure name="Mercado de abastos no recibio capacitacion por falta de tiempo" column="CENAMA_209" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que no recibieron capacitacion por falta de tiempo" column="CENAMA_210" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que no recibieron capacitacion por falta de tiempo" column="CENAMA_211" aggregator="sum" />
+        <Measure name="Mercado de abastos no recibio capacitacion por falta de interes" column="CENAMA_212" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que no recibieron capacitacion por falta de interes" column="CENAMA_213" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que no recibieron capacitacion por falta de interes" column="CENAMA_214" aggregator="sum" />
+        <Measure name="Mercado de abastos no recibio capacitacion por falta de informacion" column="CENAMA_215" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que no recibieron capacitacion por falta de informacion" column="CENAMA_216" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que no recibieron capacitacion por falta de informacion" column="CENAMA_217" aggregator="sum" />
+        <Measure name="Mercado de abastos no recibio capacitacion por poca concurrencia" column="CENAMA_218" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que no recibieron capacitacion por poca concurrencia" column="CENAMA_219" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que no recibieron capacitacion por poca concurrencia" column="CENAMA_220" aggregator="sum" />
+        <Measure name="Mercado de abastos no recibio capacitacion porque no cuenta con ambientes para charlas" column="CENAMA_221" aggregator="sum" />
+        <Measure name="Numero de mercados de abastos que no recibieron capacitacion porque no cuentan con ambientes para charlas" column="CENAMA_222" aggregator="sum" />
+        <Measure name="Porcentaje de mercados de abastos que no recibieron capacitacion porque no cuentan con ambientes para charlas" column="CENAMA_223" aggregator="sum" />
         ​
     </Cube>
 </Schema>

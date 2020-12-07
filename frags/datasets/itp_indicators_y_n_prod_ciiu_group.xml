@@ -79,7 +79,7 @@
             </Hierarchy>
         </Dimension>
 
-        <Measure name="Producción Industrial Anual" column="produccion_industrial_anual" aggregator="sum" />
+        <Measure name="Produccion Industrial Anual" column="produccion_industrial_anual" aggregator="sum" />
 
     </Cube>
 </Schema>
