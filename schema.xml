@@ -3956,11 +3956,11 @@
         <Annotation name="dataset_name">Registro de Exportaciones Definitivas</Annotation>
         <Annotation name="dataset_link">https://www.sunat.gob.pe/</Annotation>
 
-        <Table name="sunat_exports" primary_key="ubigeo" />
+        <Table name="sunat_subnational_trade" primary_key="ubigeo" />
 
         <DimensionUsage foreign_key="trade_flow_id" source="Trade Flow" name="Trade Flow" />
         <DimensionUsage foreign_key="country_id" source="Pais" name="Pais Destino" />
-        <DimensionUsage foreign_key="shipment_date_id" source="Date Day" name="Fecha Envio" />
+        <DimensionUsage foreign_key="report_date_id" source="Date Day" name="Fecha Reporte" />
         <DimensionUsage foreign_key="hs6_id" source="Producto" name="Producto" />
         <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
         
