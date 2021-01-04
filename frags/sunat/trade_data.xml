@@ -2,7 +2,7 @@
     <Cube name="sunat_subnational_trade">
         <Annotation name="source_name">SUNAT</Annotation>
         <Annotation name="source_description">Superintendencia Nacional de Aduanas y de Administración Tributaria</Annotation>
-        <Annotation name="dataset_name">Registro de Exportaciones Definitivas</Annotation>
+        <Annotation name="dataset_name">Registro de Exportaciones e Importaciones Definitivas</Annotation>
         <Annotation name="dataset_link">https://www.sunat.gob.pe/</Annotation>
 
         <Table name="sunat_subnational_trade" primary_key="ubigeo" />
