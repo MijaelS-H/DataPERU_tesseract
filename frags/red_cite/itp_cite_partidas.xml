@@ -9,7 +9,8 @@
 
         <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
         <DimensionUsage foreign_key="cad_prod_id" source="Cadena productiva" name="Cadena productiva" />       
-        <DimensionUsage foreign_key="hs10_id" source="Producto HS10" name="Producto" />       
+        <DimensionUsage foreign_key="hs6_id" source="Producto" name="Producto" />   
+        <DimensionUsage foreign_key="hs10_id" source="Producto HS10" name="Producto HS10" />          
      
         <Dimension name="Sector" foreign_key="sector_id">
             <Hierarchy name="Sector" primary_key="id">
