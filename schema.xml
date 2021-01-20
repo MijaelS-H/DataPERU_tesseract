@@ -1,4 +1,4 @@
-<Schema name="dataperu">
+<Schema name="dataperu" default_locale="es">
 
     <SharedDimension name="CIIU Rev 3" type="standard">
         <Hierarchy name="CIIU Rev 3">
@@ -435,6 +435,27 @@
             </Row>
             </InlineTable>
             <Level name="Nivel Gobierno" key_column="id" name_column="name" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Codigo Producto Pesquero" type="standard">
+        <Hierarchy name="Codigo Producto Pesquero">
+            <Table name="dim_shared_inei_producto_desembarco" />
+            <Level name="Producto" key_column="codigo_producto" name_column="descripcion_producto" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Codigo Producto Cuero y Calzado" type="standard">
+        <Hierarchy name="Codigo Producto Cuero y Calzado">
+            <Table name="dim_shared_inei_producto_cuero" />
+            <Level name="Producto" key_column="codigo_producto" name_column="producto" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Codigo Producto Camelidos" type="standard">
+        <Hierarchy name="Codigo Producto Camelidos">
+            <Table name="dim_shared_minagri_producto_camelido" />
+            <Level name="Producto" key_column="codigo_producto" name_column="descripcion_producto" key_type="text" />
         </Hierarchy>
     </SharedDimension>
 
@@ -3050,6 +3071,134 @@
 
         <Measure name="Inversion" column="inversion" aggregator="sum" />
         <Measure name="Ejecucion" column="ejecucion" aggregator="sum" />
+
+    </Cube>
+    <Cube name="itp_cite_mercado_interno_agroindustrial">
+        <Annotation name="source_name">MINAGRI</Annotation>
+        <Annotation name="source_description">Ministerio de Agricultura y Riego</Annotation>
+        <Annotation name="dataset_name">Registro de Dinámicas Agrícolas</Annotation>
+        <Annotation name="dataset_link">https://www.gob.pe/minagri</Annotation>
+        
+        <Table name="itp_cite_mercado_interno_agroindustrial" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+        <DimensionUsage foreign_key="cad_prod_id" source="Cadena productiva" name="Cadena productiva" />  
+        <DimensionUsage foreign_key="codigo_cultivo" source="Cultivo" name="Cultivo" />
+        <DimensionUsage foreign_key="month_id" source="Date Month" name="Date" />
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+
+        <Dimension name="Unidad Produccion" foreign_key="unidad">
+            <Hierarchy name="Unidad Produccion" primary_key="id">
+                <InlineTable alias="dim_inline_unidad_produccion">
+                    <ColumnDef name="id" key_type="text" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">t</Value>
+                        <Value column="name">Tonelada</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Unidad Produccion" key_column="id" name_column="name" key_type="text" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Produccion" column="produccion" aggregator="sum" />  
+
+    </Cube>
+    <Cube name="itp_cite_mercado_interno_camelido">
+        <Annotation name="source_name">MIDAGRI</Annotation>
+        <Annotation name="source_description">Ministerio de Desarrollo Agrario y Riego</Annotation>
+        <Annotation name="dataset_name">Principales indicadores de la industria textil</Annotation>
+        <Annotation name="dataset_link">https://www.gob.pe/midagri</Annotation>
+
+        <Table name="itp_cite_mercado_interno_camelido" primary_key="cite_id" />
+
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+        <DimensionUsage foreign_key="cad_prod_id" source="Cadena productiva" name="Cadena productiva" />  
+        <DimensionUsage foreign_key="codigo_producto" source="Codigo Producto Camelidos" name="Producto" />
+        <DimensionUsage foreign_key="month_id" source="Date Month" name="Date" />
+        <DimensionUsage foreign_key="departamento_id" source="Ubigeo Departamento" name="Ubigeo Departamento" />
+
+        <Dimension name="Unidad Produccion" foreign_key="unidad">
+            <Hierarchy name="Unidad Produccion" primary_key="id">
+                <InlineTable alias="dim_inline_unidad_produccion">
+                    <ColumnDef name="id" key_type="text" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">t</Value>
+                        <Value column="name">Tonelada</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Unidad Produccion" key_column="id" name_column="name" key_type="text" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Produccion" column="produccion" aggregator="sum" /> 
+
+    </Cube>
+    <Cube name="itp_cite_mercado_interno_cuero">
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadísticas e Informática</Annotation>
+        <Annotation name="dataset_name">Principales indicadores de la industria pesquera</Annotation>
+        <Annotation name="dataset_link">https://www.inei.gob.pe/</Annotation>
+
+        <Table name="itp_cite_mercado_interno_cuero" primary_key="cite_id" />
+
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+        <DimensionUsage foreign_key="cad_prod_id" source="Cadena productiva" name="Cadena productiva" />  
+        <DimensionUsage foreign_key="codigo_producto" source="Codigo Producto Cuero y Calzado" name="Producto" />
+        <DimensionUsage foreign_key="desagregacion" source="Ubigeo Nacion" name="Ubigeo Nacion" />
+        
+        <Dimension name="Unidad" foreign_key="unidad_produccion">
+            <Hierarchy name="Unidad">
+                <Table name="dim_shared_customs_unities" />
+
+                <Level name="Unidad" key_column="measure_unit_id" name_column="measure_unit_name" key_type="text" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Year" foreign_key="anio">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="anio" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Produccion" column="produccion" aggregator="sum" /> 
+
+    </Cube>
+    <Cube name="itp_cite_mercado_interno_pesquero">
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadísticas e Informática</Annotation>
+        <Annotation name="dataset_name">Principales indicadores de la industria pesquera</Annotation>
+        <Annotation name="dataset_link">https://www.inei.gob.pe/</Annotation>
+
+        <Table name="itp_cite_mercado_interno_pesquero" primary_key="cite_id" />
+
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+        <DimensionUsage foreign_key="cad_prod_id" source="Cadena productiva" name="Cadena productiva" />  
+        <DimensionUsage foreign_key="codigo_producto" source="Codigo Producto Pesquero" name="Producto" />
+        <DimensionUsage foreign_key="desagregacion" source="Ubigeo Nacion" name="Ubigeo Nacion" />
+
+        <Dimension name="Year" foreign_key="anio">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="anio" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Unidad Desembarque" foreign_key="unidad">
+            <Hierarchy name="Unidad Desembarque" primary_key="id">
+                <InlineTable alias="dim_inline_unidad_desembarque">
+                    <ColumnDef name="id" key_type="text" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">TMB</Value>
+                        <Value column="name">Toneladas Métricas Brutas</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Unidad Desembarque" key_column="id" name_column="name" key_type="text" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Desembarque" column="desembarque" aggregator="sum" /> 
 
     </Cube>
     <Cube name="itp_cite_partidas">

@@ -1,0 +1,33 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="itp_cite_mercado_interno_camelido">
+        <Annotation name="source_name">MIDAGRI</Annotation>
+        <Annotation name="source_description">Ministerio de Desarrollo Agrario y Riego</Annotation>
+        <Annotation name="dataset_name">Principales indicadores de la industria textil</Annotation>
+        <Annotation name="dataset_link">https://www.gob.pe/midagri</Annotation>
+
+        <Table name="itp_cite_mercado_interno_camelido" primary_key="cite_id" />
+
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+        <DimensionUsage foreign_key="cad_prod_id" source="Cadena productiva" name="Cadena productiva" />  
+        <DimensionUsage foreign_key="codigo_producto" source="Codigo Producto Camelidos" name="Producto" />
+        <DimensionUsage foreign_key="month_id" source="Date Month" name="Date" />
+        <DimensionUsage foreign_key="departamento_id" source="Ubigeo Departamento" name="Ubigeo Departamento" />
+
+        <Dimension name="Unidad Produccion" foreign_key="unidad">
+            <Hierarchy name="Unidad Produccion" primary_key="id">
+                <InlineTable alias="dim_inline_unidad_produccion">
+                    <ColumnDef name="id" key_type="text" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">t</Value>
+                        <Value column="name">Tonelada</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Unidad Produccion" key_column="id" name_column="name" key_type="text" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Produccion" column="produccion" aggregator="sum" /> 
+
+    </Cube>
+</Schema>

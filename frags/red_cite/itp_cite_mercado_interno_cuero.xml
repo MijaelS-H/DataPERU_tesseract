@@ -1,0 +1,32 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="itp_cite_mercado_interno_cuero">
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadísticas e Informática</Annotation>
+        <Annotation name="dataset_name">Principales indicadores de la industria pesquera</Annotation>
+        <Annotation name="dataset_link">https://www.inei.gob.pe/</Annotation>
+
+        <Table name="itp_cite_mercado_interno_cuero" primary_key="cite_id" />
+
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+        <DimensionUsage foreign_key="cad_prod_id" source="Cadena productiva" name="Cadena productiva" />  
+        <DimensionUsage foreign_key="codigo_producto" source="Codigo Producto Cuero y Calzado" name="Producto" />
+        <DimensionUsage foreign_key="desagregacion" source="Ubigeo Nacion" name="Ubigeo Nacion" />
+        
+        <Dimension name="Unidad" foreign_key="unidad_produccion">
+            <Hierarchy name="Unidad">
+                <Table name="dim_shared_customs_unities" />
+
+                <Level name="Unidad" key_column="measure_unit_id" name_column="measure_unit_name" key_type="text" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Year" foreign_key="anio">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="anio" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Produccion" column="produccion" aggregator="sum" /> 
+
+    </Cube>
+</Schema>
