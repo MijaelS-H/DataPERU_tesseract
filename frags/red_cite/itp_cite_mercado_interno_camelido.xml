@@ -1,17 +1,17 @@
 <Schema name="dataperu" default_locale="es">
-    <Cube name="itp_cite_mercado_interno_agroindustrial">
-        <Annotation name="source_name">MINAGRI</Annotation>
-        <Annotation name="source_description">Ministerio de Agricultura y Riego</Annotation>
-        <Annotation name="dataset_name">Registro de Dinámicas Agrícolas</Annotation>
-        <Annotation name="dataset_link">https://www.gob.pe/minagri</Annotation>
-        
-        <Table name="itp_cite_mercado_interno_agroindustrial" primary_key="ubigeo" />
+    <Cube name="itp_cite_mercado_interno_camelido">
+        <Annotation name="source_name">MIDAGRI</Annotation>
+        <Annotation name="source_description">Ministerio de Desarrollo Agrario y Riego</Annotation>
+        <Annotation name="dataset_name">Principales indicadores de la industria textil</Annotation>
+        <Annotation name="dataset_link">https://www.gob.pe/midagri</Annotation>
+
+        <Table name="itp_cite_mercado_interno_camelido" primary_key="cite_id" />
 
         <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
         <DimensionUsage foreign_key="cad_prod_id" source="Cadena productiva" name="Cadena productiva" />  
-        <DimensionUsage foreign_key="codigo_cultivo" source="Cultivo" name="Cultivo" />
+        <DimensionUsage foreign_key="codigo_producto" source="Codigo Producto Camelidos" name="Producto" />
         <DimensionUsage foreign_key="month_id" source="Date Month" name="Date" />
-        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+        <DimensionUsage foreign_key="departamento_id" source="Ubigeo Departamento" name="Ubigeo Departamento" />
 
         <Dimension name="Unidad Produccion" foreign_key="unidad">
             <Hierarchy name="Unidad Produccion" primary_key="id">
@@ -27,7 +27,7 @@
             </Hierarchy>
         </Dimension>
 
-        <Measure name="Produccion" column="produccion" aggregator="sum" />  
+        <Measure name="Produccion" column="produccion" aggregator="sum" /> 
 
     </Cube>
 </Schema>
