@@ -450,4 +450,25 @@
         </Hierarchy>
     </SharedDimension>
 
+    <SharedDimension name="Codigo Producto Pesquero" type="standard">
+        <Hierarchy name="Codigo Producto Pesquero">
+            <Table name="dim_shared_inei_producto_desembarco" />
+            <Level name="Producto" key_column="codigo_producto" name_column="descripcion_producto" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Codigo Producto Cuero y Calzado" type="standard">
+        <Hierarchy name="Codigo Producto Cuero y Calzado">
+            <Table name="dim_shared_inei_producto_cuero" />
+            <Level name="Producto" key_column="codigo_producto" name_column="producto" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Codigo Producto Camelidos" type="standard">
+        <Hierarchy name="Codigo Producto Camelidos">
+            <Table name="dim_shared_minagri_producto_camelido" />
+            <Level name="Producto" key_column="codigo_producto" name_column="descripcion_producto" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
 </Schema>
