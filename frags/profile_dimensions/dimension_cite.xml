@@ -1,0 +1,11 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="dimension_cite">
+
+        <Table name="dim_shared_cite" primary_key="cite_id" />
+
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+
+        <Measure name="Variable conteo" column="cite_id" aggregator="count" />
+
+    </Cube>
+</Schema>
