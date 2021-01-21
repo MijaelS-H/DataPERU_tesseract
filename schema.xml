@@ -289,6 +289,7 @@
             <Property name="Cadena atencion" column="cadena_atencion"/>
             <Property name="Cadena pip" column="cadena_pip"/>
             <Property name="Cadena resolucion" column="cadena_resolucion"/>
+            <Property name="Cadena privados" column="cadena_privados"/>
             <Property name="Ubigeo" column="district_id"/>
             <Property name="Direccion" column="direccion"/>
             <Property name="Latitud" column="latitud"/>
