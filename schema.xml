@@ -4614,7 +4614,7 @@
     <Cube name="inei_enima">
         <Annotation name="source_name">INEI</Annotation>
         <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
-        <Annotation name="dataset_name">Encuesta Nacional de de Innovación en las Empresas Manufactureras</Annotation>
+        <Annotation name="dataset_name">Encuesta Nacional de Innovación en las Empresas Manufactureras</Annotation>
         <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/</Annotation>
 
         <Table name="inei_enima" primary_key="nation_id" />
