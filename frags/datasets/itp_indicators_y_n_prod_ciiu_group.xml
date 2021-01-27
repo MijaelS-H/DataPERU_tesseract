@@ -75,7 +75,7 @@
                             <Value column="name">Pieza</Value> 
                         </Row>
                 </InlineTable>
-                <Level name="Unidad de medida" key_column="id" name_column="name" />
+                <Level name="Unidad de medida" key_column="id" name_column="name" key_type="text" />
             </Hierarchy>
         </Dimension>
 
