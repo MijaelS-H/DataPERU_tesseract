@@ -9,13 +9,13 @@ Su objetivo es comprender de mejor forma la estructura de un esquema de Tesserac
 ## Comandos a ejecutar
 
 ### Concatenación de esquemas
-./moncat -d training -o schema-training.xml
+`./moncat -d training -o schema-training.xml`
 
 ### Establecer variables de entorno
-source .env
+`source .env`
 
 ### Ejecución de Tesseract
-tesseract-olap
+`tesseract-olap`
 
 ### Ejecución de Tesseract-UI (cd ../dataperu-ui)
-npm run dev
+`npm run dev`
