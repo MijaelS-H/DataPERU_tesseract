@@ -1,8 +1,8 @@
 <Schema name="dataperu" default_locale="es">
     <Cube name="itp_cite_empresas_ciiu">
-        <Annotation name="source_name">ITP</Annotation>
-        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
-        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="source_name">ITP / SUNAT</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción / Superintendencia Nacional de Aduanas y de Administración Tributaria</Annotation>
+        <Annotation name="dataset_name">Registros administrativos CITE - ITP / SUNAT (2019)</Annotation>
         <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
 
         <Table name="itp_cite_empresas_ciiu" primary_key="cite_id"/>

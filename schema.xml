@@ -1,4 +1,4 @@
-<Schema name="dataperu" default_locale="es">
+<Schema name="dataperu">
 
     <SharedDimension name="CIIU Rev 3" type="standard">
         <Hierarchy name="CIIU Rev 3">
@@ -2816,9 +2816,9 @@
 
     </Cube>
     <Cube name="itp_cite_ejecucion_presupuestal">
-        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_name">Oficina de Presupuesto, Planeamiento y Modernización - ITP</Annotation>
         <Annotation name="source_description">Instituto Tecnologico de la Producción</Annotation>
-        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Registros administrativos CITE - ITP</Annotation>
         <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
 
         <Table name="itp_cite_ejecucion_presupuestal" primary_key="cite_id"/>
@@ -2836,9 +2836,9 @@
 
     </Cube>
     <Cube name="itp_cite_empresas_ciiu">
-        <Annotation name="source_name">ITP</Annotation>
-        <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
-        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="source_name">ITP / SUNAT</Annotation>
+        <Annotation name="source_description">Instituto Tecnológico de la Producción / Superintendencia Nacional de Aduanas y de Administración Tributaria</Annotation>
+        <Annotation name="dataset_name">Registros administrativos CITE - ITP / SUNAT (2019)</Annotation>
         <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
 
         <Table name="itp_cite_empresas_ciiu" primary_key="cite_id"/>
@@ -2925,7 +2925,7 @@
     <Cube name="itp_cite_empresas_tipo">
         <Annotation name="source_name">ITP</Annotation>
         <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
-        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Registros administrativos CITE - ITP</Annotation>
         <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
 
         <Table name="itp_cite_empresas_tipo" primary_key="cite_id"/>
@@ -3035,9 +3035,9 @@
 
     </Cube>
     <Cube name="itp_cite_inversion">
-        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_name">Oficina de Presupuesto, Planeamiento y Modernización - ITP</Annotation>
         <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
-        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Registros administrativos CITE - ITP</Annotation>
         <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
 
         <Table name="itp_cite_inversion" primary_key="cite_id"/>
@@ -3363,7 +3363,7 @@
     <Cube name="itp_cite_servicios_subcategorias">
         <Annotation name="source_name">ITP</Annotation>
         <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
-        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Registros administrativos CITE - ITP</Annotation>
         <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
 
         <Table name="itp_cite_servicios_subcategorias" primary_key="cite_id"/>
@@ -3490,9 +3490,9 @@
 
     </Cube>
     <Cube name="itp_cite_trabajadores">
-        <Annotation name="source_name">ITP</Annotation>
+        <Annotation name="source_name">Oficina de Recursos Humanos - ITP / Oficina de Abastecimiento - ITP</Annotation>
         <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
-        <Annotation name="dataset_name">Instituto Tecnológico de la Producción</Annotation>
+        <Annotation name="dataset_name">Registros administrativos CITE - ITP</Annotation>
         <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
 
         <Table name="itp_cite_trabajadores" primary_key="cite_id"/>
