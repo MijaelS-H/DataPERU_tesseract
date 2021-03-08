@@ -1,0 +1,96 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="inei_population_y_nat_nbi">
+        <Annotation name="topic">Demografia</Annotation>
+        <Annotation name="subtopic">Demografia</Annotation>
+        <Annotation name="source_name">Indicadores ITP</Annotation>
+
+        <Table name="inei_population_y_nat_nbi" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="nation_id" source="Ubigeo Nacion" name="Ubigeo Nacion" />
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+              <Level name="Year" key_column="year" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Ambito geografico" foreign_key="ambito_geografico">
+            <Hierarchy name="Ambito geografico" primary_key="id">
+                <InlineTable alias="dim_ambito_geografico">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Area residencia</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Region natural</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">3</Value>
+                        <Value column="name">Dominio region</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Ambito geografico" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Sub ambito geografico" foreign_key="sub_ambito_geografico">
+            <Hierarchy name="Sub ambito geografico" primary_key="id">
+                <InlineTable alias="dim_sub_ambito_geografico">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                      <Value column="id">1</Value>
+                      <Value column="name">Urbana</Value>
+                    </Row>
+                    <Row>
+                      <Value column="id">2</Value>
+                      <Value column="name">Rural</Value>
+                    </Row>
+                    <Row>
+                      <Value column="id">3</Value>
+                      <Value column="name">Costa</Value>
+                    </Row>
+                    <Row>
+                      <Value column="id">4</Value>
+                      <Value column="name">Sierra</Value>
+                    </Row>
+                    <Row>
+                      <Value column="id">5</Value>
+                      <Value column="name">Selva</Value>
+                    </Row>
+                    <Row>
+                      <Value column="id">6</Value>
+                      <Value column="name">Costa urbana</Value>
+                    </Row>
+                    <Row>
+                      <Value column="id">7</Value>
+                      <Value column="name">Costa rural</Value>
+                    </Row>
+                    <Row>
+                      <Value column="id">8</Value>
+                      <Value column="name">Sierra urbana</Value>
+                    </Row>
+                    <Row>
+                      <Value column="id">9</Value>
+                      <Value column="name">Sierra rural</Value>
+                    </Row>
+                    <Row>
+                      <Value column="id">10</Value>
+                      <Value column="name">Selva urbana</Value>
+                    </Row>
+                    <Row>
+                      <Value column="id">11</Value>
+                      <Value column="name">Selva rural</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Sub ambito geografico" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Poblacion con al menos 1 nbi" column="at_less_1_nbi_perc" aggregator="sum" />
+
+    </Cube>
+</Schema>
