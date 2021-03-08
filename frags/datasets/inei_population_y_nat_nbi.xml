@@ -90,7 +90,7 @@
             </Hierarchy>
         </Dimension>
 
-        <Measure name="Poblacion con al menos 1 nbi" column="at_less_1_nbi_perc" aggregator="sum" />
+        <Measure name="Poblacion con al menos una necesidad basica insatisfecha" column="at_less_1_nbi_perc" aggregator="sum" />
 
     </Cube>
 </Schema>

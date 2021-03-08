@@ -1,4 +1,4 @@
-<Schema name="dataperu">
+<Schema name="dataperu" default_locale="es">
 
     <SharedDimension name="CIIU Rev 3" type="standard">
         <Hierarchy name="CIIU Rev 3">
@@ -1491,7 +1491,7 @@
             </Hierarchy>
         </Dimension>
 
-        <Measure name="Poblacion con al menos 1 nbi" column="at_less_1_nbi_perc" aggregator="sum" />
+        <Measure name="Poblacion con al menos una necesidad basica insatisfecha" column="at_less_1_nbi_perc" aggregator="sum" />
 
     </Cube>
     <Cube name="inei_population_y_n_dep">
