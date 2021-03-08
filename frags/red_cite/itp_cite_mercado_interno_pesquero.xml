@@ -1,0 +1,38 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="itp_cite_mercado_interno_pesquero">
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadísticas e Informática</Annotation>
+        <Annotation name="dataset_name">Principales indicadores de la industria pesquera</Annotation>
+        <Annotation name="dataset_link">https://www.inei.gob.pe/</Annotation>
+
+        <Table name="itp_cite_mercado_interno_pesquero" primary_key="cite_id" />
+
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+        <DimensionUsage foreign_key="cad_prod_id" source="Cadena productiva" name="Cadena productiva" />  
+        <DimensionUsage foreign_key="codigo_producto" source="Codigo Producto Pesquero" name="Producto" />
+        <DimensionUsage foreign_key="desagregacion" source="Ubigeo Nacion" name="Ubigeo Nacion" />
+
+        <Dimension name="Year" foreign_key="anio">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="anio" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Unidad Desembarque" foreign_key="unidad">
+            <Hierarchy name="Unidad Desembarque" primary_key="id">
+                <InlineTable alias="dim_inline_unidad_desembarque">
+                    <ColumnDef name="id" key_type="text" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">TMB</Value>
+                        <Value column="name">Toneladas Métricas Brutas</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Unidad Desembarque" key_column="id" name_column="name" key_type="text" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Desembarque" column="desembarque" aggregator="sum" /> 
+
+    </Cube>
+</Schema>

@@ -1,0 +1,33 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="itp_cite_mercado_interno_agroindustrial">
+        <Annotation name="source_name">MINAGRI</Annotation>
+        <Annotation name="source_description">Ministerio de Agricultura y Riego</Annotation>
+        <Annotation name="dataset_name">Registro de Dinámicas Agrícolas</Annotation>
+        <Annotation name="dataset_link">https://www.gob.pe/minagri</Annotation>
+        
+        <Table name="itp_cite_mercado_interno_agroindustrial" primary_key="ubigeo" />
+
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+        <DimensionUsage foreign_key="cad_prod_id" source="Cadena productiva" name="Cadena productiva" />  
+        <DimensionUsage foreign_key="codigo_cultivo" source="Cultivo" name="Cultivo" />
+        <DimensionUsage foreign_key="month_id" source="Date Month" name="Date" />
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+
+        <Dimension name="Unidad Produccion" foreign_key="unidad">
+            <Hierarchy name="Unidad Produccion" primary_key="id">
+                <InlineTable alias="dim_inline_unidad_produccion">
+                    <ColumnDef name="id" key_type="text" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">t</Value>
+                        <Value column="name">Tonelada</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Unidad Produccion" key_column="id" name_column="name" key_type="text" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Produccion" column="produccion" aggregator="sum" />  
+
+    </Cube>
+</Schema>

@@ -1,0 +1,22 @@
+<Schema name="dataperu-training" default_locale="es">
+    <Cube name="fact_training">
+
+        <Annotation name="source_name">Produce</Annotation>
+        <Annotation name="source_description">Ministerio de la Producción</Annotation>
+        <Annotation name="dataset_name">Desembarque de Productos Pesqueros por Utilización, 2004 - 2018</Annotation>
+        <Annotation name="dataset_link">https://www.gob.pe/produce</Annotation>
+
+        <Table name="fact_training" primary_key="tipo_utilizacion_id" />
+
+        <DimensionUsage foreign_key="tipo_utilizacion_id" source="Utilizacion Producto Pesquero" name="Utilizacion Producto Pesquero" />
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Desembarque" column="desembarque" aggregator="sum" />
+
+    </Cube>
+</Schema>

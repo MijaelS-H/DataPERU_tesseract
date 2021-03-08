@@ -95,9 +95,9 @@
             </Hierarchy>
         </Dimension>
 
-        <Measure name="Tamaño de Población" column="popul_size" aggregator="sum" />
-        <Measure name="Estimación" column="estimate" aggregator="sum" /> 
-        <Measure name="Coeficiente de Variación" column="coef_var" aggregator="avg" />
+        <Measure name="Tamano de Poblacion" column="popul_size" aggregator="sum" />
+        <Measure name="Estimacion" column="estimate" aggregator="sum" /> 
+        <Measure name="Coeficiente de Variacion" column="coef_var" aggregator="avg" />
 
     </Cube>
 </Schema>

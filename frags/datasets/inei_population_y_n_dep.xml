@@ -1,7 +1,7 @@
 <Schema name="dataperu" default_locale="es">
     <Cube name="inei_population_y_n_dep">
-        <Annotation name="topic">Poblacion, Sociales, Tecnologia y Seguridad</Annotation>
-        <Annotation name="subtopic">Poblacion, Sociales, Tecnologia y Seguridad</Annotation>
+        <Annotation name="topic">Población, Sociales, Tecnología y Seguridad</Annotation>
+        <Annotation name="subtopic">Población, Sociales, Tecnología y Seguridad</Annotation>
         <Annotation name="source_name">Indicadores ITP</Annotation>
 
         <Table name="inei_population_y_n_dep" primary_key="ubigeo" />
@@ -19,44 +19,44 @@
         <Measure name = "Inmigrantes" column = "inmigrantes" aggregator = "sum" />
         <Measure name = "Emigrantes" column = "emigrantes" aggregator = "sum" />
         <Measure name = "PEA afiliada a pensiones (Miles de personas)" column = "peao_afiliada_pensiones" aggregator = "sum" />
-        <Measure name = "Población con 1 o más NBI" column = "nbi_1_o_mas_perc_pob" aggregator = "avg" />
+        <Measure name = "Poblacion con 1 o mas NBI" column = "nbi_1_o_mas_perc_pob" aggregator = "avg" />
         <Measure name = "Porcentaje hogares con miembros NBI" column = "mbpa_1_o_mas_members_perc_hog" aggregator = "avg" />
         <Measure name = "Porcentaje hogares pobres con miembros NBI" column = "mbpa_1_o_mas_members_perc_hog_pob" aggregator = "avg" />
-        <Measure name = "Número de médicos colegiados" column = "n_medicos_colegiados" aggregator = "sum" />
-        <Measure name = "Número de habitantes por médico" column = "n_habitantes_por_medico" aggregator = "avg" />
-        <Measure name = "Número de enfermeras(os) colegiados" column = "n_enfermeras_os_colegiados" aggregator = "sum" />
-        <Measure name = "Número de habitantes por enfermera(o)" column = "n_habitantes_por_enfermera_os" aggregator = "avg" />
-        <Measure name = "Desnutrición infantil en mejores de 5" column = "desnutricion_5yrs_perc" aggregator = "avg" />
+        <Measure name = "Numero de medicos colegiados" column = "n_medicos_colegiados" aggregator = "sum" />
+        <Measure name = "Numero de habitantes por medico" column = "n_habitantes_por_medico" aggregator = "avg" />
+        <Measure name = "Numero de enfermeras(os) colegiados" column = "n_enfermeras_os_colegiados" aggregator = "sum" />
+        <Measure name = "Numero de habitantes por enfermera(o)" column = "n_habitantes_por_enfermera_os" aggregator = "avg" />
+        <Measure name = "Desnutricion infantil en mejores de 5" column = "desnutricion_5yrs_perc" aggregator = "avg" />
         <Measure name = "Enfermedades respiratorias en menores de 5" column = "enfermedades_ra_5yrs_perc" aggregator = "avg" />
         <Measure name = "Enfermedades diarreicas en menores de 5" column = "enfer_diarreicas_5yrs" aggregator = "avg" />
-        <Measure name = "Promedio de años de estudios de mayores de 15" column = "estudios_prom_15yrs" aggregator = "sum" />
-        <Measure name = "Hectáreas de superficie agrícola" column = "superficie_agricola_hect" aggregator = "sum" />
-        <Measure name = "Hectáreas de superficie no agrícola" column = "superficie_no_agricola_hect" aggregator = "sum" />
-        <Measure name = "Hectáreas de superficie agrícola en cultivos" column = "sup_agr_cultivos_hect" aggregator = "sum" />
-        <Measure name = "Hectáreas de superficie agrícola en barbencho" column = "sup_agr_en_barbencho_hect" aggregator = "sum" />
-        <Measure name = "Hectáreas de superficie agrícola no trabajadas" column = "sup_agr_no_trabajadas_hect" aggregator = "sum" />
-        <Measure name = "Hectáreas de superficie agrícola en descanso" column = "sup_agr_en_descanso_hect" aggregator = "sum" />
-        <Measure name = "Hectáreas de bosque humedo amazonico" column = "sup_bosque_humedo_amazonico_hect" aggregator = "sum" />
-        <Measure name = "Porcentaje de hogares con tec. información" column = "hogares_tecn_informacion_perc" aggregator = "avg" />
-        <Measure name = "Porcentaje de hogares con televisión" column = "hogares_television_perc" aggregator = "avg" />
+        <Measure name = "Promedio de anos de estudios de mayores de 15" column = "estudios_prom_15yrs" aggregator = "sum" />
+        <Measure name = "Hectareas de superficie agricola" column = "superficie_agricola_hect" aggregator = "sum" />
+        <Measure name = "Hectareas de superficie no agricola" column = "superficie_no_agricola_hect" aggregator = "sum" />
+        <Measure name = "Hectareas de superficie agricola en cultivos" column = "sup_agr_cultivos_hect" aggregator = "sum" />
+        <Measure name = "Hectareas de superficie agricola en barbencho" column = "sup_agr_en_barbencho_hect" aggregator = "sum" />
+        <Measure name = "Hectareas de superficie agricola no trabajadas" column = "sup_agr_no_trabajadas_hect" aggregator = "sum" />
+        <Measure name = "Hectareas de superficie agricola en descanso" column = "sup_agr_en_descanso_hect" aggregator = "sum" />
+        <Measure name = "Hectareas de bosque humedo amazonico" column = "sup_bosque_humedo_amazonico_hect" aggregator = "sum" />
+        <Measure name = "Porcentaje de hogares con tec. informacion" column = "hogares_tecn_informacion_perc" aggregator = "avg" />
+        <Measure name = "Porcentaje de hogares con television" column = "hogares_television_perc" aggregator = "avg" />
         <Measure name = "Porcentaje de hogares con cable" column = "hogares_cable_perc" aggregator = "avg" />
-        <Measure name = "Porcentaje de hogares con teléfono fijo" column = "hogares_telefono_fijo_perc" aggregator = "avg" />
-        <Measure name = "Porcentaje de hogares con teléfono movil" column = "hogares_telefono_movil_perc" aggregator = "avg" />
+        <Measure name = "Porcentaje de hogares con telefono fijo" column = "hogares_telefono_fijo_perc" aggregator = "avg" />
+        <Measure name = "Porcentaje de hogares con telefono movil" column = "hogares_telefono_movil_perc" aggregator = "avg" />
         <Measure name = "Porcentaje de hogares con computadora" column = "hogares_computadora_perc" aggregator = "avg" />
         <Measure name = "Porcentaje de hogares con internet" column = "hogares_internet_perc" aggregator = "avg" />
-        <Measure name = "Número de faltas registradas" column = "n_faltas_registradas" aggregator = "sum" />
-        <Measure name = "Número de comisión de delitos" column = "n_comision_delitos" aggregator = "sum" />
-        <Measure name = "Número de personas detenidas por delitos" column = "n_personas_detenidas_delitos" aggregator = "sum" />
-        <Measure name = "Número de bandas delictuales desarticuladas" column = "n_bandas_delictuales_desarticuladas" aggregator = "sum" />
-        <Measure name = "Número de víctimas de femicidios" column = "n_victimas_femicidios" aggregator = "sum" />
-        <Measure name = "Número de denun. violencia física familiar" column = "n_denuncias_violencia_familiar_fisica" aggregator = "sum" />
-        <Measure name = "Número de denun. violencia sicológica familiar" column = "n_denuncias_violencia_familiar_sicolo" aggregator = "sum" />
-        <Measure name = "Número de denun. robo de vehículos" column = "n_denuncias_robo_vehiculos" aggregator = "sum" />
+        <Measure name = "Numero de faltas registradas" column = "n_faltas_registradas" aggregator = "sum" />
+        <Measure name = "Numero de comision de delitos" column = "n_comision_delitos" aggregator = "sum" />
+        <Measure name = "Numero de personas detenidas por delitos" column = "n_personas_detenidas_delitos" aggregator = "sum" />
+        <Measure name = "Numero de bandas delictuales desarticuladas" column = "n_bandas_delictuales_desarticuladas" aggregator = "sum" />
+        <Measure name = "Numero de victimas de femicidios" column = "n_victimas_femicidios" aggregator = "sum" />
+        <Measure name = "Numero de denun. violencia fisica familiar" column = "n_denuncias_violencia_familiar_fisica" aggregator = "sum" />
+        <Measure name = "Numero de denun. violencia sicologica familiar" column = "n_denuncias_violencia_familiar_sicolo" aggregator = "sum" />
+        <Measure name = "Numero de denun. robo de vehiculos" column = "n_denuncias_robo_vehiculos" aggregator = "sum" />
 
-        <Measure name = "Número de huespedes de origen nacional" column = "huespedes_nacionales" aggregator = "sum" />
-        <Measure name = "Número de huespedes de origen internacional" column = "huespedes_extranjeros" aggregator = "sum" />
-        <Measure name = "Número de visitantes de sitios arquelógicos y/o museos de origen nacional" column = "visitantes_nacionales_museos_arqueologia" aggregator = "sum" />
-        <Measure name = "Número de visitantes de sitios arquelógicos y/o museos de origen internacional" column = "visitantes_extranjeros_museos_arqueologia" aggregator = "sum" />
+        <Measure name = "Numero de huespedes de origen nacional" column = "huespedes_nacionales" aggregator = "sum" />
+        <Measure name = "Numero de huespedes de origen internacional" column = "huespedes_extranjeros" aggregator = "sum" />
+        <Measure name = "Numero de visitantes de sitios arquelogicos y/o museos de origen nacional" column = "visitantes_nacionales_museos_arqueologia" aggregator = "sum" />
+        <Measure name = "Numero de visitantes de sitios arquelogicos y/o museos de origen internacional" column = "visitantes_extranjeros_museos_arqueologia" aggregator = "sum" />
 
     </Cube>
 </Schema>

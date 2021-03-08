@@ -7,7 +7,8 @@
 
         <Table name="itp_cite_partidas_atendidas" primary_key="cite_id"/>
 
-        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />   
+        <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
+        <DimensionUsage foreign_key="hs6_id" source="Producto" name="Producto" />   
         <DimensionUsage foreign_key="hs10_id" source="Producto HS10" name="Producto HS10" />       
 
         <Dimension name="Cadena atencion" foreign_key="cadena_atencion_id">

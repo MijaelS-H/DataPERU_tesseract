@@ -34,34 +34,38 @@
 								</Row>
 								<Row>
 									<Value column="id">4</Value>
-									<Value column="name">Electricidad, gas y agua</Value>
+									<Value column="name">Manufactura</Value>
 								</Row>
 								<Row>
 									<Value column="id">5</Value>
-									<Value column="name">Construcción</Value>
+									<Value column="name">Electricidad, gas y agua</Value>
 								</Row>
 								<Row>
 									<Value column="id">6</Value>
-									<Value column="name">Comercio, mantenimiento y reparación de vehiculos automotores y motocicletas</Value>
+									<Value column="name">Construcción</Value>
 								</Row>
 								<Row>
 									<Value column="id">7</Value>
-									<Value column="name">Transporte, almacenamiento, correo y mensajería</Value>
+									<Value column="name">Comercio, mantenimiento y reparación de vehiculos automotores y motocicletas</Value>
 								</Row>
 								<Row>
 									<Value column="id">8</Value>
-									<Value column="name">Alojamiento y restaurantes</Value>
+									<Value column="name">Transporte, almacenamiento, correo y mensajería</Value>
 								</Row>
 								<Row>
 									<Value column="id">9</Value>
-									<Value column="name">Telecomunicaciones y otros servicos de información</Value>
+									<Value column="name">Alojamiento y restaurantes</Value>
 								</Row>
 								<Row>
 									<Value column="id">10</Value>
-									<Value column="name">Administración pública y defensa</Value>
+									<Value column="name">Telecomunicaciones y otros servicos de información</Value>
 								</Row>
 								<Row>
 									<Value column="id">11</Value>
+									<Value column="name">Administración pública y defensa</Value>
+								</Row>
+								<Row>
+									<Value column="id">12</Value>
 									<Value column="name">Otros servicios</Value>
 								</Row>
 						</InlineTable>

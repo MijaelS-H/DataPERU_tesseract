@@ -1,0 +1,11 @@
+<Schema name="dataperu-training">
+    <SharedDimension name="Utilizacion Producto Pesquero" type="standard">
+        <Hierarchy name="Utilizacion Producto Pesquero">
+            <Table name="dim_training" />
+
+            <Level name="Tipo de Pesca" key_column="tipo_pesca_id" name_column="tipo_pesca" key_type="text" />
+            <Level name="Tipo de Consumo" key_column="tipo_consumo_id" name_column="tipo_consumo" key_type="text" />
+            <Level name="Tipo de Utilizacion" key_column="tipo_utilizacion_id" name_column="tipo_utilizacion" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+</Schema>

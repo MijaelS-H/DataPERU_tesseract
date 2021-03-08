@@ -176,6 +176,25 @@
         </Hierarchy>
     </SharedDimension>
 
+    <SharedDimension name="Date Quarter Lite" type="time">
+        <Hierarchy name="Date" primary_key="quarter_id">
+            <Table name="dim_shared_date_quarter" />
+            <Level name="Quarter" key_column="quarter_id" name_column="quarter">
+                <Property name="Quarter ES" column="quarter" caption_set="es" />
+            </Level>
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Date Quarter" type="time">
+        <Hierarchy name="Date" primary_key="quarter_id">
+            <Table name="dim_shared_date_quarter" />
+            <Level name="Year" key_column="year" />
+            <Level name="Quarter" key_column="quarter_id" name_column="quarter">
+                <Property name="Quarter ES" column="quarter" caption_set="es" />
+            </Level>
+        </Hierarchy>
+    </SharedDimension>
+
     <SharedDimension name="Date Month Lite" type="time">
         <Hierarchy name="Date" primary_key="month_id">
             <Table name="dim_shared_date_month" />
@@ -250,20 +269,33 @@
         <Hierarchy name="CITE">
           <Table name="dim_shared_cite" />
           <Level name="CITE" key_column="cite_id" name_column="cite" key_type="nontext">
+            <Property name="Categoria" column="categoria"/>
             <Property name="Tipo" column="tipo"/>
+            <Property name="Estado" column="estado"/>
+            <Property name="Patrocinador" column="patrocinador"/>
             <Property name="Director" column="director"/>
             <Property name="Coordinador UT" column="coordinador_ut"/>
+            <Property name="Resolucion Director" column="resolucion_director"/>
+            <Property name="Fecha Director" column="fecha_director"/>
             <Property name="Directiva" column="lista_miembros"/>
+            <Property name="Resolucion Directiva" column="resolucion_mod"/>
+            <Property name="Fecha Directiva" column="fecha_mod"/>
+            <Property name="Nota" column="nota"/>
             <Property name="Ambito" column="ambito"/>
+            <Property name="Resolucion Ambito" column="resolucion_ambito"/>
+            <Property name="Resolucion Calificacion" column="resolucion_calificacion"/>
+            <Property name="Resolucion Adecuacion" column="resolucion_adecuacion"/>
+            <Property name="Resolucion Cambio Nombre" column="resolucion_cambio_nombre"/>
+            <Property name="Cadena atencion" column="cadena_atencion"/>
+            <Property name="Cadena pip" column="cadena_pip"/>
+            <Property name="Cadena resolucion" column="cadena_resolucion"/>
+            <Property name="Cadena privados" column="cadena_privados"/>
             <Property name="Ubigeo" column="district_id"/>
             <Property name="Direccion" column="direccion"/>
             <Property name="Latitud" column="latitud"/>
             <Property name="Longitud" column="longitud"/>
             <Property name="Descripcion" column="descriptivo"/>
             <Property name="CITE Slug" column="cite_slug"/>
-            <Property name="Cadena atencion" column="cadena_atencion"/>
-            <Property name="Cadena pip" column="cadena_pip"/>
-            <Property name="Cadena resolucion" column="cadena_resolucion"/>
           </Level>
         </Hierarchy>
     </SharedDimension>    
@@ -416,6 +448,27 @@
             </Row>
             </InlineTable>
             <Level name="Nivel Gobierno" key_column="id" name_column="name" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Codigo Producto Pesquero" type="standard">
+        <Hierarchy name="Codigo Producto Pesquero">
+            <Table name="dim_shared_inei_producto_desembarco" />
+            <Level name="Producto" key_column="codigo_producto" name_column="descripcion_producto" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Codigo Producto Cuero y Calzado" type="standard">
+        <Hierarchy name="Codigo Producto Cuero y Calzado">
+            <Table name="dim_shared_inei_producto_cuero" />
+            <Level name="Producto" key_column="codigo_producto" name_column="producto" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <SharedDimension name="Codigo Producto Camelidos" type="standard">
+        <Hierarchy name="Codigo Producto Camelidos">
+            <Table name="dim_shared_minagri_producto_camelido" />
+            <Level name="Producto" key_column="codigo_producto" name_column="descripcion_producto" key_type="text" />
         </Hierarchy>
     </SharedDimension>
 

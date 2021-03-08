@@ -14,7 +14,7 @@
             </Hierarchy>
         </Dimension>
 
-        <Dimension name="Grupo de edad" foreign_key="edad">
+        <Dimension name="Grupo de edad" foreign_key="age_group">
             <Hierarchy name="Grupo de edad" primary_key="id">
               <InlineTable alias="dim_inline_edad">
                   <ColumnDef name="id" key_type="nontext" />
@@ -120,6 +120,6 @@
             </Hierarchy>
         </Dimension>
 
-        <Measure name="Población" column="poblacion" aggregator="sum" />
+        <Measure name="Poblacion" column="poblacion" aggregator="sum" />
     </Cube>
 </Schema>

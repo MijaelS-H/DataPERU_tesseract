@@ -1,0 +1,34 @@
+<Schema name="dataperu-training">
+
+    <SharedDimension name="Utilizacion Producto Pesquero" type="standard">
+        <Hierarchy name="Utilizacion Producto Pesquero">
+            <Table name="dim_training" />
+
+            <Level name="Tipo de Pesca" key_column="tipo_pesca_id" name_column="tipo_pesca" key_type="text" />
+            <Level name="Tipo de Consumo" key_column="tipo_consumo_id" name_column="tipo_consumo" key_type="text" />
+            <Level name="Tipo de Utilizacion" key_column="tipo_utilizacion_id" name_column="tipo_utilizacion" key_type="text" />
+        </Hierarchy>
+    </SharedDimension>
+
+    <Cube name="fact_training">
+
+        <Annotation name="source_name">Produce</Annotation>
+        <Annotation name="source_description">Ministerio de la Producción</Annotation>
+        <Annotation name="dataset_name">Desembarque de Productos Pesqueros por Utilización, 2004 - 2018</Annotation>
+        <Annotation name="dataset_link">https://www.gob.pe/produce</Annotation>
+
+        <Table name="fact_training" primary_key="tipo_utilizacion_id" />
+
+        <DimensionUsage foreign_key="tipo_utilizacion_id" source="Utilizacion Producto Pesquero" name="Utilizacion Producto Pesquero" />
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Desembarque" column="desembarque" aggregator="sum" />
+
+    </Cube>
+
+</Schema>
