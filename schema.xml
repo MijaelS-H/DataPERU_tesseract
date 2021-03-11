@@ -1,4 +1,4 @@
-<Schema name="dataperu">
+<Schema name="dataperu" default_locale="es">
 
     <SharedDimension name="CIIU Rev 3" type="standard">
         <Hierarchy name="CIIU Rev 3">
@@ -471,6 +471,7 @@
             <Level name="Producto" key_column="codigo_producto" name_column="descripcion_producto" key_type="text" />
         </Hierarchy>
     </SharedDimension>
+
 
     <Cube name="inei_cenama">
         <Annotation name="source_name">INEI</Annotation>
@@ -1728,6 +1729,72 @@
         </Dimension>
 
         <Measure name="Poblacion" column="poblacion" aggregator="sum" />
+
+    </Cube>
+    <Cube name="inei_population_y_n_illiteracy">
+        <Annotation name="topic">Educacion</Annotation>
+        <Annotation name="subtopic">Educacion</Annotation>
+        <Annotation name="source_name">Indicadores ITP</Annotation>
+
+        <Table name="inei_population_y_n_illiteracy" primary_key="id" />
+
+        <DimensionUsage foreign_key="ubigeo" source="Ubigeo Departamento" name="Departamento" />
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Ambito geografico" foreign_key="ambito_geografico">
+            <Hierarchy name="Ambito geografico" primary_key="id">
+                <InlineTable alias="dim_ambito_geografico">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Area residencia</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Region natural</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Ambito geografico" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Sub ambito geografico" foreign_key="sub_ambito_geografico">
+            <Hierarchy name="Sub ambito geografico" primary_key="id">
+                <InlineTable alias="dim_sub_ambito_geografico">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                      <Value column="id">1</Value>
+                      <Value column="name">Urbana</Value>
+                    </Row>
+                    <Row>
+                      <Value column="id">2</Value>
+                      <Value column="name">Rural</Value>
+                    </Row>
+                    <Row>
+                      <Value column="id">3</Value>
+                      <Value column="name">Costa</Value>
+                    </Row>
+                    <Row>
+                      <Value column="id">4</Value>
+                      <Value column="name">Sierra</Value>
+                    </Row>
+                    <Row>
+                      <Value column="id">5</Value>
+                      <Value column="name">Selva</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Sub ambito geografico" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Poblacion analfabeta mayor de 15 anos" column="illiteracy_15yrs_more_perc" aggregator="sum" />
 
     </Cube>
     <Cube name="itp_indicators_m_n_nat">
