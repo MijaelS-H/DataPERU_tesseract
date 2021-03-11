@@ -2,7 +2,7 @@
     <Cube name="inei_enaho">
         <Annotation name="source_name">INEI</Annotation>
         <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
-        <Annotation name="dataset_name">Encuestas Nacional de Hogares</Annotation>
+        <Annotation name="dataset_name">Encuesta Nacional de Hogares</Annotation>
         <Annotation name="dataset_link">https://webinei.inei.gob.pe/anda_inei/index.php/</Annotation>
 
         <Table name="inei_enaho" primary_key="nation_id" />
