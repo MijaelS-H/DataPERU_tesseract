@@ -1,0 +1,69 @@
+<Schema name="dataperu" default_locale="es">
+    <Cube name="inei_population_y_gender_geo_eap">
+        <Annotation name="topic">Demografia</Annotation>
+        <Annotation name="subtopic">Demografia</Annotation>
+        <Annotation name="source_name">Indicadores ITP</Annotation>
+
+        <Table name="inei_population_y_gender_geo_eap" primary_key="nation_id" />
+
+        <DimensionUsage foreign_key="nation_id" source="Ubigeo Nacion" name="Ubigeo Nacion" />
+
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+              <Level name="Year" key_column="year" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Ambito geografico" foreign_key="ambito_geografico">
+            <Hierarchy name="Ambito geografico" primary_key="id">
+                <InlineTable alias="dim_ambito_geografico">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                        <Value column="id">1</Value>
+                        <Value column="name">Area residencia</Value>
+                    </Row>
+                    <Row>
+                        <Value column="id">2</Value>
+                        <Value column="name">Region natural</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Ambito geografico" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Sub ambito geografico" foreign_key="sub_ambito_geografico">
+            <Hierarchy name="Sub ambito geografico" primary_key="id">
+                <InlineTable alias="dim_sub_ambito_geografico">
+                    <ColumnDef name="id" key_type="nontext" />
+                    <ColumnDef name="name" key_type="text" />
+                    <Row>
+                      <Value column="id">1</Value>
+                      <Value column="name">Urbana</Value>
+                    </Row>
+                    <Row>
+                      <Value column="id">2</Value>
+                      <Value column="name">Rural</Value>
+                    </Row>
+                    <Row>
+                      <Value column="id">3</Value>
+                      <Value column="name">Costa</Value>
+                    </Row>
+                    <Row>
+                      <Value column="id">4</Value>
+                      <Value column="name">Sierra</Value>
+                    </Row>
+                    <Row>
+                      <Value column="id">5</Value>
+                      <Value column="name">Selva</Value>
+                    </Row>
+                </InlineTable>
+                <Level name="Sub ambito geografico" key_column="id" name_column="name" />
+            </Hierarchy>
+        </Dimension>
+
+        <Measure name="Poblacion economicamente activa masculina" column="peac_masculina" aggregator="sum" />
+        <Measure name="Poblacion economicamente activa femenina" column="peac_femenina" aggregator="sum" />
+
+    </Cube>
+</Schema>
