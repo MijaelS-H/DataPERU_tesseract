@@ -1,4 +1,4 @@
-<Schema name="dataperu" default_locale="es">
+<Schema name="dataperu">
 
     <SharedDimension name="CIIU Rev 3" type="standard">
         <Hierarchy name="CIIU Rev 3">
@@ -471,7 +471,6 @@
             <Level name="Producto" key_column="codigo_producto" name_column="descripcion_producto" key_type="text" />
         </Hierarchy>
     </SharedDimension>
-
 
     <Cube name="inei_cenama">
         <Annotation name="source_name">INEI</Annotation>
@@ -3263,7 +3262,7 @@
 
     </Cube>
     <Cube name="itp_cite_inversion">
-        <Annotation name="source_name">Oficina de Presupuesto, Planeamiento y Modernización - ITP</Annotation>
+        <Annotation name="source_name">Oficina de Presupuesto, Planeamiento y Modernización - ITP y Dirección de Operaciones - ITP</Annotation>
         <Annotation name="source_description">Instituto Tecnológico de la Producción</Annotation>
         <Annotation name="dataset_name">Registros administrativos CITE - ITP</Annotation>
         <Annotation name="dataset_link">http://www.gob.pe/itp</Annotation>
