@@ -1,18 +1,18 @@
 <Schema name="dataperu" default_locale="es">
-    <Cube name="mef_presupuesto_ingresos">
+    <Cube name="mef_ingresos">
         <Annotation name="source_name">MEF</Annotation>
         <Annotation name="source_description">Ministerio de Economía y Finanzas</Annotation>
         <Annotation name="dataset_name">Recaudación Presupuestal</Annotation>
         <Annotation name="dataset_link">https://www.gob.pe/mef</Annotation>
 
-        <Table name="mef_presupuesto_ingresos" primary_key="district_id" />
+        <Table name="mef_ingresos" primary_key="district_id" />
 
         <DimensionUsage foreign_key="district_id" source="Ubigeo" name="Ubigeo" />
         <DimensionUsage foreign_key="month_id" source="Date Month" name="Date" />
 
         <Dimension name="Nivel Gobierno" type="geo" foreign_key="tipo_gobierno">
             <Hierarchy name="Nivel Gobierno" primary_key="tipo_gobierno">
-                <Table name="dim_shared_ubigeo_department" />
+                <Table name="dim_mef_ingresos_tipo_gobierno" />
 
                 <Level name="Nivel Gobierno" key_column="tipo_gobierno" name_column="tipo_gobierno_nombre" key_type="text" />
             </Hierarchy>
