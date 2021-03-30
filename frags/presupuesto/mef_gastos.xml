@@ -82,6 +82,12 @@
             </Hierarchy>
         </Dimension>
 
+        <Dimension name="Year" foreign_key="year">
+            <Hierarchy name="Year">
+                <Level name="Year" key_column="year" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
         <Measure name="PIA" column="monto_pia" aggregator="sum" />
         <Measure name="PIM" column="monto_pim" aggregator="sum" /> 
         <Measure name="Devengado" column="monto_devengado" aggregator="sum" />
