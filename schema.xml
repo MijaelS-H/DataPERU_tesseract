@@ -2903,6 +2903,12 @@
             </Hierarchy>
         </Dimension>
 
+        <Dimension name="Latest Period" foreign_key="latest">
+            <Hierarchy name="Latest Period">
+                <Level name="Latest Period" key_column="latest" key_type="nontext" />
+            </Hierarchy>
+        </Dimension>
+
         <Measure name="PIA" column="monto_pia" aggregator="sum" />
         <Measure name="PIM" column="monto_pim" aggregator="sum" /> 
         <Measure name="Devengado" column="monto_devengado" aggregator="sum" />
