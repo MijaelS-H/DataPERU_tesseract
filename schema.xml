@@ -2823,7 +2823,7 @@
         <Table name="mef_gastos" primary_key="ubigeo" />
         
         <DimensionUsage foreign_key="district_id" source="Ubigeo" name="Ubigeo" />
-        <DimensionUsage foreign_key="month_id" source="Date Month" name="Date" />
+        <DimensionUsage foreign_key="month_id" source="Date Month Lite" name="Date" />
 
         <Dimension name="Nivel Gobierno" type="geo" foreign_key="tipo_gobierno">
             <Hierarchy name="Nivel Gobierno" primary_key="tipo_gobierno">
