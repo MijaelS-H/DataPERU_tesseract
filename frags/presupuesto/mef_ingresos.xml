@@ -1,14 +1,22 @@
 <Schema name="dataperu" default_locale="es">
-    <Cube name="mef_presupuesto_ingresos">
+    <Cube name="mef_ingresos">
         <Annotation name="source_name">MEF</Annotation>
         <Annotation name="source_description">Ministerio de Economía y Finanzas</Annotation>
         <Annotation name="dataset_name">Recaudación Presupuestal</Annotation>
         <Annotation name="dataset_link">https://www.gob.pe/mef</Annotation>
 
-        <Table name="mef_presupuesto_ingresos" primary_key="ubigeo" />
+        <Table name="mef_ingresos" primary_key="district_id" />
 
-        <DimensionUsage foreign_key="nivel_gobierno" source="Nivel Gobierno" name="Nivel Gobierno" />
-        <DimensionUsage foreign_key="ubigeo" source="Ubigeo" name="Ubigeo" />
+        <DimensionUsage foreign_key="district_id" source="Ubigeo" name="Ubigeo" />
+        <DimensionUsage foreign_key="month_id" source="Date Month" name="Date" />
+
+        <Dimension name="Nivel Gobierno" type="geo" foreign_key="tipo_gobierno">
+            <Hierarchy name="Nivel Gobierno" primary_key="tipo_gobierno">
+                <Table name="dim_mef_ingresos_tipo_gobierno" />
+
+                <Level name="Nivel Gobierno" key_column="tipo_gobierno" name_column="tipo_gobierno_nombre" key_type="text" />
+            </Hierarchy>
+        </Dimension>
 
         <Dimension name="Sector" foreign_key="sector">
             <Hierarchy name="Sector" primary_key="sector">
@@ -22,7 +30,15 @@
             <Hierarchy name="Pliego" primary_key="pliego">
                 <Table name="dim_mef_ingresos_pliego" />
                 
-                <Level name="Pliego" key_column="pliego" name_column="pliego_nombre" key_type="nontext" />
+                <Level name="Pliego" key_column="pliego" name_column="pliego_nombre" key_type="text" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Ejecutora" foreign_key="ejecutora">
+            <Hierarchy name="Ejecutora" primary_key="ejecutora">
+                <Table name="dim_mef_ingresos_ejecutora" />
+                ∫
+                <Level name="Ejecutora" key_column="ejecutora" name_column="ejecutora_nombre" key_type="nontext" />
             </Hierarchy>
         </Dimension>
 
@@ -34,22 +50,16 @@
             </Hierarchy>
         </Dimension>
 
-        <Dimension name="Fuente de Financiamiento" foreign_key="fuente_financiamiento">
-            <Hierarchy name="Fuente de Financiamiento" primary_key="fuente_financiamiento">
-                <Table name="dim_mef_ingresos_fuente_financiamiento" />
+        <Dimension name="Fuente de Financiamiento" foreign_key="fuente_financ">
+            <Hierarchy name="Fuente de Financiamiento" primary_key="fuente_financ">
+                <Table name="dim_mef_ingresos_fuente_financ" />
                 
-                <Level name="Fuente de Financiamiento" key_column="fuente_financiamiento" name_column="fuente_financiamiento_nombre" key_type="nontext" />
+                <Level name="Fuente de Financiamiento" key_column="fuente_financ" name_column="fuente_financ_nombre" key_type="nontext" />
             </Hierarchy>
         </Dimension>
 
-        <Dimension name="Year" foreign_key="year">
-            <Hierarchy name="Year">
-                <Level name="Year" key_column="year" key_type="nontext" />
-            </Hierarchy>
-        </Dimension>
-
-        <Measure name="PIA" column="pia" aggregator="sum" />
-        <Measure name="PIM" column="pim" aggregator="sum" /> 
+        <Measure name="PIA" column="monto_pia" aggregator="sum" />
+        <Measure name="PIM" column="monto_pim" aggregator="sum" /> 
         <Measure name="Monto Recaudado" column="monto_recaudado" aggregator="sum" />
 
     </Cube>
