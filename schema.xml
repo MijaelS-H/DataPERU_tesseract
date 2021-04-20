@@ -1219,6 +1219,7 @@
                 <InlineTable alias="dim_measure_unit">
                     <ColumnDef name="id" key_type="text" />
                     <ColumnDef name="name" key_type="text" />
+
                         <Row>
                             <Value column="id">kg</Value>
                             <Value column="name">Kilogramo</Value>
@@ -1263,6 +1264,7 @@
                             <Value column="id">pieza</Value>
                             <Value column="name">Pieza</Value> 
                         </Row>
+
                 </InlineTable>
                 <Level name="Unidad de medida" key_column="id" name_column="name" key_type="text" />
             </Hierarchy>
