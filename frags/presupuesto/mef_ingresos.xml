@@ -30,7 +30,15 @@
             <Hierarchy name="Pliego" primary_key="pliego">
                 <Table name="dim_mef_ingresos_pliego" />
                 
-                <Level name="Pliego" key_column="pliego" name_column="pliego_nombre" key_type="nontext" />
+                <Level name="Pliego" key_column="pliego" name_column="pliego_nombre" key_type="text" />
+            </Hierarchy>
+        </Dimension>
+
+        <Dimension name="Ejecutora" foreign_key="ejecutora">
+            <Hierarchy name="Ejecutora" primary_key="ejecutora">
+                <Table name="dim_mef_ingresos_ejecutora" />
+                ∫
+                <Level name="Ejecutora" key_column="ejecutora" name_column="ejecutora_nombre" key_type="nontext" />
             </Hierarchy>
         </Dimension>
 
