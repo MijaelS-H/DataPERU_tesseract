@@ -3939,10 +3939,10 @@
 
     </Cube>
     <Cube name="minagri_dinamica_pecuaria">
-        <Annotation name="source_name">MINAGRI</Annotation>
-        <Annotation name="source_description">Ministerio de Agricultura y Riego</Annotation>
+        <Annotation name="source_name">MIDAGRI</Annotation>
+        <Annotation name="source_description">Ministerio de Desarrollo Agrario y Riego</Annotation>
         <Annotation name="dataset_name">Registro de Dinámicas Pecuarias</Annotation>
-        <Annotation name="dataset_link">https://www.gob.pe/minagri</Annotation>
+        <Annotation name="dataset_link">https://www.gob.pe/midagri</Annotation>
 
         <Table name="minagri_dinamica_pecuaria" primary_key="district_id" />
 
@@ -3975,10 +3975,10 @@
 
     </Cube>
     <Cube name="minagri_dinamica_agricola">
-        <Annotation name="source_name">MINAGRI</Annotation>
-        <Annotation name="source_description">Ministerio de Agricultura y Riego</Annotation>
+        <Annotation name="source_name">MIDAGRI</Annotation>
+        <Annotation name="source_description">Ministerio de Desarrollo Agrario y Riego</Annotation>
         <Annotation name="dataset_name">Registro de Dinámicas Agrícolas</Annotation>
-        <Annotation name="dataset_link">https://www.gob.pe/minagri</Annotation>
+        <Annotation name="dataset_link">https://www.gob.pe/midagri</Annotation>
 
         <Table name="minagri_dinamica_agricola" primary_key="district_id" />
 
@@ -4395,10 +4395,10 @@
 
     </Cube>
     <Cube name="itp_cite_mercado_interno_agroindustrial">
-        <Annotation name="source_name">MINAGRI</Annotation>
-        <Annotation name="source_description">Ministerio de Agricultura y Riego</Annotation>
+        <Annotation name="source_name">MIDAGRI</Annotation>
+        <Annotation name="source_description">Ministerio de Desarrollo Agrario y Riego</Annotation>
         <Annotation name="dataset_name">Registro de Dinámicas Agrícolas</Annotation>
-        <Annotation name="dataset_link">https://www.gob.pe/minagri</Annotation>
+        <Annotation name="dataset_link">https://www.gob.pe/midagri</Annotation>
         
         <Table name="itp_cite_mercado_interno_agroindustrial" primary_key="ubigeo" />
 
