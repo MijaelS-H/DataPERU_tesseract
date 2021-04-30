@@ -204,6 +204,13 @@
         </Hierarchy>
     </SharedDimension>
 
+    <SharedDimension name="Fecha actualizacion" type="time">
+        <Hierarchy name="Fecha actualizacion" primary_key="month_id">
+            <Table name="dim_shared_date_month" />
+            <Level name="Fecha actualizacion" key_column="month_id" name_column="month" />
+        </Hierarchy>
+    </SharedDimension>
+
     <SharedDimension name="Date Month" type="time">
         <Hierarchy name="Date" primary_key="month_id">
             <Table name="dim_shared_date_month" />

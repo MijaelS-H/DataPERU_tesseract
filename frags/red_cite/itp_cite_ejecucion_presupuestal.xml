@@ -8,7 +8,7 @@
         <Table name="itp_cite_ejecucion_presupuestal" primary_key="cite_id"/>
 
         <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
- 
+        <DimensionUsage foreign_key="fecha_actualizacion" source="Fecha actualizacion" name="Fecha actualizacion" />
 
         <Dimension name="Time" foreign_key="time">
             <Hierarchy name="Time">

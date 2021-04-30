@@ -9,6 +9,7 @@
 
         <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
         <DimensionUsage foreign_key="estado_id" source="Estado CITE" name="Estado CITE" />
+        <DimensionUsage foreign_key="fecha_actualizacion" source="Fecha actualizacion" name="Fecha actualizacion" />
 
         <Dimension name="Aspecto" foreign_key="aspecto_id">
             <Hierarchy name="Aspecto" primary_key="id">

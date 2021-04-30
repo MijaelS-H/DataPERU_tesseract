@@ -7,6 +7,8 @@
 
         <Table name="itp_cite_empresas_tipo_agg" primary_key="empresa_id"/>
 
+        <DimensionUsage foreign_key="fecha_actualizacion" source="Fecha actualizacion" name="Fecha actualizacion" />
+
         <Dimension name="Tipo empresa" foreign_key="empresa_id">
             <Hierarchy name="Tipo empresa" primary_key="id">
                 <InlineTable alias="dim_inline_empresa_id_cite">
