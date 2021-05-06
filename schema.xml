@@ -4092,8 +4092,8 @@
         <Measure name="Superficie sembrada" column="superficie_sembrada" aggregator="sum" />
         <Measure name="Superficie cosechada" column="superficie_cosechada" aggregator="sum" />
         <Measure name="Produccion" column="produccion" aggregator="sum" />  
-        <Measure name="Rendimiento" column="rendimiento" aggregator="sum" />  
-        <Measure name="Precio" column="precio" aggregator="sum" />  
+        <Measure name="Rendimiento" column="rendimiento" aggregator="avg" />
+        <Measure name="Precio" column="precio" aggregator="avg" />  
 
     </Cube>
     <Cube name="itp_cite_trabajadores">
