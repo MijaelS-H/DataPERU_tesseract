@@ -3,7 +3,10 @@
 
     	<Annotation name="topic">Economia</Annotation>
       	<Annotation name="subtopic">Economia</Annotation>
-      	<Annotation name="source_name">Indicadores ITP</Annotation>
+      	<Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Sección Estadística</Annotation>
+        <Annotation name="dataset_link">https://www.inei.gob.pe/estadisticas/indice-tematico/economia/</Annotation>
 
     	<Table name="itp_indicators_y_n_nat_54" primary_key="ubigeo" />
 

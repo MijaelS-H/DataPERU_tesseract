@@ -1199,7 +1199,10 @@
 
         <Annotation name="topic">Economia</Annotation>
         <Annotation name="subtopic">Economia</Annotation>
-        <Annotation name="source_name">Indicadores ITP</Annotation>
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Sección Estadística</Annotation>
+        <Annotation name="dataset_link">https://www.inei.gob.pe/estadisticas/indice-tematico/economia/</Annotation>
 
         <Table name="itp_indicators_y_n_prod_ciiu_group" primary_key="ubigeo" />
 
@@ -1282,7 +1285,10 @@
 
       <Annotation name="topic">Economia</Annotation>
         <Annotation name="subtopic">Economia</Annotation>
-        <Annotation name="source_name">Indicadores ITP</Annotation>
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Sección Estadística</Annotation>
+        <Annotation name="dataset_link">https://www.inei.gob.pe/estadisticas/indice-tematico/economia/</Annotation>
 
         <Table name="proinversion_fdi_y_origin_nat" primary_key="ubigeo" />
 
@@ -1301,7 +1307,10 @@
     <Cube name="itp_indicators_y_d_ports">
         <Annotation name="topic">Economia</Annotation>
         <Annotation name="subtopic">Economia</Annotation>
-        <Annotation name="source_name">Indicadores ITP</Annotation>
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Sección Estadística</Annotation>
+        <Annotation name="dataset_link">https://www.inei.gob.pe/estadisticas/indice-tematico/economia/</Annotation>
 
         <Table name="itp_indicators_y_d_ports" primary_key="ubigeo" />
 
@@ -1328,7 +1337,10 @@
 
       <Annotation name="topic">Economia</Annotation>
         <Annotation name="subtopic">Economia</Annotation>
-        <Annotation name="source_name">Indicadores ITP</Annotation>
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Sección Estadística</Annotation>
+        <Annotation name="dataset_link">https://www.inei.gob.pe/estadisticas/indice-tematico/economia/</Annotation>
 
         <Table name="proinversion_fdi_y_origin_sector" primary_key="ubigeo" />
 
@@ -1416,7 +1428,10 @@
     <Cube name="inei_population_y_age_nat_travel">
         <Annotation name="topic">Poblacion y Vivienda</Annotation>
         <Annotation name="subtopic">Poblacion y Vivienda</Annotation>
-        <Annotation name="source_name">Indicadores ITP</Annotation>
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Sección Estadística</Annotation>
+        <Annotation name="dataset_link">https://www.inei.gob.pe/estadisticas/indice-tematico/poblacion-y-vivienda/</Annotation>
 
         <Table name="inei_population_y_age_nat_travel" primary_key="ubigeo" />
 
@@ -1539,7 +1554,10 @@
     <Cube name="itp_indicators_y_n_tourism_capacity">
         <Annotation name="topic">Turismo</Annotation>
         <Annotation name="subtopic">Turismo</Annotation>
-        <Annotation name="source_name">Indicadores ITP</Annotation>
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Sección Estadística</Annotation>
+        <Annotation name="dataset_link">https://www.inei.gob.pe/estadisticas/indice-tematico/economia/</Annotation>
 
         <Table name="itp_indicators_y_n_tourism_capacity" primary_key="ubigeo" />
 
@@ -1607,7 +1625,10 @@
     <Cube name="itp_indicators_q_n_nat">
         <Annotation name="topic">Economia</Annotation>
         <Annotation name="subtopic">Economia</Annotation>
-        <Annotation name="source_name">Indicadores ITP</Annotation>
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Sección Estadística</Annotation>
+        <Annotation name="dataset_link">https://www.inei.gob.pe/estadisticas/indice-tematico/economia/</Annotation>
 
         <Table name="itp_indicators_q_n_nat" primary_key="ubigeo" />
 
@@ -1661,7 +1682,10 @@
     <Cube name="inei_population_y_nat_nbi">
         <Annotation name="topic">Demografia</Annotation>
         <Annotation name="subtopic">Demografia</Annotation>
-        <Annotation name="source_name">Indicadores ITP</Annotation>
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Sección Estadística</Annotation>
+        <Annotation name="dataset_link">https://www.inei.gob.pe/estadisticas/indice-tematico/poblacion-y-vivienda/</Annotation>
 
         <Table name="inei_population_y_nat_nbi" primary_key="ubigeo" />
 
@@ -1755,7 +1779,10 @@
     <Cube name="inei_population_y_gender_dep">
         <Annotation name="topic">Empleo</Annotation>
         <Annotation name="subtopic">Empleo</Annotation>
-        <Annotation name="source_name">Indicadores ITP</Annotation>
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Sección Estadística</Annotation>
+        <Annotation name="dataset_link">https://www.inei.gob.pe/estadisticas/indice-tematico/ocupacion-y-vivienda/</Annotation>
 
         <Table name="inei_population_y_gender_dep" primary_key="ubigeo" />
 
@@ -1781,7 +1808,10 @@
     <Cube name="inei_population_y_n_dep_urb_rur">
         <Annotation name="topic">Poblacion, Vivienda y Sociales</Annotation>
         <Annotation name="subtopic">Poblacion, Vivienda y Sociales</Annotation>
-        <Annotation name="source_name">Indicadores ITP</Annotation>
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Sección Estadística</Annotation>
+        <Annotation name="dataset_link">https://www.inei.gob.pe/estadisticas/indice-tematico/poblacion-y-vivienda/</Annotation>
 
         <Table name="inei_population_y_n_dep_urb_rur" primary_key="ubigeo" />
 
@@ -1824,7 +1854,10 @@
     <Cube name="itp_indicators_y_n_nat">
         <Annotation name="topic">Economia, Poblacion, Empleo y Sociales</Annotation>
         <Annotation name="subtopic">Economia, Poblacion, Empleo y Sociales</Annotation>
-        <Annotation name="source_name">Indicadores ITP</Annotation>
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Sección Estadística</Annotation>
+        <Annotation name="dataset_link">https://www.inei.gob.pe/estadisticas/indice-tematico/economia/</Annotation>
 
         <Table name="itp_indicators_y_n_nat" primary_key="ubigeo" />
 
@@ -2092,7 +2125,10 @@
     <Cube name="inei_population_y_n_gender_age_urb_rur">
         <Annotation name="topic">Demografia</Annotation>
         <Annotation name="subtopic">Demografia</Annotation>
-        <Annotation name="source_name">Indicadores ITP</Annotation>
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Sección Estadística</Annotation>
+        <Annotation name="dataset_link">https://www.inei.gob.pe/estadisticas/indice-tematico/poblacion-y-vivienda/</Annotation>
 
         <Table name="inei_population_y_n_gender_age_urb_rur" primary_key="ubigeo" />
 
@@ -2226,7 +2262,10 @@
 
     	<Annotation name="topic">Economia</Annotation>
       	<Annotation name="subtopic">Economia</Annotation>
-      	<Annotation name="source_name">Indicadores ITP</Annotation>
+      	<Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Sección Estadística</Annotation>
+        <Annotation name="dataset_link">https://www.inei.gob.pe/estadisticas/indice-tematico/economia/</Annotation>
 
     	<Table name="itp_indicators_y_n_manu_mill_soles_2007" primary_key="ubigeo" />
 
@@ -2253,7 +2292,10 @@
     <Cube name="inei_population_y_n_illiteracy">
         <Annotation name="topic">Educacion</Annotation>
         <Annotation name="subtopic">Educacion</Annotation>
-        <Annotation name="source_name">Indicadores ITP</Annotation>
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Sección Estadística</Annotation>
+        <Annotation name="dataset_link">https://www.inei.gob.pe/estadisticas/indice-tematico/sociales/</Annotation>
 
         <Table name="inei_population_y_n_illiteracy" primary_key="id" />
 
@@ -2319,7 +2361,10 @@
     <Cube name="itp_indicators_y_n_tourism">
         <Annotation name="topic">Turismo</Annotation>
         <Annotation name="subtopic">Turismo</Annotation>
-        <Annotation name="source_name">Indicadores ITP</Annotation>
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Sección Estadística</Annotation>
+        <Annotation name="dataset_link">https://www.inei.gob.pe/estadisticas/indice-tematico/economia/</Annotation>
 
         <Table name="itp_indicators_y_n_tourism" primary_key="ubigeo" />
 
@@ -2342,7 +2387,10 @@
     <Cube name="inei_population_y_gender_geo_eap">
         <Annotation name="topic">Demografia</Annotation>
         <Annotation name="subtopic">Demografia</Annotation>
-        <Annotation name="source_name">Indicadores ITP</Annotation>
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Sección Estadística</Annotation>
+        <Annotation name="dataset_link">https://www.inei.gob.pe/estadisticas/indice-tematico/ocupacion-y-vivienda/</Annotation>
 
         <Table name="inei_population_y_gender_geo_eap" primary_key="nation_id" />
 
@@ -2409,7 +2457,10 @@
     <Cube name="itp_indicators_m_n_nat">
         <Annotation name="topic">Economia</Annotation>
         <Annotation name="subtopic">Economia</Annotation>
-        <Annotation name="source_name">Indicadores ITP</Annotation>
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Sección Estadística</Annotation>
+        <Annotation name="dataset_link">https://www.inei.gob.pe/estadisticas/indice-tematico/economia/</Annotation>
 
         <Table name="itp_indicators_m_n_nat" primary_key="ubigeo" />
 
@@ -2442,9 +2493,12 @@
     </Cube>
     <Cube name="itp_indicators_y_act_dept">
 
-			<Annotation name="topic">Economia</Annotation>
-				<Annotation name="subtopic">Economia</Annotation>
-				<Annotation name="source_name">Indicadores ITP</Annotation>
+		<Annotation name="topic">Economia</Annotation>
+		<Annotation name="subtopic">Economia</Annotation>
+		<Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Sección Estadística</Annotation>
+        <Annotation name="dataset_link">https://www.inei.gob.pe/estadisticas/indice-tematico/economia/</Annotation>
 
 			<Table name="itp_indicators_y_act_dept" primary_key="ubigeo" />
 
@@ -2521,7 +2575,10 @@
     <Cube name="inei_population_y_n_dep">
         <Annotation name="topic">Población, Sociales, Tecnología y Seguridad</Annotation>
         <Annotation name="subtopic">Población, Sociales, Tecnología y Seguridad</Annotation>
-        <Annotation name="source_name">Indicadores ITP</Annotation>
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Sección Estadística</Annotation>
+        <Annotation name="dataset_link">https://www.inei.gob.pe/estadisticas/indice-tematico/poblacion-y-vivienda/</Annotation>
 
         <Table name="inei_population_y_n_dep" primary_key="ubigeo" />
 
@@ -2582,7 +2639,10 @@
 
     	<Annotation name="topic">Economia</Annotation>
       	<Annotation name="subtopic">Economia</Annotation>
-      	<Annotation name="source_name">Indicadores ITP</Annotation>
+      	<Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Sección Estadística</Annotation>
+        <Annotation name="dataset_link">https://www.inei.gob.pe/estadisticas/indice-tematico/economia/</Annotation>
 
     	<Table name="itp_indicators_y_n_nat_54" primary_key="ubigeo" />
 
@@ -2610,7 +2670,10 @@
     <Cube name="inei_population_y_gender_nat_travel">
         <Annotation name="topic">Poblacion y Vivienda</Annotation>
         <Annotation name="subtopic">Poblacion y Vivienda</Annotation>
-        <Annotation name="source_name">Indicadores ITP</Annotation>
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Sección Estadística</Annotation>
+        <Annotation name="dataset_link">https://www.inei.gob.pe/estadisticas/indice-tematico/poblacion-y-vivienda/</Annotation>
 
 
         <Table name="inei_population_y_gender_nat_travel" primary_key="ubigeo" />

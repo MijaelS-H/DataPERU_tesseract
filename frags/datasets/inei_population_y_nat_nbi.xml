@@ -2,7 +2,10 @@
     <Cube name="inei_population_y_nat_nbi">
         <Annotation name="topic">Demografia</Annotation>
         <Annotation name="subtopic">Demografia</Annotation>
-        <Annotation name="source_name">Indicadores ITP</Annotation>
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Sección Estadística</Annotation>
+        <Annotation name="dataset_link">https://www.inei.gob.pe/estadisticas/indice-tematico/poblacion-y-vivienda/</Annotation>
 
         <Table name="inei_population_y_nat_nbi" primary_key="ubigeo" />
 

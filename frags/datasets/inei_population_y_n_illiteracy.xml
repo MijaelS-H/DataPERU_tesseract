@@ -2,7 +2,10 @@
     <Cube name="inei_population_y_n_illiteracy">
         <Annotation name="topic">Educacion</Annotation>
         <Annotation name="subtopic">Educacion</Annotation>
-        <Annotation name="source_name">Indicadores ITP</Annotation>
+        <Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Sección Estadística</Annotation>
+        <Annotation name="dataset_link">https://www.inei.gob.pe/estadisticas/indice-tematico/sociales/</Annotation>
 
         <Table name="inei_population_y_n_illiteracy" primary_key="id" />
 

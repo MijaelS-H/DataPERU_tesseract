@@ -3,7 +3,10 @@
 
     	<Annotation name="topic">Sociales</Annotation>
       	<Annotation name="subtopic">Sociales</Annotation>
-      	<Annotation name="source_name">Indicadores ITP</Annotation>
+      	<Annotation name="source_name">INEI</Annotation>
+        <Annotation name="source_description">Instituto Nacional de Estadística e Informática</Annotation>
+        <Annotation name="dataset_name">Sección Estadística</Annotation>
+        <Annotation name="dataset_link">https://www.inei.gob.pe/estadisticas/indice-tematico/sociales/</Annotation>
 
         <Table name="met_education_y_level_dep" primary_key="ubigeo" />
 
