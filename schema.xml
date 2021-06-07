@@ -1,4 +1,4 @@
-<Schema name="dataperu" default_locale="es">
+<Schema name="dataperu">
 
     <SharedDimension name="CIIU Rev 3" type="standard">
         <Hierarchy name="CIIU Rev 3">
@@ -4910,42 +4910,13 @@
         <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
         <DimensionUsage foreign_key="fecha_actualizacion" source="Fecha actualizacion" name="Fecha actualizacion" />
 
-        <Dimension name="Tipo empresa" foreign_key="empresa_id">
-            <Hierarchy name="Tipo empresa" primary_key="id">
-                <InlineTable alias="dim_inline_empresa_id_cite">
-                    <ColumnDef name="id" key_type="nontext" />
-                    <ColumnDef name="name" key_type="text" />
-                    <Row>
-                        <Value column="id">1</Value>
-                        <Value column="name">Gran empresa</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">2</Value>
-                        <Value column="name">Mediana empresa</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">3</Value>
-                        <Value column="name">Microempresa</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">4</Value>
-                        <Value column="name">Otros</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">5</Value>
-                        <Value column="name">Pequeña empresa</Value>
-                    </Row>
-                    <Row>
-                        <Value column="id">6</Value>
-                        <Value column="name">Persona natural</Value>
-                    </Row>
+        <Dimension name="Tipo empresa" foreign_key="tipo_cliente_id">
+            <Hierarchy name="Tipo empresa">
+                <Table name="dim_shared_cite_tipo_cliente" />
 
-
-                </InlineTable>
-                <Level name="Tipo empresa" key_column="id" name_column="name" />
+                <Level name="Tipo empresa" key_column="tipo_cliente_id" name_column="tipo_cliente_name" key_type="nontext" />
             </Hierarchy>
         </Dimension>
-
 
         <Dimension name="Time" foreign_key="time">
             <Hierarchy name="Time">
