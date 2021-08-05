@@ -1,4 +1,4 @@
-<Schema name="dataperu" default_locale="es">
+<Schema name="dataperu">
 
     <SharedDimension name="CIIU Rev 3" type="standard">
         <Hierarchy name="CIIU Rev 3">
@@ -4651,11 +4651,11 @@
 
         <DimensionUsage foreign_key="fecha_actualizacion" source="Fecha actualizacion" name="Fecha actualizacion" />
 
-        <Dimension name="Tipo empresa" foreign_key="tipo_cliente_id">
-            <Hierarchy name="Tipo empresa">
+        <Dimension name="Tipo cliente" foreign_key="tipo_cliente_id">
+            <Hierarchy name="Tipo cliente">
                 <Table name="dim_shared_cite_tipo_cliente" />
 
-                <Level name="Tipo empresa" key_column="tipo_cliente_id" name_column="tipo_cliente_name" key_type="nontext" />
+                <Level name="Tipo cliente" key_column="tipo_cliente_id" name_column="tipo_cliente_name" key_type="nontext" />
             </Hierarchy>
         </Dimension>
 
@@ -4666,7 +4666,7 @@
         </Dimension>
 
 
-        <Measure name="Empresas" column="empresas" aggregator="sum" />
+        <Measure name="Clientes" column="empresas" aggregator="sum" />
 
     </Cube>
     <Cube name="itp_cite_mercado_interno_camelido">
@@ -4881,11 +4881,11 @@
         <DimensionUsage foreign_key="cite_id" source="CITE" name="CITE" />
         <DimensionUsage foreign_key="fecha_actualizacion" source="Fecha actualizacion" name="Fecha actualizacion" />
 
-        <Dimension name="Tipo empresa" foreign_key="tipo_cliente_id">
-            <Hierarchy name="Tipo empresa">
+        <Dimension name="Tipo cliente" foreign_key="tipo_cliente_id">
+            <Hierarchy name="Tipo cliente">
                 <Table name="dim_shared_cite_tipo_cliente" />
 
-                <Level name="Tipo empresa" key_column="tipo_cliente_id" name_column="tipo_cliente_name" key_type="nontext" />
+                <Level name="Tipo cliente" key_column="tipo_cliente_id" name_column="tipo_cliente_name" key_type="nontext" />
             </Hierarchy>
         </Dimension>
 
@@ -4896,7 +4896,7 @@
         </Dimension>
 
 
-        <Measure name="Empresas" column="empresas" aggregator="sum" />
+        <Measure name="Clientes" column="empresas" aggregator="sum" />
 
     </Cube>
     <Cube name="itp_cite_empresas_contribuyente">

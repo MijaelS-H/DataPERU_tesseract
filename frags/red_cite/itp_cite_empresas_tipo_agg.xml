@@ -9,11 +9,11 @@
 
         <DimensionUsage foreign_key="fecha_actualizacion" source="Fecha actualizacion" name="Fecha actualizacion" />
 
-        <Dimension name="Tipo empresa" foreign_key="tipo_cliente_id">
-            <Hierarchy name="Tipo empresa">
+        <Dimension name="Tipo cliente" foreign_key="tipo_cliente_id">
+            <Hierarchy name="Tipo cliente">
                 <Table name="dim_shared_cite_tipo_cliente" />
 
-                <Level name="Tipo empresa" key_column="tipo_cliente_id" name_column="tipo_cliente_name" key_type="nontext" />
+                <Level name="Tipo cliente" key_column="tipo_cliente_id" name_column="tipo_cliente_name" key_type="nontext" />
             </Hierarchy>
         </Dimension>
 
@@ -24,7 +24,7 @@
         </Dimension>
 
 
-        <Measure name="Empresas" column="empresas" aggregator="sum" />
+        <Measure name="Clientes" column="empresas" aggregator="sum" />
 
     </Cube>
 </Schema>       
